@@ -15,7 +15,8 @@ recursive(build_path, ['page-data', 'static', 'images', '.DS_Store', '*.js', '*.
   .then((files) => {
     files
       .filter((file) => file.endsWith('.html') && file !== 'index.html')
-      .forEach((file) => {
+      .forEach((file_path) => {
+        const file = file_path.replace(build_path, '');
         let path = file.replace('.html', '');
         if (path.endsWith('index')) path = path.slice(0, -5);
         if (!path.endsWith('/')) path = `${path}/`;
