@@ -1,0 +1,27 @@
+name: docusaurus-build
+
+on:
+  push:
+    branches:
+      - main # default branch name for each repo that docs should be push from
+    paths:
+      - docusaurus/**
+jobs:
+  build_docusaurus:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Build
+        run: |
+            set -e  # if a command fails it stops the execution
+            set -u  # script fails if trying to access to an undefined variable
+
+            npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli
+            npx stream-chat-docusaurus -i -b
+
+            DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build
+
+            ls -la $DOCUSAURUS_BUILD_PATH
