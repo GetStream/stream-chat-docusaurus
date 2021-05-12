@@ -20,7 +20,7 @@ jobs:
             set -e  # if a command fails it stops the execution
             set -u  # script fails if trying to access to an undefined variable
 
-            npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli recursive-readdir aws-sdk # last 2 for rewrite html script
+            npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli
             npx stream-chat-docusaurus -i -b
 
             DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
@@ -39,7 +39,9 @@ jobs:
         run: |
           aws s3 sync ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }} ${{ secrets.AWS_STAGING_S3_BUCKET }} --delete
       - name: Make html files S3 friendly by removing .html extension & add trailing slash support
-        run: node scripts/s3-rewrite-html.js
+        run: |
+          npm install recursive-readdir aws-sdk # for s3-rewrite-html script
+          node scripts/s3-rewrite-html.js
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
