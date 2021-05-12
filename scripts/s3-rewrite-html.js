@@ -8,9 +8,10 @@ const s3 = new AWS.S3({
 });
 
 const bucket = process.env.AWS_S3_BUCKET;
+const build_path = process.env.DOCUSAURUS_BUILD_PATH;
 
 // Recursively read all html files generate by docusaurus and generate a S3 friendly cp command for them without .html extension
-recursive('./', ['page-data', 'static', 'images', '.DS_Store', '*.js', '*.map', '*.css'])
+recursive(build_path, ['page-data', 'static', 'images', '.DS_Store', '*.js', '*.map', '*.css'])
   .then((files) => {
     files
       .filter((file) => file.endsWith('.html') && file !== 'index.html')
