@@ -44,7 +44,7 @@ jobs:
           node scripts/s3-rewrite-html.js
           S3_BUCKET=${{ secrets.AWS_STAGING_S3_BUCKET }}
           ESCAPED_S3_BUCKET=${S3_BUCKET/s3:\/\//}
-          aws s3 ls stream-website-staging/chat/docs/sdk/
+          echo "aws s3 ls $ESCAPED_S3_BUCKET"
           aws s3 ls $ESCAPED_S3_BUCKET --recursive --human-readable --summarize
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
