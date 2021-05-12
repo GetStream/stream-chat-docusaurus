@@ -45,7 +45,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_BUCKET: ${{ env.AWS_STAGING_S3_BUCKET }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_STAGING_S3_BUCKET }}
       - name: Invalidate Cloudfront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
 
