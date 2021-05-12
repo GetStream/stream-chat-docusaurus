@@ -34,6 +34,8 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
-      - name: Upload APK
-        run: aws s3 cp --recursive ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }} s3://${{ secrets.AWS_S3_BUCKET }} --sse AES256
+      - name: Upload static build
+        run: |
+          aws s3 rm --recursive ${{ secrets.AWS_S3_BUCKET }}
+          aws s3 cp --recursive ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }} ${{ secrets.AWS_S3_BUCKET }} --sse AES256
 
