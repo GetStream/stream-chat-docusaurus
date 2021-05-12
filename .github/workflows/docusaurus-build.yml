@@ -23,7 +23,7 @@ jobs:
             npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli
             npx stream-chat-docusaurus -i -b
 
-            DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build
+            DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
 
             ls -la $DOCUSAURUS_BUILD_PATH
 
