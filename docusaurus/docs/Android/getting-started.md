@@ -5,6 +5,7 @@ title: Getting Started 2
 
 ## Step 1: Generate a new Docusaurus site
 
+Test
 If you haven't already, generate a new Docusaurus site using the classic template:
 
 ```shell
