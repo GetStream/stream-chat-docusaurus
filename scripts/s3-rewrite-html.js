@@ -7,7 +7,7 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
-const bucket = process.env.AWS_STAGING_S3_BUCKET;
+const bucket = process.env.AWS_S3_BUCKET;
 
 // Recursively read all html files generate by docusaurus and generate a S3 friendly cp command for them without .html extension
 recursive('./', ['page-data', 'static', 'images', '.DS_Store', '*.js', '*.map', '*.css'])
