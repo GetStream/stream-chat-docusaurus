@@ -41,7 +41,7 @@ jobs:
       - name: Make html files S3 friendly by removing .html extension & add trailing slash support
         run: |
           npm install recursive-readdir aws-sdk # for s3-rewrite-html script
-          echo "AWS_S3_BUCKET=${{ secrets.AWS_STAGING_S3_BUCKET }}" >> $GITHUB_ENV
+          echo "AWS_S3_BUCKET=stream-website-staging/chat/docs/sdk" >> $GITHUB_ENV
 
           node scripts/s3-rewrite-html.js
         env:
