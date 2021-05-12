@@ -27,7 +27,7 @@ recursive('./', ['page-data', 'static', 'images', '.DS_Store', '*.js', '*.map', 
         })
           .promise()
           .then(() => console.log('path: ', path))
-          .catch((err) => console.error('error: ', path, err));
+          .catch((err) => console.error('error: ', path, err, bucket, file));
       });
   })
   .catch((error) => {
