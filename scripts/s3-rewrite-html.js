@@ -7,7 +7,7 @@ const s3 = new AWS.S3({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
-const bucket = process.env.AWS_S3_BUCKET.replace('s3://', '').slice(0, -1);
+const chat_docs_bucket = process.env.AWS_S3_BUCKET.replace('s3://', '').replace('/sdk/', '');
 const build_path = process.env.DOCUSAURUS_BUILD_PATH;
 
 // Recursively read all html files generate by docusaurus and generate a S3 friendly cp command for them without .html extension
@@ -20,6 +20,8 @@ recursive(build_path, ['assets', 'img', 'images', '.DS_Store', '*.txt', '*.js', 
         let path = file.replace('.html', '');
         if (path.endsWith('index')) path = path.slice(0, -5);
         if (!path.endsWith('/')) path = `${path}/`;
+
+        const bucket = `${chat_docs_bucket}${path === '/' ? '' : '/sdk'}`;
 
         s3.copyObject({
           Bucket: bucket,
