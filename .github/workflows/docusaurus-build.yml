@@ -55,7 +55,7 @@ jobs:
       #     AWS_S3_BUCKET: ${{ secrets.AWS_STAGING_S3_BUCKET }}
       #     DOCUSAURUS_BUILD_PATH: ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }}
       - name: Index Algolia Objects
-        run: node ${{ ALGOLIA_DEPLOY_SCRIPT_PATH }}
+        run: node $ALGOLIA_DEPLOY_SCRIPT_PATH
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
