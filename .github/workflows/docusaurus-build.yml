@@ -17,21 +17,21 @@ jobs:
       - name: Build
         id: build
         run: |
-            set -e  # if a command fails it stops the execution
-            set -u  # script fails if trying to access to an undefined variable
+          set -e  # if a command fails it stops the execution
+          set -u  # script fails if trying to access to an undefined variable
 
-            npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli#algolia-index-docusaurus
-            npx stream-chat-docusaurus -i -b
+          npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli#algolia-index-docusaurus
+          npx stream-chat-docusaurus -i -b
 
-            DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
-            ALGOLIA_DEPLOY_SCRIPT_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/init-algolia-objects.js
+          DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
+          ALGOLIA_DEPLOY_SCRIPT_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/init-algolia-objects.js
 
-            echo "built files:"
-            ls -la $DOCUSAURUS_BUILD_PATH
-            echo $ALGOLIA_DEPLOY_SCRIPT_PATH
+          echo "built files:"
+          ls -la $DOCUSAURUS_BUILD_PATH
+          echo $ALGOLIA_DEPLOY_SCRIPT_PATH
 
-            echo "::set-output name=DOCUSAURUS_BUILD_PATH::$DOCUSAURUS_BUILD_PATH"
-            echo "::set-output name=ALGOLIA_DEPLOY_SCRIPT_PATH::$ALGOLIA_DEPLOY_SCRIPT_PATH"
+          echo "::set-output name=DOCUSAURUS_BUILD_PATH::$DOCUSAURUS_BUILD_PATH"
+          echo "::set-output name=ALGOLIA_DEPLOY_SCRIPT_PATH::$ALGOLIA_DEPLOY_SCRIPT_PATH"
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
       #   with:
@@ -54,13 +54,11 @@ jobs:
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       #     AWS_S3_BUCKET: ${{ secrets.AWS_STAGING_S3_BUCKET }}
       #     DOCUSAURUS_BUILD_PATH: ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }}
-        - name: Index Algolia Objects
-          run: node ${{ ALGOLIA_DEPLOY_SCRIPT_PATH }}
-          env:
-            ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-            ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
-            DOCUSAURUS_BUILD_PATH: ${{ steps.build.outputs.ALGOLIA_DEPLOY_SCRIPT_PATH }}
+      - name: Index Algolia Objects
+        run: node ${{ ALGOLIA_DEPLOY_SCRIPT_PATH }}
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
+          ALGOLIA_DEPLOY_SCRIPT_PATH: ${{ steps.build.outputs.ALGOLIA_DEPLOY_SCRIPT_PATH }}
       # - name: Invalidate Cloudfront
       #   run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
-
-
