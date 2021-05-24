@@ -24,7 +24,7 @@ jobs:
           npx stream-chat-docusaurus -i -b
 
           DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
-          ALGOLIA_DEPLOY_SCRIPT_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/init-algolia-objects.js
+          ALGOLIA_DEPLOY_SCRIPT_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/replace-algolia-objects.js
 
           echo "built files:"
           ls -la $DOCUSAURUS_BUILD_PATH
