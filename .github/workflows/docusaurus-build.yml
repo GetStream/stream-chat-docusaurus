@@ -32,6 +32,9 @@ jobs:
 
           echo "::set-output name=DOCUSAURUS_BUILD_PATH::$DOCUSAURUS_BUILD_PATH"
           echo "::set-output name=ALGOLIA_DEPLOY_SCRIPT_PATH::$ALGOLIA_DEPLOY_SCRIPT_PATH"
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
