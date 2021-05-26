@@ -6,6 +6,7 @@ on:
       - main # default branch name for each repo that docs should be push from
     paths:
       - docusaurus/**
+  workflow_dispatch
 jobs:
   build_docusaurus:
     runs-on: ubuntu-latest
