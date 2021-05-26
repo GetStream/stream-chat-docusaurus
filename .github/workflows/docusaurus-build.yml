@@ -21,7 +21,7 @@ jobs:
           set -e  # if a command fails it stops the execution
           set -u  # script fails if trying to access to an undefined variable
 
-          npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli#triger-docs-deploy
+          npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli#trigger-docs-deploy
           npx stream-chat-docusaurus -i -b
 
           DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
