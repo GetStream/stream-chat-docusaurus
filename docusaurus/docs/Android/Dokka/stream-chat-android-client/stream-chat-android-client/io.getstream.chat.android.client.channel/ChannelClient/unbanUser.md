@@ -1,16 +1,16 @@
 ---
-title: unban-user
+title: un-ban-user
 ---
-//[stream-chat-android-client](../../../index.md)/[io.getstream.chat.android.client.channel](../index.md)/[ChannelClient](index.md)/[unbanUser](unbanUser.md)
+//[stream-chat-android-client](../../../index.md)/[io.getstream.chat.android.client.channel](../index.md)/[ChannelClient](index.md)/[unBanUser](unBanUser.md)
 
 
 
-# unbanUser  
+# unBanUser  
 [androidJvm]  
 Content  
 @[CheckResult](https://developer.android.com/reference/kotlin/androidx/annotation/CheckResult.html)()  
   
-fun [unbanUser](unbanUser.md)(targetId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): Call&lt;[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)&gt;  
+fun [unBanUser](unBanUser.md)(targetId: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): Call&lt;[Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)&gt;  
 
 
 
