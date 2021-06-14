@@ -3,7 +3,8 @@ name: docusaurus-build
 on:
   push:
     branches:
-      - main # default branch name for each repo that docs should be push from
+      - staging # default branch name for each repo that docs should be push from
+      - main
     paths:
       - docusaurus/**
   workflow_dispatch:
@@ -38,6 +39,7 @@ jobs:
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
           GOOGLE_TAG_TRACKING_ID: ${{ secrets.GOOGLE_TAG_TRACKING_ID }}
           WEBSITE_BASE_URL: ${{ secrets.WEBSITE_BASE_URL }}
+          DEPLOYMENT_ENV: ${{ fromJSON('["staging", "production"]')[github.ref == 'refs/heads/main'] }}
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -68,3 +70,4 @@ jobs:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
           ALGOLIA_DEPLOY_SCRIPT_PATH: ${{ steps.build.outputs.ALGOLIA_DEPLOY_SCRIPT_PATH }}
+          DEPLOYMENT_ENV: ${{ fromJSON('["staging", "production"]')[github.ref == 'refs/heads/main'] }}
