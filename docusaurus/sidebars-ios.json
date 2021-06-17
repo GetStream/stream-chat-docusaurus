@@ -1,14 +1,19 @@
 {
   "docs": [
-    "introduction",
     {
-      "Getting Started": [
-        "getting-started/integration",
-        "getting-started/up-running"
-     ]
+      "Basics": [
+        "basics/introduction",
+        "basics/integration",
+        "basics/getting-started",
+        "basics/migrating-from-3-to-4",
+        "basics/migrating-from-1.x-and-2.x",
+        "basics/faq",
+        "basics/glossary"
+      ]
     },
     {
       "Guides": [
+        "guides/ui-customization",
         {
           "Working with ChannelList": [
             "guides/working-with-channel-list",
@@ -21,15 +26,15 @@
         {
           "Working with MessageList": [
             "guides/working-with-messages",
+            "guides/working-with-messagelist-layout",
             "guides/pinned-messages",
             "guides/working-with-attachments",
             "guides/working-with-reactions"
          ]
         },
-        "guides/ui-customization",
         "guides/working-with-user",
-        "guides/events",
         "guides/push-notifications",
+        "guides/events",
         "guides/connection-status",
         "guides/moderation",
         "guides/multi-tenancy",
@@ -37,7 +42,7 @@
       ]
     },
     {
-      "StreamChat Controllers": [
+      "Controllers": [
         "controllers/controllers-overview",
         {
           "ChannelController": [
@@ -426,9 +431,6 @@
           ]
         }
       ]
-    },
-    "migrating-from-1.x-and-2.x",
-    "faq",
-    "glossary"
+    }
   ]
 }
