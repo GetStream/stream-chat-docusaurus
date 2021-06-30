@@ -124,7 +124,7 @@ chatClient.connectionController().disconnect()
 ```
 
 :::note
-For more information regarding connection & disconnection, please check [Connection Status guide](connection-status).
+For more information regarding connection & disconnection, please check [Connection Status guide](./connection-status.md).
 :::
 
 If you're using static tokens for developing quick prototypes and want to test login/logout, you can assign a new `tokenProvider` to the `ChatClient` and then call `reloadUserIfNeeded` to "login" using the new token:
@@ -137,11 +137,11 @@ chatClient.currentUserController().reloadUserIfNeeded()
 
 You can get 2 types of controllers from `ChatClient`: `CurrentUserController` vs `UserController`
 
-### [`CurrentUserController`](../ReferenceDocs/Sources/StreamChat/Controllers/CurrentUserController/CurrentChatUserController)
+### [`CurrentUserController`](../../common-content/reference-docs/stream-chat/controllers/current-user-controller/current-chat-user-controller)
 
 `CurrentUser` is a wrapper for the currently logged-in user's `User` object. `CurrentUser` includes information about the logged-in user, such as registered devices, muted users, flagged users, and unread count. You interact with your current user via `CurrentUserController`
 
-For all functions available on this controller, please check [CurrentUserController docs](../ReferenceDocs/Sources/StreamChat/Controllers/CurrentUserController/CurrentChatUserController).
+For all functions available on this controller, please check [CurrentUserController docs](.../../common-content/reference-docs/stream-chat/controllers/current-user-controller/current-chat-user-controller).
 
 #### Observing Unread Count for Current User
 
@@ -178,8 +178,8 @@ currentUserController
     .store(in: &cancellables)
 ```
 
-### [`UserController`](../ReferenceDocs/Sources/StreamChat/Controllers/UserController/ChatUserController)
+### [`UserController`](../../common-content/reference-docs/stream-chat/controllers/user-controller/chat-user-controller)
 
 For any user other than your current user in the platform, you use `UserController` to interact.
 
-To see available functions on UserController, please check [UserController guide](../ReferenceDocs/Sources/StreamChat/Controllers/UserController/ChatUserController).
+To see available functions on UserController, please check [UserController guide](../../common-content/reference-docs/stream-chat/controllers/user-controller/chat-user-controller).
