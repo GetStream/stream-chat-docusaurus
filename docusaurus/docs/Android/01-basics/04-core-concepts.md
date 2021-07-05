@@ -1,4 +1,6 @@
-# Architecture Overview
+# Core Concepts
+
+This page describes some of the basic concepts you'll encounter when using the Android Chat SDK.
 
 ## Calls
 

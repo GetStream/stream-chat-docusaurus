@@ -51,6 +51,8 @@ val chatDomain = ChatDomain.Builder(appContext, chatClient)
     .build()
 ```
 
+For more about working with `ChatDomain`, see [Working with Offline](../02-client/06-guides/06-working-with-offline.md).
+
 ### Connecting a user
 
 The next step is connecting the user. This requires a valid Stream Chat token. As you must use your `API_SECRET` to create this token, it is unsafe to generate this token outside of a secure server.
@@ -86,4 +88,4 @@ The methods of the `ChatClient` class allow you to create channels, send message
 
 To add the UI Components to your application, see the [Get Started](../03-ui/01-getting-started.md) page of the UI Components section first, which explains how the components work.
 
-Then you can proceed to our guides that show you how to [build a channel list screen](../04-guides/01-building-channel-list-screen.md) and [build a message list screen](../04-guides/02-building-message-list-screen.md).
+Then you can proceed to our guides that show you how to [build a channel list screen](../03-ui/04-guides/01-building-channel-list-screen.md) and [build a message list screen](../03-ui/04-guides/02-building-message-list-screen.md).
