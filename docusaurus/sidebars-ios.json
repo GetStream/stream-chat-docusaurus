@@ -1,0 +1,66 @@
+{
+  "docs": [
+    {
+      "Basics": [
+        "basics/overview",
+        "basics/getting-started",
+        "basics/glossary"
+      ]
+    },
+    {
+      "Customization": [
+        "customization/theming",
+        "customization/custom-components",
+        "customization/localization"
+      ]
+    },
+    {
+      "Controllers and Delegates": [
+        "controllers/controllers-overview",
+        "controllers/connection",
+        "controllers/channels",
+        "controllers/users",
+        "controllers/messages"
+      ]
+    },
+    {
+      "Combine" : [
+        "combine/combine-overview",
+        "combine/connection",
+        "combine/channels",
+        "combine/users",
+        "combine/messages",
+        "combine/events"
+      ]
+    },
+    {
+      "Core Components": [
+        "components/channel-list",
+        "components/channel",
+        "components/thread",
+        "components/message",
+        "components/message-composer"
+      ]
+    },
+    {
+      "UI Components": [
+        "components/channel-list-item-view",
+        "components/channel-header-view",
+        "components/thread-header-view",
+        "components/message-layout-options-resolver",
+        "components/avatar",
+        "components/reactions"
+      ]
+    },
+    {
+      "Guides": [  
+        "guides/push-notifications",
+        "guides/working-with-attachments",
+        "guides/customize-message-composer",
+        "guides/message-composer-custom-attachments",
+        "guides/migrating-from-3-to-4",
+        "guides/migrating-from-1.x-and-2.x"
+      ]
+    }
+  ]
+}
