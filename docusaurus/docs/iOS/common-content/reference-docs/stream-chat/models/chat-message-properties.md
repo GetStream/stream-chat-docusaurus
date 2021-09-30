@@ -1,15 +1,4 @@
 
-### `quotedMessageId`
-
-Quoted message id.
-
-``` swift
-@available(*, deprecated, message: "Use quotedMessage?.id instead")
-    var quotedMessageId: MessageId? 
-```
-
-If message is inline reply this property will contain id of the message quoted by this reply.
-
 ### `id`
 
 A unique identifier of the message.
@@ -20,10 +9,11 @@ public let id: MessageId
 
 ### `cid`
 
-The ChannelId this message belongs to.
+The ChannelId this message belongs to. This value can be temporarily `nil` for messages that are being removed from
+the local cache, or when the local cache is in the process of invalidating.
 
 ``` swift
-public let cid: ChannelId
+public let cid: ChannelId?
 ```
 
 ### `text`
@@ -120,17 +110,15 @@ public let replyCount: Int
 Additional data associated with the message.
 
 ``` swift
-public let extraData: ExtraData.Message
+public let extraData: [String: RawJSON]
 ```
-
-Learn more about using custom extra data in our [cheat sheet](https://github.com/GetStream/stream-chat-swift/wiki/Cheat-Sheet#working-with-extra-data).
 
 ### `quotedMessage`
 
 Quoted message.
 
 ``` swift
-public var quotedMessage: _ChatMessage<ExtraData>? 
+public var quotedMessage: ChatMessage? 
 ```
 
 If message is inline reply this property will contain the message quoted by this reply.
@@ -158,7 +146,7 @@ public let reactionScores: [MessageReactionType: Int]
 The user which is the author of the message.
 
 ``` swift
-public var author: _ChatUser<ExtraData.User> 
+public var author: ChatUser 
 ```
 
 > 
@@ -168,17 +156,18 @@ public var author: _ChatUser<ExtraData.User>
 A list of users that are mentioned in this message.
 
 ``` swift
-public var mentionedUsers: Set<_ChatUser<ExtraData.User>> 
+public var mentionedUsers: Set<ChatUser> 
 ```
 
 > 
 
 ### `threadParticipants`
 
-A list of users that participated in this message thread
+A list of users that participated in this message thread.
+The last user in the list is the author of the most recent reply.
 
 ``` swift
-public var threadParticipants: Set<_ChatUser<ExtraData.User>> 
+public var threadParticipants: [ChatUser] 
 ```
 
 ### `attachmentCounts`
@@ -194,7 +183,7 @@ public var attachmentCounts: [AttachmentType: Int]
 A list of latest 25 replies to this message.
 
 ``` swift
-public var latestReplies: [_ChatMessage<ExtraData>] 
+public var latestReplies: [ChatMessage] 
 ```
 
 > 
@@ -225,7 +214,7 @@ public let isFlaggedByCurrentUser: Bool
 The latest reactions to the message created by any user.
 
 ``` swift
-public var latestReactions: Set<_ChatMessageReaction<ExtraData>> 
+public var latestReactions: Set<ChatMessageReaction> 
 ```
 
 > 
@@ -237,7 +226,7 @@ public var latestReactions: Set<_ChatMessageReaction<ExtraData>>
 The entire list of reactions to the message left by the current user.
 
 ``` swift
-public var currentUserReactions: Set<_ChatMessageReaction<ExtraData>> 
+public var currentUserReactions: Set<ChatMessageReaction> 
 ```
 
 > 
@@ -255,7 +244,7 @@ public let isSentByCurrentUser: Bool
 The message pinning information. Is `nil` if the message is not pinned.
 
 ``` swift
-public let pinDetails: _MessagePinDetails<ExtraData>?
+public let pinDetails: MessagePinDetails?
 ```
 
 ### `isPinned`
@@ -286,6 +275,16 @@ var fileAttachments: [ChatMessageFileAttachment]
 
 > 
 
+### `videoAttachments`
+
+Returns the attachments of `.video` type.
+
+``` swift
+var videoAttachments: [ChatMessageVideoAttachment] 
+```
+
+> 
+
 ### `giphyAttachments`
 
 Returns the attachments of `.giphy` type.
@@ -306,6 +305,16 @@ var linkAttachments: [ChatMessageLinkAttachment]
 
 > 
 
+### `audioAttachments`
+
+Returns the attachments of `.audio` type.
+
+``` swift
+var audioAttachments: [ChatMessageAudioAttachment] 
+```
+
+> 
+
 ## Methods
 
 ### `attachments(payloadType:)`
@@ -315,10 +324,26 @@ Returns all the attachments with the payload of the provided type.
 ``` swift
 func attachments<Payload: AttachmentPayload>(
         payloadType: Payload.Type
-    ) -> [_ChatMessageAttachment<Payload>] 
+    ) -> [ChatMessageAttachment<Payload>] 
 ```
 
 > 
+
+### `attachment(with:)`
+
+Returns attachment for the given identifier.
+
+``` swift
+func attachment(with id: AttachmentId) -> AnyChatMessageAttachment? 
+```
+
+#### Parameters
+
+  - id: Attachment identifier.
+
+#### Returns
+
+A type-erased attachment.
 
 ### `hash(into:)`
 

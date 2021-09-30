@@ -3,7 +3,7 @@ title: ChatMessageLinkPreviewView
 ---
 
 ``` swift
-open class _ChatMessageLinkPreviewView<ExtraData: ExtraDataTypes>: _Control, ThemeProvider 
+open class ChatMessageLinkPreviewView: _Control, ThemeProvider 
 ```
 
 ## Inheritance
@@ -80,6 +80,14 @@ Constraint for `authorLabel`.
 
 ``` swift
 open var authorOnImageConstraint: NSLayoutConstraint?
+```
+
+### `imagePreviewHeightConstraint`
+
+Constraint for `imagePreview`'s height.
+
+``` swift
+open var imagePreviewHeightConstraint: NSLayoutConstraint?
 ```
 
 ## Methods

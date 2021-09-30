@@ -1,17 +1,16 @@
 ---
 title: ChatAvatarView
 ---
-![ChatAvatarView](../../../../../assets/ChatAvatarView_documentation.default-light.png)
 
 A view that displays the avatar image. By default a circular image.
 
 ``` swift
-open class ChatAvatarView: _View 
+open class ChatAvatarView: _Control 
 ```
 
 ## Inheritance
 
-[`_View`](../../_view)
+[`_Control`](../../_control)
 
 ## Properties
 

@@ -7,14 +7,6 @@ The content of the composer.
 public var content: Content 
 ```
 
-### `delegate`
-
-The delegate of the ComposerVC that notifies composer events.
-
-``` swift
-open weak var delegate: ComposerVCDelegate?
-```
-
 ### `mentionSymbol`
 
 A symbol that is used to recognise when the user is mentioning a user.
@@ -31,12 +23,44 @@ A symbol that is used to recognise when the user is typing a command.
 open var commandSymbol = "/"
 ```
 
+### `isCommandsEnabled`
+
+A Boolean value indicating whether the commands are enabled.
+
+``` swift
+open var isCommandsEnabled: Bool 
+```
+
+### `isMentionsEnabled`
+
+A Boolean value indicating whether the user mentions are enabled.
+
+``` swift
+open var isMentionsEnabled: Bool 
+```
+
+### `isAttachmentsEnabled`
+
+A Boolean value indicating whether the attachments are enabled.
+
+``` swift
+open var isAttachmentsEnabled: Bool 
+```
+
+### `mentionAllAppUsers`
+
+When enabled mentions search users across the entire app instead of searching
+
+``` swift
+open private(set) lazy var mentionAllAppUsers: Bool = components.mentionAllAppUsers
+```
+
 ### `userSearchController`
 
 A controller to search users and that is used to populate the mention suggestions.
 
 ``` swift
-open var userSearchController: _ChatUserSearchController<ExtraData>!
+open var userSearchController: ChatUserSearchController!
 ```
 
 ### `channelController`
@@ -44,7 +68,7 @@ open var userSearchController: _ChatUserSearchController<ExtraData>!
 A controller that manages the channel that the composer is creating content for.
 
 ``` swift
-open var channelController: _ChatChannelController<ExtraData>?
+open var channelController: ChatChannelController?
 ```
 
 ### `channelConfig`
@@ -55,12 +79,28 @@ The channel config. If it's a new channel, an empty config should be created. (N
 public var channelConfig: ChannelConfig? 
 ```
 
+### `mentionSuggester`
+
+The component responsible for mention suggestions.
+
+``` swift
+open lazy var mentionSuggester 
+```
+
+### `commandSuggester`
+
+The component responsible for autocomplete command suggestions.
+
+``` swift
+open lazy var commandSuggester 
+```
+
 ### `composerView`
 
 The view of the composer.
 
 ``` swift
-open private(set) lazy var composerView: _ComposerView<ExtraData> = components
+open private(set) lazy var composerView: ComposerView = components
         .messageComposerView.init()
         .withoutAutoresizingMaskConstraints
 ```
@@ -70,7 +110,7 @@ open private(set) lazy var composerView: _ComposerView<ExtraData> = components
 The view controller that shows the suggestions when the user is typing.
 
 ``` swift
-open private(set) lazy var suggestionsVC: _ChatSuggestionsViewController<ExtraData> 
+open private(set) lazy var suggestionsVC: ChatSuggestionsVC 
 ```
 
 ### `attachmentsVC`
@@ -78,15 +118,15 @@ open private(set) lazy var suggestionsVC: _ChatSuggestionsViewController<ExtraDa
 The view controller that shows the suggestions when the user is typing.
 
 ``` swift
-open private(set) lazy var attachmentsVC: _AttachmentsPreviewVC<ExtraData> 
+open private(set) lazy var attachmentsVC: AttachmentsPreviewVC 
 ```
 
-### `imagePickerVC`
+### `mediaPickerVC`
 
 The view controller for selecting image attachments.
 
 ``` swift
-open private(set) lazy var imagePickerVC: UIViewController 
+open private(set) lazy var mediaPickerVC: UIViewController 
 ```
 
 ### `filePickerVC`
@@ -97,19 +137,15 @@ The view controller for selecting file attachments.
 open private(set) lazy var filePickerVC: UIViewController 
 ```
 
-### `selectedAttachmentType`
+### `attachmentsPickerActions`
+
+Returns actions for attachments picker.
 
 ``` swift
-open var selectedAttachmentType: AttachmentType?
+open var attachmentsPickerActions: [UIAlertAction] 
 ```
 
 ## Methods
-
-### `setDelegate(_:)`
-
-``` swift
-public func setDelegate(_ delegate: ComposerVCDelegate) 
-```
 
 ### `setUp()`
 
@@ -147,7 +183,25 @@ open func setupAttachmentsView()
 @objc open func publishMessage(sender: UIButton) 
 ```
 
+### `showMediaPicker()`
+
+Shows a photo/media picker.
+
+``` swift
+open func showMediaPicker() 
+```
+
+### `showFilePicker()`
+
+Shows a document picker.
+
+``` swift
+open func showFilePicker() 
+```
+
 ### `showAttachmentsPicker(sender:)`
+
+Action that handles tap on attachments button in composer.
 
 ``` swift
 @objc open func showAttachmentsPicker(sender: UIButton) 
@@ -240,6 +294,26 @@ open func showCommandSuggestions(for typingCommand: String)
 
   - typingCommand: The potential command that the current user is typing.
 
+### `queryForMentionSuggestionsSearch(typingMention:)`
+
+Returns the query to be used for searching users for the given typing mention.
+
+``` swift
+open func queryForMentionSuggestionsSearch(typingMention term: String) -> UserListQuery 
+```
+
+This function is called in `showMentionSuggestions` to retrieve the query
+that will be used to search the users. You should override this if you want to change the
+user searching logic.
+
+#### Parameters
+
+  - typingMention: The potential user mention the current user is typing.
+
+#### Returns
+
+`_UserListQuery` instance that will be used for searching users.
+
 ### `showMentionSuggestions(for:mentionRange:)`
 
 Shows the mention suggestions for the potential mention the current user is typing.
@@ -258,7 +332,7 @@ open func showMentionSuggestions(for typingMention: String, mentionRange: NSRang
 Provides the mention text for composer text field, when the user selects a mention suggestion.
 
 ``` swift
-open func mentionText(for user: _ChatUser<ExtraData.User>) -> String 
+open func mentionText(for user: ChatUser) -> String 
 ```
 
 ### `showSuggestions()`
@@ -276,6 +350,19 @@ Dismisses the suggestions view.
 ``` swift
 open func dismissSuggestions() 
 ```
+
+### `addAttachmentToContent(from:type:)`
+
+Creates and adds an attachment from the given URL to the `content`
+
+``` swift
+open func addAttachmentToContent(from url: URL, type: AttachmentType) throws 
+```
+
+#### Parameters
+
+  - url: The URL of the attachment
+  - type: The type of the attachment
 
 ### `textViewDidChange(_:)`
 
@@ -306,3 +393,15 @@ open func imagePickerController(
 
 ``` swift
 open func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) 
+```
+
+### `showAttachmentExceedsMaxSizeAlert()`
+
+``` swift
+open func showAttachmentExceedsMaxSizeAlert() 
+```
+
+### `inputTextView(_:didPasteImage:)`
+
+``` swift
+open func inputTextView(_ inputTextView: InputTextView, didPasteImage image: UIImage) 

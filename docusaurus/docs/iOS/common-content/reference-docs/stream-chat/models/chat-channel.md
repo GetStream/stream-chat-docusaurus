@@ -2,46 +2,17 @@
 title: ChatChannel
 ---
 
-A type representing a chat channel. `_ChatChannel` is an immutable snapshot of a channel entity at the given time.
+A type representing a chat channel. `ChatChannel` is an immutable snapshot of a channel entity at the given time.
 
 ``` swift
-@dynamicMemberLookup
-public struct _ChatChannel<ExtraData: ExtraDataTypes> 
+public struct ChatChannel 
 ```
-
-> 
-
-Learn more about using custom extra data in our [cheat sheet](https://github.com/GetStream/stream-chat-swift/wiki/Cheat-Sheet#working-with-extra-data).
 
 ## Inheritance
 
 `Hashable`
 
 ## Properties
-
-### `cachedMembers`
-
-A list of locally cached members objects.
-
-``` swift
-@available(*, renamed: "lastActiveMembers")
-    var cachedMembers: Set<_ChatChannelMember<ExtraData.User>> 
-```
-
-> 
-
-### `watchers`
-
-A list of channel members currently online actively watching the channel.
-
-``` swift
-@available(*, renamed: "lastActiveWatchers")
-    var watchers: Set<_ChatUser<ExtraData.User>> 
-```
-
-> 
-
-> 
 
 ### `cid`
 
@@ -104,7 +75,7 @@ public let deletedAt: Date?
 The user which created the channel.
 
 ``` swift
-public let createdBy: _ChatUser<ExtraData.User>?
+public let createdBy: ChatUser?
 ```
 
 ### `config`
@@ -138,7 +109,7 @@ public let memberCount: Int
 A list of members of this channel.
 
 ``` swift
-public var lastActiveMembers: [_ChatChannelMember<ExtraData.User>] 
+public var lastActiveMembers: [ChatChannelMember] 
 ```
 
 Array is sorted and the most recently active members will be first.
@@ -147,12 +118,12 @@ Array is sorted and the most recently active members will be first.
 
 > 
 
-### `currentlyTypingMembers`
+### `currentlyTypingUsers`
 
-A list of currently typing channel members.
+A list of currently typing users.
 
 ``` swift
-public let currentlyTypingMembers: Set<_ChatChannelMember<ExtraData.User>>
+public var currentlyTypingUsers: Set<ChatUser> 
 ```
 
 ### `membership`
@@ -160,7 +131,7 @@ public let currentlyTypingMembers: Set<_ChatChannelMember<ExtraData.User>>
 If the current user is a member of the channel, this variable contains the details about the membership.
 
 ``` swift
-public let membership: _ChatChannelMember<ExtraData.User>?
+public let membership: ChatChannelMember?
 ```
 
 ### `lastActiveWatchers`
@@ -168,7 +139,7 @@ public let membership: _ChatChannelMember<ExtraData.User>?
 A list of users and/or channel members currently actively watching the channel.
 
 ``` swift
-public var lastActiveWatchers: [_ChatUser<ExtraData.User>] 
+public var lastActiveWatchers: [ChatUser] 
 ```
 
 Array is sorted and the most recently active watchers will be first.
@@ -210,7 +181,7 @@ An option to enable ban users.
 Latest messages present on the channel.
 
 ``` swift
-public var latestMessages: [_ChatMessage<ExtraData>] 
+public var latestMessages: [ChatMessage] 
 ```
 
 This field contains only the latest messages of the channel. You can get all existing messages in the channel by creating
@@ -223,7 +194,7 @@ and using a `ChatChannelController` for this channel id.
 Pinned messages present on the channel.
 
 ``` swift
-public var pinnedMessages: [_ChatMessage<ExtraData>] 
+public var pinnedMessages: [ChatMessage] 
 ```
 
 This field contains only the pinned messages of the channel. You can get all existing messages in the channel by creating
@@ -236,7 +207,7 @@ and using a `ChatChannelController` for this channel id.
 Read states of the users for this channel.
 
 ``` swift
-public let reads: [_ChatChannelRead<ExtraData>]
+public let reads: [ChatChannelRead]
 ```
 
 You can use this information to show to your users information about what messages were read by certain users.
@@ -277,10 +248,8 @@ public let cooldownDuration: Int
 Additional data associated with the channel.
 
 ``` swift
-public let extraData: ExtraData.Channel
+public let extraData: [String: RawJSON]
 ```
-
-Learn more about using custom extra data in our [cheat sheet](https://github.com/GetStream/stream-chat-swift/wiki/Cheat-Sheet#working-with-extra-data).
 
 ### `type`
 
@@ -330,5 +299,5 @@ public func hash(into hasher: inout Hasher)
 ### `==`
 
 ``` swift
-public static func == (lhs: _ChatChannel<ExtraData>, rhs: _ChatChannel<ExtraData>) -> Bool 
+public static func == (lhs: ChatChannel, rhs: ChatChannel) -> Bool 
 ```

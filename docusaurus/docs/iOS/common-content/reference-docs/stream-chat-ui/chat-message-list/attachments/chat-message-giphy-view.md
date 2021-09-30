@@ -3,7 +3,7 @@ title: ChatMessageGiphyView
 ---
 
 ``` swift
-open class _ChatMessageGiphyView<ExtraData: ExtraDataTypes>: _View, ComponentsProvider 
+open class ChatMessageGiphyView: _View, ComponentsProvider 
 ```
 
 ## Inheritance
@@ -16,12 +16,6 @@ open class _ChatMessageGiphyView<ExtraData: ExtraDataTypes>: _View, ComponentsPr
 
 ``` swift
 public var content: ChatMessageGiphyAttachment? 
-```
-
-### `intrinsicContentSize`
-
-``` swift
-override open var intrinsicContentSize: CGSize 
 ```
 
 ### `imageView`

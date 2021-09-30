@@ -4,7 +4,7 @@
 Content of the cell - `ChatUser` instance from which we take all information.
 
 ``` swift
-open var content: _ChatUser<ExtraData.User>? 
+open var content: ChatUser? 
 ```
 
 ### `avatarView`
@@ -12,7 +12,7 @@ open var content: _ChatUser<ExtraData.User>?
 `_ChatChannelAvatarView` instance which holds photo of user for tagging.
 
 ``` swift
-open private(set) lazy var avatarView: _ChatUserAvatarView<ExtraData> = components
+open private(set) lazy var avatarView: ChatUserAvatarView = components
         .mentionAvatarView
         .init()
         .withoutAutoresizingMaskConstraints
@@ -23,7 +23,7 @@ open private(set) lazy var avatarView: _ChatUserAvatarView<ExtraData> = componen
 Title label which shows users whole name.
 
 ``` swift
-open private(set) lazy var usernameLabel: UILabel = UILabel()
+open private(set) lazy var usernameLabel = UILabel()
         .withoutAutoresizingMaskConstraints
         .withAdjustingFontForContentSizeCategory
         .withBidirectionalLanguagesSupport
@@ -34,7 +34,7 @@ open private(set) lazy var usernameLabel: UILabel = UILabel()
 Subtitle label which shows username tag etc. `@user`.
 
 ``` swift
-open private(set) lazy var usernameTagLabel: UILabel = UILabel()
+open private(set) lazy var usernameTagLabel = UILabel()
         .withoutAutoresizingMaskConstraints
         .withAdjustingFontForContentSizeCategory
         .withBidirectionalLanguagesSupport
@@ -45,15 +45,17 @@ open private(set) lazy var usernameTagLabel: UILabel = UILabel()
 ImageView which is located at the right part of the cell, showing @ symbol by default.
 
 ``` swift
-open private(set) lazy var mentionSymbolImageView: UIImageView = UIImageView().withoutAutoresizingMaskConstraints
+open private(set) lazy var mentionSymbolImageView = UIImageView()
+        .withoutAutoresizingMaskConstraints
 ```
 
-### `textStackView`
+### `textContainer`
 
-StackView which holds username and userTag labels in vertical axis by default.
+ContainerStackView which holds username and userTag labels in vertical axis by default.
 
 ``` swift
-open private(set) lazy var textStackView: UIStackView = UIStackView().withoutAutoresizingMaskConstraints
+open private(set) lazy var textContainer = ContainerStackView()
+        .withoutAutoresizingMaskConstraints
 ```
 
 ## Methods

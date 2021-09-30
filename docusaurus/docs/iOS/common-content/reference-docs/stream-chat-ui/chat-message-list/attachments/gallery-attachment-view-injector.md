@@ -2,25 +2,41 @@
 title: GalleryAttachmentViewInjector
 ---
 
+The type used to show an media gallery in `ChatMessageContentView`.
+
 ``` swift
-open class _GalleryAttachmentViewInjector<ExtraData: ExtraDataTypes>: _AttachmentViewInjector<ExtraData> 
+open class GalleryAttachmentViewInjector: AttachmentViewInjector 
 ```
 
 ## Inheritance
 
-`_AttachmentViewInjector<ExtraData>`
+[`AttachmentViewInjector`](../attachment-view-injector)
 
 ## Properties
 
 ### `galleryView`
 
+A gallery which shows attachment previews.
+
 ``` swift
-open private(set) lazy var galleryView = contentView
+open private(set) lazy var galleryView: ChatMessageGalleryView = contentView
         .components
-        .imageGalleryView
-        .init()
+        .galleryView.init()
         .withoutAutoresizingMaskConstraints
 ```
+
+### `galleryViewAspectRatio`
+
+A gallery view width \* height ratio.
+
+``` swift
+open var galleryViewAspectRatio: CGFloat? 
+```
+
+If `nil` is returned, aspect ratio will not be applied and gallery view will
+aspect ratio will depend on internal constraints.
+
+Returns `1.32` by default.
 
 ## Methods
 
@@ -36,8 +52,26 @@ override open func contentViewDidLayout(options: ChatMessageLayoutOptions)
 override open func contentViewDidUpdateContent() 
 ```
 
-### `handleTapOnAttachment(_:)`
+### `handleTapOnAttachment(with:)`
+
+Is invoked when attachment preview is tapped.
 
 ``` swift
-open func handleTapOnAttachment(_ attachment: ChatMessageImageAttachment) 
+open func handleTapOnAttachment(with id: AttachmentId) 
 ```
+
+#### Parameters
+
+  - id: Attachment identifier.
+
+### `handleUploadingAttachmentAction(_:)`
+
+Is invoked when action button on attachment uploading overlay is tapped.
+
+``` swift
+open func handleUploadingAttachmentAction(_ attachmentId: AttachmentId) 
+```
+
+#### Parameters
+
+  - id: Attachment identifier.

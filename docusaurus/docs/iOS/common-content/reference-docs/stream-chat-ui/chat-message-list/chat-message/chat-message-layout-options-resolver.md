@@ -5,7 +5,7 @@ title: ChatMessageLayoutOptionsResolver
 Resolves layout options for the message at given `indexPath`.
 
 ``` swift
-open class _ChatMessageLayoutOptionsResolver<ExtraData: ExtraDataTypes> 
+open class ChatMessageLayoutOptionsResolver 
 ```
 
 ## Initializers
@@ -30,15 +30,16 @@ public let minTimeIntervalBetweenMessagesInGroup: TimeInterval
 
 ## Methods
 
-### `optionsForMessage(at:in:with:)`
+### `optionsForMessage(at:in:with:appearance:)`
 
 Calculates layout options for the message.
 
 ``` swift
 open func optionsForMessage(
         at indexPath: IndexPath,
-        in channel: _ChatChannel<ExtraData>,
-        with messages: AnyRandomAccessCollection<_ChatMessage<ExtraData>>
+        in channel: ChatChannel,
+        with messages: AnyRandomAccessCollection<ChatMessage>,
+        appearance: Appearance
     ) -> ChatMessageLayoutOptions 
 ```
 
@@ -47,6 +48,7 @@ open func optionsForMessage(
   - indexPath: The index path of the cell displaying the message.
   - channel: The channel message is related to.
   - messages: The list of messages in the channel.
+  - appearance: The appearance theme in use.
 
 #### Returns
 
@@ -61,7 +63,7 @@ is `<= minTimeIntervalBetweenMessagesInGroup`.
 ``` swift
 open func isMessageLastInSequence(
         messageIndexPath: IndexPath,
-        messages: AnyRandomAccessCollection<_ChatMessage<ExtraData>>
+        messages: AnyRandomAccessCollection<ChatMessage>
     ) -> Bool 
 ```
 

@@ -50,6 +50,16 @@ public let apiKey: APIKey
 
 The API key can be obtained by registering on \[our website\](https://getstream.io/chat/).
 
+### `applicationGroupIdentifier`
+
+The security application group ID to use for the local storage. This is needed if you want to share offline storage between
+your chat application and extensions. More information is available [here](https:​//developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_application-groups)
+and [here](https:​//developer.apple.com/library/archive/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW19)
+
+``` swift
+public var applicationGroupIdentifier: String? 
+```
+
 ### `localStorageFolderURL`
 
 The folder `ChatClient` uses to store its local cache files.
@@ -72,7 +82,7 @@ Determines whether `ChatClient` caches the data locally. This makes it possible 
 when the internet connection is not available.
 
 ``` swift
-public var isLocalStorageEnabled: Bool = true
+public var isLocalStorageEnabled: Bool = false
 ```
 
 ### `shouldFlushLocalStorageOnStart`
@@ -84,9 +94,6 @@ public var shouldFlushLocalStorageOnStart: Bool = false
 ```
 
 You should set `shouldFlushLocalStorageOnStart = true` every time the changes in your code makes the local cache invalid.
-
-For example, when you change your custom `ExtraData` types, the cached data can't be decoded, and the cache has to be
-flushed.
 
 ### `localCaching`
 
@@ -114,7 +121,12 @@ If set to `true` the `ChatClient` will automatically establish a web-socket
 connection to listen to the updates when `reloadUserIfNeeded` is called.
 
 ``` swift
-public var shouldConnectAutomatically = true
+@available(
+        *,
+        deprecated,
+        message: "This flag has no effect anymore. The flow for setting and for connecting the user has been unified to the `connectUser` set of methods."
+    )
+    public var shouldConnectAutomatically = true
 ```
 
 If set to `false` the connection won't be established automatically
@@ -155,3 +167,21 @@ Allows to inject a custom API client for uploading attachments, if not specified
 #### Parameters
 
   - apiKey: The API key of the chat app the `ChatClient` connects to.
+
+### `maxAttachmentSize`
+
+Returns max possible attachment size in bytes.
+The value is taken from custom `maxAttachmentSize` type custom `CDNClient` type.
+The default value is 20 MiB.
+
+``` swift
+public var maxAttachmentSize: Int64 
+```
+
+### `deletedMessagesVisibility`
+
+Specifies the visibility of deleted messages.
+
+``` swift
+public var deletedMessagesVisibility: DeletedMessageVisibility = .visibleForCurrentUser
+```

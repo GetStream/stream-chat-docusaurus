@@ -5,7 +5,7 @@ title: ChatCommandSuggestionCollectionViewCell
 A view cell that displays a command.
 
 ``` swift
-open class _ChatCommandSuggestionCollectionViewCell<ExtraData: ExtraDataTypes>: _CollectionViewCell, ComponentsProvider 
+open class ChatCommandSuggestionCollectionViewCell: _CollectionViewCell, ComponentsProvider 
 ```
 
 ## Inheritance
@@ -24,7 +24,7 @@ open class var reuseId: String
 
 ``` swift
 public private(set) lazy var commandView = components
-        .suggestionsCommandCellView.init()
+        .suggestionsCommandView.init()
         .withoutAutoresizingMaskConstraints
 ```
 
