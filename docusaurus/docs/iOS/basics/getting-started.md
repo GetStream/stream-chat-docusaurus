@@ -6,7 +6,7 @@ This section provides a high-level overview of the library, core components, and
 
 ## Your First App with Stream Chat
 
-Before starting, make sure you have installed `StreamChatUI` as explained in the [Installation](../#installation) section.
+Before starting, make sure you have installed `StreamChatUI` as explained in the [Installation](./overview.md#installation) section.
 
 ### Chat setup and users
 
@@ -73,13 +73,13 @@ import StreamChatUI
 class ViewController: ChatChannelListVC {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
         /// the query used to retrieve channels
         let query = ChannelListQuery.init(filter: .containMembers(userIds: [ChatClient.shared.currentUserId!]))
         
         /// create a controller and assign it to this view controller
         self.controller = ChatClient.shared.channelListController(query: query)
+
+        super.viewDidLoad()
     }
 }
 ```
