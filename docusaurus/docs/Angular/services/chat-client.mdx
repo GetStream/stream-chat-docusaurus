@@ -1,0 +1,25 @@
+---
+id: chat-client
+sidebar_position: 2
+title: Chat client
+---
+
+The `ChatClient` service connects the user to the Stream chat.
+
+# Overview
+
+## init
+
+Creates a [`StreamChat`](https://github.com/GetStream/stream-chat-js/blob/668b3e5521339f4e14fc657834531b4c8bf8176b/src/client.ts#L124) instance using the provided `apiKey`, and connects a user with the given `userId` and `userToken`. More info about [connecting users](https://getstream.io/chat/docs/javascript/init_and_users/?language=javascript) can be found in the platform documentation.
+
+## notification$
+
+Emits [`Notification`](https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/chat-client.service.ts) events, the list of [supported events](https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/chat-client.service.ts) can be found on GitHub. The platform documentation covers [events in detail](https://getstream.io/chat/docs/javascript/event_object/?language=javascript).
+
+## connectionState$
+
+Emits the current connection state of the user (`online` or `offline`)
+
+## flagMessage
+
+Flag the message with the given ID. If you want to know [more about falgs](https://getstream.io/chat/docs/javascript/moderation/?language=javascript) check out the platform documentation.

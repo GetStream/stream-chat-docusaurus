@@ -1,0 +1,50 @@
+---
+id: attachment-list
+sidebar_position: 2
+title: Attachments
+---
+
+import AttachmentsScreenshot from "../assets/attachments-screenshot.png";
+
+The `AttachmentList` compontent displays the attachments of a message. The following attachments are supported:
+
+- Images are displayed inline
+- Other files can be downloaded
+- Links in a message are enriched with built-in open graph URL scraping
+
+**Example 1** - different type of attachments:
+
+<img src={AttachmentsScreenshot} width="500" />
+
+## Basic Usage
+
+A typical use case for the `AttachmentList` component would be to use in your custom components that will completely override the message component.
+
+**Example 1** - a basic example:
+
+```typescript
+@Component({
+  selector: "app-custom-message",
+  template: `
+    <stream-attachment-list
+      *ngIf="hasAttachment"
+      [attachments]="message.attachments"
+    ></stream-attachment-list>
+    <!-- Other parts of the custom message component -->
+  `,
+})
+export class CustomMessageComponent {
+  @Input() message: StreamMessage;
+  hasAttachment: boolean;
+}
+```
+
+## Inputs
+
+### <div class="label required basic">Required</div> attachments
+
+The attachments to display
+
+| Type                                                                                                              | Default |
+| ----------------------------------------------------------------------------------------------------------------- | ------- |
+| [`Attachment`](https://getstream.io/chat/docs/javascript/message_format/?language=javascript#attachment-format)[] | []      |
