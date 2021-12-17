@@ -57,13 +57,11 @@ class CustomFactory: ViewFactory {
     func makeMessageTextView(
         for message: ChatMessage,
         isFirst: Bool,
-        availableWidth: CGFloat,
-        scrolledId: Binding<String?>
+        availableWidth: CGFloat
     ) -> some View {
         CustomMessageTextView(
             message: message,
-            isFirst: isFirst,
-            scrolledId: scrolledId
+            isFirst: isFirst
         )
     }
 
@@ -148,8 +146,7 @@ Next, in our `CustomFactory`, we need to return the new view we have created abo
 func makeCustomAttachmentViewType(
     for message: ChatMessage,
     isFirst: Bool,
-    availableWidth: CGFloat,
-    scrolledId: Binding<String?>
+    availableWidth: CGFloat
 ) -> some View {
     CustomAttachmentView(
         message: message,
