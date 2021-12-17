@@ -41,43 +41,53 @@ The reactions overlay view (shown on long press of a message), also provides acc
 ```swift
 public func supportedMessageActions(
         for message: ChatMessage,
-        onDismiss: @escaping () -> Void,
+        channel: ChatChannel,
+        onFinish: @escaping (MessageActionInfo) -> Void,
         onError: @escaping (Error) -> Void
 ) -> [MessageAction] {
     MessageAction.defaultActions(
+        factory: self,
         for: message,
+        channel: channel,
         chatClient: chatClient,
-        onDismiss: onDismiss,
+        onFinish: onFinish,
         onError: onError
     )
 }
 
 extension MessageAction {
-    /// Returns the default message actions.
-    ///
-    ///  - Parameters:
-    ///     - message: the current message.
-    ///     - chatClient: the chat client.
-    ///     - onDimiss: called when the action is executed.
-    ///  - Returns: array of `MessageAction`.
-    public static func defaultActions(
+    public static func defaultActions<Factory: ViewFactory>(
+        factory: Factory,
         for message: ChatMessage,
+        channel: ChatChannel,
         chatClient: ChatClient,
-        onDismiss: @escaping () -> Void,
+        onFinish: @escaping (MessageActionInfo) -> Void,
         onError: @escaping (Error) -> Void
     ) -> [MessageAction] {
-        guard let channelId = message.cid else {
-            return []
-        }
-        
         var messageActions = [MessageAction]()
+        
+        let replyAction = replyAction(
+            for: message,
+            channel: channel,
+            onFinish: onFinish
+        )
+        messageActions.append(replyAction)
+        
+        if !message.isPartOfThread {
+            let replyThread = threadReplyAction(
+                factory: factory,
+                for: message,
+                channel: channel
+            )
+            messageActions.append(replyThread)
+        }
 
         if message.isSentByCurrentUser {
             let deleteAction = deleteMessageAction(
                 for: message,
-                channelId: channelId,
+                channel: channel,
                 chatClient: chatClient,
-                onDismiss: onDismiss,
+                onFinish: onFinish,
                 onError: onError
             )
             
@@ -85,9 +95,9 @@ extension MessageAction {
         } else {
             let flagAction = flagMessageAction(
                 for: message,
-                channelId: channelId,
+                channel: channel,
                 chatClient: chatClient,
-                onDismiss: onDismiss,
+                onFinish: onFinish,
                 onError: onError
             )
             
@@ -97,15 +107,58 @@ extension MessageAction {
         return messageActions
     }
     
+    // MARK: - private
+    
+    private static func replyAction(
+        for message: ChatMessage,
+        channel: ChatChannel,
+        onFinish: @escaping (MessageActionInfo) -> Void
+    ) -> MessageAction {
+        let replyAction = MessageAction(
+            title: L10n.Message.Actions.inlineReply,
+            iconName: "icn_inline_reply",
+            action: {
+                onFinish(
+                    MessageActionInfo(
+                        message: message,
+                        identifier: "inlineReply"
+                    )
+                )
+            },
+            confirmationPopup: nil,
+            isDestructive: false
+        )
+        
+        return replyAction
+    }
+    
+    private static func threadReplyAction<Factory: ViewFactory>(
+        factory: Factory,
+        for message: ChatMessage,
+        channel: ChatChannel
+    ) -> MessageAction {
+        var replyThread = MessageAction(
+            title: L10n.Message.Actions.threadReply,
+            iconName: "icn_thread_reply",
+            action: {},
+            confirmationPopup: nil,
+            isDestructive: false
+        )
+        
+        let destination = factory.makeMessageThreadDestination()
+        replyThread.navigationDestination = AnyView(destination(channel, message))
+        return replyThread
+    }
+    
     private static func deleteMessageAction(
         for message: ChatMessage,
-        channelId: ChannelId,
+        channel: ChatChannel,
         chatClient: ChatClient,
-        onDismiss: @escaping () -> Void,
+        onFinish: @escaping (MessageActionInfo) -> Void,
         onError: @escaping (Error) -> Void
     ) -> MessageAction {
         let messageController = chatClient.messageController(
-            cid: channelId,
+            cid: channel.cid,
             messageId: message.id
         )
         
@@ -114,7 +167,12 @@ extension MessageAction {
                 if let error = error {
                     onError(error)
                 } else {
-                    onDismiss()
+                    onFinish(
+                        MessageActionInfo(
+                            message: message,
+                            identifier: "delete"
+                        )
+                    )
                 }
             }
         }
@@ -138,13 +196,13 @@ extension MessageAction {
     
     private static func flagMessageAction(
         for message: ChatMessage,
-        channelId: ChannelId,
+        channel: ChatChannel,
         chatClient: ChatClient,
-        onDismiss: @escaping () -> Void,
+        onFinish: @escaping (MessageActionInfo) -> Void,
         onError: @escaping (Error) -> Void
     ) -> MessageAction {
         let messageController = chatClient.messageController(
-            cid: channelId,
+            cid: channel.cid,
             messageId: message.id
         )
         
@@ -153,7 +211,12 @@ extension MessageAction {
                 if let error = error {
                     onError(error)
                 } else {
-                    onDismiss()
+                    onFinish(
+                        MessageActionInfo(
+                            message: message,
+                            identifier: "flag"
+                        )
+                    )
                 }
             }
         }
@@ -164,7 +227,7 @@ extension MessageAction {
             buttonTitle: L10n.Message.Actions.flag
         )
         
-        let flageMessage = MessageAction(
+        let flagMessage = MessageAction(
             title: L10n.Message.Actions.flag,
             iconName: "flag",
             action: flagAction,
@@ -172,7 +235,7 @@ extension MessageAction {
             isDestructive: false
         )
         
-        return flageMessage
+        return flagMessage
     }
 }
 ```
@@ -181,16 +244,18 @@ Alternatively, you can swap the whole `MessageActionsView` with your own impleme
 
 ```swift
 public func makeMessageActionsView(
-        for message: ChatMessage,
-        onDismiss: @escaping () -> Void,
-        onError: @escaping (Error) -> Void
+    for message: ChatMessage,
+    channel: ChatChannel,
+    onFinish: @escaping (MessageActionInfo) -> Void,
+    onError: @escaping (Error) -> Void
 ) -> some View {
     let messageActions = supportedMessageActions(
         for: message,
-        onDismiss: onDismiss,
+        channel: channel,
+        onFinish: onFinish,
         onError: onError
     )
-        
+    
     return MessageActionsView(messageActions: messageActions)
 }
 ```
@@ -199,15 +264,19 @@ Additionally, you can swap the whole `ReactionsOverlayView` with your own implem
 
 ```swift
 public func makeReactionsOverlayView(
-        currentSnapshot: UIImage,
-        messageDisplayInfo: MessageDisplayInfo,
-        onBackgroundTap: @escaping () -> Void
+    channel: ChatChannel,
+    currentSnapshot: UIImage,
+    messageDisplayInfo: MessageDisplayInfo,
+    onBackgroundTap: @escaping () -> Void,
+    onActionExecuted: @escaping (MessageActionInfo) -> Void
 ) -> some View {
     ReactionsOverlayView(
         factory: self,
+        channel: channel,
         currentSnapshot: currentSnapshot,
         messageDisplayInfo: messageDisplayInfo,
-        onBackgroundTap: onBackgroundTap
+        onBackgroundTap: onBackgroundTap,
+        onActionExecuted: onActionExecuted
     )
 }
 ```
