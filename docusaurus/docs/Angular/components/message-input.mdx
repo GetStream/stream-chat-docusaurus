@@ -80,7 +80,7 @@ If no value is provided, it is set from the [`MessageInputConfigService`](../ser
 | ------- |
 | boolean |
 
-### <div class="label caution basic">Caution</div> acceptedFileTypes
+### <div class="label caution basic">Caution</div> acceptedFileTypes **DEPRECATED**
 
 **DEPRECATED** use [application settings](https://getstream.io/chat/docs/javascript/app_setting_overview/?language=javascript#file-uploads) instead
 
@@ -121,6 +121,16 @@ If no value is provided, it is set from the [`MessageInputConfigService`](../ser
 | Type                                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [`TemplateRef<MentionAutcompleteListItemContext>`](<(https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/types.ts)>) |
+
+### commandAutocompleteItemTemplate
+
+You can provide your own template for the autocomplete list for commands. You also [need to use the `AutocompleteTextarea`](../concepts/opt-in-architecure.mdx) for this feature to work.
+
+If no value is provided, it is set from the [`MessageInputConfigService`](../services/message-input-config.mdx).
+
+| Type                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`TemplateRef<CommandAutcompleteListItemContext>`](<(https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/types.ts)>) |
 
 ### mentionScope
 
