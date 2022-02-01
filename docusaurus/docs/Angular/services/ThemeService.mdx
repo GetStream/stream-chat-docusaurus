@@ -1,0 +1,91 @@
+# ThemeService
+
+The `ThemeService` can be used to change the theme of the chat UI and to customize the theme. Our [themeing guide](../concepts/themeing-and-css.mdx) gives a complete overview about the topic.
+
+## Properties
+
+### theme$
+
+• **theme$**: `BehaviorSubject`<[`Theme`](../modules.md#theme)\>
+
+A Subject that can be used to get or set the currently active theme.
+
+#### Defined in
+
+[lib/theme.service.ts:16](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/theme.service.ts#L16)
+
+## Accessors
+
+### customDarkThemeVariables
+
+• `get` **customDarkThemeVariables**(): `undefined` \| { [key: string]: `string`; }
+
+A getter that returns the currently set custom dark theme variables.
+
+#### Returns
+
+`undefined` \| { [key: string]: `string`; }
+
+An object where the keys are theme variables, and the values are the currently set CSS values.
+
+#### Defined in
+
+[lib/theme.service.ts:83](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/theme.service.ts#L83)
+
+• `set` **customDarkThemeVariables**(`variables`): `void`
+
+A setter that can be used to overwrite the values of the CSS theme variables of the dark theme.
+
+#### Parameters
+
+| Name        | Type                                        | Description                                                                  |
+| :---------- | :------------------------------------------ | :--------------------------------------------------------------------------- |
+| `variables` | `undefined` \| { [key: string]: `string`; } | An object where the keys are theme variables, and the values are CSS values. |
+
+#### Returns
+
+`void`
+
+An object where the keys are theme variables, and the values are the currently set CSS values.
+
+#### Defined in
+
+[lib/theme.service.ts:91](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/theme.service.ts#L91)
+
+---
+
+### customLightThemeVariables
+
+• `get` **customLightThemeVariables**(): `undefined` \| { [key: string]: `string`; }
+
+A getter that returns the currently set custom light theme variables.
+
+#### Returns
+
+`undefined` \| { [key: string]: `string`; }
+
+An object where the keys are theme variables, and the values are the currently set CSS values.
+
+#### Defined in
+
+[lib/theme.service.ts:63](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/theme.service.ts#L63)
+
+• `set` **customLightThemeVariables**(`variables`): `void`
+
+A setter that can be used to overwrite the values of the CSS theme variables of the light theme.
+
+#### Parameters
+
+| Name        | Type                                        | Description                                                                  |
+| :---------- | :------------------------------------------ | :--------------------------------------------------------------------------- |
+| `variables` | `undefined` \| { [key: string]: `string`; } | An object where the keys are theme variables, and the values are CSS values. |
+
+#### Returns
+
+`void`
+
+An object where the keys are theme variables, and the values are the currently set CSS values.
+
+#### Defined in
+
+[lib/theme.service.ts:71](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/theme.service.ts#L71)

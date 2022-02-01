@@ -1,0 +1,742 @@
+# ChannelService
+
+The `ChannelService` provides data and interaction for the channel list and message list. TEST
+
+## Properties
+
+### activeChannel$
+
+• **activeChannel$**: `Observable`<`undefined` \| `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>\>
+
+Emits the currently active channel.
+
+:::important
+If you want to subscribe to channel events, you need to manually reenter Angular's change detection zone, our [Change detection guide](../concepts/change-detection.mdx) explains this in detail.
+:::
+
+#### Defined in
+
+[lib/channel.service.ts:71](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L71)
+
+---
+
+### activeChannelMessages$
+
+• **activeChannelMessages$**: `Observable`<`StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]\>
+
+Emits the list of currently loaded messages of the active channel.
+
+#### Defined in
+
+[lib/channel.service.ts:75](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L75)
+
+---
+
+### activeParentMessage$
+
+• **activeParentMessage$**: `Observable`<`undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>\>
+
+Emits the currently selected parent message. If no message is selected, it emits undefined.
+
+#### Defined in
+
+[lib/channel.service.ts:87](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L87)
+
+---
+
+### activeParentMessageId$
+
+• **activeParentMessageId$**: `Observable`<`undefined` \| `string`\>
+
+Emits the id of the currently selected parent message. If no message is selected, it emits undefined.
+
+#### Defined in
+
+[lib/channel.service.ts:79](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L79)
+
+---
+
+### activeThreadMessages$
+
+• **activeThreadMessages$**: `Observable`<`StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]\>
+
+Emits the list of currently loaded thread replies belonging to the selected parent message. If there is no currently active thread it emits an empty array.
+
+#### Defined in
+
+[lib/channel.service.ts:83](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L83)
+
+---
+
+### channels$
+
+• **channels$**: `Observable`<`undefined` \| `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]\>
+
+Emits the currently loaded and [watched](https://getstream.io/chat/docs/javascript/watch_channel/?language=javascript) channel list.
+
+:::important
+If you want to subscribe to channel events, you need to manually reenter Angular's change detection zone, our [Change detection guide](../concepts/change-detection.mdx) explains this in detail.
+:::
+
+Apart from pagination, the channel list is also updated on the following events:
+
+| Event type                          | Default behavior                                                   | Custom handler to override                    |
+| ----------------------------------- | ------------------------------------------------------------------ | --------------------------------------------- |
+| `channel.deleted`                   | Remove channel from the list                                       | `customChannelDeletedHandler`                 |
+| `channel.hidden`                    | Remove channel from the list                                       | `customChannelHiddenHandler`                  |
+| `channel.truncated`                 | Updates the channel                                                | `customChannelTruncatedHandler`               |
+| `channel.updated`                   | Updates the channel                                                | `customChannelUpdatedHandler`                 |
+| `channel.visible`                   | Adds the channel to the list                                       | `customChannelVisibleHandler`                 |
+| `message.new`                       | Moves the channel to top of the list                               | `customNewMessageHandler`                     |
+| `notification.added_to_channel`     | Adds the new channel to the top of the list and starts watching it | `customAddedToChannelNotificationHandler`     |
+| `notification.message_new`          | Adds the new channel to the top of the list and starts watching it | `customNewMessageNotificationHandler`         |
+| `notification.removed_from_channel` | Removes the channel from the list                                  | `customRemovedFromChannelNotificationHandler` |
+
+It's important to note that filters don't apply to updates to the list from events.
+
+Our platform documentation covers the topic of [channel events](https://getstream.io/chat/docs/javascript/event_object/?language=javascript#events) in depth.
+
+#### Defined in
+
+[lib/channel.service.ts:63](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L63)
+
+---
+
+### customAddedToChannelNotificationHandler
+
+• `Optional` **customAddedToChannelNotificationHandler**: (`notification`: [`Notification`](../modules.md#notification), `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`notification`, `channelListSetter`): `void`
+
+Custom event handler to call when the user is added to a channel, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                | Type                                                                                              |
+| :------------------ | :------------------------------------------------------------------------------------------------ |
+| `notification`      | [`Notification`](../modules.md#notification)                                                      |
+| `channelListSetter` | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:98](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L98)
+
+---
+
+### customChannelDeletedHandler
+
+• `Optional` **customChannelDeletedHandler**: (`event`: `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channel`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`, `messageListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `threadListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `parentMessageSetter`: (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`event`, `channel`, `channelListSetter`, `messageListSetter`, `threadListSetter`, `parentMessageSetter`): `void`
+
+Custom event handler to call when a channel is deleted, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                  | Type                                                                                                                                                                                                               |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event`               | `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                              |
+| `channel`             | `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                            |
+| `channelListSetter`   | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`                                                                                                                  |
+| `messageListSetter`   | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `threadListSetter`    | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:112](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L112)
+
+---
+
+### customChannelHiddenHandler
+
+• `Optional` **customChannelHiddenHandler**: (`event`: `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channel`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`, `messageListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `threadListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `parentMessageSetter`: (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`event`, `channel`, `channelListSetter`, `messageListSetter`, `threadListSetter`, `parentMessageSetter`): `void`
+
+Custom event handler to call when a channel becomes hidden, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                  | Type                                                                                                                                                                                                               |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event`               | `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                              |
+| `channel`             | `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                            |
+| `channelListSetter`   | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`                                                                                                                  |
+| `messageListSetter`   | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `threadListSetter`    | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:145](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L145)
+
+---
+
+### customChannelTruncatedHandler
+
+• `Optional` **customChannelTruncatedHandler**: (`event`: `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channel`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`, `messageListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `threadListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `parentMessageSetter`: (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`event`, `channel`, `channelListSetter`, `messageListSetter`, `threadListSetter`, `parentMessageSetter`): `void`
+
+Custom event handler to call when a channel is truncated, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                  | Type                                                                                                                                                                                                               |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event`               | `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                              |
+| `channel`             | `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                            |
+| `channelListSetter`   | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`                                                                                                                  |
+| `messageListSetter`   | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `threadListSetter`    | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:134](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L134)
+
+---
+
+### customChannelUpdatedHandler
+
+• `Optional` **customChannelUpdatedHandler**: (`event`: `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channel`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`, `messageListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `threadListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `parentMessageSetter`: (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`event`, `channel`, `channelListSetter`, `messageListSetter`, `threadListSetter`, `parentMessageSetter`): `void`
+
+Custom event handler to call when a channel is updated, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                  | Type                                                                                                                                                                                                               |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event`               | `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                              |
+| `channel`             | `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                            |
+| `channelListSetter`   | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`                                                                                                                  |
+| `messageListSetter`   | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `threadListSetter`    | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:123](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L123)
+
+---
+
+### customChannelVisibleHandler
+
+• `Optional` **customChannelVisibleHandler**: (`event`: `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channel`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`, `messageListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `threadListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `parentMessageSetter`: (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`event`, `channel`, `channelListSetter`, `messageListSetter`, `threadListSetter`, `parentMessageSetter`): `void`
+
+Custom event handler to call when a channel becomes visible, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                  | Type                                                                                                                                                                                                               |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event`               | `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                              |
+| `channel`             | `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                            |
+| `channelListSetter`   | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`                                                                                                                  |
+| `messageListSetter`   | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `threadListSetter`    | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:156](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L156)
+
+---
+
+### customNewMessageHandler
+
+• `Optional` **customNewMessageHandler**: (`event`: `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channel`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>, `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`, `messageListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `threadListSetter`: (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`, `parentMessageSetter`: (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`event`, `channel`, `channelListSetter`, `messageListSetter`, `threadListSetter`, `parentMessageSetter`): `void`
+
+Custom event handler to call if a new message received from a channel that is being watched, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                  | Type                                                                                                                                                                                                               |
+| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `event`               | `Event`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                              |
+| `channel`             | `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>                                                                                                                                            |
+| `channelListSetter`   | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`                                                                                                                  |
+| `messageListSetter`   | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `threadListSetter`    | (`messages`: `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>[]) => `void`             |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:167](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L167)
+
+---
+
+### customNewMessageNotificationHandler
+
+• `Optional` **customNewMessageNotificationHandler**: (`notification`: [`Notification`](../modules.md#notification), `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`notification`, `channelListSetter`): `void`
+
+Custom event handler to call if a new message received from a channel that is not being watched, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                | Type                                                                                              |
+| :------------------ | :------------------------------------------------------------------------------------------------ |
+| `notification`      | [`Notification`](../modules.md#notification)                                                      |
+| `channelListSetter` | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:91](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L91)
+
+---
+
+### customRemovedFromChannelNotificationHandler
+
+• `Optional` **customRemovedFromChannelNotificationHandler**: (`notification`: [`Notification`](../modules.md#notification), `channelListSetter`: (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void`) => `void`
+
+#### Type declaration
+
+▸ (`notification`, `channelListSetter`): `void`
+
+Custom event handler to call when the user is removed from a channel, provide an event handler if you want to override the [default channel list ordering](./ChannelService.mdx/#channels)
+
+##### Parameters
+
+| Name                | Type                                                                                              |
+| :------------------ | :------------------------------------------------------------------------------------------------ |
+| `notification`      | [`Notification`](../modules.md#notification)                                                      |
+| `channelListSetter` | (`channels`: `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>[]) => `void` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:105](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L105)
+
+---
+
+### hasMoreChannels$
+
+• **hasMoreChannels$**: `Observable`<`boolean`\>
+
+Emits `false` if there are no more pages of channels that can be loaded.
+
+#### Defined in
+
+[lib/channel.service.ts:37](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L37)
+
+## Methods
+
+### addReaction
+
+▸ **addReaction**(`messageId`, `reactionType`): `Promise`<`void`\>
+
+Adds a reaction to a message.
+
+#### Parameters
+
+| Name           | Type                  | Description                                  |
+| :------------- | :-------------------- | :------------------------------------------- |
+| `messageId`    | `string`              | The id of the message to add the reaction to |
+| `reactionType` | `MessageReactionType` | The type of the reaction                     |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:391](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L391)
+
+---
+
+### autocompleteMembers
+
+▸ **autocompleteMembers**(`searchTerm`): `Promise`<`ChannelMemberResponse`<`UR`\>[]\>
+
+Returns the autocomplete options for current channel members. If the channel has less than 100 members, it returns the channel members, otherwise sends a [search request](https://getstream.io/chat/docs/javascript/query_members/?language=javascript#pagination-and-ordering) with the given search term.
+
+#### Parameters
+
+| Name         | Type     | Description                                |
+| :----------- | :------- | :----------------------------------------- |
+| `searchTerm` | `string` | Text to search for in the names of members |
+
+#### Returns
+
+`Promise`<`ChannelMemberResponse`<`UR`\>[]\>
+
+The list of members matching the search filter
+
+#### Defined in
+
+[lib/channel.service.ts:520](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L520)
+
+---
+
+### deleteAttachment
+
+▸ **deleteAttachment**(`attachmentUpload`): `Promise`<`void`\>
+
+Deletes an uploaded file by URL. If you want to know more about [file uploads](https://getstream.io/chat/docs/javascript/file_uploads/?language=javascript) check out the platform documentation
+
+#### Parameters
+
+| Name               | Type               | Description                                                                      |
+| :----------------- | :----------------- | :------------------------------------------------------------------------------- |
+| `attachmentUpload` | `AttachmentUpload` | Attachment to be deleted (output of the [`AttachmentService`](./attachment.mdx)) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:508](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L508)
+
+---
+
+### deleteMessage
+
+▸ **deleteMessage**(`message`): `Promise`<`void`\>
+
+Deletes the message from the active channel
+
+#### Parameters
+
+| Name      | Type                                                                                                                                                                         | Description           |
+| :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------- |
+| `message` | `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\> | Message to be deleted |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:465](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L465)
+
+---
+
+### init
+
+▸ **init**(`filters`, `sort?`, `options?`): `Promise`<`void`\>
+
+Queries the channels with the given filters, sorts and options. More info about [channel querying](https://getstream.io/chat/docs/javascript/query_channels/?language=javascript) can be found in the platform documentation.
+
+#### Parameters
+
+| Name       | Type                                                   |
+| :--------- | :----------------------------------------------------- |
+| `filters`  | `ChannelFilters`<`UR`, `LiteralStringForUnion`, `UR`\> |
+| `sort?`    | `ChannelSort`<`UR`\>                                   |
+| `options?` | `ChannelOptions`                                       |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:346](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L346)
+
+---
+
+### loadMoreChannels
+
+▸ **loadMoreChannels**(): `Promise`<`void`\>
+
+Loads the next page of channels. The page size can be set in the [query option](https://getstream.io/chat/docs/javascript/query_channels/?language=javascript#query-options) object.
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:381](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L381)
+
+---
+
+### loadMoreMessages
+
+▸ **loadMoreMessages**(): `Promise`<`void`\>
+
+Loads the next page of messages of the active channel. The page size can be set in the [query option](https://getstream.io/chat/docs/javascript/query_channels/?language=javascript#query-options) object.
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:303](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L303)
+
+---
+
+### loadMoreThreadReplies
+
+▸ **loadMoreThreadReplies**(): `Promise`<`void`\>
+
+Loads the next page of messages of the active thread. The page size can be set in the [query option](https://getstream.io/chat/docs/javascript/query_channels/?language=javascript#query-options) object.
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:324](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L324)
+
+---
+
+### removeReaction
+
+▸ **removeReaction**(`messageId`, `reactionType`): `Promise`<`void`\>
+
+Removes a reaction from a message.
+
+#### Parameters
+
+| Name           | Type                  | Description                                       |
+| :------------- | :-------------------- | :------------------------------------------------ |
+| `messageId`    | `string`              | The id of the message to remove the reaction from |
+| `reactionType` | `MessageReactionType` | Thr type of reaction to remove                    |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:402](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L402)
+
+---
+
+### resendMessage
+
+▸ **resendMessage**(`message`): `Promise`<`void`\>
+
+Resends the given message to the active channel
+
+#### Parameters
+
+| Name      | Type                                                                                                                                                                         | Description           |
+| :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------- |
+| `message` | `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\> | The message to resend |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:438](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L438)
+
+---
+
+### reset
+
+▸ **reset**(): `void`
+
+Resets the `activeChannel$`, `channels$` and `activeChannelMessages$` Observables. Useful when disconnecting a chat user, use in combination with [`disconnectUser`](./ChatClientService.mdx/#disconnectuser).
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:370](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L370)
+
+---
+
+### sendAction
+
+▸ **sendAction**(`messageId`, `formData`): `Promise`<`void`\>
+
+[Runs a message action](https://getstream.io/chat/docs/rest/#messages-runmessageaction) in the current channel. Updates the message list based on the action result (if no message is returned, the message will be removed from the message list).
+
+#### Parameters
+
+| Name        | Type                          |
+| :---------- | :---------------------------- |
+| `messageId` | `string`                      |
+| `formData`  | `Record`<`string`, `string`\> |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:546](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L546)
+
+---
+
+### sendMessage
+
+▸ **sendMessage**(`text`, `attachments?`, `mentionedUsers?`, `parentId?`): `Promise`<`void`\>
+
+Sends a message to the active channel. The message is immediately added to the message list, if an error occurs and the message can't be sent, the error is indicated in `state` of the message.
+
+#### Parameters
+
+| Name             | Type                    | Default value | Description                                          |
+| :--------------- | :---------------------- | :------------ | :--------------------------------------------------- |
+| `text`           | `string`                | `undefined`   | The text of the message                              |
+| `attachments`    | `Attachment`<`UR`\>[]   | `[]`          | The attachments                                      |
+| `mentionedUsers` | `UserResponse`<`UR`\>[] | `[]`          | Mentioned users                                      |
+| `parentId`       | `undefined` \| `string` | `undefined`   | Id of the parent message (if sending a thread reply) |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:415](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L415)
+
+---
+
+### setAsActiveChannel
+
+▸ **setAsActiveChannel**(`channel`): `void`
+
+Sets the given `channel` as active.
+
+#### Parameters
+
+| Name      | Type                                                                    |
+| :-------- | :---------------------------------------------------------------------- |
+| `channel` | `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\> |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[lib/channel.service.ts:267](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L267)
+
+---
+
+### setAsActiveParentMessage
+
+▸ **setAsActiveParentMessage**(`message`): `Promise`<`void`\>
+
+Sets the given `message` as an active parent message. If `undefined` is provided, it will deleselect the current parent message.
+
+#### Parameters
+
+| Name      | Type                                                                                                                                                                                        |
+| :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `message` | `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\> |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:286](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L286)
+
+---
+
+### updateMessage
+
+▸ **updateMessage**(`message`): `Promise`<`void`\>
+
+Updates the message in the active channel
+
+#### Parameters
+
+| Name      | Type                                                                                                                                                                         | Description          |
+| :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------- |
+| `message` | `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\> | Mesage to be updated |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/channel.service.ts:455](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L455)
+
+---
+
+### uploadAttachments
+
+▸ **uploadAttachments**(`uploads`): `Promise`<`AttachmentUpload`[]\>
+
+Uploads files to the channel. If you want to know more about [file uploads](https://getstream.io/chat/docs/javascript/file_uploads/?language=javascript) check out the platform documentation.
+
+#### Parameters
+
+| Name      | Type                 | Description                                                                       |
+| :-------- | :------------------- | :-------------------------------------------------------------------------------- |
+| `uploads` | `AttachmentUpload`[] | the attachments to upload (output of the [`AttachmentService`](./attachment.mdx)) |
+
+#### Returns
+
+`Promise`<`AttachmentUpload`[]\>
+
+the result of file upload requests
+
+#### Defined in
+
+[lib/channel.service.ts:474](https://github.com/GetStream/stream-chat-angular/blob/32aa69f/projects/stream-chat-angular/src/lib/channel.service.ts#L474)
