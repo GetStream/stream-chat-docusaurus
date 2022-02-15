@@ -1,0 +1,156 @@
+# ChatClientService
+
+The `ChatClient` service connects the user to the Stream chat.
+
+## Properties
+
+### appSettings$
+
+• **appSettings$**: `Observable`<`undefined` \| `AppSettings`\>
+
+Emits the current [application settings](https://getstream.io/chat/docs/javascript/app_setting_overview/?language=javascript). Since getting the application settings is an expensive API call and we don't always need the result, this is not initialized by default, you need to call `getApplicationSettings` to load them.
+
+#### Defined in
+
+[lib/chat-client.service.ts:34](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L34)
+
+___
+
+### chatClient
+
+• **chatClient**: `StreamChat`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>
+
+The [StreamChat client](https://github.com/GetStream/stream-chat-js/blob/master/src/client.ts) instance. In general you shouldn't need to access the client, but it's there if you want to use it.
+
+#### Defined in
+
+[lib/chat-client.service.ts:23](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L23)
+
+___
+
+### connectionState$
+
+• **connectionState$**: `Observable`<``"offline"`` \| ``"online"``\>
+
+Emits the current connection state of the user (`online` or `offline`)
+
+#### Defined in
+
+[lib/chat-client.service.ts:38](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L38)
+
+___
+
+### notification$
+
+• **notification$**: `Observable`<[`Notification`](../modules.md#notification)\>
+
+Emits [`Notification`](https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/chat-client.service.ts) events. The platform documentation covers [the list of client and notification events](https://getstream.io/chat/docs/javascript/event_object/?language=javascript).
+:::important
+For performance reasons this Observable operates outside of the Angular change detection zone. If you subscribe to it, you need to manually reenter Angular's change detection zone, our [Change detection guide](../concepts/change-detection.mdx) explains this in detail.
+:::
+
+#### Defined in
+
+[lib/chat-client.service.ts:30](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L30)
+
+## Methods
+
+### autocompleteUsers
+
+▸ **autocompleteUsers**(`searchTerm`): `Promise`<`UserResponse`<`UR`\>[]\>
+
+Searches for users in the application that have ID or name matching the provided search term
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `searchTerm` | `string` |
+
+#### Returns
+
+`Promise`<`UserResponse`<`UR`\>[]\>
+
+The users matching the search
+
+#### Defined in
+
+[lib/chat-client.service.ts:131](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L131)
+
+___
+
+### disconnectUser
+
+▸ **disconnectUser**(): `Promise`<`void`\>
+
+Disconnects the current user, and closes the WebSocket connection. Useful when disconnecting a chat user, use in combination with [`reset`](./ChannelService.mdx/#reset).
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/chat-client.service.ts:103](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L103)
+
+___
+
+### flagMessage
+
+▸ **flagMessage**(`messageId`): `Promise`<`void`\>
+
+Flag the message with the given ID. If you want to know [more about flags](https://getstream.io/chat/docs/javascript/moderation/?language=javascript) check out the platform documentation.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `messageId` | `string` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/chat-client.service.ts:122](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L122)
+
+___
+
+### getAppSettings
+
+▸ **getAppSettings**(): `Promise`<`void`\>
+
+Loads the current [application settings](https://getstream.io/chat/docs/javascript/app_setting_overview/?language=javascript), if the application settings have already been loaded, it does nothing.
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/chat-client.service.ts:110](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L110)
+
+___
+
+### init
+
+▸ **init**(`apiKey`, `userOrId`, `userTokenOrProvider`): `Promise`<`void`\>
+
+Creates a [`StreamChat`](https://github.com/GetStream/stream-chat-js/blob/668b3e5521339f4e14fc657834531b4c8bf8176b/src/client.ts#L124) instance using the provided `apiKey`, and connects a user with the given meta data and token. More info about [connecting users](https://getstream.io/chat/docs/javascript/init_and_users/?language=javascript) can be found in the platform documentation.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `apiKey` | `string` |
+| `userOrId` | `string` \| `OwnUserResponse`<`UR`, `LiteralStringForUnion`, `UR`\> \| `UserResponse`<`UR`\> |
+| `userTokenOrProvider` | `TokenOrProvider` |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[lib/chat-client.service.ts:60](https://github.com/GetStream/stream-chat-angular/blob/3f359a8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L60)
