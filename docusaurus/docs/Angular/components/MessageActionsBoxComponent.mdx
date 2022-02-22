@@ -1,0 +1,117 @@
+import MessageActionsScreenshot from "../assets/message-actions-screenshot.png";
+
+The `MessageActionsBox` component displays a list of message actions (i.e edit), that can be opened or closed. You can find the [list of the supported actions](../concepts/message-interactions.mdx) in the message interaction guide.
+
+**Example 1** - example message actions with the message component:
+
+<img src={MessageActionsScreenshot} width="500" />
+
+## Basic usage
+
+A typical use case for the `MessageActionsBox` component would be to use in your custom components that will completely override the message component.
+
+```typescript
+@Component({
+  selector: "app-custom-message",
+  template: `
+    <stream-message-actions-box
+      [isOpen]="isActionBoxOpen"
+      [isMine]="isMessageSentByCurrentUser"
+    ></stream-message-actions-box>
+    <!-- Other parts of the custom message component -->
+  `,
+})
+export class CustomMessageComponent {
+  @Input() message: StreamMessage;
+  isActionBoxOpen: boolean;
+  isMessageSentByCurrentUser: boolean;
+}
+```
+
+[//]: # "Start of generated content"
+## Inputs and outputs 
+
+
+### messageInputTemplate
+
+• **messageInputTemplate**: `undefined` \| `TemplateRef`<`any`\>
+
+The input used for message edit. By default, the [default message input component](./MessageInputComponent.mdx) is used. To change the input for message edit, provide [your own custom template](./MessageInputComponent.mdx/#customization).
+
+#### Defined in
+
+[lib/message-actions-box/message-actions-box.component.ts:42](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-actions-box/message-actions-box.component.ts#L42)
+
+___
+
+### isOpen
+
+• **isOpen**: `boolean` = `false`
+
+Indicates if the list should be opened or closed. Adding a UI element to open and close the list is the parent's component responsibility.
+
+#### Defined in
+
+[lib/message-actions-box/message-actions-box.component.ts:46](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-actions-box/message-actions-box.component.ts#L46)
+
+___
+
+### isMine
+
+• **isMine**: `boolean` = `false`
+
+Indicates if the message actions are belonging to a message that was sent by the current user or not.
+
+#### Defined in
+
+[lib/message-actions-box/message-actions-box.component.ts:50](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-actions-box/message-actions-box.component.ts#L50)
+
+___
+
+### message
+
+• **message**: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>
+
+The message the actions will be executed on
+
+#### Defined in
+
+[lib/message-actions-box/message-actions-box.component.ts:54](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-actions-box/message-actions-box.component.ts#L54)
+
+___
+
+### enabledActions
+
+• **enabledActions**: `string`[] = `[]`
+
+The list of [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) that are enabled for the current user, the list of [supported interactions](../concepts/message-interactions.mdx) can be found in our message interaction guide. Unathorized actions won't be displayed on the UI.
+
+#### Defined in
+
+[lib/message-actions-box/message-actions-box.component.ts:58](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-actions-box/message-actions-box.component.ts#L58)
+
+___
+
+### displayedActionsCount
+
+• `Readonly` **displayedActionsCount**: `EventEmitter`<`number`\>
+
+The number of authorized actions (it can be less or equal than the number of enabled actions)
+
+#### Defined in
+
+[lib/message-actions-box/message-actions-box.component.ts:62](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-actions-box/message-actions-box.component.ts#L62)
+
+___
+
+### isEditing
+
+• `Readonly` **isEditing**: `EventEmitter`<`boolean`\>
+
+An event which emits `true` if the edit message modal is open, and `false` when it is closed.
+
+#### Defined in
+
+[lib/message-actions-box/message-actions-box.component.ts:66](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-actions-box/message-actions-box.component.ts#L66)
+
+[//]: # "End of generated content"

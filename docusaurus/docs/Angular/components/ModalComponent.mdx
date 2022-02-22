@@ -1,0 +1,41 @@
+The `Modal` component displays its content in an overlay. The modal can be closed with a close button, if the user clicks outside of the modal content, or if the escape button is pressed. The modal can also be closed from outside.
+
+## Basic usage
+
+This example shows how to use the modal component
+
+**Example 1** - simple modal:
+
+```html
+<stream-modal [(isOpen)]="isModalOpen">
+  <!-- Modal content here -->
+</stream-modal>
+```
+
+[//]: # "Start of generated content"
+## Inputs and outputs 
+
+
+### isOpen
+
+• **isOpen**: `boolean` = `false`
+
+If `true` the modal will be displayed, if `false` the modal will be hidden
+
+#### Defined in
+
+[lib/modal/modal.component.ts:24](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/modal/modal.component.ts#L24)
+
+___
+
+### isOpenChange
+
+• `Readonly` **isOpenChange**: `EventEmitter`<`boolean`\>
+
+Emits `true` if the modal becomes visible, and `false` if the modal is closed.
+
+#### Defined in
+
+[lib/modal/modal.component.ts:28](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/modal/modal.component.ts#L28)
+
+[//]: # "End of generated content"

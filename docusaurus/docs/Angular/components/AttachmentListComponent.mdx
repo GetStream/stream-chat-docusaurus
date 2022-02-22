@@ -1,12 +1,4 @@
----
-id: attachment-list
-sidebar_position: 2
-title: Attachments
----
-
 import AttachmentsScreenshot from "../assets/attachments-screenshot.png";
-
-TEST
 
 The `AttachmentList` compontent displays the attachments of a message. The following attachments are supported:
 
@@ -41,20 +33,30 @@ export class CustomMessageComponent {
 }
 ```
 
-## Inputs
+[//]: # "Start of generated content"
+## Inputs and outputs 
 
-### <div class="label required basic">Required</div> attachments
 
-The attachments to display
+### messageId
 
-| Type                                                                                                              | Default |
-| ----------------------------------------------------------------------------------------------------------------- | ------- |
-| [`Attachment`](https://getstream.io/chat/docs/javascript/message_format/?language=javascript#attachment-format)[] | []      |
-
-### <div class="label required basic">Required</div> messageId
+• **messageId**: `undefined` \| `string`
 
 The id of the message the attachments belong to
 
-| Type   |
-| ------ |
-| string |
+#### Defined in
+
+[lib/attachment-list/attachment-list.component.ts:21](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L21)
+
+___
+
+### attachments
+
+• **attachments**: `Attachment`<`DefaultAttachmentType`\>[] = `[]`
+
+The attachments to display
+
+#### Defined in
+
+[lib/attachment-list/attachment-list.component.ts:25](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L25)
+
+[//]: # "End of generated content"

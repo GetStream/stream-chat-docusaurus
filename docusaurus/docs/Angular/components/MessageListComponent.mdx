@@ -1,9 +1,3 @@
----
-id: message_list
-sidebar_position: 14
-title: Message list
----
-
 import MessagesWithGroupingsScreenhot from "../assets/messages-with-grouping-screenshot.png";
 import MessagesWithoutGroupingsScreenhot from "../assets/messages-without-groups-screenshot.png";
 
@@ -59,58 +53,68 @@ Message group styles makes the message list more readable, by grouping messages 
 
 **Example 2** - Using a custom message component
 
-If you only want to customize the messages (not the whole list), see the [message customization guide](./message.mdx/#customization).
+If you only want to customize the messages (not the whole list), see the [message customization guide](./MessageComponent.mdx/#customization).
 
-## Inputs
+[//]: # "Start of generated content"
+## Inputs and outputs 
+
 
 ### messageTemplate
 
-By default, the [default message component](./message.mdx) is used. To change the contents of the message, provide [your own custom message template](./message.mdx/#customization).
+• **messageTemplate**: `undefined` \| `TemplateRef`<`any`\>
 
-| Type        |
-| ----------- |
-| TemplateRef |
+By default, the [default message component](./MessageComponent.mdx) is used. To change the contents of the message, provide [your own custom message template](./MessageComponent.mdx/#customization).
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:37](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L37)
+
+___
 
 ### messageInputTemplate
 
-The input used for message edit. By default, the [default message input component](./message-input.mdx) is used. To change the input for message edit, provide [your own custom template](./message-input.mdx/#customization).
+• **messageInputTemplate**: `undefined` \| `TemplateRef`<`any`\>
 
-| Type        |
-| ----------- |
-| TemplateRef |
+The input used for message edit. By default, the [default message input component](./MessageInputComponent.mdx) is used. To change the input for message edit, provide [your own custom template](./MessageInputComponent.mdx/#customization).
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:41](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L41)
+
+___
 
 ### mentionTemplate
 
+• **mentionTemplate**: `undefined` \| `TemplateRef`<`any`\>
+
 The template used to display a mention in a message. It receives the mentioned user in a variable called `user` with the type [`UserResponse`](https://github.com/GetStream/stream-chat-js/blob/master/src/types.ts). You can provide your own template if you want to [add actions to mentions](../code-examples/mention-actions.mdx).
 
-| Type        |
-| ----------- |
-| TemplateRef |
+#### Defined in
+
+[lib/message-list/message-list.component.ts:45](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L45)
+
+___
+
+### typingIndicatorTemplate
+
+• **typingIndicatorTemplate**: `undefined` \| `TemplateRef`<{}\>
+
+You can provide your own typing indicator template instead of the default one.
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:49](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L49)
+
+___
 
 ### mode
 
+• **mode**: ``"thread"`` \| ``"main"`` = `'main'`
+
 Determines if the message list should display channel messages or [thread messages](https://getstream.io/chat/docs/javascript/threads/?language=javascript).
 
-| Type               | Default |
-| ------------------ | ------- |
-| `main` or `thread` | `main`  |
+#### Defined in
 
-### <div class="label caution basic">Caution</div> areReactionsEnabled **DEPRECATED**
+[lib/message-list/message-list.component.ts:66](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L66)
 
-**DEPRECATED** use [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) instead
-
-If true, the message reactions are displayed. Users can also react to messages if they have the necessary [channel capability](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript).
-
-| Type    | Default |
-| ------- | ------- |
-| boolean | true    |
-
-### <div class="label caution basic">Caution</div> enabledMessageActions **DEPRECATED**
-
-**DEPRECATED** use [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) instead
-
-The list of [actions that are enabled](./message-actions.mdx), please note that the user also has to have the necessary [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) for actions to work. Unathorized actions won't be displayed on the UI. The `MessgaeList` component makes the necessary checks before passing the actions to the `Message` component.
-
-| Type            | Default                                                  |
-| --------------- | -------------------------------------------------------- |
-| MessageAction[] | undefined (enable actions based on channel capabilities) |
+[//]: # "End of generated content"

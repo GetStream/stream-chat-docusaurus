@@ -1,0 +1,62 @@
+The `Avatar` component displays the provided image, with fallback to the first letter of the optional name input.
+
+## Basic Usage
+
+A typical use case for the `Avatar` component would be to use in your custom components that will completely override a message component, or similar.
+
+**Example 1** - a basic example:
+
+```typescript
+@Component({
+  selector: "app-custom-message",
+  template: `
+    <stream-avatar [imageUrl]="imageUrl" [name]="name"></stream-avatar>
+    <!-- Other parts of the custom message component -->
+  `,
+})
+export class CustomMessageComponent {
+  imageUrl =
+    "https://pbs.twimg.com/profile_images/897621870069112832/dFGq6aiE_400x400.jpg";
+  name = "Roy";
+}
+```
+
+[//]: # "Start of generated content"
+## Inputs and outputs 
+
+
+### name
+
+• **name**: `undefined` \| `string`
+
+An optional name of the image, used for fallback image or image title (if `imageUrl` is provided)
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:15](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L15)
+
+___
+
+### imageUrl
+
+• **imageUrl**: `undefined` \| `string`
+
+The URL of the image to be displayed. If the image can't be displayed the first letter of the name input is displayed.
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:19](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L19)
+
+___
+
+### size
+
+• **size**: `number` = `32`
+
+The size in pixels of the avatar image.
+
+#### Defined in
+
+[lib/avatar/avatar.component.ts:23](https://github.com/GetStream/stream-chat-angular/blob/8973c79/projects/stream-chat-angular/src/lib/avatar/avatar.component.ts#L23)
+
+[//]: # "End of generated content"
