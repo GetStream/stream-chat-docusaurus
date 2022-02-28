@@ -1,18 +1,18 @@
 # NotificationService
 
-The `NotificationService` can be used to add or remove notifications. By default the [`NotificationList`](../components/notifications.mdx) component displays the currently active notifications.
+The `NotificationService` can be used to add or remove notifications. By default the [`NotificationList`](../components/NotificationListComponent.mdx) component displays the currently active notifications.
 
 ## Properties
 
 ### notifications$
 
-• **notifications$**: `Observable`<[`NotificationPayload`](../modules.md#notificationpayload)[]\>
+• **notifications$**: `Observable`<`NotificationPayload`[]\>
 
 Emits the currently active [notifications](https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/notification.service.ts).
 
 #### Defined in
 
-[lib/notification.service.ts:22](https://github.com/GetStream/stream-chat-angular/blob/7a24247/projects/stream-chat-angular/src/lib/notification.service.ts#L22)
+[lib/notification.service.ts:22](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/notification.service.ts#L22)
 
 ## Methods
 
@@ -27,7 +27,7 @@ Displays a notification, that will be visible until it's removed.
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `text` | `string` | `undefined` | The text of the notification |
-| `type` | [`NotificationType`](../modules.md#notificationtype) | `'error'` | The type of the notification |
+| `type` | `NotificationType` | `'error'` | The type of the notification |
 | `translateParams?` | `Object` | `undefined` | Translation parameters for the `text` |
 
 #### Returns
@@ -44,7 +44,7 @@ A method to clear the notification.
 
 #### Defined in
 
-[lib/notification.service.ts:59](https://github.com/GetStream/stream-chat-angular/blob/7a24247/projects/stream-chat-angular/src/lib/notification.service.ts#L59)
+[lib/notification.service.ts:59](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/notification.service.ts#L59)
 
 ___
 
@@ -59,7 +59,7 @@ Displays a notification for the given amount of time.
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `text` | `string` | `undefined` | The text of the notification |
-| `type` | [`NotificationType`](../modules.md#notificationtype) | `'error'` | The type of the notification |
+| `type` | `NotificationType` | `'error'` | The type of the notification |
 | `timeout` | `number` | `5000` | The number of milliseconds while the notification should be visible |
 | `translateParams?` | `Object` | `undefined` | Translation parameters for the `text` |
 
@@ -77,4 +77,4 @@ A method to clear the notification (before the timeout).
 
 #### Defined in
 
-[lib/notification.service.ts:37](https://github.com/GetStream/stream-chat-angular/blob/7a24247/projects/stream-chat-angular/src/lib/notification.service.ts#L37)
+[lib/notification.service.ts:37](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/notification.service.ts#L37)

@@ -1,0 +1,214 @@
+import MessageScreenshot from "../assets/message-screenshot.png";
+import MessageActionsScreenshot from "../assets/message-actions-screenshot.png";
+import MessageReactionsScreenshot from "../assets/message-reactions-screenshot.png";
+
+The `Message` component displays a message with additional information such as sender and date, and enables [interaction with the message (i.e. edit or react)](../concepts/message-interactions.mdx).
+
+**Example 1** - example message:
+
+<img src={MessageScreenshot} width="500" />
+
+**Example 2** - message with reactions:
+
+<img src={MessageReactionsScreenshot} width="500" />
+
+**Example 3** - message actions:
+
+<img src={MessageActionsScreenshot} width="500" />
+
+## Customization
+
+The message list uses the `Message` component to display messages, if you want to replace that with your own custom component, here is how to do it:
+
+**Example 1** - custom message component:
+
+```html
+<stream-channel>
+  <stream-channel-header></stream-channel-header>
+  <stream-message-list
+    [messageTemplate]="customMessageTemplate"
+  ></stream-message-list>
+  <stream-message-input></stream-message-input>
+  <stream-thread name="thread">
+    <stream-message-list
+      name="thread-message-list"
+      mode="thread"
+      [messageTemplate]="customMessageTemplate"
+    ></stream-message-list>
+    <stream-message-input
+      mode="thread"
+      name="thread-message-input"
+    ></stream-message-input>
+  </stream-thread>
+</stream-channel>
+
+<ng-template
+  #customMessageTemplate
+  let-message="message"
+  let-enabledMessageActions="enabledMessageActions"
+  let-canReactToMessage="canReactToMessage"
+>
+  <app-custom-message
+    [message]="message"
+    [enabledMessageActions]="enabledMessageActions"
+    [canReactToMessage]="canReactToMessage"
+  ></app-custom-message>
+</ng-template>
+```
+
+Your custom template can receive the same inputs (with the same name) as the default `Message` component.
+
+:::note
+
+If you want to build your own `Message` component, you might find the following building blocks useful:
+
+### Avatar
+
+The `Message` component uses the [`Avatar`](./AvatarComponent.mdx) component to display the sender's photo.
+
+### Message actions
+
+The `Message` component uses the [`MessageActionsBox`](./MessageActionsBoxComponent.mdx) component to enable interaction with the message (i.e. edit).
+
+### Message reactions
+
+The `Message` component uses the [`MessageReactions`](./MessageReactionsComponent.mdx) component to display reactions of a message, and enable reacting to a message.
+
+### Attachments
+
+The `Message` component uses the [`AttachmentList`](./AttachmentListComponent.mdx) component to display the attachments of the message.
+
+### User firendly dates
+
+The `Message` component uses the [`parseDate`](https://github.com/GetStream/stream-chat-angular/tree/master/projects/stream-chat-angular/src/lib/message/parse-date.ts) utility function to create user-firendly dates (for example _Yesterday at 8:15 AM_).
+
+### Read by
+
+The `Message` component uses the [`getReadByText`](https://github.com/GetStream/stream-chat-angular/tree/master/projects/stream-chat-angular/src/lib/message/read-by-text.ts) utility function to display the list of people who have read a particular message in a user friendly way (for example _Bob, Sophie, Jack, Rose, John and 1 more_).
+
+### Loading indicator
+
+The `Message` component uses the [`LoadingIndicator`](./LoadingIndicatorComponent.mdx) component to display a spinner while the message is being sent.
+
+### Icons
+
+The `Message` component uses the [`Icon`](./IconComponent.mdx) component to display icons.
+:::
+
+[//]: # "Start of generated content"
+## Inputs and outputs 
+
+
+### messageInputTemplate
+
+• **messageInputTemplate**: `undefined` \| `TemplateRef`<`any`\>
+
+The input used for message edit. By default, the [default message input component](./MessageInputComponent.mdx) is used. To change the input for message edit, provide [your own custom template](./MessageInputComponent.mdx/#customization).
+
+#### Defined in
+
+[lib/message/message.component.ts:37](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L37)
+
+___
+
+### mentionTemplate
+
+• **mentionTemplate**: `undefined` \| `TemplateRef`<`any`\>
+
+The template used to display a mention in a message. It receives the mentioned user in a variable called `user` with the type [`UserResponse`](https://github.com/GetStream/stream-chat-js/blob/master/src/types.ts). You can provide your own template if you want to [add actions to mentions](../code-examples/mention-actions.mdx).
+
+#### Defined in
+
+[lib/message/message.component.ts:41](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L41)
+
+___
+
+### message
+
+• **message**: `undefined` \| `StreamMessage`<`DefaultAttachmentType`, `DefaultChannelType`, `LiteralStringForUnion`, `DefaultMessageType`, `UnknownType`, `DefaultUserType`<`DefaultUserTypeInternal`\>\>
+
+The message to be displayed
+
+#### Defined in
+
+[lib/message/message.component.ts:45](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L45)
+
+___
+
+### enabledMessageActions
+
+• **enabledMessageActions**: `string`[] = `[]`
+
+The list of [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) that are enabled for the current user, the list of [supported interactions](../concepts/message-interactions.mdx) can be found in our message interaction guide. Unathorized actions won't be displayed on the UI. The [`MessageList`](./MessageListComponent.mdx) component automatically sets this based on [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript).
+
+#### Defined in
+
+[lib/message/message.component.ts:49](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L49)
+
+___
+
+### areReactionsEnabled
+
+• **areReactionsEnabled**: `undefined` \| `boolean`
+
+If true, the message reactions are displayed. If you use the default chat UI you can also set this using the [`MessageList`](./MessageListComponent.mdx) component.
+
+**`deprecated`** use [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) instead
+
+#### Defined in
+
+[lib/message/message.component.ts:54](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L54)
+
+___
+
+### canReactToMessage
+
+• **canReactToMessage**: `undefined` \| `boolean`
+
+If true, the user can add reactions to the message. The [`MessageList`](./MessageListComponent.mdx) component automatically sets this based on [channel capability](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript).
+
+**`deprecated`** use [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) instead
+
+#### Defined in
+
+[lib/message/message.component.ts:59](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L59)
+
+___
+
+### isLastSentMessage
+
+• **isLastSentMessage**: `undefined` \| `boolean`
+
+If `true`, the message status (sending, sent, who read the message) is displayed.
+
+#### Defined in
+
+[lib/message/message.component.ts:63](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L63)
+
+___
+
+### canReceiveReadEvents
+
+• **canReceiveReadEvents**: `undefined` \| `boolean`
+
+If true, the read indicator is displayed. The [`MessageList`](./MessageListComponent.mdx) component automatically sets this based on [channel capability](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript).
+
+**`deprecated`** use [channel capabilities](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript) instead
+
+#### Defined in
+
+[lib/message/message.component.ts:68](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L68)
+
+___
+
+### mode
+
+• **mode**: ``"thread"`` \| ``"main"`` = `'main'`
+
+Determines if the message is being dispalyed in a channel or in a [thread](https://getstream.io/chat/docs/javascript/threads/?language=javascript).
+
+#### Defined in
+
+[lib/message/message.component.ts:72](https://github.com/GetStream/stream-chat-angular/blob/8a541ef/projects/stream-chat-angular/src/lib/message/message.component.ts#L72)
+
+[//]: # "End of generated content"
