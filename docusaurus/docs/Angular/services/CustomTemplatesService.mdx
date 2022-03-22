@@ -4,6 +4,42 @@ A central location for registering your custom templates to override parts of th
 
 ## Properties
 
+### attachmentListTemplate$
+
+• **attachmentListTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`AttachmentListContext`\>\>
+
+The template used to display attachments of a message
+
+#### Defined in
+
+[lib/custom-templates.service.ts:90](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L90)
+
+___
+
+### attachmentPreviewListTemplate$
+
+• **attachmentPreviewListTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`AttachmentPreviewListContext`\>\>
+
+The template used to display attachments in the message input component
+
+#### Defined in
+
+[lib/custom-templates.service.ts:96](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L96)
+
+___
+
+### avatarTemplate$
+
+• **avatarTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`AvatarContext`\>\>
+
+The template used to display avatars for channels and users
+
+#### Defined in
+
+[lib/custom-templates.service.ts:102](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L102)
+
+___
+
 ### channelActionsTemplate$
 
 • **channelActionsTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`ChannelActionsContext`\>\>
@@ -12,7 +48,7 @@ The template for channel actions
 
 #### Defined in
 
-[lib/custom-templates.service.ts:73](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L73)
+[lib/custom-templates.service.ts:84](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L84)
 
 ___
 
@@ -24,7 +60,7 @@ Item in the channel list
 
 #### Defined in
 
-[lib/custom-templates.service.ts:37](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L37)
+[lib/custom-templates.service.ts:48](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L48)
 
 ___
 
@@ -36,7 +72,7 @@ The autocomplete list item template for commands
 
 #### Defined in
 
-[lib/custom-templates.service.ts:31](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L31)
+[lib/custom-templates.service.ts:42](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L42)
 
 ___
 
@@ -48,7 +84,31 @@ The template for emoji picker
 
 #### Defined in
 
-[lib/custom-templates.service.ts:55](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L55)
+[lib/custom-templates.service.ts:66](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L66)
+
+___
+
+### iconTemplate$
+
+• **iconTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`IconContext`\>\>
+
+Template for displaying icons
+
+#### Defined in
+
+[lib/custom-templates.service.ts:108](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L108)
+
+___
+
+### loadingIndicatorTemplate$
+
+• **loadingIndicatorTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`LoadingIndicatorContext`\>\>
+
+Template for displaying the loading indicator (instead of the [default loading indicator](../components/LoadingIndicatorComponent.mdx))
+
+#### Defined in
+
+[lib/custom-templates.service.ts:114](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L114)
 
 ___
 
@@ -60,7 +120,7 @@ The autocomplete list item template for mentioning users
 
 #### Defined in
 
-[lib/custom-templates.service.ts:25](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L25)
+[lib/custom-templates.service.ts:36](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L36)
 
 ___
 
@@ -72,7 +132,31 @@ The template used for displaying a mention inside a message
 
 #### Defined in
 
-[lib/custom-templates.service.ts:49](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L49)
+[lib/custom-templates.service.ts:60](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L60)
+
+___
+
+### messageActionsBoxItemTemplate$
+
+• **messageActionsBoxItemTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`MessageActionBoxItemContext`\>\>
+
+The template used for displaying an item in the [message actions box](../components/MessageActionsBoxComponent.mdx)]
+
+#### Defined in
+
+[lib/custom-templates.service.ts:126](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L126)
+
+___
+
+### messageActionsBoxTemplate$
+
+• **messageActionsBoxTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`MessageActionsBoxContext`\>\>
+
+Template for displaying the message actions box (instead of the [default message actions box](../components/MessageActionsBoxComponent.mdx))
+
+#### Defined in
+
+[lib/custom-templates.service.ts:120](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L120)
 
 ___
 
@@ -84,7 +168,19 @@ The message input template used when editing a message
 
 #### Defined in
 
-[lib/custom-templates.service.ts:43](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L43)
+[lib/custom-templates.service.ts:54](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L54)
+
+___
+
+### messageReactionsTemplate$
+
+• **messageReactionsTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`MessageReactionsContext`\>\>
+
+The template used to display the reactions of a message, and the selector to add a reaction to a message (instead of the [default message reactions component](../components/MessageReactionsComponent.mdx))
+
+#### Defined in
+
+[lib/custom-templates.service.ts:132](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L132)
 
 ___
 
@@ -96,7 +192,43 @@ The template used to display a message in the message list
 
 #### Defined in
 
-[lib/custom-templates.service.ts:67](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L67)
+[lib/custom-templates.service.ts:78](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L78)
+
+___
+
+### modalTemplate$
+
+• **modalTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`ModalContext`\>\>
+
+The template used to display a modal window (instead of the [default modal](../components/ModalComponent.mdx))
+
+#### Defined in
+
+[lib/custom-templates.service.ts:138](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L138)
+
+___
+
+### notificationTemplate$
+
+• **notificationTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`NotificationContext`\>\>
+
+The template used to override the [default notification component](../components/NotificationComponent.mdx)
+
+#### Defined in
+
+[lib/custom-templates.service.ts:144](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L144)
+
+___
+
+### threadHeaderTemplate$
+
+• **threadHeaderTemplate$**: `BehaviorSubject`<`undefined` \| `TemplateRef`<`ThreadHeaderContext`\>\>
+
+The template used for header of thread
+
+#### Defined in
+
+[lib/custom-templates.service.ts:150](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L150)
 
 ___
 
@@ -108,4 +240,4 @@ The typing indicator template used in the message list
 
 #### Defined in
 
-[lib/custom-templates.service.ts:61](https://github.com/GetStream/stream-chat-angular/blob/79be1b7/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L61)
+[lib/custom-templates.service.ts:72](https://github.com/GetStream/stream-chat-angular/blob/68e4ee8/projects/stream-chat-angular/src/lib/custom-templates.service.ts#L72)
