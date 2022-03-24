@@ -36,7 +36,7 @@ val viewModel: ChannelListViewModel by viewModels {
     ChannelListViewModelFactory(
         filter = Filters.and(
             Filters.eq("type", "messaging"),
-            Filters.`in`("members", listOf(ChatDomain.instance().user.value!!.id)), 
+            Filters.`in`("members", listOf(ChatClient.instance().getCurrentUser()!!.id)),
         ),
         sort = ChannelListViewModel.DEFAULT_SORT,
         limit = 30,
@@ -45,7 +45,7 @@ val viewModel: ChannelListViewModel by viewModels {
 // Bind the ViewModel with ChannelListView
 viewModel.bindView(channelListView, viewLifecycleOwner)
 ```
-To instantiate `ChannelListViewModel` you may want to pass an instance of the `ChatEventHandler` interface. See [this point](##ChatEventHandler) to read more.
+To instantiate `ChannelListViewModel` you may want to pass an instance of the `ChatEventHandler` interface. See [this point](#ChatEventHandler) to read more.
 
 All the logic of subscribing to data emitted by the ViewModel is provided by the `bindView` function. Other than channel data loading, the ViewModel is also handling actions like deleting a channel and leaving a group conversation by default.
 
