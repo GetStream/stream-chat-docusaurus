@@ -4,19 +4,42 @@ The `MessageInput` component displays an input where users can type their messag
 
 The `MessageInput` component can use the [`Textarea`](./TextareaComponent.mdx) or the [`AutocompleteTextarea`](./AutocompleteTextareaComponent.mdx) component for displaying an HTML input for the users to type. You need to [provide your chosen component at module import](../concepts/opt-in-architecture.mdx).
 
-## Emoji picker
-
-The SDK doesn't have a built-in emoji picker, but it has support for providing your own template. Follow our [emoji picker guide](../code-examples/emoji-picker.mdx) to get to know more.
-
 ## Customization
 
-If you want to provide your own message input component you'll have to provide it in the following places:
+If you want to create your own message input, here is how to use it:
 
-- Replace the default message input inside the [channel](./ChannelComponent.mdx)
-- Replace the default message input inside the [thread](./ThreadComponent.mdx)
-- Provide your own [messageInputTemplate$](../services/CustomTemplatesService.mdx/#messageinputtemplate) to the `CustomTemplatesService`
+```html
+<stream-channel-list></stream-channel-list>
+<stream-channel>
+  <stream-channel-header></stream-channel-header>
+  <stream-message-list
+    [messageInputTemplate]="customMessageInput"
+  ></stream-message-list>
+  <custom-message-input></custom-message-input>
+  <stream-thread name="thread">
+    <stream-message-list
+      name="thread-message-list"
+      mode="thread"
+    ></stream-message-list>
+    <custom-message-input name="thread-message-input"></custom-message-input>
+  </stream-thread>
+</stream-channel>
 
-See [our customization guide](../concepts/customization.mdx) for more information.
+<ng-template
+  #customMessageInput
+  let-message="message"
+  let-messageUpdateHandler="messageUpdateHandler"
+>
+  <custom-message-input
+    [message]="message"
+    (messageUpdate)="messageUpdateHandler($event)"
+  ></custom-message-input>
+</ng-template>
+```
+
+The default chat UI uses the message input in two different places: at the bottom of the channel to send new message, and in the message list to edit a message.
+
+Your custom template can receive the same inputs (with the same name) as the default `MessageInput` component.
 
 :::note
 If you want to create your own message input, you can use the following building blocks:
@@ -58,7 +81,7 @@ If file upload is enabled, the user can open a file selector from the input. Ple
 
 #### Defined in
 
-[lib/message-input/message-input.component.ts:56](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L56)
+[lib/message-input/message-input.component.ts:54](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L54)
 
 ___
 
@@ -70,7 +93,7 @@ If true, users can mention other users in messages. You also [need to use the `A
 
 #### Defined in
 
-[lib/message-input/message-input.component.ts:60](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L60)
+[lib/message-input/message-input.component.ts:58](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L58)
 
 ___
 
@@ -82,7 +105,43 @@ The scope for user mentions, either members of the current channel of members of
 
 #### Defined in
 
-[lib/message-input/message-input.component.ts:64](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L64)
+[lib/message-input/message-input.component.ts:62](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L62)
+
+___
+
+### mentionAutocompleteItemTemplate
+
+• **mentionAutocompleteItemTemplate**: `undefined` \| `TemplateRef`<`MentionAutcompleteListItemContext`\>
+
+You can provide your own template for the autocomplete list for user mentions. You also [need to use the `AutocompleteTextarea`](../concepts/opt-in-architecture.mdx) for this feature to work. If no value is provided, it is set from the [`MessageInputConfigService`](../services/MessageInputConfigService.mdx).
+
+#### Defined in
+
+[lib/message-input/message-input.component.ts:66](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L66)
+
+___
+
+### commandAutocompleteItemTemplate
+
+• **commandAutocompleteItemTemplate**: `undefined` \| `TemplateRef`<`CommandAutocompleteListItemContext`\>
+
+You can provide your own template for the autocomplete list for commands. You also [need to use the `AutocompleteTextarea`](../concepts/opt-in-architecture.mdx) for this feature to work. If no value is provided, it is set from the [`MessageInputConfigService`](../services/MessageInputConfigService.mdx).
+
+#### Defined in
+
+[lib/message-input/message-input.component.ts:72](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L72)
+
+___
+
+### emojiPickerTemplate
+
+• **emojiPickerTemplate**: `undefined` \| `TemplateRef`<`void`\>
+
+You can add an emoji picker by [providing your own emoji picker template](../code-examples/emoji-picker.mdx)
+
+#### Defined in
+
+[lib/message-input/message-input.component.ts:78](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L78)
 
 ___
 
@@ -94,7 +153,22 @@ Determines if the message is being dispalyed in a channel or in a [thread](https
 
 #### Defined in
 
-[lib/message-input/message-input.component.ts:68](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L68)
+[lib/message-input/message-input.component.ts:82](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L82)
+
+___
+
+### acceptedFileTypes
+
+• **acceptedFileTypes**: `undefined` \| `string`[]
+
+You can narrow the accepted file types by providing the [accepted types](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept). By default every file type is accepted.
+If no value is provided, it is set from the [`MessageInputConfigService`](../services/MessageInputConfigService.mdx).
+
+**`deprecated`** use [application settings](https://getstream.io/chat/docs/javascript/app_setting_overview/?language=javascript#file-uploads) instead
+
+#### Defined in
+
+[lib/message-input/message-input.component.ts:88](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L88)
 
 ___
 
@@ -106,7 +180,7 @@ If true, users can select multiple files to upload. If no value is provided, it 
 
 #### Defined in
 
-[lib/message-input/message-input.component.ts:72](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L72)
+[lib/message-input/message-input.component.ts:92](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L92)
 
 ___
 
@@ -118,7 +192,7 @@ The message to edit
 
 #### Defined in
 
-[lib/message-input/message-input.component.ts:76](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L76)
+[lib/message-input/message-input.component.ts:96](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L96)
 
 ___
 
@@ -130,6 +204,6 @@ Emits when a message was successfuly sent or updated
 
 #### Defined in
 
-[lib/message-input/message-input.component.ts:80](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L80)
+[lib/message-input/message-input.component.ts:100](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-input/message-input.component.ts#L100)
 
 [//]: # "End of generated content"

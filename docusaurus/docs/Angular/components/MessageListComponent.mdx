@@ -9,9 +9,28 @@ The `MessageList` displays messages using pagination, new messages are loaded wh
 
 **Example 1** - Using a custom message list component
 
-## Customization
+If you want to create a custom message list component, here is how to use it:
 
-See [our customization guide](../concepts/customization.mdx) on how to provide your own message list component.
+```html
+<stream-channel-list></stream-channel-list>
+<stream-channel>
+  <stream-channel-header></stream-channel-header>
+  <custom-message-list></custom-message-list>
+  <stream-message-input></stream-message-input>
+</stream-channel>
+```
+
+If you want to use a custom message list component in the thread UI, here is how to do it:
+
+```html
+<stream-thread name="thread">
+  <custom-message-list name="thread-message-list"></custom-message-list>
+  <stream-message-input
+    mode="thread"
+    name="thread-message-input"
+  ></stream-message-input>
+</stream-thread>
+```
 
 :::note
 If you want to create your own message list, you can use the [`ChannelService`](../services/ChannelService.mdx) to receive the necessary messages and interact with the Stream API.
@@ -40,6 +59,54 @@ If you only want to customize the messages (not the whole list), see the [messag
 ## Inputs and outputs 
 
 
+### messageTemplate
+
+• **messageTemplate**: `undefined` \| `TemplateRef`<`any`\>
+
+By default, the [default message component](./MessageComponent.mdx) is used. To change the contents of the message, provide [your own custom message template](./MessageComponent.mdx/#customization).
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:37](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L37)
+
+___
+
+### messageInputTemplate
+
+• **messageInputTemplate**: `undefined` \| `TemplateRef`<`any`\>
+
+The input used for message edit. By default, the [default message input component](./MessageInputComponent.mdx) is used. To change the input for message edit, provide [your own custom template](./MessageInputComponent.mdx/#customization).
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:41](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L41)
+
+___
+
+### mentionTemplate
+
+• **mentionTemplate**: `undefined` \| `TemplateRef`<`any`\>
+
+The template used to display a mention in a message. It receives the mentioned user in a variable called `user` with the type [`UserResponse`](https://github.com/GetStream/stream-chat-js/blob/master/src/types.ts). You can provide your own template if you want to [add actions to mentions](../code-examples/mention-actions.mdx).
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:45](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L45)
+
+___
+
+### typingIndicatorTemplate
+
+• **typingIndicatorTemplate**: `undefined` \| `TemplateRef`<{}\>
+
+You can provide your own typing indicator template instead of the default one.
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:49](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L49)
+
+___
+
 ### mode
 
 • **mode**: ``"thread"`` \| ``"main"`` = `'main'`
@@ -48,6 +115,6 @@ Determines if the message list should display channel messages or [thread messag
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:43](https://github.com/GetStream/stream-chat-angular/blob/da0ebd1/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L43)
+[lib/message-list/message-list.component.ts:66](https://github.com/GetStream/stream-chat-angular/blob/5332799/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L66)
 
 [//]: # "End of generated content"
