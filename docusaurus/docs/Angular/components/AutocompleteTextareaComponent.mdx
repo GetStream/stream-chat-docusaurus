@@ -49,7 +49,7 @@ TextareaInterface.value
 
 #### Defined in
 
-[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:45](https://github.com/GetStream/stream-chat-angular/blob/24987f1/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L45)
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:44](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L44)
 
 ___
 
@@ -65,7 +65,39 @@ TextareaInterface.areMentionsEnabled
 
 #### Defined in
 
-[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:49](https://github.com/GetStream/stream-chat-angular/blob/24987f1/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L49)
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:48](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L48)
+
+___
+
+### mentionAutocompleteItemTemplate
+
+• **mentionAutocompleteItemTemplate**: `undefined` \| `TemplateRef`<`MentionAutcompleteListItemContext`\>
+
+You can provide your own template for the autocomplete list for user mentions. You can also set this input on the [`MessageInput`](./MessageInputComponent.mdx/#inputs-and-outputs) component.
+
+#### Implementation of
+
+TextareaInterface.mentionAutocompleteItemTemplate
+
+#### Defined in
+
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:52](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L52)
+
+___
+
+### commandAutocompleteItemTemplate
+
+• **commandAutocompleteItemTemplate**: `undefined` \| `TemplateRef`<`CommandAutocompleteListItemContext`\>
+
+You can provide your own template for the autocomplete list for commands. You can also set this input on the [`MessageInput`](./MessageInputComponent.mdx/#inputs-and-outputs) component.
+
+#### Implementation of
+
+TextareaInterface.commandAutocompleteItemTemplate
+
+#### Defined in
+
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:58](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L58)
 
 ___
 
@@ -81,7 +113,7 @@ TextareaInterface.mentionScope
 
 #### Defined in
 
-[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:53](https://github.com/GetStream/stream-chat-angular/blob/24987f1/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L53)
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:64](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L64)
 
 ___
 
@@ -97,7 +129,7 @@ TextareaInterface.valueChange
 
 #### Defined in
 
-[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:57](https://github.com/GetStream/stream-chat-angular/blob/24987f1/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L57)
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:68](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L68)
 
 ___
 
@@ -113,13 +145,13 @@ TextareaInterface.send
 
 #### Defined in
 
-[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:61](https://github.com/GetStream/stream-chat-angular/blob/24987f1/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L61)
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:72](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L72)
 
 ___
 
 ### userMentions
 
-• `Readonly` **userMentions**: `EventEmitter`<`UserResponse`<`DefaultGenerics`\>[]\>
+• `Readonly` **userMentions**: `EventEmitter`<`UserResponse`<`UR`\>[]\>
 
 Emits the array of users that are mentioned in the message, it is updated when a user mentions a new user or deletes a mention.
 
@@ -129,6 +161,6 @@ TextareaInterface.userMentions
 
 #### Defined in
 
-[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:65](https://github.com/GetStream/stream-chat-angular/blob/24987f1/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L65)
+[lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts:76](https://github.com/GetStream/stream-chat-angular/blob/f5f7740/projects/stream-chat-angular/src/lib/message-input/autocomplete-textarea/autocomplete-textarea.component.ts#L76)
 
 [//]: # "End of generated content"
