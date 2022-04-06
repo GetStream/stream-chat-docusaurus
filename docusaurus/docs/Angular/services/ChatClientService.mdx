@@ -2,6 +2,12 @@
 
 The `ChatClient` service connects the user to the Stream chat.
 
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `DefaultStreamChatGenerics` = `DefaultStreamChatGenerics` |
+
 ## Properties
 
 ### appSettings$
@@ -12,19 +18,19 @@ Emits the current [application settings](https://getstream.io/chat/docs/javascri
 
 #### Defined in
 
-[lib/chat-client.service.ts:39](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L39)
+[lib/chat-client.service.ts:46](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L46)
 
 ___
 
 ### chatClient
 
-• **chatClient**: `StreamChat`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>
+• **chatClient**: `StreamChat`<`T`\>
 
 The [StreamChat client](https://github.com/GetStream/stream-chat-js/blob/master/src/client.ts) instance. In general you shouldn't need to access the client, but it's there if you want to use it.
 
 #### Defined in
 
-[lib/chat-client.service.ts:28](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L28)
+[lib/chat-client.service.ts:35](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L35)
 
 ___
 
@@ -36,40 +42,40 @@ Emits the current connection state of the user (`online` or `offline`)
 
 #### Defined in
 
-[lib/chat-client.service.ts:43](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L43)
+[lib/chat-client.service.ts:50](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L50)
 
 ___
 
-### notification$
+### events$
 
-• **notification$**: `Observable`<`Notification`\>
+• **events$**: `Observable`<`ClientEvent`<`T`\>\>
 
-Emits [`Notification`](https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/chat-client.service.ts) events. The platform documentation covers [the list of client and notification events](https://getstream.io/chat/docs/javascript/event_object/?language=javascript).
+Emits [`ClientEvent`](https://github.com/GetStream/stream-chat-angular/blob/master/projects/stream-chat-angular/src/lib/chat-client.service.ts) events. The platform documentation covers [the list of client, user presence and notification events](https://getstream.io/chat/docs/javascript/event_object/?language=javascript).
 :::important
 For performance reasons this Observable operates outside of the Angular change detection zone. If you subscribe to it, you need to manually reenter Angular's change detection zone, our [Change detection guide](../concepts/change-detection.mdx) explains this in detail.
 :::
 
 #### Defined in
 
-[lib/chat-client.service.ts:35](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L35)
+[lib/chat-client.service.ts:42](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L42)
 
 ___
 
 ### pendingInvites$
 
-• **pendingInvites$**: `Observable`<(`ChannelResponse`<`UR`, `LiteralStringForUnion`, `UR`\> \| `Channel`<`UR`, `UR`, `LiteralStringForUnion`, `UR`, `UR`, `UR`, `UR`\>)[]\>
+• **pendingInvites$**: `Observable`<(`ChannelResponse`<`T`\> \| `Channel`<`T`\>)[]\>
 
 Emits the list of pending invites of the user. It emits every pending invitation during initialization and then extends the list when a new invite is received. More information can be found in the [channel invitations](../code-examples/channel-invites.mdx) guide.
 
 #### Defined in
 
-[lib/chat-client.service.ts:47](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L47)
+[lib/chat-client.service.ts:54](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L54)
 
 ## Methods
 
 ### autocompleteUsers
 
-▸ **autocompleteUsers**(`searchTerm`): `Promise`<`UserResponse`<`UR`\>[]\>
+▸ **autocompleteUsers**(`searchTerm`): `Promise`<`UserResponse`<`T`\>[]\>
 
 Searches for users in the application that have ID or name matching the provided search term
 
@@ -81,13 +87,13 @@ Searches for users in the application that have ID or name matching the provided
 
 #### Returns
 
-`Promise`<`UserResponse`<`UR`\>[]\>
+`Promise`<`UserResponse`<`T`\>[]\>
 
 The users matching the search
 
 #### Defined in
 
-[lib/chat-client.service.ts:152](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L152)
+[lib/chat-client.service.ts:159](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L159)
 
 ___
 
@@ -103,7 +109,7 @@ Disconnects the current user, and closes the WebSocket connection. Useful when d
 
 #### Defined in
 
-[lib/chat-client.service.ts:123](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L123)
+[lib/chat-client.service.ts:130](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L130)
 
 ___
 
@@ -125,7 +131,7 @@ Flag the message with the given ID. If you want to know [more about flags](https
 
 #### Defined in
 
-[lib/chat-client.service.ts:143](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L143)
+[lib/chat-client.service.ts:150](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L150)
 
 ___
 
@@ -141,7 +147,7 @@ Loads the current [application settings](https://getstream.io/chat/docs/javascri
 
 #### Defined in
 
-[lib/chat-client.service.ts:131](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L131)
+[lib/chat-client.service.ts:138](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L138)
 
 ___
 
@@ -156,7 +162,7 @@ Creates a [`StreamChat`](https://github.com/GetStream/stream-chat-js/blob/668b3e
 | Name | Type |
 | :------ | :------ |
 | `apiKey` | `string` |
-| `userOrId` | `string` \| `OwnUserResponse`<`UR`, `LiteralStringForUnion`, `UR`\> \| `UserResponse`<`UR`\> |
+| `userOrId` | `string` \| `OwnUserResponse`<`T`\> \| `UserResponse`<`T`\> |
 | `userTokenOrProvider` | `TokenOrProvider` |
 
 #### Returns
@@ -165,4 +171,4 @@ Creates a [`StreamChat`](https://github.com/GetStream/stream-chat-js/blob/668b3e
 
 #### Defined in
 
-[lib/chat-client.service.ts:73](https://github.com/GetStream/stream-chat-angular/blob/8d97c98/projects/stream-chat-angular/src/lib/chat-client.service.ts#L73)
+[lib/chat-client.service.ts:80](https://github.com/GetStream/stream-chat-angular/blob/14ef557/projects/stream-chat-angular/src/lib/chat-client.service.ts#L80)
