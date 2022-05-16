@@ -13,7 +13,7 @@ import ChannelListLayoutScreenshot from "../assets/channel-list-layout-screensho
 import ChannelListRtlScreenshot from "../assets/channel-list-rtl-screenshot.png";
 
 :::info
-The default chat UI has a new theming and customization system, this page contains information about the new version (version 2). The most important improvements of the new version:
+The default chat UI has a new theming and customization system. This page contains information about the new version (version 2). The most significant improvements of the new version:
 
 - Refreshed design
 - Better customization
@@ -23,7 +23,7 @@ The [old theme](../concepts/theming-and-css.mdx) can still be used with the late
 :::
 
 :::info
-The following page contains code examples using SCSS but our library supports CSS as well:
+The following page contains code examples using SCSS, but our library supports CSS as well:
 
 ```css
 @import "../../stream-chat-angular/src/assets/styles/v2/css/index.css";
@@ -33,18 +33,18 @@ The following page contains code examples using SCSS but our library supports CS
 
 ## Customization
 
-Our theming system has various different customization options allowing for smaller and large scale UI changes as well. The above list contains all the different customization options.
+Our theming system has various different customization options allowing for smaller and large-scale UI changes as well. The above list contains all the different customization options.
 
 ### CSS variables
 
-CSS variables are the easieast way for customizing the theme. The variables are organized into two layers:
+CSS variables are the easiest way to customize the theme. The variables are organized into two layers:
 
 - theme
 - component
 
 #### Theme variables
 
-You can use theme layer variables to change the look and feels for the whole chat UI (as opposed to changing the design of individual components), these variables can be grouped into three categories:
+You can use theme layer variables to change the look and feels of the whole chat UI (as opposed to changing the design of individual components). These variables can be grouped into three categories:
 
 - Colors
 - Fonts
@@ -140,7 +140,7 @@ If you're using SCSS it's also possible to import component stylesheets separate
 
 ### Apply your own look and feel
 
-If you want to create a truly custom look and feel it can be exhausting to override the default styling, in that case it's possible to only apply layout rules from the default theme.
+If you want to create a truly custom look and feel, it can be exhausting to override the default styling. In that case, it's possible only to apply layout rules from the default theme.
 
 Here is how you can import the layout stylesheet:
 
@@ -165,7 +165,7 @@ The result will be a minimalistic UI without
 
 ## Dark and light themes
 
-The default theme has dark and light variants, you can switch between the two using the [`ThemeService`](../services/ThemeService.mdx).
+The default theme has dark and light variants. You can switch between the two using the [`ThemeService`](../services/ThemeService.mdx).
 
 ```typescript
 import { ThemeService } from 'stream-chat-angular';
@@ -175,7 +175,7 @@ constructor(themeService: ThemeService) {
 }
 ```
 
-Here is how the dark theme looks like:
+Here is what the dark theme looks like:
 TODO: replace with screenshot containing channel as well
 
 <img src={ChannelListDarkScreenshot} width="500" />
@@ -265,7 +265,7 @@ constructor(themeService: ThemeService) {
 
 ## RTL support
 
-The layout was built with RTL support in mind, you can use the RTL layout by using the `direction` CSS attribute:
+The layout was built with RTL support in mind. You can use the RTL layout by using the `direction` CSS attribute:
 
 ```scss
 html {
@@ -279,4 +279,4 @@ Here is the result:
 
 ## CSS logical properties and polyfills
 
-Our CSS implementation uses [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) for RTL support, [browser support](https://caniuse.com/?search=logical%20properties) for these properties isn't ubiquitous. Our implementation contains polyfills for logical properties, to use them you'll have to [provide at least one `[dir]` attribute in your HTML](https://github.com/csstools/postcss-dir-pseudo-class#maintaining-specificity).
+Our CSS implementation uses [CSS logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) for RTL support, [browser support](https://caniuse.com/?search=logical%20properties) for these properties isn't universal. Our implementation contains polyfills for logical properties. To use them, you'll have to [provide at least one `[dir]` attribute in your HTML](https://github.com/csstools/postcss-dir-pseudo-class#maintaining-specificity).
