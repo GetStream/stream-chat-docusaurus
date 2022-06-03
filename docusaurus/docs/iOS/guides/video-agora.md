@@ -16,8 +16,6 @@ First, let’s take a look at the end result of this project:
   <source src="https://getstream.io/static-cdn/videos/agora-demo.mov"/>
 </video>
 
-[Agora example movie](https://getstream.io/static-cdn/videos/agora-demo.mov)
-
 In order to create this, follow these six steps:
 
 1. Set up an Agora account

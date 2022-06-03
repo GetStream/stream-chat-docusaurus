@@ -16,8 +16,6 @@ Here is a sneak peek of the final product you’ll build today:
   <source src="https://getstream.io/static-cdn/videos/100ms-example.mov"/>
 </video>
 
-[100ms example movie](https://getstream.io/static-cdn/videos/100ms-example.mov)
-
 Follow the steps below to produce this app that allows your users to make video calls:
 
 1. Set up an account for 100ms
