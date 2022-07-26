@@ -45,6 +45,40 @@ const channel = client.channel('messaging', {
 | ------ |
 | object |
 
+### customClasses
+
+Object containing custom CSS classnames to override the library's default container CSS. See [CSS and Theming](../customization/css-and-theming.mdx)
+for implementation assistance.
+
+| Type   |
+| ------ |
+| object |
+
+### customStyles
+
+Object containing custom styles to override the default CSS variables. See [CSS and Theming](../customization/css-and-theming.mdx)
+for implementation assistance.
+
+| Type   |
+| ------ |
+| object |
+
+### darkMode
+
+If true, toggles the CSS variables to the default dark mode color palette.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
+### defaultLanguage
+
+Sets the default fallback language for UI component translation, defaults to 'en' for English.
+
+| Type   | Default |
+| ------ | ------- |
+| string | 'en'    |
+
 ### i18nInstance
 
 The `Streami18n` translation instance. Create an instance of this class when you wish to change the connected user's default
@@ -77,19 +111,11 @@ When the screen width is at a mobile breakpoint, whether or not the mobile navig
 
 ### theme
 
-UI theme used for custom styling of components. Default themes are available by channel type and custom themes are supported.
+Deprecated and to be removed in a future major release. Use the `customStyles` prop to adjust CSS variables and [customize the theme](../customization/css-and-theming.mdx#css-variables) of your app.
 
-```jsx
-const theme = 'messaging dark'
-
-<Chat client={client} theme={theme}>
-  {// children of Chat component}
-</Chat>
-```
-
-| Type  | Default           |
-| ----- | ----------------- |
-| Theme | `messaging light` |
+| Type  |
+| ----- |
+| Theme |
 
 ### useImageFlagEmojisOnWindows
 

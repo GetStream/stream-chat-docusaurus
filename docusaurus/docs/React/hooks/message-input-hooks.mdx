@@ -7,8 +7,8 @@ title: MessageInput Hooks
 The `MessageInput` component uses a variety of custom hooks to assemble the [`MessageInputContext`](../contexts/message-input-context.mdx).
 These hooks can also be useful when building a custom [Input UI](../message-input-components/input-ui.mdx) component.
 
-The main provided hook, [`useMessageInputState`](./message_input_hooks#usemessageinputstate), uses a group of smaller, helper hooks which are segmented by functionality. Other hooks provided include [`useCooldownTimer`](./message_input_hooks#usecooldowntimer)
-and the several hooks used by the [`DefaultTriggerProvider`](../message-input-components/ui_components#defaulttriggerprovider).
+The main provided hook, [`useMessageInputState`](#usemessageinputstate), uses a group of smaller, helper hooks which are segmented by functionality. Other hooks provided include [`useCooldownTimer`](#usecooldowntimer)
+and the several hooks used by the [`DefaultTriggerProvider`](../message-input-components/ui-components.mdx/#defaulttriggerprovider).
 
 ## Hooks
 
@@ -18,7 +18,7 @@ A [custom hook](https://github.com/GetStream/stream-chat-react/blob/master/src/c
 This dispatch method is then used within the many smaller hooks that each compile and process a specific section of the state, and these are outlined below.
 
 - [useAttachments](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/hooks/useAttachments.ts) - sets the state for attachments and returns this data and related functions.
-  Utilizes two hooks within it, [useFileUploads](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/hooks/useFileUploads.ts) and [useImageUplaods](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/hooks/useImageUploads.ts).
+  Utilizes two hooks within it, [useFileUploads](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/hooks/useFileUploads.ts) and [useImageUploads](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/hooks/useImageUploads.ts).
 
 - [useEmojiIndex](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/hooks/useEmojiIndex.ts) - returns the NimbleEmojiIndex. Added to the state under the `emojiIndex` key.
 

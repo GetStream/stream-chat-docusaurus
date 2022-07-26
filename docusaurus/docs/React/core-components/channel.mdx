@@ -5,12 +5,18 @@ title: Channel
 ---
 
 The `Channel` component is a React Context provider that wraps all of the logic, functionality, and UI for an individual chat channel.
-It provides four separate contexts to its children:
+It provides five separate contexts to its children:
 
 - [`ChannelStateContext`](../contexts/channel-state-context.mdx) - stateful data (ex: `messages` or `members`)
 - [`ChannelActionContext`](../contexts/channel-action-context.mdx) - action handlers (ex: `sendMessage` or `openThread`)
 - [`ComponentContext`](../contexts/component-context.mdx) - custom component UI overrides (ex: `Avatar` or `Message`)
+- [`EmojiContext`](../contexts/emoji-context.mdx) - emoji UI components and data (ex: `EmojiPicker` or `emojiConfig`)
 - [`TypingContext`](../contexts/typing-context.mdx) - object of currently typing users (i.e., `typing`)
+
+:::note
+The `Channel` component renders an individual `channel` object. For detailed information regarding `channel` objects and their
+functionality, check out the [JavaScript docs](https://getstream.io/chat/docs/javascript/creating_channels/) on our website.
+:::
 
 ## Basic Usage
 
@@ -80,6 +86,14 @@ A list of accepted file upload types.
 | -------- |
 | string[] |
 
+### activeUnreadHandler
+
+Custom handler function that runs when the active channel has unread messages (i.e., when chat is running on a separate browser tab).
+
+| Type                                            |
+| ----------------------------------------------- |
+| (unread: number, documentTitle: string) => void |
+
 ### Attachment
 
 Custom UI component to display a message attachment.
@@ -134,7 +148,7 @@ Custom UI component for date separators.
 
 | Type      | Default                                                                                                      |
 | --------- | ------------------------------------------------------------------------------------------------------------ |
-| component | [DateSeparator](https://github.com/GetStream/stream-chat-react/blob/master/src/components/DateSeparator.tsx) |
+| component | [DateSeparator](https://github.com/GetStream/stream-chat-react/blob/master/src/components/DateSeparator/DateSeparator.tsx) |
 
 ### doMarkReadRequest
 
@@ -159,6 +173,14 @@ Custom action handler to override the default `client.updateMessage` request fun
 | Type     |
 | -------- |
 | function |
+
+### dragAndDropWindow
+
+If true, chat users will be able to drag and drop file uploads to the entire channel window.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
 
 ### EditMessageInput
 
@@ -232,6 +254,22 @@ Custom UI component for file upload icon.
 | --------- | ------------------------------------------------------------------------------------------------------------------ |
 | component | [FileUploadIcon](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/icons.tsx) |
 
+### GiphyPreviewMessage
+
+Custom UI component to render a Giphy preview in the `VirtualizedMessageList`.
+
+| Type      | Default                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| component | [GiphyPreviewMessage](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageList/GiphyPreviewMessage.tsx) |
+
+### giphyVersion
+
+The Giphy version to render - check the keys of the [Image Object](https://developers.giphy.com/docs/api/schema#image-object) for possible values.
+
+| Type      | Default        |
+| --------- | -------------- |
+| string    | 'fixed_height' |
+
 ### HeaderComponent
 
 Custom UI component to render at the top of the `MessageList`.
@@ -288,6 +326,14 @@ Custom UI component for a deleted message.
 | --------- | ---------------------------------------------------------------------------------------------------------------------- |
 | component | [MessageDeleted](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Message/MessageDeleted.tsx) |
 
+### MessageListNotifications
+
+Custom UI component that displays message and connection status notifications in the `MessageList`.
+
+| Type      | Default                                                                                                                                  |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| component | [DefaultMessageListNotifications](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageList/MessageListNotifications.tsx) |
+
 ### MessageNotification
 
 Custom UI component to display a notification when scrolled up the list and new messages arrive.
@@ -311,6 +357,14 @@ Custom UI component to display message replies.
 | Type      | Default                                                                                                                                      |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | component | [MessageRepliesCountButton](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Message/MessageRepliesCountButton.tsx) |
+
+### MessageStatus
+
+Custom UI component to display message delivery status.
+
+| Type      | Default                                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------------------- |
+| component | [MessageStatus](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Message/MessageStatus.tsx) |
 
 ### MessageSystem
 
@@ -351,6 +405,14 @@ Custom action handler function to run on hover of an @mention in a message.
 | Type     |
 | -------- |
 | function |
+
+### optionalMessageInputProps
+
+If `dragAndDropWindow` prop is true, the props to pass to the MessageInput component (overrides props placed directly on MessageInput).
+
+| Type   |
+| ------ |
+| object |
 
 ### PinIndicator
 
@@ -399,6 +461,14 @@ Custom UI component for send button.
 | Type      | Default                                                                                                        |
 | --------- | -------------------------------------------------------------------------------------------------------------- |
 | component | [SendButton](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/icons.tsx) |
+
+### skipMessageDataMemoization
+
+If true, skips the message data string comparison used to memoize the current channel messages (helpful for channels with 1000s of messages).
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
 
 ### ThreadHeader
 

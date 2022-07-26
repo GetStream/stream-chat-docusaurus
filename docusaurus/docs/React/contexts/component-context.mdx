@@ -14,7 +14,7 @@ The `ComponentContext` also exposes the hook `useComponentContext`.
 Pull values from context with our custom hook:
 
 ```jsx
-const { Attachment, Avatar, EmojiPicker } = useComponentContext();
+const { Attachment, Avatar, Message } = useComponentContext();
 ```
 
 ## Values
@@ -83,14 +83,6 @@ Custom UI component to override default edit message input.
 | --------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | component | [EditMessageForm](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/EditMessageForm.tsx) |
 
-### Emoji
-
-Custom UI component to override default `NimbleEmoji` from ['emoji-mart'](https://www.npmjs.com/package/emoji-mart).
-
-| Type      |
-| --------- |
-| component |
-
 ### EmojiIcon
 
 Custom UI component for emoji button in input.
@@ -98,22 +90,6 @@ Custom UI component for emoji button in input.
 | Type      | Default                                                                                                            |
 | --------- | ------------------------------------------------------------------------------------------------------------------ |
 | component | [EmojiIconSmall](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/icons.tsx) |
-
-### EmojiIndex
-
-Custom class constructor to override default `NimbleEmojiIndex` from ['emoji-mart'](https://www.npmjs.com/package/emoji-mart).
-
-| Type        |
-| ----------- |
-| constructor |
-
-### EmojiPicker
-
-Custom UI component to override default `NimblePicker` from ['emoji-mart'](https://www.npmjs.com/package/emoji-mart).
-
-| Type      |
-| --------- |
-| component |
 
 ### EmptyStateIndicator
 
@@ -130,6 +106,14 @@ Custom UI component for file upload icon.
 | Type      | Default                                                                                                            |
 | --------- | ------------------------------------------------------------------------------------------------------------------ |
 | component | [FileUploadIcon](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageInput/icons.tsx) |
+
+### GiphyPreviewMessage
+
+Custom UI component to render a Giphy preview in the `VirtualizedMessageList`.
+
+| Type      | Default                                                                                                                              |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| component | [GiphyPreviewMessage](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageList/GiphyPreviewMessage.tsx) |
 
 ### Input
 
@@ -171,6 +155,14 @@ Custom UI component for a deleted message.
 | --------- | ---------------------------------------------------------------------------------------------------------------------- |
 | component | [MessageDeleted](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Message/MessageDeleted.tsx) |
 
+### MessageListNotifications
+
+Custom UI component that displays message and connection status notifications in the `MessageList`.
+
+| Type      | Default                                                                                                                                  |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| component | [DefaultMessageListNotifications](https://github.com/GetStream/stream-chat-react/blob/master/src/components/MessageList/MessageListNotifications.tsx) |
+
 ### MessageNotification
 
 Custom UI component to display a notification when scrolled up the list and new messages arrive.
@@ -194,6 +186,14 @@ Custom UI component to display message replies.
 | Type      | Default                                                                                                                                      |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | component | [MessageRepliesCountButton](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Message/MessageRepliesCountButton.tsx) |
+
+### MessageStatus
+
+Custom UI component to display message delivery status.
+
+| Type      | Default                                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------------------- |
+| component | [MessageStatus](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Message/MessageStatus.tsx) |
 
 ### MessageSystem
 

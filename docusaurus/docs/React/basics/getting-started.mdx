@@ -42,7 +42,7 @@ Initialize the Stream Chat client:
 ```jsx
 import { StreamChat } from 'stream-chat';
 
-const client = StreamChat.getInstance('your_api_key');
+const client = new StreamChat('your_api_key');
 
 <Chat client={client}>{/** children of Chat component*/}</Chat>;
 ```
@@ -122,11 +122,12 @@ const { client } = useChatContext();
 ### Channel
 
 The [`Channel`](../core-components/channel.mdx) component is a React Context provider that wraps all of the logic, functionality, and UI for an individual chat channel.
-It provides four separate contexts to its children:
+It provides five separate contexts to its children:
 
 - [`ChannelStateContext`](../contexts/channel-state-context.mdx) - stateful data (ex: `messages` or `members`)
 - [`ChannelActionContext`](../contexts/channel-action-context.mdx) - action handlers (ex: `sendMessage` or `openThread`)
 - [`ComponentContext`](../contexts/component-context.mdx) - custom component UI overrides (ex: `Avatar` or `Message`)
+- [`EmojiContext`](../contexts/emoji-context.mdx) - emoji UI components and data (ex: `EmojiPicker` or `emojiConfig`)
 - [`TypingContext`](../contexts/typing-context.mdx) - object of currently typing users (i.e., `typing`)
 
 ### ChannelList
@@ -188,38 +189,40 @@ import {
   Thread,
   Window,
 } from 'stream-chat-react';
-import 'stream-chat-react/dist/css/index.css';
+import '@stream-io/stream-chat-css/dist/css/index.css';
 
 const filters = { type: 'messaging' };
 const options = { state: true, presence: true, limit: 10 };
 const sort = { last_message_at: -1 };
 
-const client = StreamChat.getInstance('your_api_key');
-
 const App = () => {
-  const [clientReady, setClientReady] = useState(false);
+  const [client, setClient] = useState(null);
 
   useEffect(() => {
-    const setupClient = async () => {
-      try {
-        await client.connectUser(
-          {
-            id: 'dave-matthews',
-            name: 'Dave Matthews',
-          },
-          'your_user_token',
-        );
+    const newClient = new StreamChat('your_api_key');
 
-        setClientReady(true);
-      } catch (err) {
-        console.log(err);
-      }
+    const handleConnectionChange = ({ online = false }) => {
+      if (!online) return console.log('connection lost');
+      setClient(newClient);
     };
 
-    setupClient();
+    newClient.on('connection.changed', handleConnectionChange);
+
+    newClient.connectUser(
+      {
+        id: 'dave-matthews',
+        name: 'Dave Matthews',
+      },
+      'your_user_token',
+    );
+
+    return () => {
+      newClient.off('connection.changed', handleConnectionChange);
+      newClient.disconnectUser().then(() => console.log('connection closed'));
+    };
   }, []);
 
-  if (!clientReady) return null;
+  if (!client) return null;
 
   return (
     <Chat client={client}>

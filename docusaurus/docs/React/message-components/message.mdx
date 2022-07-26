@@ -43,6 +43,22 @@ Additional props to be passed to the underlying `MessageInput` component, [avail
 | ------ |
 | object |
 
+### autoscrollToBottom
+
+Call this function to keep message list scrolled to the bottom when the message list container scroll height increases (only available in the `VirtualizedMessageList`). An example use case is that upon user's interaction with the application, a new element appears below the last message. In order to keep the newly rendered content visible, the `autoscrollToBottom` function can be called. The container, however, is not scrolled to the bottom, if already scrolled up more than 4px from the bottom.
+
+| Type       |
+| ---------- |
+| () => void |
+
+### closeReactionSelectorOnClick
+
+If true, picking a reaction from the `ReactionSelector` component will close the selector.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
 ### customMessageActions
 
 An object containing custom message actions (key) and function handlers (value).
@@ -67,6 +83,22 @@ If true, disables the ability for users to quote messages.
 | ------- | ------- |
 | boolean | false   |
 
+### endOfGroup
+
+When true, the message is the last one in a group sent by a specific user (only used in the `VirtualizedMessageList`).
+
+| Type    |
+| ------- |
+| boolean |
+
+### firstOfGroup
+
+When true, the message is the first one in a group sent by a specific user (only used in the `VirtualizedMessageList`).
+
+| Type    |
+| ------- |
+| boolean |
+
 ### formatDate
 
 Overrides the default date formatting logic, has access to the original date object.
@@ -74,6 +106,15 @@ Overrides the default date formatting logic, has access to the original date obj
 | Type                   |
 | ---------------------- |
 | (date: Date) => string |
+
+### getDeleteMessageErrorNotification
+
+Function that returns the notification text to be displayed when a delete message request fails. This function receives the
+deleted [message object](https://getstream.io/chat/docs/javascript/message_format/?language=javascript) as its argument.
+
+| Type                               |
+| ---------------------------------- |
+| (message: StreamMessage) => string |
 
 ### getFlagMessageErrorNotification
 
@@ -119,6 +160,14 @@ pinned [message object](https://getstream.io/chat/docs/javascript/message_format
 | Type                               |
 | ---------------------------------- |
 | (message: StreamMessage) => string |
+
+### groupedByUser
+
+If true, group messages sent by each user (only used in the `VirtualizedMessageList`).
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
 
 ### groupStyles
 
@@ -219,7 +268,7 @@ Custom action handler to open a [`Thread`](../core-components/thread.mdx) compon
 
 ### pinPermissions
 
-The user roles allowed to pin messages in various channel types.
+The user roles allowed to pin messages in various channel types (deprecated in favor of `channelCapabilities`).
 
 | Type   | Default                                                                                                              |
 | ------ | -------------------------------------------------------------------------------------------------------------------- |

@@ -41,6 +41,31 @@ The function to close mobile navigation.
 | -------- |
 | function |
 
+### customClasses
+
+Object containing custom CSS classnames to override the library's default container CSS. See [CSS and Theming](../customization/css-and-theming.mdx)
+for implementation assistance.
+
+| Type   |
+| ------ |
+| object |
+
+### getAppSettings
+
+The callback function used to get available client-side app settings, includes image and file upload config.
+
+| Type     |
+| -------- |
+| function |
+
+### latestMessageDatesByChannel
+
+Object containing the date of the latest message sent by the current user by channels (this is used to detect if slow mode countdown should be started)
+
+| Type                    |
+| ----------------------- |
+| { [key: string]: Date } |
+
 ### mutes
 
 An array of users that have been muted by the connected user.
@@ -76,11 +101,11 @@ You can override the default behavior by pulling it from context and then utiliz
 
 ### theme
 
-UI theme used for custom styling of components. Default themes are available by channel type and custom themes are supported.
+Deprecated and to be removed in a future major release. Use the `customStyles` prop to adjust CSS variables and [customize the theme](../customization/css-and-theming.mdx#css-variables) of your app.
 
-| Type  | Default           |
-| ----- | ----------------- |
-| Theme | `messaging light` |
+| Type  |
+| ----- |
+| Theme |
 
 ### useImageFlagEmojisOnWindow
 

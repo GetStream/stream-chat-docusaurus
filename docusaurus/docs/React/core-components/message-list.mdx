@@ -64,6 +64,14 @@ Additional props to be passed to the underlying `MessageInput` component, [avail
 | ------ |
 | object |
 
+### closeReactionSelectorOnClick
+
+If true, picking a reaction from the `ReactionSelector` component will close the selector.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
+
 ### customMessageActions
 
 An object containing custom message actions (key) and function handlers (value).
@@ -82,7 +90,7 @@ const customAction = {
 
 ### disableDateSeparator
 
-If true, disables the injection of date separator UI components.
+If true, disables the injection of date separator UI components in the `Channel` `MessageList` component.
 
 | Type    | Default |
 | ------- | ------- |
@@ -103,6 +111,15 @@ Overrides the default date formatting logic, has access to the original date obj
 | Type                   |
 | ---------------------- |
 | (date: Date) => string |
+
+### getDeleteMessageErrorNotification
+
+Function that returns the notification text to be displayed when a delete message request fails. This function receives the
+deleted [message object](https://getstream.io/chat/docs/javascript/message_format/?language=javascript) as its argument.
+
+| Type                               |
+| ---------------------------------- |
+| (message: StreamMessage) => string |
 
 ### getFlagMessageErrorNotification
 
@@ -148,6 +165,14 @@ pinned [message object](https://getstream.io/chat/docs/javascript/message_format
 | Type                               |
 | ---------------------------------- |
 | (message: StreamMessage) => string |
+
+### groupStyles
+
+Callback function to set group styles for each message.
+
+| Type                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------- |
+| (message: StreamMessage, previousMessage: StreamMessage, nextMessage: StreamMessage, noGroupByUser: boolean) => GroupStyle |
 
 ### hasMore
 
@@ -295,7 +320,7 @@ Custom action handler to open a [`Thread`](./thread.mdx) component.
 
 ### pinPermissions
 
-The user roles allowed to pin messages in various channel types.
+The user roles allowed to pin messages in various channel types (deprecated in favor of `channelCapabilities`).
 
 | Type   | Default                                                                                                              |
 | ------ | -------------------------------------------------------------------------------------------------------------------- |
@@ -316,6 +341,15 @@ Custom action handler to retry sending a message after a failed request.
 | Type     | Default                                                                                                  |
 | -------- | -------------------------------------------------------------------------------------------------------- |
 | function | [ChannelActionContextValue['retrySendMessage']](../contexts/channel-action-context.mdx#retrysendmessage) |
+
+### returnAllReadData
+
+If true, `readBy` data supplied to the `Message` components will include all user read states per sent message. By default,
+only `readBy` data for a user's most recently sent message is returned.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | false   |
 
 ### scrolledUpThreshold
 
