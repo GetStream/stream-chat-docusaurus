@@ -90,3 +90,17 @@ To enable offline support please follow the given steps:
     ...
   </Chat>;
   ```
+
+- **Reset the database when signing out the user**
+
+  Since SDK doesn't handle the app level authentication logic, its application's responsibility
+  to ensure resetting database when user gets logged out. This should be generally done before you
+  call `client.disconnectUser()`
+
+  ```jsx
+  import { QuickSqliteClient } from 'stream-chat-react-native';
+
+  // Sign out logic
+  QuickSqliteClient.resetDB();
+  chatClient.disconnectUser();
+  ```
