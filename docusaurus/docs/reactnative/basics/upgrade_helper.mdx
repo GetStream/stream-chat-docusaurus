@@ -15,6 +15,21 @@ Following values in [`ImageGalleryContext`](https://getstream.io/chat/docs/sdk/r
 - `images` -> `messages`
 - `setImages` -> `setMessages`
 
+## Dependency Changes
+
+- If you have installed `stream-chat` dependency explicitly on your application, then upgrade it to v7
+
+  ```bash
+  yarn add stream-chat@7.0.0-offline-support.4
+  ```
+
+- Replace [`@react-native-community/cameraroll`](https://github.com/react-native-cameraroll/react-native-cameraroll) dependency with [`@react-native-camera-roll/camera-roll`](https://www.npmjs.com/package/@react-native-camera-roll/camera-roll)
+
+  ```bash
+  yarn remove @react-native-community/cameraroll
+  yarn add @react-native-camera-roll/camera-roll
+  ```
+
 ## Enable Offline Support
 
 Offline Support is a major opt-in feature introduced in v5 of SDK.
