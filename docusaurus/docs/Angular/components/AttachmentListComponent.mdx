@@ -55,41 +55,15 @@ You can control the maximum size of images and videos with the [`--str-chat__att
 If you're unsure about the value you provided for `--str-chat__attachment-max-width`, send an image/video to a channel, then inspect the `img`/`video` element inside the message list using your browser's development tools. Inside the **computed** properties of the element, you should see that `max-height` and `max-width` are set to a valid pixel value.
 :::
 
-#### File size optimization + custom CDN
-
-:::important
-The following description gives a deeper understanding of the SDKs inner workings, you only need to understand this **if you're using your own CDN**.
-:::
+#### File size optimization
 
 Based on the CSS settings provided for images and videos, the SDK will load an image (or thumbnail image in case of a video file) with a reduced file size while still providing sufficient image quality for the given dimensions. This will result in less network traffic and faster image load for users.
-
-The file size reduction is made by Stream's CDN. If you're using your own CDN you'll likely have to provide your own implementation for file size reduction, you can do this using the [`AttachmentConfigurationService`](../services/AttachmentConfigurationService.mdx).
-
-#### File size optimization + custom CSS code
-
-:::important
-The following description gives a deeper understanding of the SDK's inner workings, you only need to understand this **if you're planning to override attachment sizing with your own CSS code**.
-:::
-
-Based on the CSS settings provided for images and videos, the SDK will load an image (or thumbnail image in case of a video file) with a reduced file size while still providing sufficient image quality for the given dimensions. This will result in less network traffic and faster image load for users.
-
-The SDK does this by reading the `height`/`max-height` and `max-width` properties of the host element of an image or video (usually an `img` or `video` element). If these properties are not provided, the file size reduction will be turned off.
 
 #### Aspect ratio
 
-:::important
-The following description gives a deeper understanding of the SDK's inner workings, you only need to understand this **if you're planning to override attachment sizing with your own CSS code**.
-:::
+The SDK will try to display images and videos with their original aspect ratio, however this isn't always guaranteed. Three notable exceptions are:
 
-The SDK will try to display images and videos with their original aspect ratio. This is done by setting the `height` property on the host element (usually an `img` or `video` element). The following logic is implemented by the [`AttachmentConfigurationService`](../services/AttachmentConfigurationService.mdx) and can be overridden.
-
-:::note
-The SDK will only set the `height` property on an element if `max-height` property is provided and can be computed to a valid pixel value using the [`getComputedStyle`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle) method (for example: `300px`, `10rem`, `calc(300px - var(--margin))`, but not `100%`).
-:::
-
-However original aspect ratio isn't always guaranteed. Two notable exceptions are:
-
-1. if a message contains multiple lines of texts and/or multiple attachments, the image/video might be stretched to it's `max-width`
+1. if a message contains multiple lines of texts and/or multiple attachments, the image/video might be stretched to its `max-width`
 
 **Example 1** - message with one line of text
 
@@ -99,11 +73,23 @@ However original aspect ratio isn't always guaranteed. Two notable exceptions ar
 
 <img src={ImageSizingScreenshot2} width="200" />
 
-2. in Safari, images with portrait orientation are stretched to `max-width`
+2. in Safari, images/videos with portrait orientation are stretched to `max-width`
 
 **Example 3** - portrait images in Safari
 
 <img src={ImageSizingScreenshot3} width="200" />
+
+3. if the image/video can't be rendered with the original aspect ratio given the `max-width` and `max-height` constraints of the host HTML element
+
+:::important
+**File size optimization** and maintaining **aspect ratio** uses features provided by Stream's CDN. If you're using your **own CDN** you'll likely have to provide your own implementation for this. You can do this using the [`AttachmentConfigurationService`](../services/AttachmentConfigurationService.mdx).
+:::
+
+:::danger
+**If you're planning to rewrite attachment sizing with your own CSS code** it's important to note that:
+
+The sizing logic for images and videos inside the [`AttachmentConfigurationService`](../services/AttachmentConfigurationService.mdx) requires that host elements of images and videos (ususally `img` and `video` elements) have `max-height`/`height` and `max-width` properties defined and that these values can be computed to a valid pixel value using the [`getComputedStyle`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle).
+:::
 
 [//]: # "Start of generated content"
 ## Inputs and outputs 
@@ -117,7 +103,7 @@ The id of the message the attachments belong to
 
 #### Defined in
 
-[lib/attachment-list/attachment-list.component.ts:36](https://github.com/GetStream/stream-chat-angular/blob/168e66d/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L36)
+[lib/attachment-list/attachment-list.component.ts:36](https://github.com/GetStream/stream-chat-angular/blob/1d1af07/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L36)
 
 ___
 
@@ -129,7 +115,7 @@ The parent id of the message the attachments belong to
 
 #### Defined in
 
-[lib/attachment-list/attachment-list.component.ts:40](https://github.com/GetStream/stream-chat-angular/blob/168e66d/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L40)
+[lib/attachment-list/attachment-list.component.ts:40](https://github.com/GetStream/stream-chat-angular/blob/1d1af07/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L40)
 
 ___
 
@@ -141,6 +127,6 @@ The attachments to display
 
 #### Defined in
 
-[lib/attachment-list/attachment-list.component.ts:44](https://github.com/GetStream/stream-chat-angular/blob/168e66d/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L44)
+[lib/attachment-list/attachment-list.component.ts:44](https://github.com/GetStream/stream-chat-angular/blob/1d1af07/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L44)
 
 [//]: # "End of generated content"
