@@ -2,7 +2,6 @@ import AttachmentsScreenshot from "../assets/attachments-screenshot.png";
 import ImageSizingScreenshot1 from "../assets/image-sizing-screenshot-1.png";
 import ImageSizingScreenshot2 from "../assets/image-sizing-screenshot-2.png";
 import ImageSizingScreenshot3 from "../assets/image-sizing-screenshot-3.png";
-import AttachmentSizeWarning from "../assets/attachment-size-warning.png";
 
 The `AttachmentList` component displays the attachments of a message. The following attachments are supported:
 
@@ -52,9 +51,9 @@ The following section details how the width and height of images and videos uplo
 
 You can control the maximum size of images and videos with the [`--str-chat__attachment-max-width`](../theming/component-variables.mdx) CSS variable (available only in [theme-v2](../theming/introduction.mdx)). The value of this variable must be a value that can be computed to a valid pixel value using the [`getComputedStyle`](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle) method (for example: `300px`, `10rem`, `calc(300px - var(--margin))`, but not `100%`). If you provide an invalid value, the image and video sizing can break, which can lead to scrolling issues inside the message list (for example the message list isn't scrolled to the bottom when you open a channel).
 
-If you set an invalid value to the variable, you'll see a warning on the browser's console:
-
-<img src={AttachmentSizeWarning} width="800" />
+:::tip
+If you're unsure about the value you provided for `--str-chat__attachment-max-width`, send an image/video to a channel, then inspect the `img`/`video` element inside the message list using your browser's development tools. Inside the **computed** properties of the element, you should see that `max-height` and `max-width` are set to a valid pixel value.
+:::
 
 #### File size optimization
 
@@ -106,7 +105,7 @@ The id of the message the attachments belong to
 
 #### Defined in
 
-[lib/attachment-list/attachment-list.component.ts:36](https://github.com/GetStream/stream-chat-angular/blob/105ce0a/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L36)
+[lib/attachment-list/attachment-list.component.ts:36](https://github.com/GetStream/stream-chat-angular/blob/f451901/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L36)
 
 ___
 
@@ -118,7 +117,7 @@ The parent id of the message the attachments belong to
 
 #### Defined in
 
-[lib/attachment-list/attachment-list.component.ts:40](https://github.com/GetStream/stream-chat-angular/blob/105ce0a/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L40)
+[lib/attachment-list/attachment-list.component.ts:40](https://github.com/GetStream/stream-chat-angular/blob/f451901/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L40)
 
 ___
 
@@ -130,6 +129,6 @@ The attachments to display
 
 #### Defined in
 
-[lib/attachment-list/attachment-list.component.ts:44](https://github.com/GetStream/stream-chat-angular/blob/105ce0a/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L44)
+[lib/attachment-list/attachment-list.component.ts:44](https://github.com/GetStream/stream-chat-angular/blob/f451901/projects/stream-chat-angular/src/lib/attachment-list/attachment-list.component.ts#L44)
 
 [//]: # "End of generated content"
