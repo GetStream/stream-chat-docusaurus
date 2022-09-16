@@ -2,6 +2,7 @@
 id: themingv2
 sidebar_position: 1
 title: Introduction
+keywords: [v2, theme-v2, theming-v2, theming, introduction]
 ---
 
 import SDKSpecific from './SDKSpecific';
@@ -17,28 +18,37 @@ import MessageCustomColor2Screenshot from '../assets/stream-chat-css-message-col
 import ChatUiSquareThemeScreenshot from '../assets/stream-chat-css-square-theme-screenshot.png';
 import ChatUiRtlScreenshot from '../assets/stream-chat-css-rtl-layout-screenshot.png';
 
-:::info
-The SDK has a new theming and customization system. This page contains information about the new version (version 2). The most significant improvements of the new version:
+The SDK has a new theming and customization system. This page contains information about the new version (refered to as version 2 or v2). The most significant improvements of the new version:
 
 - Refreshed design
-- Better customization
+- Better customization through CSS variables
 - Support for RTL layout
-
-The [old theme](../concepts/theming-and-css.mdx) can still be used with the latest SDK versions, but it's now deprecated and will be removed in a future release.
 
 <SDKSpecific name="angular">
 
-To use the new theme, please upgrade to stream-chat-angular version 4 and follow the instructions below.
+The [old theme](../concepts/theming-and-css.mdx) (also refered to as version 1 or v1) can still be used with the latest SDK versions, but it's now deprecated, won't be receiving further updates and will be removed in a future major release.
 
 </SDKSpecific>
 
 <SDKSpecific name="react">
 
-To use the new theme, please upgrade to stream-chat-react version X and follow the instructions below.
+The [old theme](../customization/css-and-theming.mdx) (also refered to as version 1 or v1) can still be used with the latest SDK versions, but it's now deprecated, won't be receiving further updates and will be removed in a future major release.
 
 </SDKSpecific>
 
-:::
+New theming system (v2) utilises updated markup and new class names in certain components which are being rendered based on which of the two systems you use. Most of the new components (and/or markup) aren't available in the old version (v1) due to compatibility reasons.
+
+<SDKSpecific name="angular">
+
+To use the new theme, please upgrade [`stream-chat-angular`](https://www.npmjs.com/package/stream-chat-angular) to version 4 and follow the instructions below.
+
+</SDKSpecific>
+
+<SDKSpecific name="react">
+
+To use the new theme, please upgrade [`stream-chat-react`](https://www.npmjs.com/package/stream-chat-react) to version `10.0.2` and follow the instructions below.
+
+</SDKSpecific>
 
 ## Using theme-v2
 
@@ -46,16 +56,16 @@ If you're using SCSS:
 
 <SDKSpecific name="angular">
 
-```css
-@import '~stream-chat-angular/src/assets/styles/v2/scss/index.css';
+```scss
+@import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
 ```
 
 </SDKSpecific>
 
 <SDKSpecific name="react">
 
-```css
-@import '~stream-chat-react/src/assets/styles/v2/scss/index.css';
+```scss
+@import '~stream-chat-react/dist/scss/v2/index.scss';
 ```
 
 </SDKSpecific>
@@ -73,7 +83,7 @@ If you're using CSS:
 <SDKSpecific name="react">
 
 ```css
-@import '~stream-chat-react/src/assets/styles/v2/css/index.css';
+@import '~stream-chat-react/dist/css/v2/index.css';
 ```
 
 </SDKSpecific>
@@ -103,7 +113,7 @@ Here is how you can customize global variables:
 
 <SDKSpecific name="angular">
 
-```css
+```scss
 @import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
 ```
 
@@ -111,8 +121,8 @@ Here is how you can customize global variables:
 
 <SDKSpecific name="react">
 
-```
-@import '~stream-chat-react/src/assets/styles/v2/scss/index.scss';
+```scss
+@import '~stream-chat-react/dist/scss/v2/index.scss';
 ```
 
 </SDKSpecific>
@@ -143,7 +153,9 @@ The `str-chat` class is applied to the [channel list](../components/ChannelListC
 
 <SDKSpecific name="react">
 
-TODO
+:::note
+The `str-chat` class is applied to the [`ChannelList`](../core-components/channel-list.mdx) and [`Channel`](../core-components/channel.mdx) components, all CSS variables are declared on this level.
+:::
 
 </SDKSpecific>
 
@@ -221,7 +233,7 @@ If you'd like to add customizations that are not supported by CSS variables, you
 
 <SDKSpecific name="angular">
 
-```css
+```scss
 @import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
 ```
 
@@ -229,8 +241,8 @@ If you'd like to add customizations that are not supported by CSS variables, you
 
 <SDKSpecific name="react">
 
-```css
-@import '~stream-chat-react/src/assets/styles/v2/scss/index.scss';
+```scss
+@import '~stream-chat-react/dist/scss/v2/index.scss';
 ```
 
 </SDKSpecific>
@@ -262,10 +274,10 @@ If you're using SCSS it's also possible to import component stylesheets separate
 
 ```scss
 // Use default theme for channel list and channel preview components
-@import '~stream-chat-react/src/assets/styles/v2/scss/ChannelList/ChannelList-layout.scss';
-@import '~stream-chat-react/src/assets/styles/v2/scss/ChannelList/ChannelList-theme.scss';
-@import '~stream-chat-react/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-layout.scss';
-@import '~stream-chat-react/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-theme.scss';
+@import '~stream-chat-react/dist/scss/v2/ChannelList/ChannelList-layout.scss';
+@import '~stream-chat-react/dist/scss/v2/ChannelList/ChannelList-theme.scss';
+@import '~stream-chat-react/dist/scss/v2/ChannelPreview/ChannelPreview-layout.scss';
+@import '~stream-chat-react/dist/scss/v2/ChannelPreview/ChannelPreview-theme.scss';
 ```
 
 </SDKSpecific>
@@ -293,7 +305,7 @@ Here is how you can import the layout stylesheet:
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/src/assets/styles/v2/scss/index.layout.scss';
+@import '~stream-chat-react/dist/scss/v2/index.layout.scss';
 ```
 
 </SDKSpecific>
@@ -311,7 +323,7 @@ or if you're using CSS:
 <SDKSpecific name="react">
 
 ```css
-@import '~stream-chat-react/src/assets/styles/v2/css/index.layout.css';
+@import '~stream-chat-react/dist/css/v2/index.layout.css';
 ```
 
 </SDKSpecific>
@@ -347,8 +359,28 @@ constructor(themeService: ThemeService) {
 
 <SDKSpecific name="react">
 
-```typescript
-// TODO
+```tsx
+<Chat client={client} theme='str-chat__theme-dark'>
+  {/* ... */}
+</Chat>
+```
+
+or only to a specific component (`Channel` or/and `ChannelList`):
+
+:::note
+Using the `customClasses` approach for either of the components will override default class names. Don't forget to add those to your theme class names (as defined in the snippet) for the styling to work properly.
+:::
+
+```tsx
+<Chat
+  client={client}
+  customClasses={{
+    channelList: 'str-chat__theme-dark str-chat__channel-list',
+    channel: 'str-chat__theme-light str-chat__channel',
+  }}
+>
+  {/* ... */}
+</Chat>
 ```
 
 </SDKSpecific>
@@ -360,14 +392,16 @@ Here is what the dark theme looks like:
 <SDKSpecific name="angular">
 
 :::note
-The `str-chat__theme-dark`/`str-chat__theme-light` class is applied to the [channel list](../components/ChannelListComponent.mdx) and [channel](../components/ChannelComponent.mdx) components, this class is responsible for switching between the dark and light theme color combinations, if you don't use those components in your chat application you'll have apply the theme classes manually.
+The `str-chat__theme-dark`/`str-chat__theme-light` class is applied to the [channel list](../components/ChannelListComponent.mdx) and [channel](../components/ChannelComponent.mdx) components, these classes are responsible for switching between the dark and light theme color combinations, if you don't use those components in your chat application you'll have apply the theme classes manually.
 :::
 
 </SDKSpecific>
 
 <SDKSpecific name="react">
 
-TODO
+:::note
+The `str-chat__theme-dark`/`str-chat__theme-light` class is applied to the [ChannelList](../core-components/channel-list.mdx) and [Channel](../core-components/channel.mdx) components, these classes are responsible for switching between the dark and light theme color combinations.
+:::
 
 </SDKSpecific>
 
@@ -384,7 +418,7 @@ Here is how you can provide different color configurations for the dark and ligh
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/src/assets/styles/v2/scss/index.scss';
+@import '~stream-chat-react/dist/scss/v2/index.scss';
 ```
 
 </SDKSpecific>
@@ -436,7 +470,7 @@ Here is an example creating 'round' and 'square' themes:
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/src/assets/styles/v2/scss/index.scss';
+@import '~stream-chat-react/dist/scss/v2/index.scss';
 ```
 
 </SDKSpecific>
@@ -469,7 +503,29 @@ constructor(themeService: ThemeService) {
 
 <SDKSpecific name="react">
 
-TODO
+```tsx
+<Chat client={client} theme='str-chat__theme-square'>
+  {/* ... */}
+</Chat>
+```
+
+or only to a specific component (`Channel` or/and `ChannelList`):
+
+:::note
+Using the `customClasses` approach for either of the components will override default class names. Don't forget to add those to your theme class names (as defined in the snippet) for the styling to work properly.
+:::
+
+```tsx
+<Chat
+  client={client}
+  customClasses={{
+    channelList: 'str-chat__theme-square str-chat__channel-list',
+    channel: 'str-chat__theme-round str-chat__channel',
+  }}
+>
+  {/* ... */}
+</Chat>
+```
 
 </SDKSpecific>
 
@@ -479,9 +535,9 @@ TODO
 
 The layout was built with RTL support in mind. You can use the RTL layout by providing the `dir` attribute in your HTML:
 
-```scss
+```html
 <html dir="rtl">
-...
+  <!-- ... -->
 </html>
 ```
 
