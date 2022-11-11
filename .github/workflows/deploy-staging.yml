@@ -47,19 +47,19 @@ jobs:
       - name: Copy build folder to s3
         run: |
           aws s3 sync ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }} ${{ secrets.AWS_STAGING_S3_BUCKET }} --delete
-      # - name: Make html files S3 friendly by removing .html extension & add trailing slash support
-      #   run: |
-      #     npm install recursive-readdir aws-sdk # for s3-rewrite-html script
-      #     node scripts/s3-rewrite-html.js
-      #     S3_BUCKET=${{ secrets.AWS_STAGING_S3_BUCKET }}
-      #     ESCAPED_S3_BUCKET=${S3_BUCKET/s3:\/\//}
-      #     echo "aws s3 ls $ESCAPED_S3_BUCKET --recursive --human-readable --summarize"
-      #     aws s3 ls $ESCAPED_S3_BUCKET --recursive --human-readable --summarize
-      #   env:
-      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     AWS_S3_BUCKET: ${{ secrets.AWS_STAGING_S3_BUCKET }}
-      #     DOCUSAURUS_BUILD_PATH: ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }}
+      - name: Make html files S3 friendly by removing .html extension & add trailing slash support
+        run: |
+          npm install recursive-readdir aws-sdk # for s3-rewrite-html script
+          node scripts/s3-rewrite-html.js
+          S3_BUCKET=${{ secrets.AWS_STAGING_S3_BUCKET }}
+          ESCAPED_S3_BUCKET=${S3_BUCKET/s3:\/\//}
+          echo "aws s3 ls $ESCAPED_S3_BUCKET --recursive --human-readable --summarize"
+          aws s3 ls $ESCAPED_S3_BUCKET --recursive --human-readable --summarize
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_STAGING_S3_BUCKET }}
+          DOCUSAURUS_BUILD_PATH: ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }}
       - name: Invalidate Cloudfront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
       - name: Index Algolia Objects
