@@ -22,20 +22,15 @@ jobs:
           set -u  # script fails if trying to access to an undefined variable
 
           npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli#staging
-          npx stream-chat-docusaurus -i -b
+          cd `npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli
+          npm i
+          cd -
 
-          DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
-          ALGOLIA_DEPLOY_SCRIPT_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/replace-algolia-objects.js
-
-          echo "built files:"
-          ls -la $DOCUSAURUS_BUILD_PATH
-          echo $ALGOLIA_DEPLOY_SCRIPT_PATH
-
-          echo "::set-output name=DOCUSAURUS_BUILD_PATH::$DOCUSAURUS_BUILD_PATH"
-          echo "::set-output name=ALGOLIA_DEPLOY_SCRIPT_PATH::$ALGOLIA_DEPLOY_SCRIPT_PATH"
+          npx stream-chat-docusaurus --build --algolia
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
           WEBSITE_BASE_URL: ${{ secrets.WEBSITE_BASE_URL }}
           DEPLOYMENT_ENV: staging
       - name: Configure AWS credentials
@@ -49,10 +44,3 @@ jobs:
           aws s3 sync ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }} ${{ secrets.AWS_STAGING_S3_BUCKET }} --delete
       - name: Invalidate Cloudfront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
-      - name: Index Algolia Objects
-        run: node $ALGOLIA_DEPLOY_SCRIPT_PATH
-        env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
-          ALGOLIA_DEPLOY_SCRIPT_PATH: ${{ steps.build.outputs.ALGOLIA_DEPLOY_SCRIPT_PATH }}
-          DEPLOYMENT_ENV: staging
