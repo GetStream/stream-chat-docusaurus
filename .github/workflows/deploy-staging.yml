@@ -44,6 +44,6 @@ jobs:
           aws-region: us-east-1
       - name: Copy build folder to s3
         run: |
-          aws s3 sync ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }} ${{ secrets.AWS_STAGING_S3_BUCKET }} --delete
+          aws s3 sync build ${{ secrets.AWS_STAGING_S3_BUCKET }} --delete
       - name: Invalidate Cloudfront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
