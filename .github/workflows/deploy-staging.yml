@@ -14,28 +14,26 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Build
         id: build
         run: |
           set -e  # if a command fails it stops the execution
           set -u  # script fails if trying to access to an undefined variable
 
-          npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli#staging
-          npx stream-chat-docusaurus -i -b
+          export WORK_DIR=`mktemp -d`
+          git clone https://github.com/GetStream/stream-chat-docusaurus-cli.git -b staging --depth 1 $WORK_DIR
+          cd $WORK_DIR
+          npm i --force
+          npm i -g
+          echo $WORK_DIR
+          cd -
 
-          DOCUSAURUS_BUILD_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/build/
-          ALGOLIA_DEPLOY_SCRIPT_PATH=`npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli/docusaurus/replace-algolia-objects.js
-
-          echo "built files:"
-          ls -la $DOCUSAURUS_BUILD_PATH
-          echo $ALGOLIA_DEPLOY_SCRIPT_PATH
-
-          echo "::set-output name=DOCUSAURUS_BUILD_PATH::$DOCUSAURUS_BUILD_PATH"
-          echo "::set-output name=ALGOLIA_DEPLOY_SCRIPT_PATH::$ALGOLIA_DEPLOY_SCRIPT_PATH"
+          npx stream-chat-docusaurus --build --algolia
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
           WEBSITE_BASE_URL: ${{ secrets.WEBSITE_BASE_URL }}
           DEPLOYMENT_ENV: staging
       - name: Configure AWS credentials
@@ -46,26 +44,6 @@ jobs:
           aws-region: us-east-1
       - name: Copy build folder to s3
         run: |
-          aws s3 sync ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }} ${{ secrets.AWS_STAGING_S3_BUCKET }} --delete
-      - name: Make html files S3 friendly by removing .html extension & add trailing slash support
-        run: |
-          npm install recursive-readdir aws-sdk # for s3-rewrite-html script
-          node scripts/s3-rewrite-html.js
-          S3_BUCKET=${{ secrets.AWS_STAGING_S3_BUCKET }}
-          ESCAPED_S3_BUCKET=${S3_BUCKET/s3:\/\//}
-          echo "aws s3 ls $ESCAPED_S3_BUCKET --recursive --human-readable --summarize"
-          aws s3 ls $ESCAPED_S3_BUCKET --recursive --human-readable --summarize
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_BUCKET: ${{ secrets.AWS_STAGING_S3_BUCKET }}
-          DOCUSAURUS_BUILD_PATH: ${{ steps.build.outputs.DOCUSAURUS_BUILD_PATH }}
+          aws s3 sync build ${{ secrets.AWS_STAGING_S3_BUCKET }} --delete
       - name: Invalidate Cloudfront
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_STAGING_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
-      - name: Index Algolia Objects
-        run: node $ALGOLIA_DEPLOY_SCRIPT_PATH
-        env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
-          ALGOLIA_DEPLOY_SCRIPT_PATH: ${{ steps.build.outputs.ALGOLIA_DEPLOY_SCRIPT_PATH }}
-          DEPLOYMENT_ENV: staging
