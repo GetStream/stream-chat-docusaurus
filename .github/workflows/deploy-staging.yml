@@ -21,9 +21,12 @@ jobs:
           set -e  # if a command fails it stops the execution
           set -u  # script fails if trying to access to an undefined variable
 
-          npm install -g https://github.com/GetStream/stream-chat-docusaurus-cli#staging
-          cd `npm list -g | head -1`/node_modules/stream-chat-docusaurus-cli
-          npm i
+          export WORK_DIR=`mktemp -d`
+          git clone https://github.com/GetStream/stream-chat-docusaurus-cli.git -b staging --depth 1 $WORK_DIR
+          cd $WORK_DIR
+          npm i --force
+          npm i -g
+          echo $WORK_DIR
           cd -
 
           npx stream-chat-docusaurus --build --algolia
