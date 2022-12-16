@@ -5,7 +5,7 @@ title: Migrating from 1.x and 2.x
 StreamChat SDKs were re-written for the ground up for v3/v4. Unfortunately that means there isn't a clear, straightforward way to migrate. We suggest reading up on documentation and sample projects to get familiar with the SDK so that you can re-create the functionality with the new SDKs.
 
 ---
-Please don't hesitate to contact us by sending an email to support@getstream.io or opening a ticket in our [github repo](https://github.com/GetStream/stream-chat-swift). We'll help you during your migration process and any issues you might face.
+Please don't hesitate to contact us by sending an email to support@getstream.io or opening a ticket in our [GitHub repository](https://github.com/GetStream/stream-chat-swift). We'll help you during your migration process and any issues you might face.
 
 ---
 
@@ -34,4 +34,4 @@ None of the UI SDK components we had in v1.x / v2.x were carried over to StreamC
 
 # StreamChatCore v1.x / v2.x and StreamChatClient v2.x -> StreamChat v4
 
-Our low-level frameworks (`Client` + `Core`) were merged and renamed to `StreamChat`. If you use only our low-level frameworks, you can use our [Introduction page](../basics/getting-started) and [official docs](getstream.io/chat/docs/ios-swift) to get more familiar with the update API and better assess the impact of the changes on your codebase.
+Our low-level frameworks (`Client` + `Core`) were merged and renamed to `StreamChat`. If you use only our low-level frameworks, you can use our [Introduction page](../../basics/getting-started) and [official docs](https://getstream.io/chat/docs/ios-swift) to get more familiar with the update API and better assess the impact of the changes on your codebase.

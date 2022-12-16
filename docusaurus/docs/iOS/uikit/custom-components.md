@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         ...
-        Components.default.messageContentView = MyCustomMessageView.self       
+        Components.default.messageContentView = MyCustomMessageView.self
         ...
     }
 }
@@ -66,10 +66,9 @@ This lifecycle is where you can customize the appearance of the component, like 
 Here is where you should do customize the layout of the component, for example, changing the position of the views, padding, margins or even remove some child views. All the UI Components of the SDK use **AutoLayout** to layout the views, but our SDK provides a `ContainerStackView` component to make the customization easier. The `ContainerStackView` works very much like a `UIStackView`, in fact, it has almost the same API, but it is better suitable for our needs in terms of customizability. Just like the other lifecycle methods, you can call `super.setUpLayout()` depending on if you want to make the layout of the component from scratch or just want to change some parts of the component.
 
 ### `updateContent()`
-Finally, this last lifecycle is called whenever the data of the component changes. Here is where you can change the logic of the component, change how the data is displayed or formatted. In the Stream SDK all of the components have a `content` propery that represents the data of the component. The rule of thumb to use this lifecycle is that if the change you want to do depends on the data of the component, then you should use this lifecycle method, even, for example, to do layout changes that are impacted by the content.
+Finally, this last lifecycle is called whenever the data of the component changes. Here is where you can change the logic of the component, change how the data is displayed or formatted. In the Stream SDK all of the components have a `content` property that represents the data of the component. The rule of thumb to use this lifecycle is that if the change you want to do depends on the data of the component, then you should use this lifecycle method, even, for example, to do layout changes that are impacted by the content.
 
 In addition to this, view components expose their content with the `content` property. For instance the `MessageContent` component `content`'s property holds the `ChatMessage` object.
-
 
 ## Example: Custom Avatar
 
@@ -77,7 +76,7 @@ Let's say, we want to change the appearance of avatars by adding a border. In th
 
 ```swift
 class BorderedAvatarView: ChatAvatarView {
-    
+
     override func setUpAppearance() {
         super.setUpAppearance()
 
@@ -88,6 +87,7 @@ class BorderedAvatarView: ChatAvatarView {
 ```
 
 Then, we have to tell the SDK to use our custom subclass instead of the default type:
+
 ```swift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -106,7 +106,7 @@ And that's it 🎉 as you can see all avatars across the UI are now with a borde
 
 #### Change Avatar only in one view
 
-In the previous example we saw that when we customized the avatar view, it changed every UI component that uses an avatar view. All the components in the `Components` config are shared components, but it is also possible to customize a shared component of a specific view only. Let's imagine that we want to apply the previous customization of a bordered avatar view, but only in the quoted reply view:
+In the previous example we saw that when we customized the avatar view, it changed every UI component that uses an avatar view. All the components in the `Components` configuration are shared components, but it is also possible to customize a shared component of a specific view only. Let's imagine that we want to apply the previous customization of a bordered avatar view, but only in the quoted reply view:
 
 ```swift
 class CustomQuotedChatMessageView: QuotedChatMessageView {
@@ -118,7 +118,9 @@ class CustomQuotedChatMessageView: QuotedChatMessageView {
     }
 }
 ```
+
 Then, set the custom component:
+
 ```swift
 Components.default.quotedMessageView = CustomQuotedChatMessageView.self
 ```
@@ -142,21 +144,21 @@ First, we need to create a custom subclass of `ChatChannelListItemView`, which i
 ```swift
 class iMessageChannelListItemView: ChatChannelListItemView {
     /// Blue "dot" indicator visible for channels with unread messages
-    private lazy var customUnreadView = UIView()    
+    private lazy var customUnreadView = UIView()
 }
 ```
 
 Then, we just follow the structure defined by the lifecycle methods and apply the proper customization for each step:
+
 ```swift
 class iMessageChannelListItemView: ChatChannelListItemView {
     private lazy var customUnreadView = UIView()
 
     override func setUpAppearance() {
         super.setUpAppearance()
-`
+
         customUnreadView.backgroundColor = tintColor
         customUnreadView.layer.masksToBounds = true
-        customUnreadView.layer.cornerRadius = 5
         customUnreadView.clipsToBounds = true
     }
 
@@ -186,6 +188,7 @@ class iMessageChannelListItemView: ChatChannelListItemView {
 ```
 
 Finally, don't forget to change the `Components` configuration:
+
 ```swift
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

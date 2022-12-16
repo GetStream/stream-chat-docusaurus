@@ -36,7 +36,7 @@ Appearance.default.images.availableReactions = customReactions
 
 ### Custom Reactions Sorting
 
-By default, the reactions are sorted alphabetically. You can change the order of the reactions by providing a custom `reactionsSorting` function in the `Components` config. 
+By default, the reactions are sorted alphabetically. You can change the order of the reactions by providing a custom `reactionsSorting` function in the `Components` configuration. 
 
 Here is an example of how you can sort the reactions by their score:
 
@@ -67,7 +67,7 @@ Components.default.reactionsSorting = { $0.type.position < $1.type.position }
 
 By default, the message reactions are displayed inline as a bubble view on top of the messages.
 
-<img 
+<img
     src={require("../../assets/message-reactions.png").default}
     width="300rem"
     style={{margin: "0 auto", display: "block"}}
@@ -87,6 +87,7 @@ The message reaction view is composed of a container bubble view that holds a st
 The reactions bubble view is a container that is responsible not only to hold the stack of the reactions but also for the bubble styling.
 
 By subclassing the `ChatReactionsBubbleView`, you can customize the styling of the bubble view. In this example, we change the bubble fill color to black:
+
 ```swift
 class CustomChatReactionsBubbleView: ChatReactionsBubbleView {
     override var fillColor: UIColor? {
@@ -102,6 +103,7 @@ Components.default.messageReactionsBubbleView = CustomChatReactionsBubbleView.se
 This component is responsible for rendering the list of reactions. By default, the reactions are rendered in a horizontal stack.
 
 In this example we customize the `ChatMessageReactionsView` so that the reactions are rendered in a vertical stack instead:
+
 ```swift
 class CustomChatMessageReactionsView: ChatMessageReactionsView {
 
@@ -112,7 +114,7 @@ class CustomChatMessageReactionsView: ChatMessageReactionsView {
     }
 }
 
-Components.default.messageReactionsView = CustomChatChatMessageReactionsView.self
+Components.default.messageReactionsView = CustomChatMessageReactionsView.self
 ```
 
 ### ChatMessageReactionItemView
@@ -140,7 +142,7 @@ If we do all the customizations described above to the message reactions view, t
 
 ## Reactions Picker
 
-In order to add a new reaction to a message you need to long-press a message or tap the message reactions bubble view, and the SDK will show a popup view with a reactions picker at the top. The reactions picker which is represented by the `ChatMessageReactionsPickerVC` is basically a bigger message reaction view that is interactable to allow the user to select a reaction.
+In order to add a new reaction to a message you need to long-press a message or tap the message reactions bubble view, and the SDK will show a popup view with a reactions picker at the top. The reactions picker which is represented by the `ChatMessageReactionsPickerVC` is basically a bigger message reaction view that accepts user input allowing the user to select a reaction.
 
 When the user long-presses the message, the popup view will display the reactions picker at the top, the message content at the centre, and the message actions at the bottom. On the other hand, if the user taps the reactions bubble view, instead of having the message actions at the bottom, it will show a view with all the reactions that belong to the message.
 
@@ -174,12 +176,12 @@ class CustomChatReactionPickerBubbleView: DefaultChatReactionPickerBubbleView {
         .black
     }
 
-    override open var tailBackImage: UIImage? { 
-        super.tailBackImage?.withTintColor(.black) 
+    override open var tailBackImage: UIImage? {
+        super.tailBackImage?.withTintColor(.black)
     }
 
-    override open var tailFrontImage: UIImage? { 
-        super.tailFrontImage?.withTintColor(.black) 
+    override open var tailFrontImage: UIImage? {
+        super.tailFrontImage?.withTintColor(.black)
     }
 
     override open func layoutSubviews() {
@@ -199,6 +201,7 @@ In the example above we changed the color of the bubble to black. For this, we h
 This component is responsible to render the list of reactions. By default, the reactions are rendered in a horizontal stack, exactly like the message reaction view.
 
 Let's do the same change we did with the message reaction view, and change the stack to be vertical aligned:
+
 ```swift
 class CustomChatReactionPickerReactionsView: ChatReactionPickerReactionsView {
 

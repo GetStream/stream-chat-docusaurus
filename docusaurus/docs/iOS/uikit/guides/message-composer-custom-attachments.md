@@ -5,7 +5,7 @@ title: Message Composer Custom Attachments
 import ComponentsNote from '../../common-content/components-note.md'
 import ThemingNote from '../../common-content/theming-note.md'
 
-The `ComposerVC` can be customized in order to change the built-in attachments or can be extended to support your own custom attachments. By default the composer handles images, videos, giphy's and files, but you can create your own custom attachments. Some examples of common custom attachments are: location sharing, contact details, workouts and voice memos. You can read more about how attachments work in the [Working with Attachments](../../../ios/guides/working-with-attachments) guide.
+The `ComposerVC` can be customized in order to change the built-in attachments or can be extended to support your own custom attachments. By default the composer handles images, videos, giphy's and files, but you can create your own custom attachments. Some examples of common custom attachments are: location sharing, contact details, workouts and voice memos. You can read more about how attachments work in the [Working with Attachments](../../uikit/guides/working-with-attachments) guide.
 
 All the provided attachments are customizable in the composer in terms of style changes, layout changes or how they are presented. For example, you can change the clip button styling responsible for opening the attachments picker, you can replace the built-in attachments picker with your own, or even change all the flow and render the attachments picker in a subview instead of being presented in a view controller.
 
@@ -15,7 +15,7 @@ The composer also makes it really easy to be extended and support your own custo
 
 ### Change the button icon
 
-By default the attachments button icon is a clip. You can easily change this by setting your own icon in the `Appearance` config:
+By default the attachments button icon is a clip. You can easily change this by setting your own icon in the `Appearance` configuration:
 ```swift
 Appearance.default.images.openAttachments = UIImage(systemName: "plus")
 ```
@@ -37,12 +37,16 @@ class CustomComposerVC: ComposerVC {
 
         // The subviews of composer belong to the `composerView`
         composerView.attachmentButton.backgroundColor = UIColor.systemGray5
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
         composerView.attachmentButton.layer.cornerRadius = 4
     }
 }
 ```
 
-Then, set the custom component in the `Components` config:
+Then, set the custom component in the `Components` configuration:
 ```swift
 Components.default.messageComposerVC = CustomComposerVC.self
 ```
@@ -69,7 +73,7 @@ class CustomComposerVC: ComposerVC {
     lazy var cameraPicker: UIImagePickerController = {
         let picker = UIImagePickerController()
         picker.sourceType = .camera
-        // ComposerVC already confirms to `UIImagePickerControllerDelegate` 
+        // ComposerVC already confirms to `UIImagePickerControllerDelegate`
         // and will handle the result from the picker automatically
         picker.delegate = self
         return picker
@@ -83,11 +87,11 @@ class CustomComposerVC: ComposerVC {
                 self?.showCameraPicker()
             }
         )
-        // Here we return the super actions to get 
+        // Here we return the super actions to get
         // the default actions and add our new one
         return super.attachmentsPickerActions + [showCameraPickerAction]
     }
-    
+
     func showCameraPicker() {
         self.present(cameraPicker, animated: true)
     }
@@ -202,11 +206,10 @@ class ContactAttachmentView: _View, AppearanceProvider {
         super.setUpAppearance()
 
         backgroundColor = UIColor.systemGray6
-        layer.cornerRadius = 15
         layer.masksToBounds = true
         layer.borderWidth = 1
         layer.borderColor = appearance.colorPalette.border.cgColor
-        
+
         contactNameLabel.textColor = appearance.colorPalette.subtitleText
         contactNameLabel.font = appearance.fonts.subheadlineBold
 
@@ -214,6 +217,11 @@ class ContactAttachmentView: _View, AppearanceProvider {
         contactPhoneNumberLabel.font = appearance.fonts.bodyBold
 
         contactStackView.axis = .vertical
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = 15
     }
 
     override func setUpLayout() {
@@ -241,7 +249,7 @@ class ContactAttachmentView: _View, AppearanceProvider {
     }
 }
 ```
-The `ContactAttachmentView` must subclass from `_View` and implement the required lifecycle functions as described in the [Custom Components](../uikit/custom-components) page. The contact attachment view is a pretty simple one with just a vertical stack displaying the name of the contact at the top, and the number at the bottom. But in order for the composer to use this new attachment view we still need to let the composer know that the `ContactAttachmentPayload` is rendered by `ContactAttachmentView`. To do that we need to make `ContactAttachmentPayload` conform to `AttachmentPreviewProvider` protocol:
+The `ContactAttachmentView` must subclass from `_View` and implement the required lifecycle functions as described in the [Custom Components](../../custom-components) page. The contact attachment view is a pretty simple one with just a vertical stack displaying the name of the contact at the top, and the number at the bottom. But in order for the composer to use this new attachment view we still need to let the composer know that the `ContactAttachmentPayload` is rendered by `ContactAttachmentView`. To do that we need to make `ContactAttachmentPayload` conform to `AttachmentPreviewProvider` protocol:
 ```swift
 extension ContactAttachmentPayload: AttachmentPreviewProvider {
     static let preferredAxis: NSLayoutConstraint.Axis = .vertical
@@ -303,7 +311,7 @@ Creating `MyCustomMediaPickerController` and `MyCustomMediaPickerControllerDeleg
 :::
 
 ### Show the media picker in a different view
-In case you want to bypass the action sheet when tapping the attachments button, you can, by overriding the `showAttachmentsPicker(sender: UIButton)` and do an implementation from scratch on how you want to present the attachments picker. For example, let's see how you could show the attachments picker as a view replacing the keyboard by using the `inputView` of the composer's textField:
+In case you want to bypass the action sheet when tapping the attachments button, you can, by overriding the `showAttachmentsPicker(sender: UIButton)` and do an implementation from scratch on how you want to present the attachments picker. For example, let's see how you could show the attachments picker as a view replacing the keyboard by using the `inputView` of the composer's `textField`:
 ```swift
 class CustomComposerVC: ComposerVC {
 

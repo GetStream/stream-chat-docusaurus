@@ -15,14 +15,14 @@ The following diagram shows the components hierarchy of `ChatThreadVC`:
     ChatThreadVC -> ChatThreadHeaderView
     ChatThreadVC -> ChatMessageListVC
     ChatThreadVC -> ComposerVC
-    ChatThreadHeaderView [href="../thread-header-view"]
+    ChatThreadHeaderView [href="../../views/thread-header-view"]
     ChatMessageListVC [href="../message-list"]
     ComposerVC [href="../message-composer"]
 ` }</Digraph>
 
 ### Overview
 
-- [`ChatThreadHeaderView`](../thread-header-view) is responsible to display the thread information in the `navigationItem.titleView`.
+- [`ChatThreadHeaderView`](../../views/thread-header-view) is responsible to display the thread information in the `navigationItem.titleView`.
 - [`ChatMessageListVC`](../message-list) is the component that handles the rendering of the replies.
 - [`ComposerVC`](../message-composer) is the component that handles the creation of new replies.
 
@@ -39,14 +39,14 @@ threadVC.messageController = ChatClient.shared.messageController(
     messageId: messageId
 )
 
-navigationController?.show(threadVC)
+navigationController?.show(threadVC, sender: self)
 ```
 
 <SingletonNote />
 
 ## UI Customization
 
-You can customize how the `ChatThreadVC` looks by subclassing it and swap the component in `Components` config:
+You can customize how the `ChatThreadVC` looks by subclassing it and swap the component in `Components` configuration:
 
 ```swift
 Components.default.threadVC = CustomChatThreadVC.self

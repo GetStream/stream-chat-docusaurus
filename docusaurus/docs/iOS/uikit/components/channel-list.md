@@ -10,7 +10,7 @@ The `ChatChannelListVC` is the UI component used to display a list of channels m
 
 :::note
 The Channel List screen is backed by the low-level `ChatChannelListController` component which fetches channels from the API and keeps the list in sync with the remote.
-Read more about about channel list query and how `ChatChannelListController` works [here](../../client/controllers/channels.md).
+Read more about channel list query and how `ChatChannelListController` works [here](../../client/controllers/channels.md).
 :::
 
 ## Basic Usage
@@ -40,7 +40,7 @@ present(navigationVC, animated: true)
 
 To push the channel list to existed navigation controller:
 ```swift
-navigationController?.push(channelListVC, animated: true)
+navigationController?.pushViewController(channelListVC, animated: true)
 ```
 
 To show the channel list as a tab:
@@ -58,7 +58,7 @@ let channelListNVC = UINavigationController(rootViewController: channelListVC)
 let splitVC = UISplitViewController()
 splitVC.preferredDisplayMode = .oneBesideSecondary
 splitVC.viewControllers = [
-    channelListNVC, 
+    channelListNVC,
     /*optionally provide a controller shown as a detail till user opens a channel*/
 ]
 ```
@@ -67,10 +67,10 @@ To show the channel list as a child:
 ```swift
 class ParentVC: UIViewController {
     let containerView: UIView
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let navigationVC = UINavigationController(rootViewController: channelListVC)
         addChild(navigationVC)
         navigationVC.view.translatesAutoresizingMaskIntoConstraints = false
@@ -113,10 +113,10 @@ class ViewController: ChatChannelListVC {
 
 ### Channel List States
 
-You can opt to show an empty, error and loading view by setting the following flag to true in the `Components` config:
+You can opt to show an empty, error and loading view by setting the following flag to true in the `Components` configuration:
 
 ```swift
-Components.isChatChannelListStatesEnabled = true
+Components.default.isChatChannelListStatesEnabled = true
 ```
 
 This feature is disabled by default, having just the standard loading indicator for the loading state. By enabling this feature, the StreamChat SDK will handle the channel list view states automatically for you.
@@ -136,10 +136,14 @@ class CustomChatChannelListVC: ChatChannelListVC {
         super.setUpAppearance()
 
         channelListErrorView.backgroundColor = .red
-        channelListErrorView.layer.cornerRadius = 20
         channelListErrorView.titleLabel.text = "Data unavailable"
         channelListErrorView.titleLabel.textColor = .black
         channelListErrorView.retryButton.setImage(.init(systemName: "hourglass.circle"), for: .normal)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        channelListErrorView.layer.cornerRadius = 20
     }
 }
 ```
@@ -188,9 +192,9 @@ You can set your custom views for the channel list states when configuring your 
 // In Components.swift:
 
 public var channelListEmptyView: ChatChannelListEmptyView.Type = ChatChannelListEmptyView.self
-    
+
 public var channelListErrorView: ChatChannelListErrorView.Type = ChatChannelListErrorView.self
-    
+
 public var chatChannelListLoadingView: ChatChannelListLoadingView.Type = ChatChannelListLoadingView.self
 ```
 
@@ -199,7 +203,7 @@ public var chatChannelListLoadingView: ChatChannelListLoadingView.Type = ChatCha
 This component uses the [`ChannelListRouter`](../../common-content/reference-docs/stream-chat-ui/navigation/chat-channel-list-router.md) navigation component, you can customize this by providing your own.
 
 ```swift
-Components.channelListRouter = CustomChannelListRouter.self
+Components.default.channelListRouter = CustomChannelListRouter.self
 ```
 
 <ComponentsNote />
@@ -210,7 +214,7 @@ The channel list component uses the `ChannelListController` to fetch the list of
 
 ## Channel List Query
 
-The `ChannelListQuery` is the structure used for specifiying the query parameters for fetching the list of channels from Stream backend.
+The `ChannelListQuery` is the structure used to specify the query parameters for fetching the list of channels from Stream backend.
 It has 4 parameters in it's `init`:
 
 ```swift
@@ -245,7 +249,7 @@ let filter = Filter<ChannelListFilterScope>.and([.equal(.team, to: "read"),
 ### Sorting
 
 Sorting parameter is used to sort the list of channels returned. By default, Channel List will be sorted by their last message date (or channel creation date, if the channel is empty).
-Most commonly, you don't need to specify any sorting, StreamChat SDK handles this. If you'd like, you can create custom sortings, such as:
+Most commonly, you don't need to specify any sorting, StreamChat SDK handles this. If you'd like, you can create a custom sorting, such as:
 ```swift
 // Sorting for always showing most crowded channels first
 let sorting: [Sorting<ChannelListSortingKey>] = [.init(key: .memberCount, isAscending: true),
@@ -254,7 +258,7 @@ let sorting: [Sorting<ChannelListSortingKey>] = [.init(key: .memberCount, isAsce
 
 ### PageSize
 
-Page size is used to specify how many channels the initial page will show. You can specify an integer value for advanced usecases. Most commonly, you don't need to touch this.
+Page size is used to specify how many channels the initial page will show. You can specify an integer value for advanced use-cases. Most commonly, you don't need to touch this.
 
 ### Message Limit
 
