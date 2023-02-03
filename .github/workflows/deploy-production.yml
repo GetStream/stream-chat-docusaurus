@@ -1,57 +1,57 @@
 name: deploy-production
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - docusaurus/**
-  workflow_dispatch:
+    push:
+        branches:
+            - production
+        paths:
+            - docusaurus/**
+    workflow_dispatch:
 jobs:
-  build_docusaurus:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-      - name: Build
-        id: build
-        run: |
-          set -e  # if a command fails it stops the execution
-          set -u  # script fails if trying to access to an undefined variable
+    build_docusaurus:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: "16"
+            - name: Build
+              id: build
+              run: |
+                  set -e  # if a command fails it stops the execution
+                  set -u  # script fails if trying to access to an undefined variable
 
-          export WORK_DIR=`mktemp -d`
-          git clone https://github.com/GetStream/stream-chat-docusaurus-cli.git -b production --depth 1 $WORK_DIR
-          cd $WORK_DIR
-          npm i --force
-          npm i -g
-          echo $WORK_DIR
-          cd -
+                  export WORK_DIR=`mktemp -d`
+                  git clone https://github.com/GetStream/stream-chat-docusaurus-cli.git -b production --depth 1 $WORK_DIR
+                  cd $WORK_DIR
+                  npm i --force
+                  npm i -g
+                  echo $WORK_DIR
+                  cd -
 
-          npx stream-chat-docusaurus --build --algolia
-        env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          GOOGLE_TAG_TRACKING_ID: ${{ secrets.GOOGLE_TAG_TRACKING_ID }}
-          ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
-          WEBSITE_BASE_URL: ${{ secrets.WEBSITE_BASE_URL }}
-          DEPLOYMENT_ENV: production
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-      - name: Copy build folder to s3
-        run: |
-          aws s3 sync build ${{ secrets.AWS_PRODUCTION_S3_BUCKET }} --delete
-      - name: Invalidate Cloudfront
-        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_PRODUCTION_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
-      - name: Index Algolia Objects
-        run: node $ALGOLIA_DEPLOY_SCRIPT_PATH
-        env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
-          ALGOLIA_DEPLOY_SCRIPT_PATH: ${{ steps.build.outputs.ALGOLIA_DEPLOY_SCRIPT_PATH }}
-          DEPLOYMENT_ENV: production
+                  npx stream-chat-docusaurus --build --algolia
+              env:
+                  ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+                  ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+                  GOOGLE_TAG_TRACKING_ID: ${{ secrets.GOOGLE_TAG_TRACKING_ID }}
+                  ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
+                  WEBSITE_BASE_URL: ${{ secrets.WEBSITE_BASE_URL }}
+                  DEPLOYMENT_ENV: production
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: us-east-1
+            - name: Copy build folder to s3
+              run: |
+                  aws s3 sync build ${{ secrets.AWS_PRODUCTION_S3_BUCKET }} --delete
+            - name: Invalidate Cloudfront
+              run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_PRODUCTION_DISTRIBUTION_ID }} --paths "/chat/docs/sdk/*"
+            - name: Index Algolia Objects
+              run: node $ALGOLIA_DEPLOY_SCRIPT_PATH
+              env:
+                  ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+                  ALGOLIA_API_WRITE_KEY: ${{ secrets.ALGOLIA_API_WRITE_KEY }}
+                  ALGOLIA_DEPLOY_SCRIPT_PATH: ${{ steps.build.outputs.ALGOLIA_DEPLOY_SCRIPT_PATH }}
+                  DEPLOYMENT_ENV: production
