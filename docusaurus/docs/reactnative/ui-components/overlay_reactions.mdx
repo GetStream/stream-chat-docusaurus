@@ -24,6 +24,7 @@ List of existing reactions which can be extracted from a message.
 ```tsx
 const reactions = message.latest_reactions.map(reaction => ({
   alignment: clientId && clientId === reaction.user?.id ? 'right' : 'left',
+  id: reaction?.user?.id || '',
   image: reaction?.user?.image,
   name: reaction?.user?.name || reaction.user_id || '',
   type: reaction.type,
@@ -36,7 +37,7 @@ const reactions = message.latest_reactions.map(reaction => ({
 
 ### <div class="label required">required</div> **showScreen** {#showscreen}
 
-`Shared` value from React Native Reanimated's [`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/useSharedValue/) hook.
+`Shared` value from React Native Reanimated [`useSharedValue`](https://docs.swmansion.com/react-native-reanimated/docs/api/hooks/useSharedValue/) hook.
 
 | Type   |
 | ------ |
