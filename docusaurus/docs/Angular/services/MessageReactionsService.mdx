@@ -1,0 +1,51 @@
+# MessageReactionsService
+
+The `MessageReactionsService` allows you to set which [reactions](https://getstream.io/chat/docs/javascript/send_reaction/?language=javascript) are enabled and their associated emoji.
+
+## Properties
+
+### reactions$
+
+• **reactions$**: `BehaviorSubject`<{}\>
+
+The enabled [reactions](https://getstream.io/chat/docs/javascript/send_reaction/?language=javascript) and the associated emoji
+
+You can provide any string as a reaction.
+
+#### Defined in
+
+[lib/message-reactions.service.ts:18](https://github.com/GetStream/stream-chat-angular/blob/56bb73e/projects/stream-chat-angular/src/lib/message-reactions.service.ts#L18)
+
+## Accessors
+
+### reactions
+
+• `get` **reactions**(): `Object`
+
+Get the currently enabled reactions
+
+#### Returns
+
+`Object`
+
+#### Defined in
+
+[lib/message-reactions.service.ts:39](https://github.com/GetStream/stream-chat-angular/blob/56bb73e/projects/stream-chat-angular/src/lib/message-reactions.service.ts#L39)
+
+• `set` **reactions**(`reactions`): `void`
+
+Sets the enabled reactions
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `reactions` | `Object` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[lib/message-reactions.service.ts:32](https://github.com/GetStream/stream-chat-angular/blob/56bb73e/projects/stream-chat-angular/src/lib/message-reactions.service.ts#L32)
