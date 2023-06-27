@@ -7,7 +7,19 @@ The `MessageList` displays messages using pagination, new messages are loaded wh
 
 ## Customization
 
-See [our customization guide](../concepts/customization.mdx) on how to provide your own message list component.
+### Custom message component
+
+If you want to customize how messages are displayed in the list, head over to the [`Message` component's page](../../components/MessageComponent/#customization).
+
+### Date separator
+
+- The component provides the [`displayDateSeparator`](#displaydateseparator) and [`dateSeparatorTextPos`](#dateseparatortextpos) inputs for configuring the date separator's behavior.
+- You can customize the displayed date format by providing your own [date parser](../../services/DateParserService/#customdateparser).
+- If you want to provide your own date separator UI, provide that to the [`CustomTemplatesService`](../../services/CustomTemplatesService/#dateseparatortemplate).
+
+### Custom message list
+
+The message list contains a lot of low-level logic related to scrolling, we don't advise to create your own message list component, however it's possible: see [our customization guide](../concepts/customization.mdx) on how to provide your own message list component.
 
 :::note
 If you want to create your own message list, you can use the [`ChannelService`](../services/ChannelService.mdx) to receive the necessary messages and interact with the Stream API.
@@ -44,7 +56,7 @@ Determines if the message list should display channel messages or [thread messag
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:45](https://github.com/GetStream/stream-chat-angular/blob/8fb4652/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L45)
+[lib/message-list/message-list.component.ts:47](https://github.com/GetStream/stream-chat-angular/blob/a19e02f/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L47)
 
 ___
 
@@ -56,7 +68,7 @@ The direction of the messages in the list, `bottom-to-top` means newest message 
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:49](https://github.com/GetStream/stream-chat-angular/blob/8fb4652/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L49)
+[lib/message-list/message-list.component.ts:51](https://github.com/GetStream/stream-chat-angular/blob/a19e02f/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L51)
 
 ___
 
@@ -68,7 +80,7 @@ Determines what triggers the appearance of the message options: by default you c
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:53](https://github.com/GetStream/stream-chat-angular/blob/8fb4652/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L53)
+[lib/message-list/message-list.component.ts:55](https://github.com/GetStream/stream-chat-angular/blob/a19e02f/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L55)
 
 ___
 
@@ -80,7 +92,7 @@ You can hide the "jump to latest" button while scrolling. A potential use-case f
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:59](https://github.com/GetStream/stream-chat-angular/blob/8fb4652/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L59)
+[lib/message-list/message-list.component.ts:61](https://github.com/GetStream/stream-chat-angular/blob/a19e02f/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L61)
 
 ___
 
@@ -92,6 +104,30 @@ A list of custom message actions to be displayed in the message action box
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:63](https://github.com/GetStream/stream-chat-angular/blob/8fb4652/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L63)
+[lib/message-list/message-list.component.ts:65](https://github.com/GetStream/stream-chat-angular/blob/a19e02f/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L65)
+
+___
+
+### displayDateSeparator
+
+• **displayDateSeparator**: `boolean` = `true`
+
+If `true` date separators will be displayed
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:69](https://github.com/GetStream/stream-chat-angular/blob/a19e02f/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L69)
+
+___
+
+### dateSeparatorTextPos
+
+• **dateSeparatorTextPos**: ``"center"`` \| ``"right"`` \| ``"left"`` = `'center'`
+
+If date separators are displayed, you can set the horizontal position of the date text.
+
+#### Defined in
+
+[lib/message-list/message-list.component.ts:73](https://github.com/GetStream/stream-chat-angular/blob/a19e02f/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L73)
 
 [//]: # "End of generated content"
