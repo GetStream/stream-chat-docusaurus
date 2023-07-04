@@ -1,0 +1,18 @@
+{
+  "name": "stream-chat-docusaurus",
+  "version": "1.0.0",
+  "description": "Stream Chat Docusaurus",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GetStream/stream-chat-docusaurus.git"
+  },
+  "author": "GetStream",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/GetStream/stream-chat-docusaurus/issues"
+  },
+  "homepage": "https://github.com/GetStream/stream-chat-docusaurus#readme",
+  "scripts": {
+    "start": "sh bootstrap.sh"
+  }
+}
