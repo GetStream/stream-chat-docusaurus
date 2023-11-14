@@ -94,10 +94,11 @@ Components.default.filesAttachmentInjector = MyCustomAttachmentViewInjector.self
 Stream chat allows you to create your own types of attachments as well. The steps to follow to add support for a custom attachment type are the following:
 
 1. Extend `AttachmentType` to include the custom type
-1. Create a new `AttachmentPayload` struct to handle your custom attachment data
-1. Create a `typealias` for `ChatMessageAttachment<AttachmentPayload>` which will be used for the content of the view
-1. Create a new `AttachmentViewInjector`
-1. Configure the SDK to use your view injector class to render custom attachments
+2. Create a new `AttachmentPayload` struct to handle your custom attachment data
+3. Register the new attachment payload type in `ChatClient`
+4. Create a `typealias` for `ChatMessageAttachment<AttachmentPayload>` which will be used for the content of the view
+5. Create a new `AttachmentViewInjector`
+6. Configure the SDK to use your view injector class to render custom attachments
 
 Let's assume we want to attach a workout session to a message, the payload of the attachment will look like this:
 
@@ -113,7 +114,7 @@ Let's assume we want to attach a workout session to a message, the payload of th
 }
 ```
 
-Here's how we get around the first three steps:
+In the code, the payload and attachment type should look something like this:
 
 ```swift
 public extension AttachmentType {
@@ -143,11 +144,22 @@ public struct WorkoutAttachmentPayload: AttachmentPayload {
 
 Here we extended `AttachmentType` to include the `workout` type and afterwards we introduced a new struct to match the payload data that we expect.
 
-1. WorkoutAttachmentPayload.type is used to match message attachments to this struct
-1. All attachment fields are optional, this is highly recommended for all custom data
-1. We use CodingKeys to map JSON field names to struct fields
+1. `WorkoutAttachmentPayload.type` is used to match message attachments to this struct
+2. All attachment fields are optional, this is highly recommended for all custom data
+3. We use `CodingKeys` to map JSON field names to struct fields
 
-Let's now create a custom view injector to handle the workout attachment.
+Then, you should register your custom attachment type when creating the `ChatClient`, example:
+
+```swift
+let client = ChatClient(config: config)
+client.registerAttachment(WorkoutAttachmentPayload.self)
+```
+
+:::note
+The `ChatClient.registerAttachment()` is only available after the 4.42.0 release. This one was added to make sure that editing custom attachments is also supported.
+:::
+
+Let's now create a custom view injector to handle the workout attachment view.
 
 ```swift
 import StreamChat
@@ -238,9 +250,9 @@ open class WorkoutAttachmentViewInjector: AttachmentViewInjector {
 }
 ```
 
-The `WorkoutAttachmentView` class is where all layout and content logic happens. In `contentViewDidLayout` we add `WorkoutAttachmentView` as a subview of `bubbleContentContainer` using `insertArrangedSubview`, more information about layout customizations is available [here](../custom-components.md). The last interesting bit happens in `contentViewDidUpdateContent`, there we use the `attachments` method to retrieve all attachments for this messages with type `WorkoutAttachmentPayload` and then pick the first one. This allows us to have the type we defined earlier as the content to render in our custom view.
+The `WorkoutAttachmentView` class is where all layout and content logic happens. In `contentViewDidLayout` we add `WorkoutAttachmentView` as a subview of `bubbleContentContainer` using `insertArrangedSubview`. More information about layout customizations is available [here](../custom-components.md). The last interesting bit happens in `contentViewDidUpdateContent`, where we use the `attachments` method to retrieve all attachments for these messages with type `WorkoutAttachmentPayload` and then pick the first one. This allows us to have the type we defined earlier as the content to render in our custom view.
 
-Now that we have data and view ready we only need to configure the SDK to use `WorkoutAttachmentViewInjector` for workout attachments, this is done by changing the default `AttachmentViewCatalog` with our own.
+Now that we have data and view ready we only need to configure the SDK to use `WorkoutAttachmentViewInjector` for workout attachments. This is done by changing the default `AttachmentViewCatalog` with our own.
 
 ```swift
 class MyAttachmentViewCatalog: AttachmentViewCatalog {
@@ -269,7 +281,7 @@ controller.createNewMessage(text: "work-out-test", attachments: [.init(payload: 
 
 In case you need to interact with your custom attachment, there are a couple of steps required:
 1. Create a delegate for your custom attachment view which extends from `ChatMessageContentViewDelegate`.
-2. Create a custom `ChatMessageListVC` if you didn't already, and make it conform to the delegate created in step 1.
+2. Create a custom `ChatMessageListVC` if you haven't already, and make it conform to the delegate created in step 1.
 3. Change your custom injector and add a tap gesture recognizer to your custom view. The delegate can be called by accessing `contentView.delegate` and casting it to your custom delegate.
 
 Below is the full example on how to add a interaction to the custom workout attachment:
@@ -320,9 +332,41 @@ class WorkoutAttachmentViewInjector: AttachmentViewInjector {
 }
 ```
 
-Finally, don't forget to assign the custom message list if you didn't yet:
+Finally, don't forget to assign the custom message list if you haven't yet:
 ```swift
 Components.default.messageListVC = CustomChatMessageListVC.self
+```
+
+### Quoted Message View Preview
+
+A preview of the custom attachment view while a message containing such attachment is being quoted, needs to be provided as well.
+
+In order to do this, you need to subclass the `QuotedChatMessageView` and provide your own implementation for the custom attachment type.
+
+For example, let's create a `CustomQuotedMessageView` with the following implementation.
+
+```swift
+class CustomQuotedMessageView: QuotedChatMessageView {
+    
+    override func setAttachmentPreview(for message: ChatMessage) {
+        if let customPayload = message.attachments(payloadType: WorkoutAttachmentPayload.self).first?.payload {
+            attachmentPreviewView.contentMode = .scaleAspectFit
+            attachmentPreviewView.image = appearance.images.fileFallback
+            if textView.text.isEmpty {
+                textView.text = customPayload.workoutType
+            }
+        }
+        return super.setAttachmentPreview(for: message)
+    }
+}
+```
+
+In the subclass, we are overriding the implementation of the `setAttachmentPreview` method. We are checking if the message contains a custom attachment of type `WorkoutAttachmentPayload`. If it does, we are providing an image and a text available from the message payload.
+
+Finally, you need to inject your custom implementation of the `CustomQuotedMessageView` in our `Components`'s property `quotedMessageView`.
+
+```
+Components.default.quotedMessageView = CustomQuotedMessageView.self
 ```
 
 ### Tracking custom attachment upload progress
