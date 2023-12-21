@@ -85,7 +85,8 @@
           ]
         },
         "swiftui/localization",
-        "swiftui/dependency-injection"        
+        "swiftui/dependency-injection",
+        "swiftui/voice-recording"        
       ]
     },
     {
@@ -95,6 +96,7 @@
         "swiftui/swiftui-cookbook/custom-composer",
         "swiftui/swiftui-cookbook/reactions-reordering",
         "swiftui/swiftui-cookbook/list-alignment",
+        "swiftui/swiftui-cookbook/custom-channel-list",        
         "swiftui/swiftui-cookbook/custom-message-list",
         "swiftui/swiftui-cookbook/creating-channels"
       ]
