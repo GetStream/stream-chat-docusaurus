@@ -1,0 +1,70 @@
+# MessageActionsService
+
+The message actions service provides customization options for the [message actions](../../components/MessageActionsBoxComponent)
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `DefaultStreamChatGenerics` = `DefaultStreamChatGenerics` |
+
+## Properties
+
+### customActions$
+
+• **customActions$**: `BehaviorSubject`<`CustomMessageActionItem`<`DefaultStreamChatGenerics`\>[]\>
+
+You can pass your own custom actions that will be displayed inside the built-in message actions component
+
+#### Defined in
+
+[lib/message-actions.service.ts:101](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-actions.service.ts#L101)
+
+___
+
+### defaultActions
+
+• `Readonly` **defaultActions**: `MessageActionItem`<`T`\>[]
+
+Default actions - these are the actions that are handled by the built-in component
+
+#### Defined in
+
+[lib/message-actions.service.ts:25](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-actions.service.ts#L25)
+
+___
+
+### messageToEdit$
+
+• **messageToEdit$**: `BehaviorSubject`<`undefined` \| `StreamMessage`<`T`\>\>
+
+The built-in components will handle changes to this observable.
+
+#### Defined in
+
+[lib/message-actions.service.ts:97](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-actions.service.ts#L97)
+
+## Methods
+
+### getAuthorizedMessageActionsCount
+
+▸ **getAuthorizedMessageActionsCount**(`message`, `enabledActions`): `number`
+
+This method returns how many authorized actions are available to the given message
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `StreamMessage`<`T`\> |
+| `enabledActions` | `string`[] |
+
+#### Returns
+
+`number`
+
+the count
+
+#### Defined in
+
+[lib/message-actions.service.ts:116](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-actions.service.ts#L116)
