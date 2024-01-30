@@ -3,12 +3,12 @@ id: message
 title: Message
 ---
 
-import GHComponentLink from '../../_docusaurus-components/GHComponentLink';
+import GHComponentLink from '../_docusaurus-components/GHComponentLink';
 
-import MessageActionsBoxWithCustomAction from '../../assets/message-actions-box-custom-actions.png';
+import MessageActionsBoxWithCustomAction from '../assets/message-actions-box-custom-actions.png';
 
 The `Message` component is a React Context provider that wraps all the logic, functionality, and UI for the individual messages
-displayed in a message list. It provides the [`MessageContext`](../../contexts/message-context.mdx) to its children. All the message UI components consume the `MessageContext` and rely on the stored data for their display and interaction.
+displayed in a message list. It provides the [`MessageContext`](../contexts/message-context.mdx) to its children. All the message UI components consume the `MessageContext` and rely on the stored data for their display and interaction.
 
 :::note
 The majority of Stream Chat use cases will not need to use the `Message` component directly. We've documented it here for reference,
