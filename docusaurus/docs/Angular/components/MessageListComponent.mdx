@@ -19,30 +19,7 @@ If you want to customize how messages are displayed in the list, head over to th
 
 ### Custom message list
 
-The message list contains a lot of low-level logic related to scrolling, we don't advise to create your own message list component, however it's possible: see [our customization guide](../concepts/customization.mdx) on how to provide your own message list component.
-
-:::note
-If you want to create your own message list, you can use the [`ChannelService`](../services/ChannelService.mdx) to receive the necessary messages and interact with the Stream API.
-
-Other building blocks, that you might find useful:
-
-### Message group styles
-
-Message group styles makes the message list more readable, by grouping messages from the same author on the same day together. The grouping assigns a CSS class to every message, if you want to take advantage of this functionality, you can use the [`getGroupStyles`](https://github.com/GetStream/stream-chat-angular/tree/master/projects/stream-chat-angular/src/lib/message-list/group-styles.ts) utility function.
-
-**Example 1** - Messages with group styles
-
-<img src={MessagesWithGroupingsScreenhot} width="500" />
-
-**Example 2** - Messages without group styles
-
-<img src={MessagesWithoutGroupingsScreenhot} width="500" />
-
-:::
-
-**Example 2** - Using a custom message component
-
-If you only want to customize the messages (not the whole list), see the [message customization guide](./MessageComponent.mdx/#customization).
+The message list contains a lot of low-level logic related to scrolling, we don't advise to create your own message list component
 
 [//]: # "Start of generated content"
 ## Inputs and outputs 
@@ -56,7 +33,7 @@ Determines if the message list should display channel messages or [thread messag
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:52](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L52)
+[lib/message-list/message-list.component.ts:52](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L52)
 
 ___
 
@@ -68,7 +45,7 @@ The direction of the messages in the list, `bottom-to-top` means newest message 
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:56](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L56)
+[lib/message-list/message-list.component.ts:56](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L56)
 
 ___
 
@@ -80,7 +57,7 @@ Determines what triggers the appearance of the message options: by default you c
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:60](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L60)
+[lib/message-list/message-list.component.ts:60](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L60)
 
 ___
 
@@ -94,7 +71,7 @@ You can hide the "jump to latest" button while scrolling. A potential use-case f
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:67](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L67)
+[lib/message-list/message-list.component.ts:67](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L67)
 
 ___
 
@@ -108,7 +85,7 @@ A list of custom message actions to be displayed in the message action box
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:73](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L73)
+[lib/message-list/message-list.component.ts:73](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L73)
 
 ___
 
@@ -120,7 +97,7 @@ If `true` date separators will be displayed
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:77](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L77)
+[lib/message-list/message-list.component.ts:77](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L77)
 
 ___
 
@@ -133,7 +110,7 @@ If `openMessageListAt` is `last-read-message` it will also set the text position
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:82](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L82)
+[lib/message-list/message-list.component.ts:82](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L82)
 
 ___
 
@@ -145,7 +122,7 @@ ___
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:86](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L86)
+[lib/message-list/message-list.component.ts:86](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L86)
 
 ___
 
@@ -157,6 +134,6 @@ You can turn on and off the loading indicator that signals to users that more me
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:91](https://github.com/GetStream/stream-chat-angular/blob/cc738e9/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L91)
+[lib/message-list/message-list.component.ts:91](https://github.com/GetStream/stream-chat-angular/blob/b0a1e9e/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L91)
 
 [//]: # "End of generated content"
