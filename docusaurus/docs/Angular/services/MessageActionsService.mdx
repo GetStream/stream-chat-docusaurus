@@ -10,6 +10,32 @@ The message actions service provides customization options for the [message acti
 
 ## Properties
 
+### customActionClickHandler
+
+• `Optional` **customActionClickHandler**: (`details`: `MessageActionsClickDetails`<`T`\>) => `void`
+
+#### Type declaration
+
+▸ (`details`): `void`
+
+By default the [`MessageComponent`](../../components/MessageComponent) will display the [`MessageActionsBoxComponent`](../../components/MessageActionsBoxComponent). You can override that behavior by providing your own event handler.
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `details` | `MessageActionsClickDetails`<`T`\> |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[lib/message-actions.service.ts:106](https://github.com/GetStream/stream-chat-angular/blob/9502834/projects/stream-chat-angular/src/lib/message-actions.service.ts#L106)
+
+___
+
 ### customActions$
 
 • **customActions$**: `BehaviorSubject`<`CustomMessageActionItem`<`DefaultStreamChatGenerics`\>[]\>
@@ -18,7 +44,7 @@ You can pass your own custom actions that will be displayed inside the built-in 
 
 #### Defined in
 
-[lib/message-actions.service.ts:101](https://github.com/GetStream/stream-chat-angular/blob/65fa437/projects/stream-chat-angular/src/lib/message-actions.service.ts#L101)
+[lib/message-actions.service.ts:102](https://github.com/GetStream/stream-chat-angular/blob/9502834/projects/stream-chat-angular/src/lib/message-actions.service.ts#L102)
 
 ___
 
@@ -30,7 +56,7 @@ Default actions - these are the actions that are handled by the built-in compone
 
 #### Defined in
 
-[lib/message-actions.service.ts:25](https://github.com/GetStream/stream-chat-angular/blob/65fa437/projects/stream-chat-angular/src/lib/message-actions.service.ts#L25)
+[lib/message-actions.service.ts:26](https://github.com/GetStream/stream-chat-angular/blob/9502834/projects/stream-chat-angular/src/lib/message-actions.service.ts#L26)
 
 ___
 
@@ -42,7 +68,7 @@ The built-in components will handle changes to this observable.
 
 #### Defined in
 
-[lib/message-actions.service.ts:97](https://github.com/GetStream/stream-chat-angular/blob/65fa437/projects/stream-chat-angular/src/lib/message-actions.service.ts#L97)
+[lib/message-actions.service.ts:98](https://github.com/GetStream/stream-chat-angular/blob/9502834/projects/stream-chat-angular/src/lib/message-actions.service.ts#L98)
 
 ## Methods
 
@@ -67,4 +93,4 @@ the count
 
 #### Defined in
 
-[lib/message-actions.service.ts:116](https://github.com/GetStream/stream-chat-angular/blob/65fa437/projects/stream-chat-angular/src/lib/message-actions.service.ts#L116)
+[lib/message-actions.service.ts:121](https://github.com/GetStream/stream-chat-angular/blob/9502834/projects/stream-chat-angular/src/lib/message-actions.service.ts#L121)
