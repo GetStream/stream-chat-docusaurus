@@ -1,12 +1,13 @@
 ---
-id: message_list
+id: message-list
 sidebar_position: 5
+slug: '/ui-components/message-list/message-list/'
 title: MessageList
 ---
 
-import GHComponentLink from '../_docusaurus-components/GHComponentLink';
+import GHComponentLink from '../../_docusaurus-components/GHComponentLink';
 
-import MessageActionsBoxWithCustomAction from '../assets/message-actions-box-custom-actions.png';
+import MessageActionsBoxWithCustomAction from '../../assets/message-actions-box-custom-actions.png';
 
 The `MessageList` component renders a scrollable list of messages. The UI for each individual message is rendered
 conditionally based on its `message.type` value. The list renders date separators, message reactions, new message notifications, system
@@ -21,8 +22,8 @@ const { messages } = useChannelStateContext();
 ```
 
 The `MessageList` has no required props and by default pulls overridable data from the various contexts established
-in the [`Channel`](./channel.mdx) component. Customization of the messages rendered within the list is handled by
-the [Message UI](../ui/message-components/message-ui.mdx) component.
+in the [`Channel`](../channel.mdx) component. Customization of the messages rendered within the list is handled by
+the [Message UI](../message/message-ui.mdx) component.
 
 ## Basic Usage
 
