@@ -75,7 +75,7 @@ const customReactionOptions = [
 ];
 ```
 
-And then you can pass these newly created options to [`Channel`](../components/core/channel.mdx) component which will be then propagated to `ReactionSelector` and `ReactionsList`:
+And then you can pass these newly created options to [`Channel`](../components/core-components/channel.mdx) component which will be then propagated to `ReactionSelector` and `ReactionsList`:
 
 ```tsx
 <Channel reactionOptions={customReactionOptions}>{/*...*/}</Channel>
@@ -480,7 +480,7 @@ const doSendMessageRequest: ChannelProps['doSendMessageRequest'] = async (
 ## Message text rendering
 
 Optional remark plugins `htmlToTextPlugin`, `keepLineBreaksPlugin` introduced with [stream-chat-react@v10.19.0](https://github.com/GetStream/stream-chat-react/releases/tag/v10.19.0) are now included among the default remark plugins. That means that in the messages that originally contained a sequence of multiple newline characters `\n`, these will be replaced with line break elements `<br/>`. The number of line breaks equals count of newline characters minus 1.
-The dependencies used to parse the markdown with [`renderText()` function](../components/core/message-list.mdx#rendering-message-text-with-rendertext-function) have been upgraded as a result of that, the following changes had to be performed in stream-chat-react library:
+The dependencies used to parse the markdown with [`renderText()` function](../components/core-components/message-list.mdx#rendering-message-text-with-rendertext-function) have been upgraded as a result of that, the following changes had to be performed in stream-chat-react library:
 
 ### `ReactMarkdownProps` dropped from `customMarkDownRenderers`
 
