@@ -29,6 +29,33 @@ The SDK comes with built-in support for adding reactions to messages. The compon
   ]}
 />
 
+## Sorting reactions
+
+By default, reactions are sorted alphabetically by type. You can change this behavior by passing the `sortReactions` prop to the `MessageList` (or `VirtualizedMessageList`).
+
+In this example, we sort the reactions in the descending order by the number of users:
+
+```jsx
+function sortByReactionCount(a, b) {
+  return b.reactionCount - a.reactionCount;
+}
+
+<Chat client={client}>
+  <Channel
+    channel={channel}
+    ReactionSelector={CustomReactionSelector}
+    ReactionsList={CustomReactionsList}
+  >
+    <MessageList sortReactions={sortByReactionCount} />
+    <MessageInput />
+  </Channel>
+</Chat>;
+```
+
+Similarly, the `sortReactionDetails` prop can be passed to the `MessageList` (or `VirtualizedMessageList`) to sort the list of reacted users. The default implementation used by the reactions list modal dialog sorts users alphabetically by name.
+
+For better performance, keep the sorting functions memoized with `useCallback`, or declare it in either global or module scope.
+
 ## ReactionSelector Props
 
 ### `Avatar`
@@ -167,6 +194,22 @@ If true, adds a CSS class that reverses the horizontal positioning of the select
 | Type    | Default |
 | ------- | ------- |
 | boolean | false   |
+
+### sortReactionDetails
+
+Comparator function to sort the list of reacted users. Should have the same signature as an array's `sort` method. This prop overrides the function stored in `MessageContext`.
+
+| Type                                                       | Default            |
+| ---------------------------------------------------------- | ------------------ |
+| (this: ReactionResponse, that: ReactionResponse) => number | alphabetical order |
+
+### sortReactions
+
+Comparator function to sort reactions. Should have the same signature as an array's `sort` method. This prop overrides the function stored in `MessageContext`.
+
+| Type                                                     | Default            |
+| -------------------------------------------------------- | ------------------ |
+| (this: ReactionSummary, that: ReactionSummary) => number | alphabetical order |
 
 ## SimpleReactionsList Props
 

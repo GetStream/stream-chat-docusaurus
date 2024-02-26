@@ -19,8 +19,8 @@
             "components/core-components/channel_list",
             "components/contexts/channel_list_context",
             "hooks/channel_list_hooks",
-            "components/utility-components/channel_preview_ui",
             "components/utility-components/channel_preview",
+            "components/utility-components/channel_preview_ui",
             "components/utility-components/channel_search"
           ]
         },
@@ -39,6 +39,7 @@
             "components/contexts/message_bounce_context",
             "hooks/message_hooks",
             "components/message-components/message_ui",
+            "components/message-components/render-text",
             "components/message-components/ui-components",
             "components/utility-components/avatar",
             "components/utility-components/base-image",
