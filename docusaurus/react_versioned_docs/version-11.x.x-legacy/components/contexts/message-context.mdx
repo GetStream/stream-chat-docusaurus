@@ -1,5 +1,6 @@
 ---
 id: message_context
+sidebar_position: 6
 title: MessageContext
 ---
 
@@ -375,6 +376,22 @@ When true, show the reactions list component.
 | Type    |
 | ------- |
 | boolean |
+
+### sortReactionDetails
+
+Comparator function to sort the list of reacted users. Should have the same signature as an array's `sort` method.
+
+| Type                                                       | Default            |
+| ---------------------------------------------------------- | ------------------ |
+| (this: ReactionResponse, that: ReactionResponse) => number | alphabetical order |
+
+### sortReactions
+
+Comparator function to sort reactions. Should have the same signature as an array's `sort` method.
+
+| Type                                                     | Default            |
+| -------------------------------------------------------- | ------------------ |
+| (this: ReactionSummary, that: ReactionSummary) => number | alphabetical order |
 
 ### threadList
 
