@@ -52,7 +52,12 @@
             "components/message-components/ui-components",
             "components/utility-components/avatar",
             "components/utility-components/base-image",
-            "components/message-components/attachment",
+            {
+              "Attachment": [
+                "components/message-components/attachment",
+                "components/message-components/attachment/voice-recording"
+              ]
+            },
             "components/message-components/reactions",
             "components/utility-components/date_separator"
           ]
@@ -133,7 +138,8 @@
         "guides/theming/translations",
         "guides/typescript_and_generics",
         "guides/channel_read_state",
-        "guides/3rd-party-video/video-integration-stream"
+        "guides/video-integration/video-integration-stream",
+        "guides/sdk-state-management"
       ]
     },
     { "Release Guides": ["release-guides/upgrade-to-v10", "release-guides/upgrade-to-v11"] },
