@@ -86,6 +86,15 @@ This page contains information about the component variables.
 | `--str-chat__audio-attachment-widget-border-inline-start`               | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Left (right in RTL layout) border of audio widget                                                                          |
 | `--str-chat__audio-attachment-widget-border-inline-end`                 | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Right (left in RTL layout) border of audio widget                                                                          |
 | `--str-chat__audio-attachment-widget-box-shadow`                        | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Box shadow applied to audio widget                                                                                         |
+| `--str-chat__voice-recording-attachment-widget-border-radius`           | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc( var(--str-chat__message-bubble-border-radius) - var(--str-chat__attachment-margin) )`</td></tr></table> | Border radius applied to audio recording widget                                                                            |
+| `--str-chat__voice-recording-attachment-widget-color`                   | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-color)`</td></tr></table>                                                                | Text color used in audio recording widget                                                                                  |
+| `--str-chat__voice-recording-attachment-widget-secondary-color`         | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-low-emphasis-color)`</td></tr></table>                                                   | Border radius applied to audio recording widget                                                                            |
+| `--str-chat__voice-recording-attachment-widget-background-color`        | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__secondary-background-color)`</td></tr></table>                                                | The text/icon color for low emphasis texts (for example file size) in audio recording widget                               |
+| `--str-chat__voice-recording-attachment-widget-border-block-start`      | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Top border of audio recording widget                                                                                       |
+| `--str-chat__voice-recording-attachment-widget-border-block-end`        | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Bottom border of audio recording widget                                                                                    |
+| `--str-chat__voice-recording-attachment-widget-border-inline-start`     | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Left (right in RTL layout) border of audio recording widget                                                                |
+| `--str-chat__voice-recording-attachment-widget-border-inline-end`       | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Right (left in RTL layout) border of audio recording widget                                                                |
+| `--str-chat__voice-recording-attachment-widget-box-shadow`              | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Box shadow applied to audio recording widget                                                                               |
 | `--str-chat__audio-attachment-controls-button-border-radius`            | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__border-radius-circle)`</td></tr></table>                                                      | Border radius applied to the play / pause button of audio widget                                                           |
 | `--str-chat__audio-attachment-controls-button-color`                    | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-color)`</td></tr></table>                                                                | Text color applied to audio widget's play / pause button                                                                   |
 | `--str-chat__audio-attachment-controls-button-background-color`         | <table><tr><th>`.str-chat`</th></tr><tr><td>`var( --str-chat__secondary-background-color )`</td></tr></table>                                              | Background color applied to audio widget's play / pause button                                                             |
@@ -113,7 +122,7 @@ This page contains information about the component variables.
 | `--str-chat__attachment-action-box-shadow`                              | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                                                                       | Box shadow applied to an attachment action                                                                                 |
 | `--str-chat__attachment-action-active-color`                            | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__primary-color)`</td></tr></table>                                                             | The text/icon color of an attachment action while in pressed state                                                         |
 
-Defined in: [AttachmentList](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/AttachmentList/AttachmentList-theme.scss)
+Defined in: [AttachmentList](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/AttachmentList/AttachmentList-theme.scss)
 
 ### Layout variables
 
@@ -126,7 +135,7 @@ Defined in: [AttachmentList](https://github.com/GetStream/stream-chat-css/tree/v
 | `--str-chat__scraped-image-height` | <table><tr><th>`.str-chat__attachment-list`</th></tr><tr><td>`calc(var(--str-chat__attachment-max-width) * calc(1 / 1.91))`</td></tr></table>                              | The height of scraped images, the default value is optimized for 1.91:1 aspect ratio                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | `--str-chat__scraped-video-height` | <table><tr><th>`.str-chat__attachment-list`</th></tr><tr><td>`calc(var(--str-chat__attachment-max-width) * calc(9 / 16))`</td></tr></table>                                | The height of scraped videos, the default value is optimized for 16:9 aspect ratio                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
-Defined in: [AttachmentList](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/AttachmentList/AttachmentList-layout.scss)
+Defined in: [AttachmentList](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/AttachmentList/AttachmentList-layout.scss)
 
 ## AttachmentPreviewList
 
@@ -164,7 +173,7 @@ Defined in: [AttachmentList](https://github.com/GetStream/stream-chat-css/tree/v
 | `--str-chat__attachment-preview-file-border-inline-end`    | <table><tr><th>`.str-chat`</th></tr><tr><td>`1px solid var(--str-chat__surface-color)`</td></tr></table>      | Right (left in RTL layout) border of the file preview                                            |
 | `--str-chat__attachment-preview-file-box-shadow`           | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                          | Box shadow applied to the file preview                                                           |
 
-Defined in: [AttachmentPreviewList](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/AttachmentPreviewList/AttachmentPreviewList-theme.scss)
+Defined in: [AttachmentPreviewList](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/AttachmentPreviewList/AttachmentPreviewList-theme.scss)
 
 ## Autocomplete
 
@@ -217,7 +226,7 @@ Defined in: [AttachmentPreviewList](https://github.com/GetStream/stream-chat-css
 | `--str-chat__mention-list-emoji-item-border-inline-end`       | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                          | Right (left in RTL layout) border of the emoji suggestion item in the autocomplete list      |
 | `--str-chat__mention-list-emoji-item-box-shadow`              | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                          | Box shadow of the emoji suggestion item in the autocomplete list                             |
 
-Defined in: [Autocomplete](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Autocomplete/Autocomplete-theme.scss)
+Defined in: [Autocomplete](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Autocomplete/Autocomplete-theme.scss)
 
 ### Layout variables
 
@@ -225,7 +234,7 @@ Defined in: [Autocomplete](https://github.com/GetStream/stream-chat-css/tree/v4.
 | ------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `--str-chat__mention-list-emoji-item-font-family` | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__font-family)`</td></tr></table> | The font used in the emoji suggestion item in the autocomplete list |
 
-Defined in: [Autocomplete](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Autocomplete/Autocomplete-layout.scss)
+Defined in: [Autocomplete](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Autocomplete/Autocomplete-layout.scss)
 
 ## Avatar
 
@@ -244,7 +253,7 @@ Defined in: [Autocomplete](https://github.com/GetStream/stream-chat-css/tree/v4.
 | `--str-chat__avatar-online-indicator-color`         | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__info-color)`</td></tr></table>           | The color of the online indicator (only available in Angular SDK)         |
 | `--str-chat__avatar-online-indicator-border-radius` | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__border-radius-circle)`</td></tr></table> | The border radius of the online indicator (only available in Angular SDK) |
 
-Defined in: [Avatar](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Avatar/Avatar-theme.scss)
+Defined in: [Avatar](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Avatar/Avatar-theme.scss)
 
 ## Channel
 
@@ -264,7 +273,7 @@ Defined in: [Avatar](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/sr
 | `--str-chat__channel-empty-color`           | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-low-emphasis-color)`</td></tr></table> | The text color used when no channel is selected         |
 | `--str-chat__channel-loading-state-color`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__disabled-color)`</td></tr></table>          | The color of the loading indicator                      |
 
-Defined in: [Channel](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Channel/Channel-theme.scss)
+Defined in: [Channel](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Channel/Channel-theme.scss)
 
 ## ChannelHeader
 
@@ -282,7 +291,7 @@ Defined in: [Channel](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/s
 | `--str-chat__channel-header-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Box shadow applied to the component                                      |
 | `--str-chat__channel-header-info-color`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-low-emphasis-color)`</td></tr></table>    | The text/icon color used to display member information about the channel |
 
-Defined in: [ChannelHeader](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/ChannelHeader/ChannelHeader-theme.scss)
+Defined in: [ChannelHeader](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/ChannelHeader/ChannelHeader-theme.scss)
 
 ## ChannelList
 
@@ -311,7 +320,7 @@ Defined in: [ChannelHeader](https://github.com/GetStream/stream-chat-css/tree/v4
 | `--str-chat__channel-list-load-more-disabled-color`            | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__cta-button-disabled-color)`</td></tr></table>              | The text/icon color of the load more button in disabled state  |
 | `--str-chat__channel-list-empty-indicator-color`               | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__disabled-color)`</td></tr></table>                         | The icon color for the empty list state                        |
 
-Defined in: [ChannelList](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/ChannelList/ChannelList-theme.scss)
+Defined in: [ChannelList](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/ChannelList/ChannelList-theme.scss)
 
 ## ChannelPreview
 
@@ -338,7 +347,7 @@ Defined in: [ChannelList](https://github.com/GetStream/stream-chat-css/tree/v4.8
 | `--str-chat__channel-preview-unread-badge-border-inline-start` | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                       | Left (right in RTL layout) border of the unread badge                    |
 | `--str-chat__channel-preview-unread-badge-border-inline-end`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                       | Right (left in RTL layout) border of the unread badge                    |
 
-Defined in: [ChannelPreview](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/ChannelPreview/ChannelPreview-theme.scss)
+Defined in: [ChannelPreview](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/ChannelPreview/ChannelPreview-theme.scss)
 
 ## ChannelSearch - Only available in React SDK
 
@@ -398,7 +407,7 @@ Defined in: [ChannelPreview](https://github.com/GetStream/stream-chat-css/tree/v
 | `--str-chat__channel-search-results-empty-border-inline-start`             | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Left (right in RTL layout) border of the component                |
 | `--str-chat__channel-search-results-empty-border-inline-end`               | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Right (left in RTL layout) border of the component                |
 
-Defined in: [ChannelSearch](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/ChannelSearch/ChannelSearch-theme.scss)
+Defined in: [ChannelSearch](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/ChannelSearch/ChannelSearch-theme.scss)
 
 ## CircleFAButton
 
@@ -416,7 +425,7 @@ Defined in: [ChannelSearch](https://github.com/GetStream/stream-chat-css/tree/v4
 | `--str-chat__circle-fab-border-inline-start`      | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Left (right in RTL layout) border of the component      |
 | `--str-chat__circle-fab-border-inline-end`        | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Right (left in RTL layout) border of the component      |
 
-Defined in: [CircleFAButton](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/CircleFAButton/CircleFAButton-theme.scss)
+Defined in: [CircleFAButton](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/CircleFAButton/CircleFAButton-theme.scss)
 
 ## CTAButton
 
@@ -436,7 +445,7 @@ Defined in: [CircleFAButton](https://github.com/GetStream/stream-chat-css/tree/v
 | `--str-chat__cta-button-disabled-background-color` | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__disabled-color)`</td></tr></table>       | The background color of the component in disabled state |
 | `--str-chat__cta-button-disabled-color`            | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__on-disabled-color)`</td></tr></table>    | The text/icon color of the component in disabled state  |
 
-Defined in: [CTAButton](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/CTAButton/CTAButton-theme.scss)
+Defined in: [CTAButton](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/CTAButton/CTAButton-theme.scss)
 
 ## EditMessageForm
 
@@ -454,7 +463,7 @@ Defined in: [CTAButton](https://github.com/GetStream/stream-chat-css/tree/v4.8.0
 | `--str-chat__edit-message-modal-button-border-inline-end`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                     | Right (left in RTL layout) border of the component      |
 | `--str-chat__edit-message-modal-button-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                     | Box shadow applied to the component                     |
 
-Defined in: [EditMessageForm](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/EditMessageForm/EditMessageForm-theme.scss)
+Defined in: [EditMessageForm](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/EditMessageForm/EditMessageForm-theme.scss)
 
 ## ImageCarousel - Only available in Angular SDK
 
@@ -464,7 +473,7 @@ Defined in: [EditMessageForm](https://github.com/GetStream/stream-chat-css/tree/
 | ------------------------------------------ | ------------------------------------------------------------------------------------------- | ------------------------------ |
 | `--str-chat__image-carousel-stepper-color` | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-color)`</td></tr></table> | The color of the stepper icon. |
 
-Defined in: [ImageCarousel](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/ImageCarousel/ImageCarousel-theme.scss)
+Defined in: [ImageCarousel](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/ImageCarousel/ImageCarousel-theme.scss)
 
 ## Message
 
@@ -531,7 +540,7 @@ Defined in: [ImageCarousel](https://github.com/GetStream/stream-chat-css/tree/v4
 | `--str-chat__translation-notice-color`                   | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-low-emphasis-color)`</td></tr></table>    | The text color of the translation notice that is displayed if a message is translated with auto-translation  |
 | `--str-chat__translation-notice-active-background-color` | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__tertiary-surface-color)`</td></tr></table>     | The hover color of the translation notice that is displayed if a message is translated with auto-translation |
 
-Defined in: [Message](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Message/Message-theme.scss)
+Defined in: [Message](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Message/Message-theme.scss)
 
 ### Layout variables
 
@@ -540,12 +549,12 @@ Defined in: [Message](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/s
 | `--str-chat__message-options-button-size`                    | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc(var(--str-chat__spacing-px) * 26)`</td></tr></table>                                                                                                                                                                                                                                                                                                                                                                                                                                  | The width/height of the message options buttons                                  |
 | `--str-chat__message-max-width`                              | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc(var(--str-chat__spacing-px) * 480)`</td></tr><tr><th>`.str-chat__message.str-chat__message--has-attachment`</th></tr><tr><td>`var(--str-chat__message-with-attachment-max-width)`</td></tr><tr><th>`.str-chat__quoted-message-preview`</th></tr><tr><td>`var(--str-chat__quoted-message-max-width)`</td></tr><tr><th>`.str-chat__message-input .str-chat__quoted-message-preview`</th></tr><tr><td>`var(--str-chat__quoted-message-inside-message-input-max-width)`</td></tr></table> | The maximum allowed width of the message component                               |
 | `--str-chat__message-with-attachment-max-width`              | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc(var(--str-chat__spacing-px) * 300)`</td></tr></table>                                                                                                                                                                                                                                                                                                                                                                                                                                 | The maximum allowed width of the message component, if it has attachments        |
-| `--str-chat__quoted-message-max-width`                       | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc(var(--str-chat__spacing-px) * 180)`</td></tr></table>                                                                                                                                                                                                                                                                                                                                                                                                                                 | The maximum allowed width of quoted messages inside the message component        |
+| `--str-chat__quoted-message-max-width`                       | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc(var(--str-chat__spacing-px) * 250)`</td></tr></table>                                                                                                                                                                                                                                                                                                                                                                                                                                 | The maximum allowed width of quoted messages inside the message component        |
 | `--str-chat__quoted-message-inside-message-input-max-width`  | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc( var(--str-chat__spacing-px) * 200 )`</td></tr></table>                                                                                                                                                                                                                                                                                                                                                                                                                               | The maximum allowed width of quoted messages inside the message input component  |
 | `--str-chat__quoted-message-inside-message-input-max-height` | <table><tr><th>`.str-chat`</th></tr><tr><td>`calc( var(--str-chat__quoted-message-inside-message-input-max-width) + calc(var(--str-chat__spacing-px) * 50) )`</td></tr></table>                                                                                                                                                                                                                                                                                                                                                         | The maximum allowed height of quoted messages inside the message input component |
 | `--str-chat__message-edited-timestamp-height`                | <table><tr><th>`.str-chat__message .str-chat__message-metadata .str-chat__message-edited-timestamp,.str-chat__quoted-message-preview .str-chat__message-metadata .str-chat__message-edited-timestamp`</th></tr><tr><td>`1rem`</td></tr></table>                                                                                                                                                                                                                                                                                         |                                                                                  |
 
-Defined in: [Message](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Message/Message-layout.scss)
+Defined in: [Message](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Message/Message-layout.scss)
 
 ## MessageActionsBox
 
@@ -571,7 +580,7 @@ Defined in: [Message](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/s
 | `--str-chat__message-actions-box-item-border-inline-end`      | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Right (left in RTL layout) border of an item in the message actions box      |
 | `--str-chat__message-actions-box-item-box-shadow`             | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Box shadow applied to an item in the message actions box                     |
 
-Defined in: [MessageActionsBox](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageActionsBox/MessageActionsBox-theme.scss)
+Defined in: [MessageActionsBox](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageActionsBox/MessageActionsBox-theme.scss)
 
 ## MessageBouncePrompt
 
@@ -589,7 +598,7 @@ Defined in: [MessageActionsBox](https://github.com/GetStream/stream-chat-css/tre
 | `--str-chat__message-bounce-button-border-inline-end`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                           | Right (left in RTL layout) button of the component |
 | `--str-chat__message-bounce-button-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                           | Box shadow applied to the button                   |
 
-Defined in: [MessageBouncePrompt](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageBouncePrompt/MessageBouncePrompt-theme.scss)
+Defined in: [MessageBouncePrompt](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageBouncePrompt/MessageBouncePrompt-theme.scss)
 
 ## MessageInput
 
@@ -643,7 +652,7 @@ Defined in: [MessageBouncePrompt](https://github.com/GetStream/stream-chat-css/t
 | `--str-chat__cooldown-border-inline-end`              | <table><tr><th>`.str-chat`</th></tr><tr><td>`0`</td></tr></table>                                           | Right (left in RTL layout) border of the cooldown timer                                                            |
 | `--str-chat__cooldown-box-shadow`                     | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Box shadow applied to the cooldown timer                                                                           |
 
-Defined in: [MessageInput](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageInput/MessageInput-theme.scss)
+Defined in: [MessageInput](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageInput/MessageInput-theme.scss)
 
 ### Layout variables
 
@@ -651,7 +660,7 @@ Defined in: [MessageInput](https://github.com/GetStream/stream-chat-css/tree/v4.
 | ------------------------------------------------ | ------------------------------------------------------------------------- | ----------------------------------------------------- |
 | `--str-chat__dropzone-container-backdrop-filter` | <table><tr><th>`.str-chat`</th></tr><tr><td>`blur(3px)`</td></tr></table> | The backdrop filter applied to the dropzone container |
 
-Defined in: [MessageInput](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageInput/MessageInput-layout.scss)
+Defined in: [MessageInput](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageInput/MessageInput-layout.scss)
 
 ## MessageList
 
@@ -681,7 +690,7 @@ Defined in: [MessageInput](https://github.com/GetStream/stream-chat-css/tree/v4.
 | `--str-chat__thread-head-start-color`                              | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-low-emphasis-color)`</td></tr></table>                   | The color used for displaying thread replies and thread separator at the start of a thread |
 | `--str-chat__thread-head-start-border-block-end-color`             | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__surface-color)`</td></tr></table>                             | The color used for the separator below the first message in a thread                       |
 
-Defined in: [MessageList](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageList/MessageList-theme.scss)
+Defined in: [MessageList](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageList/MessageList-theme.scss)
 
 ## VirtualizedMessageList - Only available in React SDK
 
@@ -698,7 +707,7 @@ Defined in: [MessageList](https://github.com/GetStream/stream-chat-css/tree/v4.8
 | `--str-chat__virtual-list-border-inline-start` | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                              | Left (right in RTL layout) border of the component      |
 | `--str-chat__virtual-list-border-inline-end`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                              | Right (left in RTL layout) border of the component      |
 
-Defined in: [VirtualizedMessageList](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/VirtualizedMessageList/VirtualizedMessageList-theme.scss)
+Defined in: [VirtualizedMessageList](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/VirtualizedMessageList/VirtualizedMessageList-theme.scss)
 
 ## MessageReactions
 
@@ -726,7 +735,7 @@ Defined in: [VirtualizedMessageList](https://github.com/GetStream/stream-chat-cs
 | `--str-chat__own-message-reaction-background-color`      | <table><tr><th>`.str-chat`</th></tr><tr><td>`var( --str-chat__primary-surface-color-low-emphasis )`</td></tr></table> | The background color of a message reaction, if the user reacted with that reaction |
 | `--str-chat__messsage-reactions-details--selected-color` | <table><tr><th>`.str-chat`</th></tr><tr><td>`solid var(--str-chat__primary-color)`</td></tr></table>                  |                                                                                    |
 
-Defined in: [MessageReactions](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageReactions/MessageReactions-theme.scss)
+Defined in: [MessageReactions](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageReactions/MessageReactions-theme.scss)
 
 ### Layout variables
 
@@ -734,7 +743,7 @@ Defined in: [MessageReactions](https://github.com/GetStream/stream-chat-css/tree
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
 | `--str-chat__stream-emoji-size` | <table><tr><th>`.str-chat__message-reactions-details .str-chat__message-reaction-emoji-big`</th></tr><tr><td>`1em`</td></tr></table> |             |
 
-Defined in: [MessageReactions](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageReactions/MessageReactions-layout.scss)
+Defined in: [MessageReactions](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageReactions/MessageReactions-layout.scss)
 
 ## MessageReactionsSelector
 
@@ -761,7 +770,7 @@ Defined in: [MessageReactions](https://github.com/GetStream/stream-chat-css/tree
 | `--str-chat__message-reactions-option-border-inline-end`         | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                          | Right (left in RTL layout) border of the component      |
 | `--str-chat__message-reactions-option-box-shadow`                | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                          | Box shadow applied to the component                     |
 
-Defined in: [MessageReactionsSelector](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageReactionsSelector/MessageReactionsSelector-theme.scss)
+Defined in: [MessageReactionsSelector](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageReactionsSelector/MessageReactionsSelector-theme.scss)
 
 ## Modal
 
@@ -782,7 +791,7 @@ Defined in: [MessageReactionsSelector](https://github.com/GetStream/stream-chat-
 | `--str-chat__modal-close-icon-background`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-low-emphasis-color)`</td></tr></table>    | The background color of the close button                                                                         |
 | `--str-chat__modal-close-icon-color`        | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__on-disabled-color)`</td></tr></table>          | The icon color of the close button                                                                               |
 
-Defined in: [Modal](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Modal/Modal-theme.scss)
+Defined in: [Modal](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Modal/Modal-theme.scss)
 
 ## MessageNotification - Only available in React SDK
 
@@ -799,7 +808,7 @@ Defined in: [Modal](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src
 | `--str-chat__message-notification-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                              | Box shadow applied to the component                     |
 | `--str-chat__message-notification-color`               | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__on-primary-color)`</td></tr></table> | The text/icon color of the component                    |
 
-Defined in: [MessageNotification](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/MessageNotification/MessageNotification-theme.scss)
+Defined in: [MessageNotification](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/MessageNotification/MessageNotification-theme.scss)
 
 ## Notification
 
@@ -816,7 +825,7 @@ Defined in: [MessageNotification](https://github.com/GetStream/stream-chat-css/t
 | `--str-chat__notification-border-inline-end`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                             | Right (left in RTL layout) border of the component      |
 | `--str-chat__notification-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`0 0 8px var(--str-chat__box-shadow-color)`</td></tr></table>        | Box shadow applied to the component                     |
 
-Defined in: [Notification](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Notification/Notification-theme.scss)
+Defined in: [Notification](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Notification/Notification-theme.scss)
 
 ## NotificationList
 
@@ -833,7 +842,7 @@ Defined in: [Notification](https://github.com/GetStream/stream-chat-css/tree/v4.
 | `--str-chat__notification-list-border-inline-end`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                          | Right (left in RTL layout) border of the component      |
 | `--str-chat__notification-list-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                          | Box shadow applied to the component                     |
 
-Defined in: [NotificationList](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/NotificationList/NotificationList-theme.scss)
+Defined in: [NotificationList](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/NotificationList/NotificationList-theme.scss)
 
 ## Thread
 
@@ -859,7 +868,7 @@ Defined in: [NotificationList](https://github.com/GetStream/stream-chat-css/tree
 | `--str-chat__thread-header-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Box shadow applied to the thread header                                        |
 | `--str-chat__thread-header-info-color`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-low-emphasis-color)`</td></tr></table>    | The text/icon color used to display less emphasized text in the channel header |
 
-Defined in: [Thread](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Thread/Thread-theme.scss)
+Defined in: [Thread](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Thread/Thread-theme.scss)
 
 ## Tooltip
 
@@ -876,7 +885,7 @@ Defined in: [Thread](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/sr
 | `--str-chat__tooltip-border-inline-end`   | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                        | Right (left in RTL layout) border of the component      |
 | `--str-chat__tooltip-box-shadow`          | <table><tr><th>`.str-chat`</th></tr><tr><td>`0 0 20px var(--str-chat__box-shadow-color)`</td></tr></table>  | Box shadow applied to the component                     |
 
-Defined in: [Tooltip](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/Tooltip/Tooltip-theme.scss)
+Defined in: [Tooltip](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/Tooltip/Tooltip-theme.scss)
 
 ## TypingIndicator
 
@@ -894,5 +903,5 @@ Defined in: [Tooltip](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/s
 | `--str-chat__typing-indicator-box-shadow`           | <table><tr><th>`.str-chat`</th></tr><tr><td>`none`</td></tr></table>                                     | Box shadow applied to the component                           |
 | `--str-chat__typing-indicator-dot-background-color` | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-color)`</td></tr></table>              | Background color of the animated dots in the typing indicator |
 
-Defined in: [TypingIndicator](https://github.com/GetStream/stream-chat-css/tree/v4.8.0/src/v2/styles/TypingIndicator/TypingIndicator-theme.scss)
+Defined in: [TypingIndicator](https://github.com/GetStream/stream-chat-css/tree/v4.9.2/src/v2/styles/TypingIndicator/TypingIndicator-theme.scss)
 
