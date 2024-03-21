@@ -6,6 +6,7 @@ module.exports = {
       "items": [
         "basics/overview",
         "basics/dependencies",
+        "client/overview",
       ]
     },
     {
@@ -92,8 +93,8 @@ module.exports = {
             "compose/utility-components/search-input",
           ],
         },
-        "compose/guides/custom-translations",
         "compose/guides/customizing-image-and-video-previews",
+        "compose/guides/custom-translations",
         "compose/guides/implementing-own-capabilities",
       ]
     },
