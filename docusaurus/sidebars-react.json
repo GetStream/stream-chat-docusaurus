@@ -28,10 +28,9 @@
             "components/core-components/channel_list",
             "components/contexts/channel_list_context",
             "hooks/channel_list_hooks",
+            "components/utility-components/channel_preview",
             "components/utility-components/channel_preview_ui",
-            "components/utility-components/channel_search",
-            "guides/channel-list-infinite-scroll",
-            "guides/multiple_channel_lists"
+            "components/utility-components/channel_search"
           ]
         },
         {
@@ -55,8 +54,8 @@
             "components/utility-components/base-image",
             {
               "Attachment": [
-                "components/message-components/attachment",
-                "components/message-components/attachment/voice-recording"
+              "components/message-components/attachment",
+              "components/message-components/attachment/voice-recording"
               ]
             },
             "components/message-components/reactions",
@@ -83,9 +82,11 @@
         "guides/customization/customization-overview",
         {
           "Channel List": [
+            "guides/channel-list-infinite-scroll",
             "guides/customization/channel_list_preview",
             "guides/customization/channel_search",
-            "guides/channel-user-lists"
+            "guides/channel-user-lists",
+            "guides/multiple_channel_lists"
           ]
         },
         {
@@ -122,10 +123,12 @@
             "guides/customization/giphy_preview"
           ]
         },
-        "guides/customization/emoji_picker",
-        "guides/customization/app_menu",
-        "guides/customization/channel_header",
-        "guides/customization/thread_header"
+        {
+          "Emojis": ["guides/customization/emoji_picker"]
+        },
+        {
+          "Misc": ["guides/customization/channel_header", "guides/customization/thread_header"]
+        }
       ]
     },
     {
