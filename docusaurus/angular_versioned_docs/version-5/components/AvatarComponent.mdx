@@ -1,0 +1,63 @@
+The `Avatar` component displays the provided image, with fallback to the first letter of the optional name input.
+
+## Basic Usage
+
+A typical use case for the `Avatar` component would be to use in your custom components that will completely override a message component, or similar.
+
+**Example 1** - a basic example:
+
+```typescript
+@Component({
+  selector: "app-custom-message",
+  template: `
+    <stream-avatar [imageUrl]="imageUrl" [name]="name"></stream-avatar>
+    <!-- Other parts of the custom message component -->
+  `,
+})
+export class CustomMessageComponent {
+  imageUrl =
+    "https://pbs.twimg.com/profile_images/897621870069112832/dFGq6aiE_400x400.jpg";
+  name = "Roy";
+}
+```
+
+## Customization
+
+You can provide your own avatar component using the [`CustomTemplatesService`](../services/CustomTemplatesService/#avatartemplate)
+
+This will override the avatar for all locations (for example: message sender, channel preview). In case you want to override it only for selected locations, you can create a custom template like this:
+
+```html
+<ng-template
+  #avatarTemplate
+  let-name="name"
+  let-imageUrl="imageUrl"
+  let-size="size"
+  let-type="type"
+  let-location="location"
+  let-user="user"
+  let-channel="channel"
+  let-initialsType="initialsType"
+  let-showOnlineIndicator="showOnlineIndicator"
+>
+  <my-custom-avatar
+    *ngIf="location === 'message-sender'; else defaultAvatar"
+  ></my-custom-avatar>
+  <ng-template #defaultAvatar>
+    <stream-avatar
+      [name]="name"
+      [imageUrl]="imageUrl"
+      [size]="size"
+      [type]="type"
+      [location]="location"
+      [user]="user"
+      [channel]="channel"
+      [initialsType]="initialsType"
+      [showOnlineIndicator]="showOnlineIndicator"
+    ></stream-avatar>
+  </ng-template>
+</ng-template>
+```
+
+[//]: # "Start of generated content"
+[//]: # "End of generated content"

@@ -1,0 +1,52 @@
+The `MessageInput` component displays an input where users can type their messages and upload files, and sends the message to the active channel. The component can be used to compose new messages or update existing ones. To send messages, the chat user needs to have the necessary [channel capability](https://getstream.io/chat/docs/javascript/channel_capabilities/?language=javascript).
+
+## Configuration
+
+The `MessageInput` component can use the [`Textarea`](./TextareaComponent.mdx) or the [`AutocompleteTextarea`](./AutocompleteTextareaComponent.mdx) component for displaying an HTML input for the users to type. You need to [provide your chosen component at module import](../concepts/opt-in-architecture.mdx).
+
+## Emoji picker
+
+The SDK doesn't have a built-in emoji picker, but it has support for providing your own template. Follow our [emoji picker guide](../code-examples/emoji-picker.mdx) to get to know more.
+
+## Customization
+
+If you want to provide your own message input component you'll have to provide it in the following places:
+
+- Replace the default message input inside the [channel](./ChannelComponent.mdx)
+- Replace the default message input inside the [thread](./ThreadComponent.mdx)
+- Provide your own [messageInputTemplate$](../services/CustomTemplatesService.mdx/#messageinputtemplate) to the `CustomTemplatesService`
+
+You can replace the textarea inside the message input following our [Custom textarea guide](../../code-examples/custom-textarea)
+
+See [our customization guide](../concepts/customization.mdx) for more information.
+
+:::note
+If you want to create your own message input, you can use the following building blocks:
+
+### Send and update messages
+
+You can use [`ChannelService`](../services/ChannelService.mdx) to send and update messages.
+
+### File uploads
+
+You can use the [`AttachmentService`](../services/AttachmentService.mdx) to manage file uploads.
+
+If more than one message input component can exist on your chat UI you should provide the `AttachmentService` on the component level:
+
+```typescript
+@Component({
+  selector: 'custom-message-input',
+  templateUrl: './message-input.component.html',
+  styles: [],
+  providers: [AttachmentService],
+})
+```
+
+### `Textarea`
+
+You can use the [`Textarea`](./TextareaComponent.mdx) or the [`AutocompleteTextarea`](./AutocompleteTextareaComponent.mdx) component to display the input HTML element for the users to type.
+
+:::
+
+[//]: # "Start of generated content"
+[//]: # "End of generated content"
