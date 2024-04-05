@@ -1,0 +1,103 @@
+# DateParserService
+
+The `DateParserService` parses dates into user-friendly string representations.
+
+## Properties
+
+### customDateParser
+
+• `Optional` **customDateParser**: (`date`: `Date`) => `string`
+
+#### Type declaration
+
+▸ (`date`): `string`
+
+Custom parser to override `parseDate`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `date` | `Date` |
+
+##### Returns
+
+`string`
+
+#### Defined in
+
+[lib/date-parser.service.ts:14](https://github.com/GetStream/stream-chat-angular/blob/cd85da2/projects/stream-chat-angular/src/lib/date-parser.service.ts#L14)
+
+___
+
+### customDateTimeParser
+
+• `Optional` **customDateTimeParser**: (`date`: `Date`) => `string`
+
+#### Type declaration
+
+▸ (`date`): `string`
+
+Custom parser to override `parseDateTime`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `date` | `Date` |
+
+##### Returns
+
+`string`
+
+#### Defined in
+
+[lib/date-parser.service.ts:18](https://github.com/GetStream/stream-chat-angular/blob/cd85da2/projects/stream-chat-angular/src/lib/date-parser.service.ts#L18)
+
+## Methods
+
+### parseDate
+
+▸ **parseDate**(`date`): `string`
+
+Return a user-friendly string representation of the date (year, month and date)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `date` | `Date` |
+
+#### Returns
+
+`string`
+
+The parsed date
+
+#### Defined in
+
+[lib/date-parser.service.ts:27](https://github.com/GetStream/stream-chat-angular/blob/cd85da2/projects/stream-chat-angular/src/lib/date-parser.service.ts#L27)
+
+___
+
+### parseDateTime
+
+▸ **parseDateTime**(`date`): `string`
+
+Return a user-friendly string representation of the date and time
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `date` | `Date` |
+
+#### Returns
+
+`string`
+
+The parsed date
+
+#### Defined in
+
+[lib/date-parser.service.ts:39](https://github.com/GetStream/stream-chat-angular/blob/cd85da2/projects/stream-chat-angular/src/lib/date-parser.service.ts#L39)
