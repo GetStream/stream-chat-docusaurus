@@ -49,4 +49,77 @@ You can provide your own UI for the reaction details using the [`MessageReaction
 You can provide your own message reactions component by the [`CustomTemplatesService`](../services/CustomTemplatesService.mdx).
 
 [//]: # "Start of generated content"
+
+## Inputs and outputs
+
+### messageId
+
+• **messageId**: `undefined` \| `string`
+
+The id of the message the reactions belong to
+
+#### Defined in
+
+[lib/message-reactions/message-reactions.component.ts:38](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message-reactions/message-reactions.component.ts#L38)
+
+---
+
+### messageReactionCounts
+
+• **messageReactionCounts**: `Object` = `{}`
+
+The number of reactions grouped by [reaction types](https://github.com/GetStream/stream-chat-angular/tree/master/projects/stream-chat-angular/src/lib/message-reactions/message-reactions.component.ts)
+
+#### Defined in
+
+[lib/message-reactions/message-reactions.component.ts:42](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message-reactions/message-reactions.component.ts#L42)
+
+---
+
+### isSelectorOpen
+
+• **isSelectorOpen**: `boolean` = `false`
+
+Indicates if the selector should be opened or closed. Adding a UI element to open and close the selector is the parent's component responsibility.
+
+#### Defined in
+
+[lib/message-reactions/message-reactions.component.ts:47](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message-reactions/message-reactions.component.ts#L47)
+
+---
+
+### latestReactions
+
+• **latestReactions**: `ReactionResponse`<`DefaultStreamChatGenerics`\>[] = `[]`
+
+List of reactions of a [message](../types/stream-message.mdx), used to display the users of a reaction type.
+
+#### Defined in
+
+[lib/message-reactions/message-reactions.component.ts:51](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message-reactions/message-reactions.component.ts#L51)
+
+---
+
+### ownReactions
+
+• **ownReactions**: `ReactionResponse`<`DefaultStreamChatGenerics`\>[] = `[]`
+
+List of the user's own reactions of a [message](../types/stream-message.mdx), used to display the users of a reaction type.
+
+#### Defined in
+
+[lib/message-reactions/message-reactions.component.ts:55](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message-reactions/message-reactions.component.ts#L55)
+
+---
+
+### isSelectorOpenChange
+
+• `Readonly` **isSelectorOpenChange**: `EventEmitter`<`boolean`\>
+
+Indicates if the selector should be opened or closed. Adding a UI element to open and close the selector is the parent's component responsibility.
+
+#### Defined in
+
+[lib/message-reactions/message-reactions.component.ts:59](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message-reactions/message-reactions.component.ts#L59)
+
 [//]: # "End of generated content"
