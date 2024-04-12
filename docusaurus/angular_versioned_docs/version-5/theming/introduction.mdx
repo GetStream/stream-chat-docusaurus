@@ -18,46 +18,38 @@ import MessageCustomColor2Screenshot from '../assets/stream-chat-css-message-col
 import ChatUiSquareThemeScreenshot from '../assets/stream-chat-css-square-theme-screenshot.png';
 import ChatUiRtlScreenshot from '../assets/stream-chat-css-rtl-layout-screenshot.png';
 
+<SDKSpecific name="react">
+
 The SDK has a new theming and customization system. This page contains information about the new version (refered to as version 2 or v2). The most significant improvements of the new version:
 
 - Refreshed design
 - Better customization through CSS variables
 - Support for RTL layout
 
-<SDKSpecific name="angular">
-
-The [old theme](../concepts/theming-and-css.mdx) (also refered to as version 1 or v1) can still be used with the latest SDK versions, but it's now deprecated, won't be receiving further updates and will be removed in a future major release.
-
-</SDKSpecific>
-
-<SDKSpecific name="react">
-
 The [old theme](../customization/css-and-theming.mdx) (also refered to as version 1 or v1) can still be used with the latest SDK versions, but it's now deprecated, won't be receiving further updates and will be removed in a future major release.
 
 </SDKSpecific>
 
-New theming system (v2) utilises updated markup and new class names in certain components which are being rendered based on which of the two systems you use. Most of the new components (and/or markup) aren't available in the old version (v1) due to compatibility reasons.
-
-<SDKSpecific name="angular">
-
-To use the new theme, please upgrade [`stream-chat-angular`](https://www.npmjs.com/package/stream-chat-angular) to version 4 and follow the instructions below.
-
-</SDKSpecific>
-
 <SDKSpecific name="react">
+
+New theming system (v2) utilises updated markup and new class names in certain components which are being rendered based on which of the two systems you use. Most of the new components (and/or markup) aren't available in the old version (v1) due to compatibility reasons.
 
 To use the new theme, please upgrade [`stream-chat-react`](https://www.npmjs.com/package/stream-chat-react) to version `10.0.2` and follow the instructions below.
 
 </SDKSpecific>
 
-## Using theme-v2
+## Importing the stylesheet
 
 If you're using SCSS:
 
 <SDKSpecific name="angular">
 
 ```scss
-@import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
+// stream-chat-angular@5
+@import 'stream-chat-angular/src/assets/styles/scss/index.scss';
+
+// stream-chat-angular@4
+@import 'stream-chat-angular/src/assets/styles/v2/scss/index.scss';
 ```
 
 </SDKSpecific>
@@ -75,7 +67,11 @@ If you're using CSS:
 <SDKSpecific name="angular">
 
 ```css
-@import '~stream-chat-angular/src/assets/styles/v2/css/index.css';
+// stream-chat-angular@5
+@import 'stream-chat-angular/src/assets/styles/css/index.css';
+
+// stream-chat-angular@4
+@import 'stream-chat-angular/src/assets/styles/v2/css/index.css';
 ```
 
 </SDKSpecific>
@@ -110,14 +106,6 @@ Here is the default chat UI:
 <img src={ChatUiScreenshot} width='500' />
 
 Here is how you can customize global variables:
-
-<SDKSpecific name="angular">
-
-```scss
-@import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
-```
-
-</SDKSpecific>
 
 <SDKSpecific name="react">
 
@@ -231,14 +219,6 @@ To solve this we also have to set the text color for the link attachment compone
 
 If you'd like to add customizations that are not supported by CSS variables, you can override parts of the default CSS:
 
-<SDKSpecific name="angular">
-
-```scss
-@import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
-```
-
-</SDKSpecific>
-
 <SDKSpecific name="react">
 
 ```scss
@@ -261,11 +241,19 @@ If you're using SCSS it's also possible to import component stylesheets separate
 <SDKSpecific name="angular">
 
 ```scss
+// stream-chat-angular@5
 // Use default theme for channel list and channel preview components
-@import '~stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-layout.scss';
-@import '~stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-theme.scss';
-@import '~stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-layout.scss';
-@import '~stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-theme.scss';
+@import 'stream-chat-angular/src/assets/styles/scss/ChannelList/ChannelList-layout.scss';
+@import 'stream-chat-angular/src/assets/styles/scss/ChannelList/ChannelList-theme.scss';
+@import 'stream-chat-angular/src/assets/styles/scss/ChannelPreview/ChannelPreview-layout.scss';
+@import 'stream-chat-angular/src/assets/styles/scss/ChannelPreview/ChannelPreview-theme.scss';
+
+// stream-chat-angular@4
+// Use default theme for channel list and channel preview components
+@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-layout.scss';
+@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-theme.scss';
+@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-layout.scss';
+@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-theme.scss';
 ```
 
 </SDKSpecific>
@@ -297,7 +285,11 @@ Here is how you can import the layout stylesheet:
 <SDKSpecific name="angular">
 
 ```scss
-@import '~stream-chat-angular/src/assets/styles/v2/scss/index.layout.scss';
+// stream-chat-angular@5
+@import 'stream-chat-angular/src/assets/styles/scss/index.layout.scss';
+
+// stream-chat-angular@4
+@import 'stream-chat-angular/src/assets/styles/v2/scss/index.layout.scss';
 ```
 
 </SDKSpecific>
@@ -315,7 +307,11 @@ or if you're using CSS:
 <SDKSpecific name="angular">
 
 ```css
-@import '~stream-chat-angular/src/assets/styles/v2/css/index.layout.css';
+// stream-chat-angular@5
+@import 'stream-chat-angular/src/assets/styles/css/index.layout.css';
+
+// stream-chat-angular@4
+@import 'stream-chat-angular/src/assets/styles/v2/css/index.layout.css';
 ```
 
 </SDKSpecific>
@@ -407,14 +403,6 @@ The `str-chat__theme-dark`/`str-chat__theme-light` class is applied to the [Chan
 
 Here is how you can provide different color configurations for the dark and light themes:
 
-<SDKSpecific name="angular">
-
-```scss
-@import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
-```
-
-</SDKSpecific>
-
 <SDKSpecific name="react">
 
 ```scss
@@ -458,14 +446,6 @@ Here is the custom dark theme:
 It's possible to extend the existing themes with your own themes.
 
 Here is an example creating 'round' and 'square' themes:
-
-<SDKSpecific name="angular">
-
-```scss
-@import '~stream-chat-angular/src/assets/styles/v2/scss/index.scss';
-```
-
-</SDKSpecific>
 
 <SDKSpecific name="react">
 
