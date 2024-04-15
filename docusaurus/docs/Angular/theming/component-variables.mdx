@@ -5,20 +5,18 @@ title: Component variables
 keywords: [v2, theme-v2, theming-v2, theming, component variables]
 ---
 
-import SDKSpecific from './SDKSpecific';
-import V2Warning from './V2Warning';
+import SDKSpecific from "./SDKSpecific";
+import V2Warning from "./V2Warning";
+
+<SDKSpecific name='react'>
 
 :::info
 
-<SDKSpecific name='angular'>
-  <V2Warning themingAndCSSPath='../../concepts/themeing' />
-</SDKSpecific>
-
-<SDKSpecific name='react'>
-  <V2Warning themingAndCSSPath='../../customization/css_and_theming' />
-</SDKSpecific>
+<V2Warning themingAndCSSPath="../../customization/css_and_theming" />
 
 :::
+
+</SDKSpecific>
 
 CSS variables are the easiest way to customize the theme. The variables are organized into two layers:
 
@@ -908,4 +906,3 @@ Defined in: [Tooltip](https://github.com/GetStream/stream-chat-css/tree/v4.11.0/
 | `--str-chat__typing-indicator-dot-background-color` | <table><tr><th>`.str-chat`</th></tr><tr><td>`var(--str-chat__text-color)`</td></tr></table>              | Background color of the animated dots in the typing indicator |
 
 Defined in: [TypingIndicator](https://github.com/GetStream/stream-chat-css/tree/v4.11.0/src/v2/styles/TypingIndicator/TypingIndicator-theme.scss)
-
