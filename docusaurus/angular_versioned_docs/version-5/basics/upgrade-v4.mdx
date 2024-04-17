@@ -95,6 +95,8 @@ Customers who used to use theme-v1 now need to use theme-v2. Updating from theme
 #### `messageActionsBoxTemplate$`
 
 - No longer accepts the `isOpen` input. The `Message` component will take care of hiding/showing the action box component.
+- The `customActions` input has been removed. You can use the [`MessageActionsService`](../../services/MessageActionsService/#customactions) for configuring custom message actions.
+- The `displayedActionsCountChangeHandler` input has been removed. Moving forward the [`MessageActionsService`](../../services/MessageActionsService/#customactions) will be able to provide this information.
 
 [Go to documentation](../../services/CustomTemplatesService/#messageactionsboxtemplate)
 
