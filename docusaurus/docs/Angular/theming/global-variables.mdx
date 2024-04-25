@@ -5,19 +5,18 @@ title: Global variables
 keywords: [v2, theme-v2, theming-v2, theming, global variables]
 ---
 
-import SDKSpecific from './SDKSpecific';
-import V2Warning from './V2Warning';
+import SDKSpecific from "./SDKSpecific";
+import V2Warning from "./V2Warning";
+
+<SDKSpecific name='react'>
 
 :::info
 
-<SDKSpecific name='angular'>
-  <V2Warning themingAndCSSPath='../../concepts/themeing' />
-</SDKSpecific>
+<V2Warning themingAndCSSPath="../../customization/css_and_theming" />
 
-<SDKSpecific name='react'>
-  <V2Warning themingAndCSSPath='../../customization/css_and_theming' />
-</SDKSpecific>
 :::
+
+</SDKSpecific>
 
 CSS variables are the easiest way to customize the theme. The variables are organized into two layers:
 
@@ -98,7 +97,6 @@ You can read about each category in detail in the tables below.
 
 All global theme variables are defined in: [https://github.com/GetStream/stream-chat-css/tree/v4.11.0/src/v2/styles/\_global-theme-variables.scss](https://github.com/GetStream/stream-chat-css/tree/v4.11.0/src/v2/styles/_global-theme-variables.scss)
 
-
 ## Layout variables
 
 ### Spacing
@@ -132,6 +130,5 @@ All global theme variables are defined in: [https://github.com/GetStream/stream-
 | `--str-chat__theme-version` | <table><tr><th>`:root`</th></tr><tr><td>`2`</td></tr></table> | The theme version being used, 1 or 2. Used internally by SDKs |
 
 All global layout variables are defined in: [https://github.com/GetStream/stream-chat-css/tree/v4.11.0/src/v2/styles/\_global-layout-variables.scss](https://github.com/GetStream/stream-chat-css/tree/v4.11.0/src/v2/styles/_global-layout-variables.scss)
-
 
 If you find that these variables are too high-level and you need more granular control, you also have the option to provide [component layer overrides](./component-variables.mdx).
