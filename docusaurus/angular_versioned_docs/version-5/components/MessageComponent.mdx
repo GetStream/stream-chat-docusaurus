@@ -62,20 +62,20 @@ The `Message` component uses the [`Icon`](./IconComponent.mdx) component to disp
 You can add interactions to mentions inside a message, follow our [mention actions guide](../code-examples/mention-actions.mdx) to get to know more.
 
 [//]: # "Start of generated content"
-## Inputs and outputs 
 
+## Inputs and outputs
 
 ### message
 
-• **message**: `undefined` \| `StreamMessage`\<`DefaultStreamChatGenerics`\>
+• **message**: `undefined` \| `StreamMessage`<`DefaultStreamChatGenerics`\>
 
 The message to be displayed
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/message/message.component.ts:58](https://github.com/GetStream/stream-chat-angular/blob/a3cc49ff8a6ad756630d9326a6be28805a51a309/projects/stream-chat-angular/src/lib/message/message.component.ts#L58)
+[lib/message/message.component.ts:67](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message/message.component.ts#L67)
 
-___
+---
 
 ### enabledMessageActions
 
@@ -85,9 +85,9 @@ The list of [channel capabilities](https://getstream.io/chat/docs/javascript/cha
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/message/message.component.ts:62](https://github.com/GetStream/stream-chat-angular/blob/a3cc49ff8a6ad756630d9326a6be28805a51a309/projects/stream-chat-angular/src/lib/message/message.component.ts#L62)
+[lib/message/message.component.ts:71](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message/message.component.ts#L71)
 
-___
+---
 
 ### isLastSentMessage
 
@@ -97,21 +97,21 @@ If `true`, the message status (sending, sent, who read the message) is displayed
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/message/message.component.ts:66](https://github.com/GetStream/stream-chat-angular/blob/a3cc49ff8a6ad756630d9326a6be28805a51a309/projects/stream-chat-angular/src/lib/message/message.component.ts#L66)
+[lib/message/message.component.ts:75](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message/message.component.ts#L75)
 
-___
+---
 
 ### mode
 
-• **mode**: ``"main"`` \| ``"thread"`` = `'main'`
+• **mode**: `"thread"` \| `"main"` = `'main'`
 
 Determines if the message is being dispalyed in a channel or in a [thread](https://getstream.io/chat/docs/javascript/threads/?language=javascript).
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/message/message.component.ts:70](https://github.com/GetStream/stream-chat-angular/blob/a3cc49ff8a6ad756630d9326a6be28805a51a309/projects/stream-chat-angular/src/lib/message/message.component.ts#L70)
+[lib/message/message.component.ts:79](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message/message.component.ts#L79)
 
-___
+---
 
 ### isHighlighted
 
@@ -121,6 +121,20 @@ Highlighting is used to add visual emphasize to a message when jumping to the me
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/message/message.component.ts:74](https://github.com/GetStream/stream-chat-angular/blob/a3cc49ff8a6ad756630d9326a6be28805a51a309/projects/stream-chat-angular/src/lib/message/message.component.ts#L74)
+[lib/message/message.component.ts:83](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message/message.component.ts#L83)
+
+---
+
+### customActions
+
+• **customActions**: `CustomMessageActionItem`<`DefaultStreamChatGenerics`\>[] = `[]`
+
+A list of custom message actions to be displayed in the action box
+
+**`deprecated`** please use the [`MessageActionsService`](https://getstream.io/chat/docs/sdk/angular/services/MessageActionsService) to set this property.
+
+#### Defined in
+
+[lib/message/message.component.ts:89](https://github.com/GetStream/stream-chat-angular/blob/f9a1611/projects/stream-chat-angular/src/lib/message/message.component.ts#L89)
 
 [//]: # "End of generated content"
