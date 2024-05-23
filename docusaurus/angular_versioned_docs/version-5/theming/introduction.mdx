@@ -5,18 +5,18 @@ title: Introduction
 keywords: [v2, theme-v2, theming-v2, theming, introduction]
 ---
 
-import SDKSpecific from './SDKSpecific';
-import ChatUiScreenshot from '../assets/stream-chat-css-chat-ui-screenshot.png';
-import DarkUiScreenshot from '../assets/stream-chat-css-dark-ui-screenshot.png';
-import CustomDarkUiScreenshot from '../assets/stream-chat-css-custom-dark-theme-screenshot.png';
-import ChatUiThemeCustomizationScreenshot from '../assets/stream-chat-css-chat-ui-theme-customization-screenshot.png';
-import ChatUiLayoutScreenshot from '../assets/stream-chat-css-chat-ui-layout-screenshot.png';
-import CustomAvatarColorScreenshot from '../assets/stream-chat-css-custom-avatar-color-screenshot.png';
-import MessageScreenshot from '../assets/stream-chat-css-message-color-screenshot.png';
-import MessageCustomColorScreenshot from '../assets/stream-chat-css-message-color-customization-screenshot.png';
-import MessageCustomColor2Screenshot from '../assets/stream-chat-css-message-color-customization2-screenshot.png';
-import ChatUiSquareThemeScreenshot from '../assets/stream-chat-css-square-theme-screenshot.png';
-import ChatUiRtlScreenshot from '../assets/stream-chat-css-rtl-layout-screenshot.png';
+import SDKSpecific from "./SDKSpecific";
+import ChatUiScreenshot from "../assets/stream-chat-css-chat-ui-screenshot.png";
+import DarkUiScreenshot from "../assets/stream-chat-css-dark-ui-screenshot.png";
+import CustomDarkUiScreenshot from "../assets/stream-chat-css-custom-dark-theme-screenshot.png";
+import ChatUiThemeCustomizationScreenshot from "../assets/stream-chat-css-chat-ui-theme-customization-screenshot.png";
+import ChatUiLayoutScreenshot from "../assets/stream-chat-css-chat-ui-layout-screenshot.png";
+import CustomAvatarColorScreenshot from "../assets/stream-chat-css-custom-avatar-color-screenshot.png";
+import MessageScreenshot from "../assets/stream-chat-css-message-color-screenshot.png";
+import MessageCustomColorScreenshot from "../assets/stream-chat-css-message-color-customization-screenshot.png";
+import MessageCustomColor2Screenshot from "../assets/stream-chat-css-message-color-customization2-screenshot.png";
+import ChatUiSquareThemeScreenshot from "../assets/stream-chat-css-square-theme-screenshot.png";
+import ChatUiRtlScreenshot from "../assets/stream-chat-css-rtl-layout-screenshot.png";
 
 <SDKSpecific name="react">
 
@@ -46,10 +46,10 @@ If you're using SCSS:
 
 ```scss
 // stream-chat-angular@5
-@import 'stream-chat-angular/src/assets/styles/scss/index.scss';
+@import "~stream-chat-angular/src/assets/styles/scss/index.scss";
 
 // stream-chat-angular@4
-@import 'stream-chat-angular/src/assets/styles/v2/scss/index.scss';
+@import "~stream-chat-angular/src/assets/styles/v2/scss/index.scss";
 ```
 
 </SDKSpecific>
@@ -57,7 +57,7 @@ If you're using SCSS:
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/dist/scss/v2/index.scss';
+@import "~stream-chat-react/dist/scss/v2/index.scss";
 ```
 
 </SDKSpecific>
@@ -68,10 +68,10 @@ If you're using CSS:
 
 ```css
 // stream-chat-angular@5
-@import 'stream-chat-angular/src/assets/styles/css/index.css';
+@import "~stream-chat-angular/src/assets/styles/css/index.css";
 
 // stream-chat-angular@4
-@import 'stream-chat-angular/src/assets/styles/v2/css/index.css';
+@import "~stream-chat-angular/src/assets/styles/v2/css/index.css";
 ```
 
 </SDKSpecific>
@@ -79,7 +79,7 @@ If you're using CSS:
 <SDKSpecific name="react">
 
 ```css
-@import '~stream-chat-react/dist/css/v2/index.css';
+@import "~stream-chat-react/dist/css/v2/index.css";
 ```
 
 </SDKSpecific>
@@ -103,14 +103,14 @@ The [full list of global variables](./global-variables.mdx) can be found in our 
 
 Here is the default chat UI:
 
-<img src={ChatUiScreenshot} width='500' />
+<img src={ChatUiScreenshot} width="500" />
 
 Here is how you can customize global variables:
 
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/dist/scss/v2/index.scss';
+@import "~stream-chat-react/dist/scss/v2/index.scss";
 ```
 
 </SDKSpecific>
@@ -129,7 +129,7 @@ Here is how you can customize global variables:
 
 Here is the result:
 
-<img src={ChatUiThemeCustomizationScreenshot} width='500' />
+<img src={ChatUiThemeCustomizationScreenshot} width="500" />
 
 <SDKSpecific name="angular">
 
@@ -168,13 +168,13 @@ In the above example we set the avatar background color by setting the `--str-ch
 
 Here is the result:
 
-<img src={CustomAvatarColorScreenshot} width='500' />
+<img src={CustomAvatarColorScreenshot} width="500" />
 
 Component variables don't inherit. Let's see an example of this.
 
 Here is the message component without custom color:
 
-<img src={MessageScreenshot} width='500' />
+<img src={MessageScreenshot} width="500" />
 
 Setting custom text color inside message bubble:
 
@@ -192,7 +192,7 @@ Setting custom text color inside message bubble:
 }
 ```
 
-<img src={MessageCustomColorScreenshot} width='500' />
+<img src={MessageCustomColorScreenshot} width="500" />
 
 We can see that setting the text color of the message bubble won't change the color of the link attachments.
 
@@ -213,80 +213,7 @@ To solve this we also have to set the text color for the link attachment compone
 }
 ```
 
-<img src={MessageCustomColor2Screenshot} width='500' />
-
-### Custom icons
-
-<SDKSpecific name="angular">
-
-#### From CSS
-
-Starting from stream-chat-angular@5 it's possible to customize icons from CSS.
-
-Here is an example using the [Google Material Icon library](https://fonts.google.com/icons) to override the send icon:
-
-```scss
-// Import the icon library you want to use
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
-
-// Override the send icon
-.str-chat__icon--send::before {
-  font-family: 'Material Symbols Outlined';
-  content: '\e163';
-}
-```
-
-It's also possible to use image files for icons:
-
-```scss
-.str-chat__icon--send {
-  &::before {
-    display: none;
-  }
-  // Link to your image file, or encode the image inline
-  content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgLTk2MCA5NjAgOTYwIiB3aWR0aD0iMjQiPjxwYXRoIGQ9Ik0xMjAtMTYwdi02NDBsNzYwIDMyMC03NjAgMzIwWm04MC0xMjAgNDc0LTIwMC00NzQtMjAwdjE0MGwyNDAgNjAtMjQwIDYwdjE0MFptMCAwdi00MDAgNDAwWiIvPjwvc3ZnPg==');
-}
-```
-
-The full list of icons used by the SDK can be found [here](https://github.com/GetStream/stream-chat-css/blob/main/src/v2/styles/Icon/Icon-layout.scss).
-
-You can also change the size and color of the icons:
-
-```scss
-.str-chat__icon--attach {
-  --str-chat-icon-color: green; // Only works for font icons
-  --str-chat-icon-height: 60px;
-}
-```
-
-#### From HTML template
-
-If you're using stream-chat-angular@4 or an older version, or CSS customizations are not enough, you can completely replace the built-in icon component with your own using the [`CustomTemplatesService`](../../services/CustomTemplatesService/#icontemplate).
-
-You can find a working example in the [customization sample app](https://github.com/GetStream/stream-chat-angular/blob/master/projects/customizations-example/src/app/icon/icon.component.ts).
-
-If the default rules set by the stream-chat-angular stylesheets not enough to set the size and color of your custom icons, you can rely on the `--str-chat-icon-color`, `--str-chat-icon-height` and `--str-chat-icon-width` variables:
-
-```
-.my-custom-send-icon {
-  svg {
-    height: var(--str-chat-icon-height);
-    width: var(--str-chat-icon-width);
-
-    path {
-      fill: var(--str-chat-icon-color);
-    }
-  }
-}
-```
-
-</SDKSpecific>
-
-<SDKSpecific name="react">
-
-TODO
-
-</SDKSpecific>
+<img src={MessageCustomColor2Screenshot} width="500" />
 
 ### CSS overrides
 
@@ -295,7 +222,7 @@ If you'd like to add customizations that are not supported by CSS variables, you
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/dist/scss/v2/index.scss';
+@import "~stream-chat-react/dist/scss/v2/index.scss";
 ```
 
 </SDKSpecific>
@@ -316,17 +243,17 @@ If you're using SCSS it's also possible to import component stylesheets separate
 ```scss
 // stream-chat-angular@5
 // Use default theme for channel list and channel preview components
-@import 'stream-chat-angular/src/assets/styles/scss/ChannelList/ChannelList-layout.scss';
-@import 'stream-chat-angular/src/assets/styles/scss/ChannelList/ChannelList-theme.scss';
-@import 'stream-chat-angular/src/assets/styles/scss/ChannelPreview/ChannelPreview-layout.scss';
-@import 'stream-chat-angular/src/assets/styles/scss/ChannelPreview/ChannelPreview-theme.scss';
+@import "~stream-chat-angular/src/assets/styles/scss/ChannelList/ChannelList-layout.scss";
+@import "~stream-chat-angular/src/assets/styles/scss/ChannelList/ChannelList-theme.scss";
+@import "~stream-chat-angular/src/assets/styles/scss/ChannelPreview/ChannelPreview-layout.scss";
+@import "~stream-chat-angular/src/assets/styles/scss/ChannelPreview/ChannelPreview-theme.scss";
 
 // stream-chat-angular@4
 // Use default theme for channel list and channel preview components
-@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-layout.scss';
-@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-theme.scss';
-@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-layout.scss';
-@import 'stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-theme.scss';
+@import "~stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-layout.scss";
+@import "~stream-chat-angular/src/assets/styles/v2/scss/ChannelList/ChannelList-theme.scss";
+@import "~stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-layout.scss";
+@import "~stream-chat-angular/src/assets/styles/v2/scss/ChannelPreview/ChannelPreview-theme.scss";
 ```
 
 </SDKSpecific>
@@ -335,10 +262,10 @@ If you're using SCSS it's also possible to import component stylesheets separate
 
 ```scss
 // Use default theme for channel list and channel preview components
-@import '~stream-chat-react/dist/scss/v2/ChannelList/ChannelList-layout.scss';
-@import '~stream-chat-react/dist/scss/v2/ChannelList/ChannelList-theme.scss';
-@import '~stream-chat-react/dist/scss/v2/ChannelPreview/ChannelPreview-layout.scss';
-@import '~stream-chat-react/dist/scss/v2/ChannelPreview/ChannelPreview-theme.scss';
+@import "~stream-chat-react/dist/scss/v2/ChannelList/ChannelList-layout.scss";
+@import "~stream-chat-react/dist/scss/v2/ChannelList/ChannelList-theme.scss";
+@import "~stream-chat-react/dist/scss/v2/ChannelPreview/ChannelPreview-layout.scss";
+@import "~stream-chat-react/dist/scss/v2/ChannelPreview/ChannelPreview-theme.scss";
 ```
 
 </SDKSpecific>
@@ -359,10 +286,10 @@ Here is how you can import the layout stylesheet:
 
 ```scss
 // stream-chat-angular@5
-@import 'stream-chat-angular/src/assets/styles/scss/index.layout.scss';
+@import "~stream-chat-angular/src/assets/styles/scss/index.layout.scss";
 
 // stream-chat-angular@4
-@import 'stream-chat-angular/src/assets/styles/v2/scss/index.layout.scss';
+@import "~stream-chat-angular/src/assets/styles/v2/scss/index.layout.scss";
 ```
 
 </SDKSpecific>
@@ -370,7 +297,7 @@ Here is how you can import the layout stylesheet:
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/dist/scss/v2/index.layout.scss';
+@import "~stream-chat-react/dist/scss/v2/index.layout.scss";
 ```
 
 </SDKSpecific>
@@ -381,10 +308,10 @@ or if you're using CSS:
 
 ```css
 // stream-chat-angular@5
-@import 'stream-chat-angular/src/assets/styles/css/index.layout.css';
+@import "~stream-chat-angular/src/assets/styles/css/index.layout.css";
 
 // stream-chat-angular@4
-@import 'stream-chat-angular/src/assets/styles/v2/css/index.layout.css';
+@import "~stream-chat-angular/src/assets/styles/v2/css/index.layout.css";
 ```
 
 </SDKSpecific>
@@ -392,12 +319,12 @@ or if you're using CSS:
 <SDKSpecific name="react">
 
 ```css
-@import '~stream-chat-react/dist/css/v2/index.layout.css';
+@import "~stream-chat-react/dist/css/v2/index.layout.css";
 ```
 
 </SDKSpecific>
 
-<img src={ChatUiLayoutScreenshot} width='500' />
+<img src={ChatUiLayoutScreenshot} width="500" />
 
 The result will be a minimalistic UI without
 
@@ -429,7 +356,7 @@ constructor(themeService: ThemeService) {
 <SDKSpecific name="react">
 
 ```tsx
-<Chat client={client} theme='str-chat__theme-dark'>
+<Chat client={client} theme="str-chat__theme-dark">
   {/* ... */}
 </Chat>
 ```
@@ -444,8 +371,8 @@ Using the `customClasses` approach for either of the components will override de
 <Chat
   client={client}
   customClasses={{
-    channelList: 'str-chat__theme-dark str-chat__channel-list',
-    channel: 'str-chat__theme-light str-chat__channel',
+    channelList: "str-chat__theme-dark str-chat__channel-list",
+    channel: "str-chat__theme-light str-chat__channel",
   }}
 >
   {/* ... */}
@@ -456,7 +383,7 @@ Using the `customClasses` approach for either of the components will override de
 
 Here is what the dark theme looks like:
 
-<img src={DarkUiScreenshot} width='500' />
+<img src={DarkUiScreenshot} width="500" />
 
 <SDKSpecific name="angular">
 
@@ -479,7 +406,7 @@ Here is how you can provide different color configurations for the dark and ligh
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/dist/scss/v2/index.scss';
+@import "~stream-chat-react/dist/scss/v2/index.scss";
 ```
 
 </SDKSpecific>
@@ -512,7 +439,7 @@ Here is how you can provide different color configurations for the dark and ligh
 
 Here is the custom dark theme:
 
-<img src={CustomDarkUiScreenshot} width='500' />
+<img src={CustomDarkUiScreenshot} width="500" />
 
 ### Creating your own theme
 
@@ -523,7 +450,7 @@ Here is an example creating 'round' and 'square' themes:
 <SDKSpecific name="react">
 
 ```scss
-@import '~stream-chat-react/dist/scss/v2/index.scss';
+@import "~stream-chat-react/dist/scss/v2/index.scss";
 ```
 
 </SDKSpecific>
@@ -557,7 +484,7 @@ constructor(themeService: ThemeService) {
 <SDKSpecific name="react">
 
 ```tsx
-<Chat client={client} theme='str-chat__theme-square'>
+<Chat client={client} theme="str-chat__theme-square">
   {/* ... */}
 </Chat>
 ```
@@ -572,8 +499,8 @@ Using the `customClasses` approach for either of the components will override de
 <Chat
   client={client}
   customClasses={{
-    channelList: 'str-chat__theme-square str-chat__channel-list',
-    channel: 'str-chat__theme-round str-chat__channel',
+    channelList: "str-chat__theme-square str-chat__channel-list",
+    channel: "str-chat__theme-round str-chat__channel",
   }}
 >
   {/* ... */}
@@ -582,7 +509,7 @@ Using the `customClasses` approach for either of the components will override de
 
 </SDKSpecific>
 
-<img src={ChatUiSquareThemeScreenshot} width='500' />
+<img src={ChatUiSquareThemeScreenshot} width="500" />
 
 ## RTL support
 
@@ -596,4 +523,4 @@ The layout was built with RTL support in mind. You can use the RTL layout by pro
 
 Here is the result:
 
-<img src={ChatUiRtlScreenshot} width='500' />
+<img src={ChatUiRtlScreenshot} width="500" />
