@@ -12,7 +12,7 @@ Emits the currently active [notifications](https://github.com/GetStream/stream-c
 
 #### Defined in
 
-[lib/notification.service.ts:15](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/notification.service.ts#L15)
+[lib/notification.service.ts:15](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/notification.service.ts#L15)
 
 ## Methods
 
@@ -24,18 +24,18 @@ Displays a notification, that will be visible until it's removed.
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | { [key: string]: `any`;  } |
+| Name | Type                      |
+| :--- | :------------------------ |
+| `T`  | { [key: string]: `any`; } |
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `content` | `string` \| `TemplateRef`<`T`\> | `undefined` | The text of the notification or the HTML template for the notification |
-| `type` | `NotificationType` | `'error'` | The type of the notification |
-| `translateParams?` | `Object` | `undefined` | Translation parameters for the `content` (for text notifications) |
-| `templateContext?` | `T` | `undefined` | The input of the notification template (for HTML notifications) |
+| Name               | Type                            | Default value | Description                                                            |
+| :----------------- | :------------------------------ | :------------ | :--------------------------------------------------------------------- |
+| `content`          | `string` \| `TemplateRef`<`T`\> | `undefined`   | The text of the notification or the HTML template for the notification |
+| `type`             | `NotificationType`              | `'error'`     | The type of the notification                                           |
+| `translateParams?` | `Object`                        | `undefined`   | Translation parameters for the `content` (for text notifications)      |
+| `templateContext?` | `T`                             | `undefined`   | The input of the notification template (for HTML notifications)        |
 
 #### Returns
 
@@ -51,9 +51,9 @@ A method to clear the notification.
 
 #### Defined in
 
-[lib/notification.service.ts:68](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/notification.service.ts#L68)
+[lib/notification.service.ts:68](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/notification.service.ts#L68)
 
-___
+---
 
 ### addTemporaryNotification
 
@@ -64,18 +64,18 @@ Displays a notification for the given amount of time.
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `content` | `string` \| `TemplateRef`<`T`\> | `undefined` | The text of the notification or the HTML template for the notification |
-| `type` | `NotificationType` | `'error'` | The type of the notification |
-| `timeout` | `number` | `5000` | The number of milliseconds while the notification should be visible |
-| `translateParams?` | `Object` | `undefined` | Translation parameters for the `content` (for text notifications) |
-| `templateContext?` | `T` | `undefined` | The input of the notification template (for HTML notifications) |
+| Name               | Type                            | Default value | Description                                                            |
+| :----------------- | :------------------------------ | :------------ | :--------------------------------------------------------------------- |
+| `content`          | `string` \| `TemplateRef`<`T`\> | `undefined`   | The text of the notification or the HTML template for the notification |
+| `type`             | `NotificationType`              | `'error'`     | The type of the notification                                           |
+| `timeout`          | `number`                        | `5000`        | The number of milliseconds while the notification should be visible    |
+| `translateParams?` | `Object`                        | `undefined`   | Translation parameters for the `content` (for text notifications)      |
+| `templateContext?` | `T`                             | `undefined`   | The input of the notification template (for HTML notifications)        |
 
 #### Returns
 
@@ -91,4 +91,4 @@ A method to clear the notification (before the timeout).
 
 #### Defined in
 
-[lib/notification.service.ts:31](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/notification.service.ts#L31)
+[lib/notification.service.ts:31](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/notification.service.ts#L31)

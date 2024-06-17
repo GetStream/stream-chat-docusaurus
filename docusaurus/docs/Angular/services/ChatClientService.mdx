@@ -4,9 +4,9 @@ The `ChatClient` service connects the user to the Stream chat.
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `DefaultStreamChatGenerics` = `DefaultStreamChatGenerics` |
+| Name | Type                                                              |
+| :--- | :---------------------------------------------------------------- |
+| `T`  | extends `DefaultStreamChatGenerics` = `DefaultStreamChatGenerics` |
 
 ## Properties
 
@@ -18,9 +18,9 @@ Emits the current [application settings](https://getstream.io/chat/docs/javascri
 
 #### Defined in
 
-[lib/chat-client.service.ts:49](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L49)
+[lib/chat-client.service.ts:49](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L49)
 
-___
+---
 
 ### chatClient
 
@@ -30,21 +30,21 @@ The [StreamChat client](https://github.com/GetStream/stream-chat-js/blob/master/
 
 #### Defined in
 
-[lib/chat-client.service.ts:38](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L38)
+[lib/chat-client.service.ts:38](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L38)
 
-___
+---
 
 ### connectionState$
 
-• **connectionState$**: `Observable`<``"offline"`` \| ``"online"``\>
+• **connectionState$**: `Observable`<`"offline"` \| `"online"`\>
 
 Emits the current connection state of the user (`online` or `offline`)
 
 #### Defined in
 
-[lib/chat-client.service.ts:53](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L53)
+[lib/chat-client.service.ts:53](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L53)
 
-___
+---
 
 ### events$
 
@@ -57,9 +57,9 @@ For performance reasons this Observable operates outside of the Angular change d
 
 #### Defined in
 
-[lib/chat-client.service.ts:45](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L45)
+[lib/chat-client.service.ts:45](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L45)
 
-___
+---
 
 ### pendingInvites$
 
@@ -69,9 +69,9 @@ Emits the list of pending invites of the user. It emits every pending invitation
 
 #### Defined in
 
-[lib/chat-client.service.ts:57](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L57)
+[lib/chat-client.service.ts:57](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L57)
 
-___
+---
 
 ### user$
 
@@ -81,7 +81,7 @@ Emits the current chat user
 
 #### Defined in
 
-[lib/chat-client.service.ts:61](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L61)
+[lib/chat-client.service.ts:61](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L61)
 
 ## Methods
 
@@ -93,8 +93,8 @@ Searches for users in the application that have ID or name matching the provided
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name         | Type     |
+| :----------- | :------- |
 | `searchTerm` | `string` |
 
 #### Returns
@@ -105,9 +105,9 @@ The users matching the search
 
 #### Defined in
 
-[lib/chat-client.service.ts:215](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L215)
+[lib/chat-client.service.ts:209](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L209)
 
-___
+---
 
 ### disconnectUser
 
@@ -121,9 +121,9 @@ Disconnects the current user, and closes the WebSocket connection. Useful when d
 
 #### Defined in
 
-[lib/chat-client.service.ts:184](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L184)
+[lib/chat-client.service.ts:178](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L178)
 
-___
+---
 
 ### flagMessage
 
@@ -133,8 +133,8 @@ Flag the message with the given ID. If you want to know [more about flags](https
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type     |
+| :---------- | :------- |
 | `messageId` | `string` |
 
 #### Returns
@@ -143,9 +143,9 @@ Flag the message with the given ID. If you want to know [more about flags](https
 
 #### Defined in
 
-[lib/chat-client.service.ts:206](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L206)
+[lib/chat-client.service.ts:200](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L200)
 
-___
+---
 
 ### getAppSettings
 
@@ -159,9 +159,9 @@ Loads the current [application settings](https://getstream.io/chat/docs/javascri
 
 #### Defined in
 
-[lib/chat-client.service.ts:194](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L194)
+[lib/chat-client.service.ts:188](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L188)
 
-___
+---
 
 ### init
 
@@ -171,12 +171,12 @@ Creates a [`StreamChat`](https://github.com/GetStream/stream-chat-js/blob/668b3e
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `apiKey` | `string` |  |
-| `userOrId` | `undefined` \| `string` \| `OwnUserResponse`<`T`\> \| `UserResponse`<`T`\> | you can emit this for anonymous logins |
-| `userTokenOrProvider` | `TokenOrProvider` | You can provide:<ul>  <li> a token, </li>  <li> a token provider, a method that returns `Promise<string>`, which can be called when the previous token expires (recommended setup for production applications)</li>  <li> the keyword 'guest' to connect as [guest user](https://getstream.io/chat/docs/javascript/authless_users/?language=javascript#guest-users) </li>  <li> the keyword 'anonymous' to connect as [anonymous user](https://getstream.io/chat/docs/javascript/authless_users/?language=javascript#anonymous-users) </li>  </ul> |
-| `clientOptions?` | `AxiosRequestConfig`<`any`\> & {} & {} | Setting to provide to the Stream client instance |
+| Name                  | Type                                                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| :-------------------- | :------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `apiKey`              | `string`                                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `userOrId`            | `undefined` \| `string` \| `OwnUserResponse`<`T`\> \| `UserResponse`<`T`\> | you can emit this for anonymous logins                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| `userTokenOrProvider` | `TokenOrProvider`                                                          | You can provide:<ul> <li> a token, </li> <li> a token provider, a method that returns `Promise<string>`, which can be called when the previous token expires (recommended setup for production applications)</li> <li> the keyword 'guest' to connect as [guest user](https://getstream.io/chat/docs/javascript/authless_users/?language=javascript#guest-users) </li> <li> the keyword 'anonymous' to connect as [anonymous user](https://getstream.io/chat/docs/javascript/authless_users/?language=javascript#anonymous-users) </li> </ul> |
+| `clientOptions?`      | `StreamChatOptions`                                                        | Setting to provide to the Stream client instance                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 #### Returns
 
@@ -184,4 +184,4 @@ Creates a [`StreamChat`](https://github.com/GetStream/stream-chat-js/blob/668b3e
 
 #### Defined in
 
-[lib/chat-client.service.ts:99](https://github.com/GetStream/stream-chat-angular/blob/5d96e5c/projects/stream-chat-angular/src/lib/chat-client.service.ts#L99)
+[lib/chat-client.service.ts:98](https://github.com/GetStream/stream-chat-angular/blob/2451bc8/projects/stream-chat-angular/src/lib/chat-client.service.ts#L98)
