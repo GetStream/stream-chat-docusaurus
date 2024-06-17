@@ -9,8 +9,7 @@
             "theming/themingv2",
             "theming/palette-variables",
             "theming/component-variables",
-            "theming/global-variables",
-            "guides/theming/css_and_theming"
+            "theming/global-variables"
           ]
         },
         { "Chat": ["components/core-components/chat", "components/contexts/chat_context"] },
@@ -110,6 +109,7 @@
           "Message Input": [
             "guides/theming/input_ui",
             "guides/customization/link-previews",
+            "guides/message-input/attachment_previews",
             "guides/customization/override_submit_handler",
             "guides/customization/persist_input_text_in_localstorage",
             "guides/customization/suggestion_list",
@@ -139,10 +139,11 @@
         "guides/typescript_and_generics",
         "guides/channel_read_state",
         "guides/video-integration/video-integration-stream",
-        "guides/sdk-state-management"
+        "guides/sdk-state-management",
+        "guides/date-time-formatting"
       ]
     },
-    { "Release Guides": ["release-guides/upgrade-to-v10", "release-guides/upgrade-to-v11"] },
+    { "Release Guides": ["release-guides/upgrade-to-v12", "release-guides/upgrade-to-v11", "release-guides/upgrade-to-v10"] },
     "troubleshooting/troubleshooting",
     "resources/resources"
   ]
