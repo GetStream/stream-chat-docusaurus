@@ -9,7 +9,8 @@
             "theming/themingv2",
             "theming/palette-variables",
             "theming/component-variables",
-            "theming/global-variables"
+            "theming/global-variables",
+            "guides/theming/css_and_theming"
           ]
         },
         { "Chat": ["components/core-components/chat", "components/contexts/chat_context"] },
@@ -143,7 +144,7 @@
         "guides/date-time-formatting"
       ]
     },
-    { "Release Guides": ["release-guides/upgrade-to-v12", "release-guides/upgrade-to-v11", "release-guides/upgrade-to-v10"] },
+    { "Release Guides": ["release-guides/upgrade-to-v10", "release-guides/upgrade-to-v11"] },
     "troubleshooting/troubleshooting",
     "resources/resources"
   ]
