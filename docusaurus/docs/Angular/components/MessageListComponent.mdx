@@ -27,13 +27,13 @@ The message list contains a lot of low-level logic related to scrolling, we don'
 
 ### mode
 
-• **mode**: ``"thread"`` \| ``"main"`` = `'main'`
+• **mode**: ``"main"`` \| ``"thread"`` = `'main'`
 
 Determines if the message list should display channel messages or [thread messages](https://getstream.io/chat/docs/javascript/threads/?language=javascript).
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:55](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L55)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:53](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L53)
 
 ___
 
@@ -45,19 +45,7 @@ The direction of the messages in the list, `bottom-to-top` means newest message 
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:59](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L59)
-
-___
-
-### messageOptionsTrigger
-
-• **messageOptionsTrigger**: ``"message-row"`` \| ``"message-bubble"`` = `'message-row'`
-
-Determines what triggers the appearance of the message options: by default you can hover (click on mobile) anywhere in the row of the message (`message-row` option), or you can set `message-bubble`, in that case only a hover (click on mobile) in the message bubble will trigger the options to appear.
-
-#### Defined in
-
-[lib/message-list/message-list.component.ts:63](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L63)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:57](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L57)
 
 ___
 
@@ -69,21 +57,7 @@ You can hide the "jump to latest" button while scrolling. A potential use-case f
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:69](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L69)
-
-___
-
-### customMessageActions
-
-• **customMessageActions**: `CustomMessageActionItem`<`any`\>[] = `[]`
-
-A list of custom message actions to be displayed in the message action box
-
-**`deprecated`** please use the [`MessageActionsService`](https://getstream.io/chat/docs/sdk/angular/services/MessageActionsService) to set this property.
-
-#### Defined in
-
-[lib/message-list/message-list.component.ts:75](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L75)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:62](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L62)
 
 ___
 
@@ -95,7 +69,7 @@ If `true` date separators will be displayed
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:79](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L79)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:66](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L66)
 
 ___
 
@@ -107,19 +81,19 @@ If `true` unread indicator will be displayed
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:83](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L83)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:70](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L70)
 
 ___
 
 ### dateSeparatorTextPos
 
-• **dateSeparatorTextPos**: ``"center"`` \| ``"right"`` \| ``"left"`` = `'center'`
+• **dateSeparatorTextPos**: ``"center"`` \| ``"left"`` \| ``"right"`` = `'center'`
 
 If date separators are displayed, you can set the horizontal position of the date text.
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:87](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L87)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:74](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L74)
 
 ___
 
@@ -131,7 +105,7 @@ ___
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:91](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L91)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:78](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L78)
 
 ___
 
@@ -145,7 +119,7 @@ This is only applicable for `main` mode, as threads doesn't have read infromatio
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:98](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L98)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:85](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L85)
 
 ___
 
@@ -157,6 +131,16 @@ You can turn on and off the loading indicator that signals to users that more me
 
 #### Defined in
 
-[lib/message-list/message-list.component.ts:102](https://github.com/GetStream/stream-chat-angular/blob/8c58718/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L102)
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:89](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L89)
+
+___
+
+### limitNumberOfMessagesInList
+
+• **limitNumberOfMessagesInList**: `boolean` = `true`
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/message-list/message-list.component.ts:93](https://github.com/GetStream/stream-chat-angular/blob/118e143f4d1742edad17bbf4f8f71e0dbbe36acd/projects/stream-chat-angular/src/lib/message-list/message-list.component.ts#L93)
 
 [//]: # "End of generated content"
