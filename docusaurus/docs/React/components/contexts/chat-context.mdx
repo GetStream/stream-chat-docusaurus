@@ -18,7 +18,7 @@ const { client, setActiveChannel } = useChatContext();
 
 ### client
 
-The value is forwarded to the context from the `Chat` component [prop `client`](../../components/core-components/chat.mdx#client).
+The `StreamChat` client instance. Any methods from the `stream-chat-js` API interface can be run off this object.
 
 | Type   |
 | ------ |
@@ -49,7 +49,7 @@ The `queryInProgress` values are:
 - `null` - at least one channels page has been loaded and there is no query in progress at the moment
 
 | Type                 |
-| -------------------- |
+|----------------------|
 | `ChannelsQueryState` |
 
 ### closeMobileNav
@@ -62,7 +62,8 @@ The function to close mobile navigation.
 
 ### customClasses
 
-The value is forwarded to the context from the `Chat` component [prop `customClasses`](../../components/core-components/chat.mdx#customclasses)
+Object containing custom CSS classnames to override the library's default container CSS. See [CSS and Theming](../../guides/theming/css-and-theming.mdx)
+for implementation assistance.
 
 | Type   |
 | ------ |
@@ -119,15 +120,25 @@ You can override the default behavior by pulling it from context and then utiliz
 
 ### theme
 
-The value is forwarded to the context from the `Chat` component [prop `theme`](../../components/core-components/chat.mdx#theme)
+Deprecated and to be removed in a future major release. Use the `customStyles` prop to adjust CSS variables and [customize the theme](../../guides/theming/css-and-theming.mdx#css-variables) of your app.
 
-| Type   |
-| ------ |
-| string |
+| Type  |
+| ----- |
+| Theme |
+
+### themeVersion
+
+Stream chat theme version 2 has been introduced with the release of stream-chat-react v10.0.0. This flag is used internally by some UI components of the SDK and the integrators shouldn't need to use it. The value is extracted from a CSS variable `--str-chat__theme-version`. You can set it to values `'1'` or `'2'` in your stylesheets and import the corresponding v2 stylesheet from `stream-chat-react/dist`. Find out more about benefits that the theme version 2 brings to the integrators with [the theming guide](../../theming/introduction.mdx).
+
+| Type           | Default |
+| -------------- | ------- |
+| `'1'` \| `'2'` | `'1'`   |
 
 ### useImageFlagEmojisOnWindow
 
-The value is forwarded to the context from the `Chat` component [prop `useImageFlagEmojisOnWindow`](../../components/core-components/chat.mdx#useimageflagemojisonwindow).
+Windows 10 does not support country flag emojis out of the box. It chooses to render these emojis as characters instead.
+Stream Chat can override this behavior by loading a custom web font that will render images instead (PNGs or SVGs depending
+on the platform). Set this prop to true if you want to use these custom emojis for Windows users.
 
 | Type    | Default |
 | ------- | ------- |
