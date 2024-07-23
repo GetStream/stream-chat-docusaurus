@@ -84,12 +84,6 @@ private fun CustomAttachmentsPicker(
 
                         tabFactories.getOrNull(selectedOptionIndex)
                             ?.PickerTabContent(
-                                onAttachmentPickerAction = { pickerAction ->
-                                    when (pickerAction) {
-                                        AttachmentPickerBack -> onDismiss.invoke()
-                                        AttachmentPickerPollCreation -> Unit
-                                    }
-                                },
                                 attachments = attachmentsPickerViewModel.attachments,
                                 onAttachmentItemSelected = attachmentsPickerViewModel::changeSelectedAttachments,
                                 onAttachmentsChanged = { attachmentsPickerViewModel.attachments = it },
