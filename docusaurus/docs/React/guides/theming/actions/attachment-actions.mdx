@@ -106,7 +106,7 @@ const CustomAttachment: React.FC<AttachmentProps> = (props) => (
 
 To add our `attachmentActions` to an uploaded image and trigger the render of the `CustomAttachmentActions` component,
 we provide custom logic to override the `MessageInput` component's default submit handling behavior. For a detailed,
-step-by-step example, see the [Input Submit Handler](../../../customization/override_submit_handler) custom code example.
+step-by-step example, see the [Input Submit Handler](../../override-submit-handler.mdx) custom code example.
 
 Simply put, if an `image` type message attachment exists, we update the `attachments` array on the `message` object
 by adding the `attachmentActions`.
