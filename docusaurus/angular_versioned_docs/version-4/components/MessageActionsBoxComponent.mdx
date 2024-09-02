@@ -66,7 +66,7 @@ Indicates if the message actions are belonging to a message that was sent by the
 
 ### message
 
-• **message**: `undefined` \| `StreamMessage`<`DefaultStreamChatGenerics`\>
+• **message**: `undefined` \| `StreamMessage`\<`DefaultStreamChatGenerics`\>
 
 The message the actions will be executed on
 
@@ -90,7 +90,7 @@ The list of [channel capabilities](https://getstream.io/chat/docs/javascript/cha
 
 ### customActions
 
-• **customActions**: `CustomMessageActionItem`<`DefaultStreamChatGenerics`\>[] = `[]`
+• **customActions**: `CustomMessageActionItem`\<`DefaultStreamChatGenerics`\>[] = `[]`
 
 A list of custom message actions to be displayed in the action box
 
@@ -106,7 +106,7 @@ More information: https://getstream.io/chat/docs/sdk/angular/services/MessageAct
 
 ### displayedActionsCount
 
-• `Readonly` **displayedActionsCount**: `EventEmitter`<`number`\>
+• `Readonly` **displayedActionsCount**: `EventEmitter`\<`number`\>
 
 The number of authorized actions (it can be less or equal than the number of enabled actions)
 
@@ -122,7 +122,7 @@ More information: https://getstream.io/chat/docs/sdk/angular/services/MessageAct
 
 ### isEditing
 
-• `Readonly` **isEditing**: `EventEmitter`<`boolean`\>
+• `Readonly` **isEditing**: `EventEmitter`\<`boolean`\>
 
 An event which emits `true` if the edit message modal is open, and `false` when it is closed.
 

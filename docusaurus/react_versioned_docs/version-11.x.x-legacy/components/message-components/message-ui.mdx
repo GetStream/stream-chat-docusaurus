@@ -269,7 +269,7 @@ Function that calls an action on a message (overrides the function stored in `Me
 
 | Type                                                                                                  | Default                                                                             |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| (dataOrName?: string \| FormData, value?: string, event?: React.BaseSyntheticEvent) => Promise<void\> | [MessageContextValue['handleAction']](../contexts/message-context.mdx#handleaction) |
+| (dataOrName?: string \| FormData, value?: string, event?: React.BaseSyntheticEvent) => Promise\<void\> | [MessageContextValue['handleAction']](../contexts/message-context.mdx#handleaction) |
 
 ### handleDelete
 
@@ -277,7 +277,7 @@ Function that removes a message from the current channel (overrides the function
 
 | Type                                                        | Default                                                                             |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleDelete']](../contexts/message-context.mdx#handledelete) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleDelete']](../contexts/message-context.mdx#handledelete) |
 
 ### handleEdit
 
@@ -285,7 +285,7 @@ Function that edits a message (overrides the function stored in `MessageContext`
 
 | Type                                                        | Default                                                                         |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleEdit']](../contexts/message-context.mdx#handleedit) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleEdit']](../contexts/message-context.mdx#handleedit) |
 
 ### handleFetchReactions
 
@@ -293,7 +293,7 @@ Function that loads the reactions for a message (overrides the function stored i
 
 | Type                                                        | Default                                                                                                  |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleFetchReactions']](../contexts/message-context.mdx#handlhandlefetchreactions) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleFetchReactions']](../contexts/message-context.mdx#handlhandlefetchreactions) |
 
 This function limits the number of loaded reactions to 1200. To customize this behavior, you can pass [a custom `ReactionsList` component](./reactions.mdx#handlefetchreactions).
 
@@ -303,7 +303,7 @@ Function that flags a message (overrides the function stored in `MessageContext`
 
 | Type                                                        | Default                                                                         |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleFlag']](../contexts/message-context.mdx#handleflag) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleFlag']](../contexts/message-context.mdx#handleflag) |
 
 ### handleMarkUnread
 
@@ -311,7 +311,7 @@ Function that marks the message and all the following messages as unread in a ch
 
 | Type                                                        | Default                                                                         |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleMarkUnread']](../contexts/message-context.mdx#handleMarkUnread) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleMarkUnread']](../contexts/message-context.mdx#handleMarkUnread) |
 
 
 ### handleMute
@@ -320,7 +320,7 @@ Function that mutes the sender of a message (overrides the function stored in `M
 
 | Type                                                        | Default                                                                         |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleMute']](../contexts/message-context.mdx#handlemute) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleMute']](../contexts/message-context.mdx#handlemute) |
 
 ### handleOpenThread
 
@@ -328,7 +328,7 @@ Function that opens a [`Thread`](../core-components/thread.mdx) on a message (ov
 
 | Type                                                        | Default                                                                                     |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleOpenThread']](../contexts/message-context.mdx#handleopenthread) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleOpenThread']](../contexts/message-context.mdx#handleopenthread) |
 
 ### handlePin
 
@@ -336,7 +336,7 @@ Function that pins a message in the current channel (overrides the function stor
 
 | Type                                                        | Default                                                                       |
 | ----------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handlePin']](../contexts/message-context.mdx#handlepin) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handlePin']](../contexts/message-context.mdx#handlepin) |
 
 ### handleReaction
 
@@ -344,7 +344,7 @@ Function that adds a reaction on a message (overrides the function stored in `Me
 
 | Type                                                        | Default                                                                                 |
 | ----------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleReaction']](../contexts/message-context.mdx#handlereaction) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['handleReaction']](../contexts/message-context.mdx#handlereaction) |
 
 ### handleRetry
 
@@ -352,7 +352,7 @@ Function that retries sending a message after a failed request (overrides the fu
 
 | Type                                       | Default                                                                                                  |
 | ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| (message: StreamMessage) => Promise<void\> | [ChannelActionContextValue['retrySendMessage']](../contexts/channel-action-context.mdx#retrysendmessage) |
+| (message: StreamMessage) => Promise\<void\> | [ChannelActionContextValue['retrySendMessage']](../contexts/channel-action-context.mdx#retrysendmessage) |
 
 ### initialMessage
 
@@ -416,7 +416,7 @@ Function that runs on click of an @mention in a message (overrides the function 
 
 | Type                                                        | Default                                                                                                        |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onMentionsClickMessage']](../contexts/channel-action-context.mdx#onmentionsclickmessage) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['onMentionsClickMessage']](../contexts/channel-action-context.mdx#onmentionsclickmessage) |
 
 ### onMentionsHoverMessage
 
@@ -424,7 +424,7 @@ Function that runs on hover of an @mention in a message (overrides the function 
 
 | Type                                                        | Default                                                                                                        |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onMentionsHoverMessage']](../contexts/channel-action-context.mdx#onmentionshovermessage) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['onMentionsHoverMessage']](../contexts/channel-action-context.mdx#onmentionshovermessage) |
 
 ### onReactionListClick
 
@@ -432,7 +432,7 @@ Function that runs on click of the reactions list component (overrides the funct
 
 | Type                                                        | Default                                                                                                  |
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onReactionListClick']](../contexts/channel-action-context.mdx#onreactionlistclick) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['onReactionListClick']](../contexts/channel-action-context.mdx#onreactionlistclick) |
 
 ### onUserClick
 
@@ -440,7 +440,7 @@ Function that runs on click of a user avatar (overrides the function stored in `
 
 | Type                                                        | Default                                                                                  |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onUserClick']](../contexts/channel-action-context.mdx#onuserclick) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['onUserClick']](../contexts/channel-action-context.mdx#onuserclick) |
 
 ### onUserHover
 
@@ -448,7 +448,7 @@ Function that runs on hover of a user avatar (overrides the function stored in `
 
 | Type                                                        | Default                                                                                  |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onUserHover']](../contexts/channel-action-context.mdx#onuserhover) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['onUserHover']](../contexts/channel-action-context.mdx#onuserhover) |
 
 ### pinPermissions
 
@@ -488,7 +488,7 @@ Function to toggle the editing state on a message (overrides the function stored
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void |
 
 ### showDetailedReactions
 

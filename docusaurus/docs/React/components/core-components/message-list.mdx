@@ -410,7 +410,7 @@ The user roles allowed to pin messages in various channel types (deprecated in f
 | ------ | ------------------------------------------------------------------------- |
 | object | <GHComponentLink text='defaultPinPermissions' path='/Message/utils.tsx'/> |
 
-### renderText {#render-text}
+### renderText \{#render-text}
 
 Custom function to render message text content.
 
@@ -436,7 +436,7 @@ The function receives a single object with the following properties:
 | customClasses         | object                                                                                        | Object containing [custom CSS classnames](../../components/core-components/chat.mdx#customclasses) to override the library's default container CSS |
 | lastReceivedMessageId | string                                                                                        | The latest message ID in the current channel                                                                                                       |
 | messageGroupStyles    | string[]                                                                                      | An array of potential styles to apply to a grouped message (ex: top, bottom, single)                                                               |
-| messages              | Array<[ChannelStateContextValue['messages']](../contexts/channel-state-context.mdx#messages)> | The messages to render in the list                                                                                                                 |
+| messages              | Array\<[ChannelStateContextValue['messages']](../contexts/channel-state-context.mdx#messages)> | The messages to render in the list                                                                                                                 |
 | readData              | object                                                                                        | The read state for for messages submitted by the user themselves                                                                                   |
 | sharedMessageProps    | object                                                                                        | Object containing props that can be directly passed to the `Message` component                                                                     |
 
@@ -547,7 +547,7 @@ Sort options to provide to a reactions query. Affects the order of reacted users
 
 | Type                   | Default                     |
 | ---------------------- | --------------------------- |
-| { created_at: number } | reverse chronological order |
+| \{ created_at: number } | reverse chronological order |
 
 ### sortReactions
 

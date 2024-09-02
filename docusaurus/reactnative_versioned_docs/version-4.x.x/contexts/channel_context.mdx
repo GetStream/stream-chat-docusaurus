@@ -44,11 +44,11 @@ We don't recommend using `ChannelContext` at message level, since changes to its
 
 ## Value
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#channel)_ props</div> channel {#channel}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#channel)_ props</div> channel \{#channel}
 
 <Channel />
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#enforceuniquereaction)_ props</div> enforceUniqueReaction {#enforceuniquereaction}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#enforceuniquereaction)_ props</div> enforceUniqueReaction \{#enforceuniquereaction}
 
 <EnforceUniqueReaction />
 
@@ -72,11 +72,11 @@ True if Giphy command is enabled on [channel type](https://getstream.io/chat/doc
 | ------- |
 | boolean |
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#hidedateseparators)_ props</div> hideDateSeparators {#hidedateseparators}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#hidedateseparators)_ props</div> hideDateSeparators \{#hidedateseparators}
 
 <HideDateSeparators />
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#hidestickydateheader)_ props</div> hideStickyDateHeader {#hidestickydateheader}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#hidestickydateheader)_ props</div> hideStickyDateHeader \{#hidestickydateheader}
 
 <HideStickyDateHeader />
 
@@ -119,8 +119,6 @@ const isOwner = channel?.state.membership.role === 'owner';
 
 ### `lastRead`
 
-<!-- TODO: Change to new docs -->
-
 Timestamp of when current user marked the channel as read - [`channel.markRead()`](https://getstream.io/chat/docs/javascript/unread/?language=javascript&q=markRead)
 
 | Type                                                                                          |
@@ -151,13 +149,11 @@ True if channel is loading messages during first load.
 | ------- |
 | boolean |
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#loadingindicator)_ props</div> LoadingIndicator {#loadingindicator}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#loadingindicator)_ props</div> LoadingIndicator \{#loadingindicator}
 
 <LoadingIndicator />
 
 ### `markRead`
-
-<!-- TODO: Change to new docs -->
 
 Function to mark current channel as read, for current user. This function internally makes a throttled call to `channel.markRead()`, if [read events](https://getstream.io/chat/docs/javascript/channel_features/?language=javascript&q=read%20event) are enabled
 
@@ -165,7 +161,7 @@ Function to mark current channel as read, for current user. This function intern
 | -------- |
 | function |
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#maxtimebetweengroupedmessages)_ props</div> maxTimeBetweenGroupedMessages {#maxtimebetweengroupedmessages}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#maxtimebetweengroupedmessages)_ props</div> maxTimeBetweenGroupedMessages \{#maxtimebetweengroupedmessages}
 
 <MaxTimeBetweenGroupedMessages />
 
@@ -174,8 +170,6 @@ Function to mark current channel as read, for current user. This function intern
 <Members />
 
 ### read
-
-<!-- TODO: Change to new docs -->
 
 Read statuses of members of current channel. This value is received from backend when you query a channel, either using [`client.queryChannels()`](https://getstream.io/chat/docs/javascript/query_channels/?language=javascript&q=members) or [`channel.watch()`](https://getstream.io/chat/docs/javascript/watch_channel/?language=javascript&q=members) API call.
 
@@ -241,12 +235,10 @@ Total number of users, currently watching a channel.
 | ------ |
 | number |
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#emptystateindicator)_ props</div> EmptyStateIndicator {#emptystateindicator}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#emptystateindicator)_ props</div> EmptyStateIndicator \{#emptystateindicator}
 
 <EmptyStateIndicator />
 
-### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#networkdownindicator)_ props</div> NetworkDownIndicator {#networkdownindicator}
+### <div class="label description">_forwarded from [Channel](../core-components/channel.mdx#networkdownindicator)_ props</div> NetworkDownIndicator \{#networkdownindicator}
 
 <NetworkDownIndicator />
-
-<!-- - [StickyHeader](../core-components/channel.mdx#stickyheader) -->

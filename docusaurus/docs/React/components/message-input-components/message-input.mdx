@@ -81,7 +81,7 @@ Function to override the default file upload request.
 
 | Type                                                                          |
 | ----------------------------------------------------------------------------- |
-| (file: FileUpload['file'], channel: Channel) => Promise<SendFileAPIResponse\> |
+| (file: FileUpload['file'], channel: Channel) => Promise\<SendFileAPIResponse\> |
 
 ### doImageUploadRequest
 
@@ -89,7 +89,7 @@ Function to override the default image upload request.
 
 | Type                                                                           |
 | ------------------------------------------------------------------------------ |
-| (file: ImageUpload['file'], channel: Channel) => Promise<SendFileAPIResponse\> |
+| (file: ImageUpload['file'], channel: Channel) => Promise\<SendFileAPIResponse\> |
 
 ### errorHandler
 
@@ -97,7 +97,7 @@ Custom error handler function to be called with a file/image upload fails.
 
 | Type                                                                                              |
 | ------------------------------------------------------------------------------------------------- |
-| (error: Error, type: string, file: (FileUpload \| ImageUpload)['file'] & { id?: string }) => void |
+| (error: Error, type: string, file: (FileUpload \| ImageUpload)['file'] & \{ id?: string }) => void |
 
 ### focus
 

@@ -467,11 +467,6 @@ channelClient.sendMessage(message).enqueue { /* ... */ }
 Existing messages cannot be turned into a silent message or vice versa.
 :::
 
-<!-- TODO: What's the Android API for skip_push? - We need to further investigate that -->
-<!-- :::note
-Silent messages do send push notifications by default. To skip our push notification service, mark the message with `skip_push: true`
-::: -->
-
 ## Pinned Messages
 
 Pinned messages allow users to highlight important messages, make announcements, or temporarily promote content. Pinning a message is, by default, restricted to certain user roles, but this is flexible. Each channel can have multiple pinned messages and these can be created or updated with or without an expiration.

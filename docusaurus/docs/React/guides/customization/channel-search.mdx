@@ -86,63 +86,6 @@ can pass the same custom components to the [`additionalChannelSearchProps`](../.
 
 Next, we'll take a closer look at some of these customization options. But first, we encourage you to explore the many out-of-the-box [customization options](../../components/utility-components/channel-search.mdx) that do not require you to provide custom components.
 
-<!-- Note: I'm removing this whole section because changing the order of search
-results in the `SearchResultList` component breaks keyboard navigation in the
-list. At the same time, I can't think of any useful examples that DON'T change
-the order of the results, so it's better to just omit the whole thing.
-
-## Overriding the Search Result List
-
-When overriding the search result list, you get direct access to an array
-containing search results. This makes it an ideal place to add client-side
-sorting or grouping. For example, you might want to group channels and users
-separately, then you can do this:
-
-```jsx
-function CustomSearchResultsList({ results, SearchResultItem, ...itemProps }) {
-  const channels = results.filter((item) => item.cid);
-  const users = results.filter((item) => !item.cid);
-  let itemIndex = 0;
-
-  return [channels, users]
-    .filter((group) => group.length > 0)
-    .map((group, groupIndex) => (
-      <div key={groupIndex} className="search-results-group">
-        {group.map((item) => {
-          const children = (
-            <div key={item.id} className="search-results-item">
-              <SearchResultItem
-                result={item}
-                index={itemIndex}
-                {...itemProps}
-              />
-            </div>
-          );
-          itemIndex++;
-          return children;
-        })}
-      </div>
-    ));
-}
-```
-
-```css
-
-```
-
-Note that we're not reimplementing previews for search result items, and just
-rending `SearchResultItem` instead. Since the `SearchResultItem` component is
-also overridable, it's best to always you the component provided in props.
-
-Keeping track of item indicies as important, since the SDK provides index-based
-support for keyboard navigation in search results. So make sure that the
-consequitive index prop is set on each `SearchResultItem`.
-
-When overriding `SearchResultsList`, we don't have to worry about loading or
-empty states (the component is not rendered at all in those cases). Custom
-loader can be added by passing a custom component in the `SearchLoading` prop.
-Custom empty state placeholder can be passed in the `SearchEmpty` prop. -->
-
 ## Overriding the Search Result Item
 
 You can override the way each search result item is presented by providing a

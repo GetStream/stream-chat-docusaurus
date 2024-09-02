@@ -45,7 +45,7 @@ Function to run on blur of the underlying `textarea` component.
 
 | Type                                          |
 | --------------------------------------------- |
-| React.FocusEventHandler<HTMLTextAreaElement\> |
+| React.FocusEventHandler\<HTMLTextAreaElement\> |
 
 ### onChange
 
@@ -53,7 +53,7 @@ Function to override the default onChange behavior on the underlying `textarea` 
 
 | Type                                           | Default                                                                                |
 | ---------------------------------------------- | -------------------------------------------------------------------------------------- |
-| React.ChangeEventHandler<HTMLTextAreaElement\> | [MessageInputContextValue['onChange']](../contexts/message-input-context.mdx#onchange) |
+| React.ChangeEventHandler\<HTMLTextAreaElement\> | [MessageInputContextValue['onChange']](../contexts/message-input-context.mdx#onchange) |
 
 ### onFocus
 
@@ -61,7 +61,7 @@ Function to run on focus of the underlying `textarea` component.
 
 | Type                                          |
 | --------------------------------------------- |
-| React.FocusEventHandler<HTMLTextAreaElement\> |
+| React.FocusEventHandler\<HTMLTextAreaElement\> |
 
 ### onPaste
 
@@ -69,7 +69,7 @@ Function to override the default onPaste behavior on the underlying `textarea` c
 
 | Type                                                        | Default                                                                              |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| (event: React.ClipboardEvent<HTMLTextAreaElement\>) => void | [MessageInputContextValue['onPaste']](../contexts/message-input-context.mdx#onpaste) |
+| (event: React.ClipboardEvent\<HTMLTextAreaElement\>) => void | [MessageInputContextValue['onPaste']](../contexts/message-input-context.mdx#onpaste) |
 
 ### placeholder
 

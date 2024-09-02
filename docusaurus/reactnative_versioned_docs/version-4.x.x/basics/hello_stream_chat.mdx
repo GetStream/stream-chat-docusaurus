@@ -43,7 +43,7 @@ Create your own class. Or using the Singleton structure you can call `getInstanc
 
 Tokens are used to authenticate a user.
 Typically, you send this token from your backend to the client when a user registers or logs in.
-See the <!-- TODO: Change to new docs -->[Tokens & Authentication](https://getstream.io/chat/docs/javascript/tokens_and_authentication/) documentation to learn more about creating tokens.
+See the [Tokens & Authentication](https://getstream.io/chat/docs/javascript/tokens_and_authentication/) documentation to learn more about creating tokens.
 You can use a [developer token](https://getstream.io/chat/docs/javascript/tokens_and_authentication/?language=javascript#developer-tokens) if desired, but for the purpose of this guide it will be assumed you have created and retrieved a `user_token`.
 
 To connect a user the `connectUser` function should be called and provided with the user object and `user_token`.
@@ -74,7 +74,7 @@ Channels are at the core of Stream Chat, they are where messages are contained, 
 Before delving into the UI components a channel is needed that can be displayed.
 Let’s start by initializing one.
 
-A <!-- TODO: Change to new docs -->[channel type](https://getstream.io/chat/docs/javascript/creating_channels#channel-data) is required for creating a channel and controls the settings for a given channel.
+A [channel type](https://getstream.io/chat/docs/javascript/creating_channels#channel-data) is required for creating a channel and controls the settings for a given channel.
 There are 5 default types of channels.
 
 - `commerce`
@@ -438,7 +438,7 @@ export const App = () => {
 - You need a `client` that is an instance of `StreamChat` to provide to the UI components so they function correctly.
 
 - You need to connect a user via the `connectUser` call to interact with the backend properly.
-  To do this you need to create tokens as per the <!-- TODO: Change to new docs -->[Tokens & Authentication](https://getstream.io/chat/docs/javascript/tokens_and_authentication/) docs.
+  To do this you need to create tokens as per the [Tokens & Authentication](https://getstream.io/chat/docs/javascript/tokens_and_authentication/) docs.
 
 - You need to surround your app with the `OverlayProvider` for the UI to function properly, and your app or chat screen with the `Chat` component to provide data to the UI components.
 

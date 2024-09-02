@@ -115,7 +115,7 @@ export const App = () => (
 
 ## Keyboard
 
-The `Channel` component contains a <!-- TODO: Change to new docs for links -->`KeyboardCompatibleView` that, like [the standard React Native `KeyboardAvoidingView`](https://reactnative.dev/docs/keyboardavoidingview), needs a `keyboardVerticalOffset` to account for distance between the top of the user screen and the react native view.
+The `Channel` component contains a `KeyboardCompatibleView` that, like [the standard React Native `KeyboardAvoidingView`](https://reactnative.dev/docs/keyboardavoidingview), needs a `keyboardVerticalOffset` to account for distance between the top of the user screen and the react native view.
 This height in most cases with React Navigation in conjunction with Stream Chat is the header height of React Navigation.
 This can be accessed from React Navigation using the `useHeaderHeight` hook from `@react-navigation/stack`, and given as a prop to `Channel`.
 
@@ -156,7 +156,7 @@ useEffect(() => {
 ### Bottom Inset
 
 `bottomInset` is used to adjust the height of the `AttachmentPicker` menu to align properly with the bottom-sheet when open.
-This is the height between the bottom of the <!-- TODO: Change to new docs for links -->`MessageInput` container and the bottom of the screen.
+This is the height between the bottom of the `MessageInput` container and the bottom of the screen.
 If you are displaying the chat screen without a tab-bar it is most likely the bottom inset is the [bottom safe area inset](https://reactnavigation.org/docs/handling-safe-area/#use-the-hook-for-more-control).
 If you are using a bottom tab-bar you can utilize the `useBottomTabBarHeight` hook from `@react-navigation/bottom-tabs` to get the appropriate height to use.
 
@@ -220,7 +220,7 @@ The `setSelectedImages` function can be pulled off of the `useAttachmentPickerCo
 
 ## Image Gallery
 
-The `ImageGallery` is populated by the <!-- TODO: Change to new docs for links -->`MessageList` component.
+The `ImageGallery` is populated by the `MessageList` component.
 `MessageList` utilizes information provided by both the `ThreadContext` and `threadList` prop to determine if the `ImageGallery` should be updated.
 If there is both a `thread` provided by the `ThreadContext` and the `threadList` prop is `true` on `MessageList`, or both values are falsy, the `ImageGallery` is updated appropriately.
 

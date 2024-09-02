@@ -76,7 +76,7 @@ Function that removes a message from the current channel (overrides the value fr
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void |
 
 ### handleFlag
 
@@ -84,7 +84,7 @@ Function that flags a message (overrides the value from `MessageContext`).
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void |
 
 ### handleMarkUnread
 
@@ -92,7 +92,7 @@ Function that marks the message and all the following messages as unread in a ch
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void |
 
 ### handleMute
 
@@ -100,7 +100,7 @@ Function that mutes the sender of a message (overrides the value from `MessageCo
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void |
 
 ### handlePin
 
@@ -108,7 +108,7 @@ Function that pins a message in the current channel (overrides the value from `M
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void |
 
 ### inline
 
@@ -132,7 +132,7 @@ React mutable ref placed on the message root `div`. It is forwarded by `MessageO
 
 | Type                             |
 | -------------------------------- |
-| React.RefObject<HTMLDivElement\> |
+| React.RefObject\<HTMLDivElement\> |
 
 ### mine
 
@@ -176,7 +176,7 @@ Function that opens a [`Thread`](../core-components/thread.mdx) on a message (ov
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void |
 
 ### messageWrapperRef
 
@@ -184,7 +184,7 @@ React mutable ref that can be placed on the message root `div`. `MessageOptions`
 
 | Type                             |
 | -------------------------------- |
-| React.RefObject<HTMLDivElement\> |
+| React.RefObject\<HTMLDivElement\> |
 
 ### ReactionIcon
 
@@ -431,7 +431,7 @@ The submit handler function for MML actions.
 
 | Type                                       |
 | ------------------------------------------ |
-| (data: Record<string, unknown>) => unknown |
+| (data: Record\<string, unknown>) => unknown |
 
 ### align
 

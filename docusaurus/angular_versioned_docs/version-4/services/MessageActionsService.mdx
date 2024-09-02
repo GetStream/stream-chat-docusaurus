@@ -12,7 +12,7 @@ The message actions service provides customization options for the [message acti
 
 ### customActionClickHandler
 
-• `Optional` **customActionClickHandler**: (`details`: `MessageActionsClickDetails`<`T`\>) => `void`
+• `Optional` **customActionClickHandler**: (`details`: `MessageActionsClickDetails`\<`T`\>) => `void`
 
 #### Type declaration
 
@@ -24,7 +24,7 @@ By default the [`MessageComponent`](../../components/MessageComponent) will disp
 
 | Name      | Type                               |
 | :-------- | :--------------------------------- |
-| `details` | `MessageActionsClickDetails`<`T`\> |
+| `details` | `MessageActionsClickDetails`\<`T`\> |
 
 ##### Returns
 
@@ -38,7 +38,7 @@ By default the [`MessageComponent`](../../components/MessageComponent) will disp
 
 ### customActions$
 
-• **customActions$**: `BehaviorSubject`<`CustomMessageActionItem`<`DefaultStreamChatGenerics`\>[]\>
+• **customActions$**: `BehaviorSubject`\<`CustomMessageActionItem`\<`DefaultStreamChatGenerics`\>[]\>
 
 You can pass your own custom actions that will be displayed inside the built-in message actions component
 
@@ -50,7 +50,7 @@ You can pass your own custom actions that will be displayed inside the built-in 
 
 ### defaultActions
 
-• `Readonly` **defaultActions**: `MessageActionItem`<`T`\>[]
+• `Readonly` **defaultActions**: `MessageActionItem`\<`T`\>[]
 
 Default actions - these are the actions that are handled by the built-in component
 
@@ -62,7 +62,7 @@ Default actions - these are the actions that are handled by the built-in compone
 
 ### messageToEdit$
 
-• **messageToEdit$**: `BehaviorSubject`<`undefined` \| `StreamMessage`<`T`\>\>
+• **messageToEdit$**: `BehaviorSubject`\<`undefined` \| `StreamMessage`\<`T`\>\>
 
 The built-in components will handle changes to this observable.
 
@@ -82,7 +82,7 @@ This method returns how many authorized actions are available to the given messa
 
 | Name             | Type                  |
 | :--------------- | :-------------------- |
-| `message`        | `StreamMessage`<`T`\> |
+| `message`        | `StreamMessage`\<`T`\> |
 | `enabledActions` | `string`[]            |
 
 #### Returns

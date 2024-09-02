@@ -12,7 +12,7 @@ The `AttachmentConfigurationService` provides customization for certain attribut
 
 ### customGiphyAttachmentConfigurationHandler
 
-• `Optional` **customGiphyAttachmentConfigurationHandler**: (`a`: `Attachment`<`T`\>) => `AttachmentConfigration`
+• `Optional` **customGiphyAttachmentConfigurationHandler**: (`a`: `Attachment`\<`T`\>) => `AttachmentConfigration`
 
 #### Type declaration
 
@@ -24,7 +24,7 @@ A custom handler can be provided to override the default giphy attachment (GIFs 
 
 | Name | Type               |
 | :--- | :----------------- |
-| `a`  | `Attachment`<`T`\> |
+| `a`  | `Attachment`\<`T`\> |
 
 ##### Returns
 
@@ -38,7 +38,7 @@ A custom handler can be provided to override the default giphy attachment (GIFs 
 
 ### customImageAttachmentConfigurationHandler
 
-• `Optional` **customImageAttachmentConfigurationHandler**: (`a`: `Attachment`<`T`\>, `type`: `"gallery"` \| `"single"` \| `"carousel"`, `containerElement`: `HTMLElement`) => `ImageAttachmentConfiguration`
+• `Optional` **customImageAttachmentConfigurationHandler**: (`a`: `Attachment`\<`T`\>, `type`: `"gallery"` \| `"single"` \| `"carousel"`, `containerElement`: `HTMLElement`) => `ImageAttachmentConfiguration`
 
 #### Type declaration
 
@@ -50,7 +50,7 @@ A custom handler can be provided to override the default image attachment (image
 
 | Name               | Type                                      |
 | :----------------- | :---------------------------------------- |
-| `a`                | `Attachment`<`T`\>                        |
+| `a`                | `Attachment`\<`T`\>                        |
 | `type`             | `"gallery"` \| `"single"` \| `"carousel"` |
 | `containerElement` | `HTMLElement`                             |
 
@@ -66,7 +66,7 @@ A custom handler can be provided to override the default image attachment (image
 
 ### customScrapedImageAttachmentConfigurationHandler
 
-• `Optional` **customScrapedImageAttachmentConfigurationHandler**: (`a`: `Attachment`<`T`\>) => `AttachmentConfigration`
+• `Optional` **customScrapedImageAttachmentConfigurationHandler**: (`a`: `Attachment`\<`T`\>) => `AttachmentConfigration`
 
 #### Type declaration
 
@@ -78,7 +78,7 @@ A custom handler can be provided to override the default scraped image attachmen
 
 | Name | Type               |
 | :--- | :----------------- |
-| `a`  | `Attachment`<`T`\> |
+| `a`  | `Attachment`\<`T`\> |
 
 ##### Returns
 
@@ -92,7 +92,7 @@ A custom handler can be provided to override the default scraped image attachmen
 
 ### customVideoAttachmentConfigurationHandler
 
-• `Optional` **customVideoAttachmentConfigurationHandler**: (`a`: `Attachment`<`T`\>, `containerElement`: `HTMLElement`) => `VideoAttachmentConfiguration`
+• `Optional` **customVideoAttachmentConfigurationHandler**: (`a`: `Attachment`\<`T`\>, `containerElement`: `HTMLElement`) => `VideoAttachmentConfiguration`
 
 #### Type declaration
 
@@ -104,7 +104,7 @@ A custom handler can be provided to override the default video attachment (video
 
 | Name               | Type               |
 | :----------------- | :----------------- |
-| `a`                | `Attachment`<`T`\> |
+| `a`                | `Attachment`\<`T`\> |
 | `containerElement` | `HTMLElement`      |
 
 ##### Returns
@@ -139,7 +139,7 @@ Handles the configuration for giphy attachments, it's possible to provide your o
 
 | Name         | Type               | Description                 |
 | :----------- | :----------------- | :-------------------------- |
-| `attachment` | `Attachment`<`T`\> | The attachment to configure |
+| `attachment` | `Attachment`\<`T`\> | The attachment to configure |
 
 #### Returns
 
@@ -161,7 +161,7 @@ Handles the configuration for image attachments, it's possible to provide your o
 
 | Name         | Type                                      | Description                                                                                                                                                                                     |
 | :----------- | :---------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `attachment` | `Attachment`<`T`\>                        | The attachment to configure                                                                                                                                                                     |
+| `attachment` | `Attachment`\<`T`\>                        | The attachment to configure                                                                                                                                                                     |
 | `location`   | `"gallery"` \| `"single"` \| `"carousel"` | Specifies where the image is being displayed                                                                                                                                                    |
 | `element`    | `HTMLElement`                             | The default resizing logics reads the height/max-height and max-width propperties of this element and reduces file size based on the given values. File size reduction is done by Stream's CDN. |
 
@@ -185,7 +185,7 @@ Handles the configuration for scraped image attachments, it's possible to provid
 
 | Name         | Type               | Description                 |
 | :----------- | :----------------- | :-------------------------- |
-| `attachment` | `Attachment`<`T`\> | The attachment to configure |
+| `attachment` | `Attachment`\<`T`\> | The attachment to configure |
 
 #### Returns
 
@@ -207,7 +207,7 @@ Handles the configuration for video attachments, it's possible to provide your o
 
 | Name         | Type               | Description                                                                                                                                                                                     |
 | :----------- | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `attachment` | `Attachment`<`T`\> | The attachment to configure                                                                                                                                                                     |
+| `attachment` | `Attachment`\<`T`\> | The attachment to configure                                                                                                                                                                     |
 | `element`    | `HTMLElement`      | The default resizing logics reads the height/max-height and max-width propperties of this element and reduces file size based on the given values. File size reduction is done by Stream's CDN. |
 
 #### Returns

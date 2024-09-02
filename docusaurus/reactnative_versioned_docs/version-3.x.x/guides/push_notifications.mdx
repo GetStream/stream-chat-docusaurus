@@ -8,8 +8,6 @@ Easiest way to integrate push notifications in your Chat applications is using F
 
 ## Requirements
 
-<!-- TODO: Change to new docs for links -->
-
 - Only [members](https://getstream.io/chat/docs/javascript/channel_members/?language=javascript&q=addMember) of channel receive Push Notifications
 - We only send push notifications, when the user doesn't have any active WebSocket connection (which is established when you call `client.connectUser`).
 - If you are using components from [React Native Chat SDK](https://github.com/GetStream/stream-chat-react-native), we automatically drop the WebSocket connection when app goes to background. To disable this behaviour, you can set prop closeConnectionOnBackground={false} on Chat component, in which case WebSocket will stay active for approximately 15-20 seconds when app goes to background.
@@ -186,8 +184,6 @@ In many cases, it is useful to detect whether the application was opened by pres
 You can access the notification data in both these functions. Make sure you have set the correct notification template in dashboard:
 
 ![](https://user-images.githubusercontent.com/11586388/116590886-8cb95000-a91e-11eb-85a5-8ff4f5fb36b8.png)
-
-<!-- TODO: Change to new docs for links -->
 
 Please check [Push Template](https://getstream.io/chat/docs/javascript/push_template/?language=javascript) docs for more details on template.
 

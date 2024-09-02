@@ -6,7 +6,7 @@ The `ThemeService` can be used to change the theme of the chat UI and to customi
 
 ### theme$
 
-• **theme$**: `BehaviorSubject`<`string`\>
+• **theme$**: `BehaviorSubject`\<`string`\>
 
 A Subject that can be used to get or set the currently active theme.
 
@@ -30,7 +30,7 @@ Stream chat theme version - this is used internally by some UI components of the
 
 ### customDarkThemeVariables
 
-• `get` **customDarkThemeVariables**(): `undefined` \| { [key: string]: `string`; }
+• `get` **customDarkThemeVariables**(): `undefined` \| \{ [key: string]: `string`; }
 
 A getter that returns the currently set custom dark theme variables.
 
@@ -38,7 +38,7 @@ A getter that returns the currently set custom dark theme variables.
 
 #### Returns
 
-`undefined` \| { [key: string]: `string`; }
+`undefined` \| \{ [key: string]: `string`; }
 
 An object where the keys are theme variables, and the values are the currently set CSS values.
 
@@ -56,7 +56,7 @@ A setter that can be used to overwrite the values of the CSS theme variables of 
 
 | Name        | Type                                        | Description                                                                  |
 | :---------- | :------------------------------------------ | :--------------------------------------------------------------------------- |
-| `variables` | `undefined` \| { [key: string]: `string`; } | An object where the keys are theme variables, and the values are CSS values. |
+| `variables` | `undefined` \| \{ [key: string]: `string`; } | An object where the keys are theme variables, and the values are CSS values. |
 
 #### Returns
 
@@ -72,7 +72,7 @@ An object where the keys are theme variables, and the values are the currently s
 
 ### customLightThemeVariables
 
-• `get` **customLightThemeVariables**(): `undefined` \| { [key: string]: `string`; }
+• `get` **customLightThemeVariables**(): `undefined` \| \{ [key: string]: `string`; }
 
 A getter that returns the currently set custom light theme variables.
 
@@ -80,7 +80,7 @@ A getter that returns the currently set custom light theme variables.
 
 #### Returns
 
-`undefined` \| { [key: string]: `string`; }
+`undefined` \| \{ [key: string]: `string`; }
 
 An object where the keys are theme variables, and the values are the currently set CSS values.
 
@@ -98,7 +98,7 @@ A setter that can be used to overwrite the values of the CSS theme variables of 
 
 | Name        | Type                                        | Description                                                                  |
 | :---------- | :------------------------------------------ | :--------------------------------------------------------------------------- |
-| `variables` | `undefined` \| { [key: string]: `string`; } | An object where the keys are theme variables, and the values are CSS values. |
+| `variables` | `undefined` \| \{ [key: string]: `string`; } | An object where the keys are theme variables, and the values are CSS values. |
 
 #### Returns
 

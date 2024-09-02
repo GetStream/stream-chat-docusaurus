@@ -84,7 +84,7 @@ Function that adds/removes a reaction on a message (overrides the function comin
 
 | Type                                                                      | Default                                                                                 |
 | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| (reactionType: string, event: React.BaseSyntheticEvent) => Promise<void\> | [MessageContextValue['handleReaction']](../contexts/message-context.mdx#handlereaction) |
+| (reactionType: string, event: React.BaseSyntheticEvent) => Promise\<void\> | [MessageContextValue['handleReaction']](../contexts/message-context.mdx#handlereaction) |
 
 ### latest_reactions
 
@@ -108,7 +108,7 @@ An object that keeps track of the reactions on a message (overrides `message.rea
 
 | Type                                           |
 | ---------------------------------------------- |
-| { [key: reactionType]: ReactionGroupResponse } |
+| \{ [key: reactionType]: ReactionGroupResponse } |
 
 ### reactionOptions
 
@@ -134,7 +134,7 @@ Function that loads the message reactions (overrides the function coming from `M
 
 | Type                 | Default                                                                                             |
 | -------------------- | --------------------------------------------------------------------------------------------------- |
-| () => Promise<void\> | [MessageContextValue['handleFetchReactions']](../contexts/message-context.mdx#handlefetchreactions) |
+| () => Promise\<void\> | [MessageContextValue['handleFetchReactions']](../contexts/message-context.mdx#handlefetchreactions) |
 
 The default implementation of `handleFetchReactions`, provided via the [`MessageContext`](../contexts/message-context.mdx#handlefetchreactions), limits the number of loaded reactions to 1200. Use this prop to provide your own loading implementation:
 
@@ -157,7 +157,7 @@ Custom on click handler for an individual reaction in the list (overrides the fu
 
 | Type                                                        | Default                                                                                           |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onReactionListClick']](../contexts/message-context.mdx#onreactionlistclick) |
+| (event: React.BaseSyntheticEvent) => Promise\<void\> \| void | [MessageContextValue['onReactionListClick']](../contexts/message-context.mdx#onreactionlistclick) |
 
 ### own_reactions
 
@@ -173,7 +173,7 @@ An object that keeps track of the reactions on a message (overrides `message.rea
 
 | Type                                           |
 | ---------------------------------------------- |
-| { [key: reactionType]: ReactionGroupResponse } |
+| \{ [key: reactionType]: ReactionGroupResponse } |
 
 ### reactionOptions
 
@@ -205,7 +205,7 @@ Sort options to provide to a reactions query. Affects the order of reacted users
 
 | Type                   | Default                     |
 | ---------------------- | --------------------------- |
-| { created_at: number } | reverse chronological order |
+| \{ created_at: number } | reverse chronological order |
 
 ### sortReactions
 
@@ -223,7 +223,7 @@ Function that loads the message reactions (overrides the function coming from `M
 
 | Type                 | Default                                                                                             |
 | -------------------- | --------------------------------------------------------------------------------------------------- |
-| () => Promise<void\> | [MessageContextValue['handleFetchReactions']](../contexts/message-context.mdx#handlefetchreactions) |
+| () => Promise\<void\> | [MessageContextValue['handleFetchReactions']](../contexts/message-context.mdx#handlefetchreactions) |
 
 ### handleReaction
 
@@ -231,7 +231,7 @@ Function that adds/removes a reaction on a message (overrides the function comin
 
 | Type                                                                      | Default                                                                                 |
 | ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| (reactionType: string, event: React.BaseSyntheticEvent) => Promise<void\> | [MessageContextValue['handleReaction']](../contexts/message-context.mdx#handlereaction) |
+| (reactionType: string, event: React.BaseSyntheticEvent) => Promise\<void\> | [MessageContextValue['handleReaction']](../contexts/message-context.mdx#handlereaction) |
 
 ### own_reactions
 
@@ -247,7 +247,7 @@ An object that keeps track of the reactions on a message (overrides `message.rea
 
 | Type                                           |
 | ---------------------------------------------- |
-| { [key: reactionType]: ReactionGroupResponse } |
+| \{ [key: reactionType]: ReactionGroupResponse } |
 
 ### reactionOptions
 

@@ -75,7 +75,7 @@ Function to close the `EmojiPicker` component.
 
 | Type                                        |
 | ------------------------------------------- |
-| React.MouseEventHandler<HTMLButtonElement\> |
+| React.MouseEventHandler\<HTMLButtonElement\> |
 
 ### closeEmojiPickerOnClick
 
@@ -139,7 +139,7 @@ Function to override the default file upload request.
 
 | Type                                                                          |
 | ----------------------------------------------------------------------------- |
-| (file: FileUpload['file'], channel: Channel) => Promise<SendFileAPIResponse\> |
+| (file: FileUpload['file'], channel: Channel) => Promise\<SendFileAPIResponse\> |
 
 ### doImageUploadRequest
 
@@ -147,7 +147,7 @@ Function to override the default image upload request.
 
 | Type                                                                           |
 | ------------------------------------------------------------------------------ |
-| (file: ImageUpload['file'], channel: Channel) => Promise<SendFileAPIResponse\> |
+| (file: ImageUpload['file'], channel: Channel) => Promise\<SendFileAPIResponse\> |
 
 ### emojiIndex
 
@@ -171,7 +171,7 @@ React mutable ref placed on the `EmojiPicker` container `div`.
 
 | Type                                    |
 | --------------------------------------- |
-| React.MutableRefObject<HTMLDivElement\> |
+| React.MutableRefObject\<HTMLDivElement\> |
 
 ### errorHandler
 
@@ -179,7 +179,7 @@ Custom error handler function to be called with a file/image upload fails.
 
 | Type                                                                                              |
 | ------------------------------------------------------------------------------------------------- |
-| (error: Error, type: string, file: (FileUpload \| ImageUpload)['file'] & { id?: string }) => void |
+| (error: Error, type: string, file: (FileUpload \| ImageUpload)['file'] & \{ id?: string }) => void |
 
 ### fileOrder
 
@@ -195,7 +195,7 @@ A mapping of the file attachments added to the current message.
 
 | Type                         |
 | ---------------------------- |
-| { [id: string]: FileUpload } |
+| \{ [id: string]: FileUpload } |
 
 ### findAndEnqueueURLsToEnrich
 
@@ -227,7 +227,7 @@ Function that runs onChange to the underlying `textarea` component.
 
 | Type                                           |
 | ---------------------------------------------- |
-| React.ChangeEventHandler<HTMLTextAreaElement\> |
+| React.ChangeEventHandler\<HTMLTextAreaElement\> |
 
 ### handleEmojiKeyDown
 
@@ -235,7 +235,7 @@ Opens the `EmojiPicker` component on Enter or Spacebar key down.
 
 | Type                                         |
 | -------------------------------------------- |
-| React.KeyboardEventHandler<HTMLSpanElement\> |
+| React.KeyboardEventHandler\<HTMLSpanElement\> |
 
 ### handleSubmit
 
@@ -267,7 +267,7 @@ A mapping of the image attachments added to the current message.
 
 | Type                          |
 | ----------------------------- |
-| { [id: string]: ImageUpload } |
+| \{ [id: string]: ImageUpload } |
 
 ### insertText
 
@@ -291,7 +291,7 @@ A Map of `LinkPreview` objects (a union type of `LinkPreviewState` and `OGAttach
 
 | Type                       |
 | -------------------------- |
-| Map<LinkURL, LinkPreview\> |
+| Map\<LinkURL, LinkPreview\> |
 
 ### shouldSubmit
 
@@ -380,7 +380,7 @@ Function that runs onPaste to the underlying `textarea` component.
 
 | Type                                                        |
 | ----------------------------------------------------------- |
-| (event: React.ClipboardEvent<HTMLTextAreaElement\>) => void |
+| (event: React.ClipboardEvent\<HTMLTextAreaElement\>) => void |
 
 ### onSelectEmoji
 
@@ -412,7 +412,7 @@ Function to open the `EmojiPicker` component.
 
 | Type                                      |
 | ----------------------------------------- |
-| React.MouseEventHandler<HTMLSpanElement\> |
+| React.MouseEventHandler\<HTMLSpanElement\> |
 
 ### openMentionsList
 
@@ -490,7 +490,7 @@ React state hook function that sets the `cooldownRemaining` value.
 
 | Type                                          |
 | --------------------------------------------- |
-| React.Dispatch<React.SetStateAction<number\>> |
+| React.Dispatch\<React.SetStateAction\<number\>> |
 
 ### setText
 
@@ -530,7 +530,7 @@ React mutable ref placed on the underlying `textarea` component.
 
 | Type                                         |
 | -------------------------------------------- |
-| React.MutableRefObject<HTMLTextAreaElement\> |
+| React.MutableRefObject\<HTMLTextAreaElement\> |
 
 ### uploadFile
 

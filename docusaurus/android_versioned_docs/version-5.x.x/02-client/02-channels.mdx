@@ -42,7 +42,7 @@ client.queryChannels(request).enqueue { result ->
 ```
 
 :::note
-At a minimum, the filter should include members: { $in: [userID] }.
+At a minimum, the filter should include members: \{ $in: [userID] }.
 :::
 
 On messaging and team applications you normally have users added to channels as a member. A good starting point is to use this filter to show the channels the user is participating.
