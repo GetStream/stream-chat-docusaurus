@@ -4,9 +4,9 @@ The `ChannelService` provides data and interaction for the channel list and mess
 
 ## Type parameters
 
-| Name | Type                                                              |
-| :--- | :---------------------------------------------------------------- |
-| `T`  | extends `DefaultStreamChatGenerics` = `DefaultStreamChatGenerics` |
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `DefaultStreamChatGenerics` = `DefaultStreamChatGenerics` |
 
 ## Properties
 
@@ -24,9 +24,9 @@ The active channel will always be marked as read when a new message is received
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:80](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L80)
+[projects/stream-chat-angular/src/lib/channel.service.ts:80](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L80)
 
----
+___
 
 ### activeChannelLastReadMessageId
 
@@ -38,9 +38,9 @@ This property isn't always updated, please use `channel.read` to display up-to-d
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:132](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L132)
+[projects/stream-chat-angular/src/lib/channel.service.ts:132](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L132)
 
----
+___
 
 ### activeChannelMessages$
 
@@ -50,9 +50,9 @@ Emits the list of currently loaded messages of the active channel.
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:84](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L84)
+[projects/stream-chat-angular/src/lib/channel.service.ts:84](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L84)
 
----
+___
 
 ### activeChannelPinnedMessages$
 
@@ -62,9 +62,9 @@ Emits the list of pinned messages of the active channel.
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:88](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L88)
+[projects/stream-chat-angular/src/lib/channel.service.ts:88](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L88)
 
----
+___
 
 ### activeChannelUnreadCount
 
@@ -76,9 +76,9 @@ This property isn't always updated, please use `channel.read` to display up-to-d
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:138](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L138)
+[projects/stream-chat-angular/src/lib/channel.service.ts:138](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L138)
 
----
+___
 
 ### activeParentMessage$
 
@@ -88,9 +88,9 @@ Emits the currently selected parent message. If no message is selected, it emits
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:100](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L100)
+[projects/stream-chat-angular/src/lib/channel.service.ts:100](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L100)
 
----
+___
 
 ### activeParentMessageId$
 
@@ -100,9 +100,9 @@ Emits the id of the currently selected parent message. If no message is selected
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:92](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L92)
+[projects/stream-chat-angular/src/lib/channel.service.ts:92](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L92)
 
----
+___
 
 ### activeThreadMessages$
 
@@ -112,9 +112,9 @@ Emits the list of currently loaded thread replies belonging to the selected pare
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:96](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L96)
+[projects/stream-chat-angular/src/lib/channel.service.ts:96](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L96)
 
----
+___
 
 ### beforeSendMessage
 
@@ -128,8 +128,8 @@ The provided method will be called before a new message is sent to Stream's API.
 
 ##### Parameters
 
-| Name    | Type                  |
-| :------ | :-------------------- |
+| Name | Type |
+| :------ | :------ |
 | `input` | `MessageInput`\<`T`\> |
 
 ##### Returns
@@ -138,9 +138,9 @@ The provided method will be called before a new message is sent to Stream's API.
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:305](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L305)
+[projects/stream-chat-angular/src/lib/channel.service.ts:305](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L305)
 
----
+___
 
 ### beforeUpdateMessage
 
@@ -154,8 +154,8 @@ The provided method will be called before a message is sent to Stream's API for 
 
 ##### Parameters
 
-| Name      | Type                   |
-| :-------- | :--------------------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `StreamMessage`\<`T`\> |
 
 ##### Returns
@@ -164,9 +164,9 @@ The provided method will be called before a message is sent to Stream's API for 
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:311](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L311)
+[projects/stream-chat-angular/src/lib/channel.service.ts:311](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L311)
 
----
+___
 
 ### bouncedMessage$
 
@@ -178,9 +178,9 @@ If a message is bounced, it will be emitted via this `Observable`. The built-in 
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:126](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L126)
+[projects/stream-chat-angular/src/lib/channel.service.ts:126](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L126)
 
----
+___
 
 ### channelQueryState$
 
@@ -190,9 +190,9 @@ The result of the latest channel query request.
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:70](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L70)
+[projects/stream-chat-angular/src/lib/channel.service.ts:70](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L70)
 
----
+___
 
 ### channels$
 
@@ -206,9 +206,9 @@ If you want to subscribe to channel events, you need to manually reenter Angular
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:66](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L66)
+[projects/stream-chat-angular/src/lib/channel.service.ts:66](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L66)
 
----
+___
 
 ### customAddedToChannelNotificationHandler
 
@@ -224,9 +224,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                | Type                                                                                        |
-| :------------------ | :------------------------------------------------------------------------------------------ |
-| `clientEvent`       | `ClientEvent`\<`DefaultStreamChatGenerics`\>                                                |
+| Name | Type |
+| :------ | :------ |
+| `clientEvent` | `ClientEvent`\<`DefaultStreamChatGenerics`\> |
 | `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
 
 ##### Returns
@@ -235,9 +235,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:156](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L156)
+[projects/stream-chat-angular/src/lib/channel.service.ts:156](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L156)
 
----
+___
 
 ### customChannelDeletedHandler
 
@@ -253,14 +253,14 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                  | Type                                                                                        |
-| :-------------------- | :------------------------------------------------------------------------------------------ |
-| `event`               | `Event`\<`DefaultGenerics`\>                                                                |
-| `channel`             | `Channel`\<`T`\>                                                                            |
-| `channelListSetter`   | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
-| `messageListSetter`   | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `threadListSetter`    | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void`                                |
+| Name | Type |
+| :------ | :------ |
+| `event` | `Event`\<`DefaultGenerics`\> |
+| `channel` | `Channel`\<`T`\> |
+| `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
+| `messageListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `threadListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void` |
 
 ##### Returns
 
@@ -268,9 +268,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:180](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L180)
+[projects/stream-chat-angular/src/lib/channel.service.ts:180](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L180)
 
----
+___
 
 ### customChannelHiddenHandler
 
@@ -286,14 +286,14 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                  | Type                                                                                        |
-| :-------------------- | :------------------------------------------------------------------------------------------ |
-| `event`               | `Event`\<`DefaultGenerics`\>                                                                |
-| `channel`             | `Channel`\<`T`\>                                                                            |
-| `channelListSetter`   | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
-| `messageListSetter`   | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `threadListSetter`    | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void`                                |
+| Name | Type |
+| :------ | :------ |
+| `event` | `Event`\<`DefaultGenerics`\> |
+| `channel` | `Channel`\<`T`\> |
+| `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
+| `messageListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `threadListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void` |
 
 ##### Returns
 
@@ -301,9 +301,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:228](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L228)
+[projects/stream-chat-angular/src/lib/channel.service.ts:228](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L228)
 
----
+___
 
 ### customChannelTruncatedHandler
 
@@ -319,14 +319,14 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                  | Type                                                                                        |
-| :-------------------- | :------------------------------------------------------------------------------------------ |
-| `event`               | `Event`\<`DefaultGenerics`\>                                                                |
-| `channel`             | `Channel`\<`T`\>                                                                            |
-| `channelListSetter`   | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
-| `messageListSetter`   | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `threadListSetter`    | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void`                                |
+| Name | Type |
+| :------ | :------ |
+| `event` | `Event`\<`DefaultGenerics`\> |
+| `channel` | `Channel`\<`T`\> |
+| `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
+| `messageListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `threadListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void` |
 
 ##### Returns
 
@@ -334,9 +334,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:212](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L212)
+[projects/stream-chat-angular/src/lib/channel.service.ts:212](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L212)
 
----
+___
 
 ### customChannelUpdatedHandler
 
@@ -352,14 +352,14 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                  | Type                                                                                        |
-| :-------------------- | :------------------------------------------------------------------------------------------ |
-| `event`               | `Event`\<`DefaultGenerics`\>                                                                |
-| `channel`             | `Channel`\<`T`\>                                                                            |
-| `channelListSetter`   | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
-| `messageListSetter`   | (`messages`: `StreamMessage`\<`DefaultStreamChatGenerics`\>[]) => `void`                    |
-| `threadListSetter`    | (`messages`: `StreamMessage`\<`DefaultStreamChatGenerics`\>[]) => `void`                    |
-| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`DefaultStreamChatGenerics`\>) => `void`        |
+| Name | Type |
+| :------ | :------ |
+| `event` | `Event`\<`DefaultGenerics`\> |
+| `channel` | `Channel`\<`T`\> |
+| `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
+| `messageListSetter` | (`messages`: `StreamMessage`\<`DefaultStreamChatGenerics`\>[]) => `void` |
+| `threadListSetter` | (`messages`: `StreamMessage`\<`DefaultStreamChatGenerics`\>[]) => `void` |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`DefaultStreamChatGenerics`\>) => `void` |
 
 ##### Returns
 
@@ -367,9 +367,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:196](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L196)
+[projects/stream-chat-angular/src/lib/channel.service.ts:196](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L196)
 
----
+___
 
 ### customChannelVisibleHandler
 
@@ -385,14 +385,14 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                  | Type                                                                                        |
-| :-------------------- | :------------------------------------------------------------------------------------------ |
-| `event`               | `Event`\<`DefaultGenerics`\>                                                                |
-| `channel`             | `Channel`\<`T`\>                                                                            |
-| `channelListSetter`   | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
-| `messageListSetter`   | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `threadListSetter`    | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void`                                |
+| Name | Type |
+| :------ | :------ |
+| `event` | `Event`\<`DefaultGenerics`\> |
+| `channel` | `Channel`\<`T`\> |
+| `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
+| `messageListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `threadListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void` |
 
 ##### Returns
 
@@ -400,9 +400,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:244](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L244)
+[projects/stream-chat-angular/src/lib/channel.service.ts:244](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L244)
 
----
+___
 
 ### customFileDeleteRequest
 
@@ -416,9 +416,9 @@ You can override the default file delete request - override this if you use your
 
 ##### Parameters
 
-| Name      | Type             |
-| :-------- | :--------------- |
-| `url`     | `string`         |
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
 | `channel` | `Channel`\<`T`\> |
 
 ##### Returns
@@ -427,36 +427,36 @@ You can override the default file delete request - override this if you use your
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:288](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L288)
+[projects/stream-chat-angular/src/lib/channel.service.ts:288](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L288)
 
----
+___
 
 ### customFileUploadRequest
 
-• `Optional` **customFileUploadRequest**: (`file`: `File`, `channel`: `Channel`\<`T`\>) => `Promise`\<\{ `file`: `string` }\>
+• `Optional` **customFileUploadRequest**: (`file`: `File`, `channel`: `Channel`\<`T`\>) => `Promise`\<\{ `file`: `string`  }\>
 
 You can override the default file upload request - you can use this to upload files to your own CDN
 
 #### Type declaration
 
-▸ (`file`, `channel`): `Promise`\<\{ `file`: `string` }\>
+▸ (`file`, `channel`): `Promise`\<\{ `file`: `string`  }\>
 
 ##### Parameters
 
-| Name      | Type             |
-| :-------- | :--------------- |
-| `file`    | `File`           |
+| Name | Type |
+| :------ | :------ |
+| `file` | `File` |
 | `channel` | `Channel`\<`T`\> |
 
 ##### Returns
 
-`Promise`\<\{ `file`: `string` }\>
+`Promise`\<\{ `file`: `string`  }\>
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:274](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L274)
+[projects/stream-chat-angular/src/lib/channel.service.ts:274](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L274)
 
----
+___
 
 ### customImageDeleteRequest
 
@@ -470,9 +470,9 @@ You can override the default image delete request - override this if you use you
 
 ##### Parameters
 
-| Name      | Type             |
-| :-------- | :--------------- |
-| `url`     | `string`         |
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
 | `channel` | `Channel`\<`T`\> |
 
 ##### Returns
@@ -481,36 +481,36 @@ You can override the default image delete request - override this if you use you
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:292](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L292)
+[projects/stream-chat-angular/src/lib/channel.service.ts:292](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L292)
 
----
+___
 
 ### customImageUploadRequest
 
-• `Optional` **customImageUploadRequest**: (`file`: `File`, `channel`: `Channel`\<`T`\>) => `Promise`\<\{ `file`: `string` }\>
+• `Optional` **customImageUploadRequest**: (`file`: `File`, `channel`: `Channel`\<`T`\>) => `Promise`\<\{ `file`: `string`  }\>
 
 You can override the default image upload request - you can use this to upload images to your own CDN
 
 #### Type declaration
 
-▸ (`file`, `channel`): `Promise`\<\{ `file`: `string` }\>
+▸ (`file`, `channel`): `Promise`\<\{ `file`: `string`  }\>
 
 ##### Parameters
 
-| Name      | Type             |
-| :-------- | :--------------- |
-| `file`    | `File`           |
+| Name | Type |
+| :------ | :------ |
+| `file` | `File` |
 | `channel` | `Channel`\<`T`\> |
 
 ##### Returns
 
-`Promise`\<\{ `file`: `string` }\>
+`Promise`\<\{ `file`: `string`  }\>
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:281](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L281)
+[projects/stream-chat-angular/src/lib/channel.service.ts:281](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L281)
 
----
+___
 
 ### customNewMessageHandler
 
@@ -526,14 +526,14 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                  | Type                                                                                        |
-| :-------------------- | :------------------------------------------------------------------------------------------ |
-| `event`               | `Event`\<`DefaultGenerics`\>                                                                |
-| `channel`             | `Channel`\<`T`\>                                                                            |
-| `channelListSetter`   | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
-| `messageListSetter`   | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `threadListSetter`    | (`messages`: `StreamMessage`\<`T`\>[]) => `void`                                            |
-| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void`                                |
+| Name | Type |
+| :------ | :------ |
+| `event` | `Event`\<`DefaultGenerics`\> |
+| `channel` | `Channel`\<`T`\> |
+| `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
+| `messageListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `threadListSetter` | (`messages`: `StreamMessage`\<`T`\>[]) => `void` |
+| `parentMessageSetter` | (`message`: `undefined` \| `StreamMessage`\<`T`\>) => `void` |
 
 ##### Returns
 
@@ -541,9 +541,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:260](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L260)
+[projects/stream-chat-angular/src/lib/channel.service.ts:260](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L260)
 
----
+___
 
 ### customNewMessageNotificationHandler
 
@@ -559,9 +559,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                | Type                                                                                        |
-| :------------------ | :------------------------------------------------------------------------------------------ |
-| `clientEvent`       | `ClientEvent`\<`DefaultStreamChatGenerics`\>                                                |
+| Name | Type |
+| :------ | :------ |
+| `clientEvent` | `ClientEvent`\<`DefaultStreamChatGenerics`\> |
 | `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
 
 ##### Returns
@@ -570,9 +570,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:144](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L144)
+[projects/stream-chat-angular/src/lib/channel.service.ts:144](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L144)
 
----
+___
 
 ### customRemovedFromChannelNotificationHandler
 
@@ -588,9 +588,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 ##### Parameters
 
-| Name                | Type                                                                                        |
-| :------------------ | :------------------------------------------------------------------------------------------ |
-| `clientEvent`       | `ClientEvent`\<`DefaultStreamChatGenerics`\>                                                |
+| Name | Type |
+| :------ | :------ |
+| `clientEvent` | `ClientEvent`\<`DefaultStreamChatGenerics`\> |
 | `channelListSetter` | (`channels`: `Channel`\<`T`\>[], `shouldStopWatchingRemovedChannels?`: `boolean`) => `void` |
 
 ##### Returns
@@ -599,9 +599,9 @@ If you're adding a new channel, make sure that it's a [watched](https://getstrea
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:168](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L168)
+[projects/stream-chat-angular/src/lib/channel.service.ts:168](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L168)
 
----
+___
 
 ### hasMoreChannels$
 
@@ -611,33 +611,33 @@ Emits `false` if there are no more pages of channels that can be loaded.
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:58](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L58)
+[projects/stream-chat-angular/src/lib/channel.service.ts:58](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L58)
 
----
+___
 
 ### jumpToMessage$
 
-• **jumpToMessage$**: `Observable`\<\{ `id?`: `string` ; `parentId?`: `string` }\>
+• **jumpToMessage$**: `Observable`\<\{ `id?`: `string` ; `parentId?`: `string`  }\>
 
 Emits the ID of the message the message list should jump to (can be a channel message or thread message)
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:108](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L108)
+[projects/stream-chat-angular/src/lib/channel.service.ts:108](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L108)
 
----
+___
 
 ### latestMessageDateByUserByChannels$
 
-• **latestMessageDateByUserByChannels$**: `Observable`\<\{ `[key: string]`: `Date`; }\>
+• **latestMessageDateByUserByChannels$**: `Observable`\<\{ `[key: string]`: `Date`;  }\>
 
 Emits a map that contains the date of the latest message sent by the current user by channels (this is used to detect if slow mode countdown should be started)
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:120](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L120)
+[projects/stream-chat-angular/src/lib/channel.service.ts:120](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L120)
 
----
+___
 
 ### messageDeleteConfirmationHandler
 
@@ -651,8 +651,8 @@ The provided method will be called before deleting a message. If the returned Pr
 
 ##### Parameters
 
-| Name      | Type                   |
-| :-------- | :--------------------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `StreamMessage`\<`T`\> |
 
 ##### Returns
@@ -661,9 +661,9 @@ The provided method will be called before deleting a message. If the returned Pr
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:299](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L299)
+[projects/stream-chat-angular/src/lib/channel.service.ts:299](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L299)
 
----
+___
 
 ### messageToQuote$
 
@@ -673,9 +673,9 @@ Emits the currently selected message to quote
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:104](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L104)
+[projects/stream-chat-angular/src/lib/channel.service.ts:104](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L104)
 
----
+___
 
 ### usersTypingInChannel$
 
@@ -685,9 +685,9 @@ Emits the list of users that are currently typing in the channel (current user i
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:112](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L112)
+[projects/stream-chat-angular/src/lib/channel.service.ts:112](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L112)
 
----
+___
 
 ### usersTypingInThread$
 
@@ -697,17 +697,17 @@ Emits the list of users that are currently typing in the active thread (current 
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:116](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L116)
+[projects/stream-chat-angular/src/lib/channel.service.ts:116](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L116)
 
----
+___
 
-### MAX_MESSAGE_REACTIONS_TO_FETCH
+### MAX\_MESSAGE\_REACTIONS\_TO\_FETCH
 
-▪ `Static` `Readonly` **MAX_MESSAGE_REACTIONS_TO_FETCH**: `1200`
+▪ `Static` `Readonly` **MAX\_MESSAGE\_REACTIONS\_TO\_FETCH**: ``1200``
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:317](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L317)
+[projects/stream-chat-angular/src/lib/channel.service.ts:317](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L317)
 
 ## Accessors
 
@@ -723,9 +723,9 @@ The current active channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1619](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1619)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1619](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1619)
 
----
+___
 
 ### activeChannelMessages
 
@@ -739,9 +739,9 @@ The current active channel messages
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1626](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1626)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1626](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1626)
 
----
+___
 
 ### activeChannelThreadReplies
 
@@ -755,9 +755,9 @@ The current thread replies
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1633](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1633)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1633](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1633)
 
----
+___
 
 ### channels
 
@@ -771,9 +771,9 @@ The current list of channels
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1612](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1612)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1612](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1612)
 
----
+___
 
 ### customPaginator
 
@@ -787,8 +787,8 @@ You can return either an offset, or a filter using the [`$lte`/`$gte` operator](
 
 #### Parameters
 
-| Name        | Type                                                                                 |
-| :---------- | :----------------------------------------------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `paginator` | `undefined` \| (`channelQueryResult`: `Channel`\<`T`\>[]) => `NextPageConfiguration` |
 
 #### Returns
@@ -797,9 +797,9 @@ You can return either an offset, or a filter using the [`$lte`/`$gte` operator](
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:547](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L547)
+[projects/stream-chat-angular/src/lib/channel.service.ts:547](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L547)
 
----
+___
 
 ### shouldMarkActiveChannelAsRead
 
@@ -813,7 +813,7 @@ If set to false, read events won't be sent as new messages are received. If set 
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:523](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L523)
+[projects/stream-chat-angular/src/lib/channel.service.ts:523](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L523)
 
 • `set` **shouldMarkActiveChannelAsRead**(`shouldMarkActiveChannelAsRead`): `void`
 
@@ -821,8 +821,8 @@ If set to false, read events won't be sent as new messages are received. If set 
 
 #### Parameters
 
-| Name                            | Type      |
-| :------------------------------ | :-------- |
+| Name | Type |
+| :------ | :------ |
 | `shouldMarkActiveChannelAsRead` | `boolean` |
 
 #### Returns
@@ -831,7 +831,7 @@ If set to false, read events won't be sent as new messages are received. If set 
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:530](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L530)
+[projects/stream-chat-angular/src/lib/channel.service.ts:530](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L530)
 
 ## Methods
 
@@ -844,8 +844,8 @@ The channel will be added to the beginning of the channel list
 
 #### Parameters
 
-| Name      | Type             |
-| :-------- | :--------------- |
+| Name | Type |
+| :------ | :------ |
 | `channel` | `Channel`\<`T`\> |
 
 #### Returns
@@ -854,9 +854,9 @@ The channel will be added to the beginning of the channel list
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1131](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1131)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1131](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1131)
 
----
+___
 
 ### addReaction
 
@@ -866,11 +866,11 @@ Adds a reaction to a message.
 
 #### Parameters
 
-| Name           | Type                    | Description                                  |
-| :------------- | :---------------------- | :------------------------------------------- |
-| `messageId`    | `string`                | The id of the message to add the reaction to |
-| `reactionType` | `string`                | The type of the reaction                     |
-| `customData?`  | `T`[``"reactionType"``] |                                              |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `messageId` | `string` | The id of the message to add the reaction to |
+| `reactionType` | `string` | The type of the reaction |
+| `customData?` | `T`[``"reactionType"``] |  |
 
 #### Returns
 
@@ -878,9 +878,9 @@ Adds a reaction to a message.
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:806](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L806)
+[projects/stream-chat-angular/src/lib/channel.service.ts:806](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L806)
 
----
+___
 
 ### autocompleteMembers
 
@@ -890,8 +890,8 @@ Returns the autocomplete options for current channel members. If the channel has
 
 #### Parameters
 
-| Name         | Type     | Description                                |
-| :----------- | :------- | :----------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `searchTerm` | `string` | Text to search for in the names of members |
 
 #### Returns
@@ -902,9 +902,9 @@ The list of members matching the search filter
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1056](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1056)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1056](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1056)
 
----
+___
 
 ### clearMessageJump
 
@@ -918,9 +918,9 @@ Clears the currently selected message to jump
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1291](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1291)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1291](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1291)
 
----
+___
 
 ### deleteAttachment
 
@@ -930,8 +930,8 @@ Deletes an uploaded file by URL. If you want to know more about [file uploads](h
 
 #### Parameters
 
-| Name               | Type                                              | Description                                                                             |
-| :----------------- | :------------------------------------------------ | :-------------------------------------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `attachmentUpload` | `AttachmentUpload`\<`DefaultStreamChatGenerics`\> | Attachment to be deleted (output of the [`AttachmentService`](./AttachmentService.mdx)) |
 
 #### Returns
@@ -940,9 +940,9 @@ Deletes an uploaded file by URL. If you want to know more about [file uploads](h
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1040](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1040)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1040](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1040)
 
----
+___
 
 ### deleteMessage
 
@@ -952,10 +952,10 @@ Deletes the message from the active channel
 
 #### Parameters
 
-| Name            | Type                                           | Default value | Description                                                                                                       |
-| :-------------- | :--------------------------------------------- | :------------ | :---------------------------------------------------------------------------------------------------------------- |
-| `message`       | `StreamMessage`\<`DefaultStreamChatGenerics`\> | `undefined`   | Message to be deleted                                                                                             |
-| `isLocalDelete` | `boolean`                                      | `false`       | set this `true` if you want to delete a message that's only part of the local state, not yet saved on the backend |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `message` | `StreamMessage`\<`DefaultStreamChatGenerics`\> | `undefined` | Message to be deleted |
+| `isLocalDelete` | `boolean` | `false` | set this `true` if you want to delete a message that's only part of the local state, not yet saved on the backend |
 
 #### Returns
 
@@ -963,9 +963,9 @@ Deletes the message from the active channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:928](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L928)
+[projects/stream-chat-angular/src/lib/channel.service.ts:928](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L928)
 
----
+___
 
 ### deselectActiveChannel
 
@@ -979,9 +979,9 @@ Deselects the currently active (if any) channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:596](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L596)
+[projects/stream-chat-angular/src/lib/channel.service.ts:596](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L596)
 
----
+___
 
 ### getMessageReactions
 
@@ -991,8 +991,8 @@ Get the last 1200 reactions of a message in the current active channel. If you n
 
 #### Parameters
 
-| Name        | Type     |
-| :---------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `messageId` | `string` |
 
 #### Returns
@@ -1003,9 +1003,9 @@ all reactions of a message
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1642](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1642)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1642](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1642)
 
----
+___
 
 ### init
 
@@ -1015,12 +1015,12 @@ Queries the channels with the given filters, sorts and options. More info about 
 
 #### Parameters
 
-| Name                     | Type                    | Default value | Description                                                                            |
-| :----------------------- | :---------------------- | :------------ | :------------------------------------------------------------------------------------- |
-| `filters`                | `ChannelFilters`\<`T`\> | `undefined`   |                                                                                        |
-| `sort?`                  | `ChannelSort`\<`T`\>    | `undefined`   |                                                                                        |
-| `options?`               | `ChannelOptions`        | `undefined`   |                                                                                        |
-| `shouldSetActiveChannel` | `boolean`               | `true`        | Decides if the first channel in the result should be made as an active channel or not. |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `filters` | `ChannelFilters`\<`T`\> | `undefined` |  |
+| `sort?` | `ChannelSort`\<`T`\> | `undefined` |  |
+| `options?` | `ChannelOptions` | `undefined` |  |
+| `shouldSetActiveChannel` | `boolean` | `true` | Decides if the first channel in the result should be made as an active channel or not. |
 
 #### Returns
 
@@ -1030,9 +1030,9 @@ the list of channels found by the query
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:730](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L730)
+[projects/stream-chat-angular/src/lib/channel.service.ts:730](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L730)
 
----
+___
 
 ### initWithCustomQuery
 
@@ -1042,12 +1042,12 @@ Queries the channels with the given query function. More info about [channel que
 
 #### Parameters
 
-| Name                             | Type                                                                          | Description                                                                                                                                   |
-| :------------------------------- | :---------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| `query`                          | (`queryType`: `ChannelQueryType`) => `Promise`\<`ChannelQueryResult`\<`T`\>\> |                                                                                                                                               |
-| `options`                        | `Object`                                                                      |                                                                                                                                               |
-| `options.messagePageSize`        | `number`                                                                      | How many messages should we load? The default is 25                                                                                           |
-| `options.shouldSetActiveChannel` | `boolean`                                                                     | The `shouldSetActiveChannel` specifies if the first channel in the result should be selected as the active channel or not. Default is `true`. |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `query` | (`queryType`: `ChannelQueryType`) => `Promise`\<`ChannelQueryResult`\<`T`\>\> |  |
+| `options` | `Object` |  |
+| `options.messagePageSize` | `number` | How many messages should we load? The default is 25 |
+| `options.shouldSetActiveChannel` | `boolean` | The `shouldSetActiveChannel` specifies if the first channel in the result should be selected as the active channel or not. Default is `true`. |
 
 #### Returns
 
@@ -1057,9 +1057,9 @@ the channels that were loaded
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:766](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L766)
+[projects/stream-chat-angular/src/lib/channel.service.ts:766](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L766)
 
----
+___
 
 ### jumpToMessage
 
@@ -1069,10 +1069,10 @@ Jumps to the selected message inside the message list, if the message is not yet
 
 #### Parameters
 
-| Name               | Type     | Description                                                                    |
-| :----------------- | :------- | :----------------------------------------------------------------------------- |
-| `messageId`        | `string` | The ID of the message to be loaded, 'latest' means jump to the latest messages |
-| `parentMessageId?` | `string` | The ID of the parent message if we want to load a thread message               |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `messageId` | `string` | The ID of the message to be loaded, 'latest' means jump to the latest messages |
+| `parentMessageId?` | `string` | The ID of the parent message if we want to load a thread message |
 
 #### Returns
 
@@ -1080,9 +1080,9 @@ Jumps to the selected message inside the message list, if the message is not yet
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1263](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1263)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1263](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1263)
 
----
+___
 
 ### loadMoreChannels
 
@@ -1096,77 +1096,77 @@ Loads the next page of channels. The page size can be set in the [query option](
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:796](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L796)
+[projects/stream-chat-angular/src/lib/channel.service.ts:796](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L796)
 
----
+___
 
 ### loadMoreMessages
 
-▸ **loadMoreMessages**(`direction?`): `undefined` \| `false` \| `Promise`\<`QueryChannelAPIResponse`\<`T`\>\>
+▸ **loadMoreMessages**(`direction?`): `undefined` \| ``false`` \| `Promise`\<`QueryChannelAPIResponse`\<`T`\>\>
 
 Loads the next page of messages of the active channel. The page size can be set in the [query option](https://getstream.io/chat/docs/javascript/query_channels/?language=javascript#query-options) object.
 
 #### Parameters
 
-| Name        | Type                   | Default value |
-| :---------- | :--------------------- | :------------ |
-| `direction` | `"older"` \| `"newer"` | `'older'`     |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `direction` | ``"older"`` \| ``"newer"`` | `'older'` |
 
 #### Returns
 
-`undefined` \| `false` \| `Promise`\<`QueryChannelAPIResponse`\<`T`\>\>
+`undefined` \| ``false`` \| `Promise`\<`QueryChannelAPIResponse`\<`T`\>\>
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:658](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L658)
+[projects/stream-chat-angular/src/lib/channel.service.ts:658](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L658)
 
----
+___
 
 ### loadMoreThreadReplies
 
-▸ **loadMoreThreadReplies**(`direction?`): `false` \| `Promise`\<`void`\>
+▸ **loadMoreThreadReplies**(`direction?`): ``false`` \| `Promise`\<`void`\>
 
 Loads the next page of messages of the active thread. The page size can be set in the [query option](https://getstream.io/chat/docs/javascript/query_channels/?language=javascript#query-options) object.
 
 #### Parameters
 
-| Name        | Type                   | Default value |
-| :---------- | :--------------------- | :------------ |
-| `direction` | `"older"` \| `"newer"` | `'older'`     |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `direction` | ``"older"`` \| ``"newer"`` | `'older'` |
 
 #### Returns
 
-`false` \| `Promise`\<`void`\>
+``false`` \| `Promise`\<`void`\>
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:697](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L697)
+[projects/stream-chat-angular/src/lib/channel.service.ts:697](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L697)
 
----
+___
 
 ### markMessageUnread
 
-▸ **markMessageUnread**(`messageId`): `Promise`\<`undefined` \| `null` \| `APIResponse`\>
+▸ **markMessageUnread**(`messageId`): `Promise`\<`undefined` \| ``null`` \| `APIResponse`\>
 
 Marks the channel from the given message as unread
 
 #### Parameters
 
-| Name        | Type     |
-| :---------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `messageId` | `string` |
 
 #### Returns
 
-`Promise`\<`undefined` \| `null` \| `APIResponse`\>
+`Promise`\<`undefined` \| ``null`` \| `APIResponse`\>
 
 the result of the request
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1675](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1675)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1675](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1675)
 
----
+___
 
 ### pinMessage
 
@@ -1176,8 +1176,8 @@ Pins the given message in the channel
 
 #### Parameters
 
-| Name      | Type                                           |
-| :-------- | :--------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `StreamMessage`\<`DefaultStreamChatGenerics`\> |
 
 #### Returns
@@ -1186,9 +1186,9 @@ Pins the given message in the channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1299](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1299)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1299](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1299)
 
----
+___
 
 ### removeChannel
 
@@ -1196,10 +1196,10 @@ Pins the given message in the channel
 
 #### Parameters
 
-| Name                 | Type      | Default value |
-| :------------------- | :-------- | :------------ |
-| `cid`                | `string`  | `undefined`   |
-| `shouldStopWatching` | `boolean` | `true`        |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `cid` | `string` | `undefined` |
+| `shouldStopWatching` | `boolean` | `true` |
 
 #### Returns
 
@@ -1207,9 +1207,9 @@ Pins the given message in the channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1143](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1143)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1143](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1143)
 
----
+___
 
 ### removeReaction
 
@@ -1219,10 +1219,10 @@ Removes a reaction from a message.
 
 #### Parameters
 
-| Name           | Type     | Description                                       |
-| :------------- | :------- | :------------------------------------------------ |
-| `messageId`    | `string` | The id of the message to remove the reaction from |
-| `reactionType` | `string` | Thr type of reaction to remove                    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `messageId` | `string` | The id of the message to remove the reaction from |
+| `reactionType` | `string` | Thr type of reaction to remove |
 
 #### Returns
 
@@ -1230,9 +1230,9 @@ Removes a reaction from a message.
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:822](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L822)
+[projects/stream-chat-angular/src/lib/channel.service.ts:822](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L822)
 
----
+___
 
 ### resendMessage
 
@@ -1242,8 +1242,8 @@ Resends the given message to the active channel
 
 #### Parameters
 
-| Name      | Type                                           | Description           |
-| :-------- | :--------------------------------------------- | :-------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `message` | `StreamMessage`\<`DefaultStreamChatGenerics`\> | The message to resend |
 
 #### Returns
@@ -1252,9 +1252,9 @@ Resends the given message to the active channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:876](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L876)
+[projects/stream-chat-angular/src/lib/channel.service.ts:876](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L876)
 
----
+___
 
 ### reset
 
@@ -1268,9 +1268,9 @@ Resets the `activeChannel$`, `channels$` and `activeChannelMessages$` Observable
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:780](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L780)
+[projects/stream-chat-angular/src/lib/channel.service.ts:780](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L780)
 
----
+___
 
 ### selectMessageToQuote
 
@@ -1280,8 +1280,8 @@ Selects or deselects the current message to quote reply to
 
 #### Parameters
 
-| Name      | Type                                                          | Description                                                                 |
-| :-------- | :------------------------------------------------------------ | :-------------------------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `message` | `undefined` \| `StreamMessage`\<`DefaultStreamChatGenerics`\> | The message to select, if called with `undefined`, it deselects the message |
 
 #### Returns
@@ -1290,9 +1290,9 @@ Selects or deselects the current message to quote reply to
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1122](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1122)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1122](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1122)
 
----
+___
 
 ### sendAction
 
@@ -1302,11 +1302,11 @@ Selects or deselects the current message to quote reply to
 
 #### Parameters
 
-| Name               | Type                           |
-| :----------------- | :----------------------------- |
-| `messageId`        | `string`                       |
-| `formData`         | `Record`\<`string`, `string`\> |
-| `parentMessageId?` | `string`                       |
+| Name | Type |
+| :------ | :------ |
+| `messageId` | `string` |
+| `formData` | `Record`\<`string`, `string`\> |
+| `parentMessageId?` | `string` |
 
 #### Returns
 
@@ -1314,9 +1314,9 @@ Selects or deselects the current message to quote reply to
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1085](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1085)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1085](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1085)
 
----
+___
 
 ### sendMessage
 
@@ -1326,14 +1326,14 @@ Sends a message to the active channel. The message is immediately added to the m
 
 #### Parameters
 
-| Name              | Type                                               | Default value | Description                                           |
-| :---------------- | :------------------------------------------------- | :------------ | :---------------------------------------------------- |
-| `text`            | `string`                                           | `undefined`   | The text of the message                               |
-| `attachments`     | `Attachment`\<`T`\>[]                              | `[]`          | The attachments                                       |
-| `mentionedUsers`  | `UserResponse`\<`T`\>[]                            | `[]`          | Mentioned users                                       |
-| `parentId`        | `undefined` \| `string`                            | `undefined`   | Id of the parent message (if sending a thread reply)  |
-| `quotedMessageId` | `undefined` \| `string`                            | `undefined`   | Id of the message to quote (if sending a quote reply) |
-| `customData`      | `undefined` \| `Partial`\<`T`[``"messageType"``]\> | `undefined`   |                                                       |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `text` | `string` | `undefined` | The text of the message |
+| `attachments` | `Attachment`\<`T`\>[] | `[]` | The attachments |
+| `mentionedUsers` | `UserResponse`\<`T`\>[] | `[]` | Mentioned users |
+| `parentId` | `undefined` \| `string` | `undefined` | Id of the parent message (if sending a thread reply) |
+| `quotedMessageId` | `undefined` \| `string` | `undefined` | Id of the message to quote (if sending a quote reply) |
+| `customData` | `undefined` \| `Partial`\<`T`[``"messageType"``]\> | `undefined` |  |
 
 #### Returns
 
@@ -1341,9 +1341,9 @@ Sends a message to the active channel. The message is immediately added to the m
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:837](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L837)
+[projects/stream-chat-angular/src/lib/channel.service.ts:837](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L837)
 
----
+___
 
 ### setAsActiveChannel
 
@@ -1354,8 +1354,8 @@ If the channel wasn't previously part of the channel, it will be added to the be
 
 #### Parameters
 
-| Name      | Type             |
-| :-------- | :--------------- |
+| Name | Type |
+| :------ | :------ |
 | `channel` | `Channel`\<`T`\> |
 
 #### Returns
@@ -1364,9 +1364,9 @@ If the channel wasn't previously part of the channel, it will be added to the be
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:563](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L563)
+[projects/stream-chat-angular/src/lib/channel.service.ts:563](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L563)
 
----
+___
 
 ### setAsActiveParentMessage
 
@@ -1376,10 +1376,10 @@ Sets the given `message` as an active parent message. If `undefined` is provided
 
 #### Parameters
 
-| Name               | Type                                  | Default value |
-| :----------------- | :------------------------------------ | :------------ |
-| `message`          | `undefined` \| `StreamMessage`\<`T`\> | `undefined`   |
-| `loadMessagesForm` | `"state"` \| `"request"`              | `'request'`   |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `message` | `undefined` \| `StreamMessage`\<`T`\> | `undefined` |
+| `loadMessagesForm` | ``"state"`` \| ``"request"`` | `'request'` |
 
 #### Returns
 
@@ -1387,9 +1387,9 @@ Sets the given `message` as an active parent message. If `undefined` is provided
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:623](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L623)
+[projects/stream-chat-angular/src/lib/channel.service.ts:623](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L623)
 
----
+___
 
 ### typingStarted
 
@@ -1399,8 +1399,8 @@ Call this method if user started typing in the active channel
 
 #### Parameters
 
-| Name        | Type     | Description                                                 |
-| :---------- | :------- | :---------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `parentId?` | `string` | The id of the parent message, if user is typing in a thread |
 
 #### Returns
@@ -1409,9 +1409,9 @@ Call this method if user started typing in the active channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1595](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1595)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1595](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1595)
 
----
+___
 
 ### typingStopped
 
@@ -1421,8 +1421,8 @@ Call this method if user stopped typing in the active channel
 
 #### Parameters
 
-| Name        | Type     | Description                                                   |
-| :---------- | :------- | :------------------------------------------------------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `parentId?` | `string` | The id of the parent message, if user were typing in a thread |
 
 #### Returns
@@ -1431,9 +1431,9 @@ Call this method if user stopped typing in the active channel
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1604](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1604)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1604](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1604)
 
----
+___
 
 ### unpinMessage
 
@@ -1443,8 +1443,8 @@ Removes the given message from pinned messages
 
 #### Parameters
 
-| Name      | Type                                           |
-| :-------- | :--------------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `message` | `StreamMessage`\<`DefaultStreamChatGenerics`\> |
 
 #### Returns
@@ -1453,31 +1453,31 @@ Removes the given message from pinned messages
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:1318](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L1318)
+[projects/stream-chat-angular/src/lib/channel.service.ts:1318](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L1318)
 
----
+___
 
 ### updateMessage
 
-▸ **updateMessage**(`message`): `Promise`\<`StreamMessage`\<`T`\> \| `T`[``"messageType"``] & {} & {} & {} & `Omit`\<`MessageResponse`\<{}\>, `"status"` \| `"created_at"` \| `"pinned_at"` \| `"updated_at"`\> & `UR` & {}\>
+▸ **updateMessage**(`message`): `Promise`\<`StreamMessage`\<`T`\> \| `T`[``"messageType"``] & {} & {} & {} & `Omit`\<`MessageResponse`\<{}\>, ``"status"`` \| ``"created_at"`` \| ``"pinned_at"`` \| ``"updated_at"``\> & `UR` & {}\>
 
 Updates the message in the active channel
 
 #### Parameters
 
-| Name      | Type                   | Description          |
-| :-------- | :--------------------- | :------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `message` | `StreamMessage`\<`T`\> | Mesage to be updated |
 
 #### Returns
 
-`Promise`\<`StreamMessage`\<`T`\> \| `T`[``"messageType"``] & {} & {} & {} & `Omit`\<`MessageResponse`\<{}\>, `"status"` \| `"created_at"` \| `"pinned_at"` \| `"updated_at"`\> & `UR` & {}\>
+`Promise`\<`StreamMessage`\<`T`\> \| `T`[``"messageType"``] & {} & {} & {} & `Omit`\<`MessageResponse`\<{}\>, ``"status"`` \| ``"created_at"`` \| ``"pinned_at"`` \| ``"updated_at"``\> & `UR` & {}\>
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:893](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L893)
+[projects/stream-chat-angular/src/lib/channel.service.ts:893](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L893)
 
----
+___
 
 ### uploadAttachments
 
@@ -1487,8 +1487,8 @@ Uploads files to the channel. If you want to know more about [file uploads](http
 
 #### Parameters
 
-| Name      | Type                                                | Description                                                                              |
-| :-------- | :-------------------------------------------------- | :--------------------------------------------------------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `uploads` | `AttachmentUpload`\<`DefaultStreamChatGenerics`\>[] | the attachments to upload (output of the [`AttachmentService`](./AttachmentService.mdx)) |
 
 #### Returns
@@ -1499,4 +1499,4 @@ the result of file upload requests
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/channel.service.ts:960](https://github.com/GetStream/stream-chat-angular/blob/02622f4685dff27165fbda34a1d2178c039f22f3/projects/stream-chat-angular/src/lib/channel.service.ts#L960)
+[projects/stream-chat-angular/src/lib/channel.service.ts:960](https://github.com/GetStream/stream-chat-angular/blob/b39761f0a3e3d278354d482c9122e0c72074c363/projects/stream-chat-angular/src/lib/channel.service.ts#L960)
