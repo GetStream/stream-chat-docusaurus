@@ -4,6 +4,91 @@ title: Upgrade to v12
 keywords: [migration guide, upgrade, v12, breaking changes]
 ---
 
+## Introducing Threads 2.0
+
+With the release of v12 of our SDK we're also releasing new thread functionality - specifically "thread view", which consists of [`ThreadList`](../components/core-components/thread-list.mdx) and [`Thread`](../components/core-components/thread.mdx) components allowing your users to quickly go over threaded conversations they're part of. To implement this simple view see [thread and channel view guide](../guides/chat-view.mdx).
+
+### Thread & ThreadManager
+
+Both [`Thread`](https://github.com/GetStream/stream-chat-js/blob/master/src/thread.ts) and [`ThreadManager`](https://github.com/GetStream/stream-chat-js/blob/master/src/thread_manager.ts) are new classes within [`stream-chat` package](https://www.npmjs.com/package/stream-chat) with own logic which updates their respective state objects to which integrators can subscribe to and render their UI accordingly. These classes (or rather instances of these classes) are utilised within React SDK. Read more about accessing state of these classes in our [SDK State Management documentation](../guides/sdk-state-management.mdx#thread-and-threadmanager).
+
+### ThreadList & ThreadListItem
+
+[`ThreadList`](../components/core-components/thread-list.mdx) component represents a [`ThreadManager`](https://github.com/GetStream/stream-chat-js/blob/master/src/thread_manager.ts) instance while [`ThreadListItem`](../components/core-components/thread-list-item.mdx) represents individual [`Thread`](https://github.com/GetStream/stream-chat-js/blob/master/src/thread.ts) instances. UI of both of these components reflects latest state of their appropriate "controllers" but apart from communicating with their controllers via available methods these components do not manage any extra logic.
+
+### ThreadProvider
+
+[`ThreadProvider`](../components/contexts/thread-context.mdx#threadprovider) is an "adapter" which allows existing [`Thread`](../components/core-components/thread.mdx) component to consume methods and state of the [`Thread`](https://github.com/GetStream/stream-chat-js/blob/master/src/thread.ts) instance.
+
+```tsx
+<ThreadProvider thread={thread}>
+  <Thread />
+</ThreadProvider>
+```
+
+### ChatView & ChatView.ThreadAdapter
+
+`ChatView` is component itself and a set of components which allow for a drop-in implementation of different chat views - the channel view and thread view. This drop-in solution allows your users to easily switch between said views without having to implement such mechanism yourself. Read more about it in our [`ChatView` documentation](../components/utility-components/view-components.mdx).
+
+## Introducing WithComponents & Dropping Defaults
+
+We know that component overrides are 90% of our SDK and providing these overrides only through [`Channel`](../components/core-components/channel.mdx) component isn't optimal. In the upcoming minor releases we'll be deprecating component overrides through individual component props and rather provide these overrides through `WithComponents`, you can read more about this component in our [`WithComponents` documentation](../components/contexts/component-context.mdx#with-components).
+
+## Dropped ComponentContext Defaults
+
+These components are no longer provided through the [`ComponentContext`](../components/contexts/component-context.mdx) as default values but have moved to their respective components:
+
+- `Attachment`
+- `DateSeparator`
+- `Message`
+- `MessageSystem`
+- `reactionOptions`
+- `UnreadMessagesSeparator`
+
+### Before and After
+
+Previous solution for component overrides:
+
+```tsx
+const MessageInputUi1 = () => {
+  /*...*/
+};
+const MessageInputUi2 = () => {
+  /*...*/
+};
+
+<Channel Input={MessageInputUi1}>
+  <Window>
+    <MessageList />
+    <MessageInput focus />
+  </Window>
+  <Thread Input={MessageInputUi2} virtualized />
+</Channel>;
+```
+
+Current solution utilising `WithComponents`:
+
+```tsx
+const MessageInputUi1 = () => {
+  /*...*/
+};
+const MessageInputUi2 = () => {
+  /*...*/
+};
+
+<Channel>
+  <WithComponents overrides={{ Input: MessageInputUi1 }}>
+    <Window>
+      <MessageList />
+      <MessageInput focus />
+    </Window>
+    <WithComponents overrides={{ Input: MessageInputUi2 }}>
+      <Thread virtualized />
+    </WithComponents>
+  </WithComponents>
+</Channel>;
+```
+
 ## Audio recordings transcoding
 
 Until now, the audio recordings were transcoded to `audio/mp3` format for inter-browser compatibility and size reduction. However, as of the v12, the MIME type `audio/wav` will be the default. The MP3 encoder use is opt-in from now on.
@@ -31,6 +116,38 @@ import { encodeToMp3 } from 'stream-chat-react/mp3-encoder';
 ```
 
 :::
+
+## Unified dialog management
+
+Dialogs will be managed centrally. At the moment, this applies to display of `ReactionSelector` and `MessageActionsBox`. They will be displayed on a transparent overlay that prevents users from opening other dialogs in the message list. Once an option from a dialog is selected or the overlay is clicked, the dialog will disappear. This adjust brings new API and removes some properties from `MessageContextValue`.
+
+### Removed properties from MessageContextValue
+
+- `isReactionEnabled` - served to signal the permission to send reactions by the current user in a given channel. With the current permissions implementation, the permission can be determined by doing the following:
+
+```
+import { useMessageContext } from 'stream-chat-react';
+
+const { getMessageActions } = useMessageContext();
+const messageActions = getMessageActions();
+const canReact = messageActions.includes(MESSAGE_ACTIONS.react);
+```
+
+- `onReactionListClick` - handler function that toggled the open state of `ReactionSelector` represented by another removed value - `showDetailedReactions`
+- `showDetailedReactions` - flag used to decide, whether the reaction selector should be shown or not
+- `reactionSelectorRef` - ref to the root of the reaction selector component (served to control the display of the component)
+
+Also prop `messageWrapperRef` was removed as part of the change from `MessageOptions` and `MessageActions` props.
+
+On the other hand, the `Message` prop (configuration parameter) `closeReactionSelectorOnClick` is now available in the `MessageContextValue`.
+
+:::important
+If you used any of these values in your customizations, please make sure to adjust your implementation according to the newly recommended use of Dialog API in [Dialog management guide](../../guides/dialog-management).
+:::
+
+### New dialog management API
+
+To learn about the new API, please, take a look at our [Dialog management guide](../../guides/dialog-management).
 
 ## EmojiPickerIcon extraction to emojis plugin
 
