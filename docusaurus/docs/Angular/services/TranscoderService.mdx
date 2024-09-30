@@ -1,0 +1,30 @@
+# TranscoderService
+
+The `TranscoderService` is used to transcibe audio recording to a format that's supported by all major browsers. The SDK uses this to create voice messages.
+
+If you want to use your own transcoder you can provide a `customTranscoder`.
+
+## Methods
+
+### transcode
+
+▸ **transcode**(`blob`, `options`): `Promise`<`Blob`\>
+
+The default transcoder will leave audio/mp4 files as is, and transcode webm files to wav. If you want to customize this, you can provide your own transcoder using the `customTranscoder` field
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `blob` | `Blob` |
+| `options` | `TranscoderOptions` |
+
+#### Returns
+
+`Promise`\<`Blob`\>
+
+the transcoded file
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/voice-recorder/transcoder.service.ts:68](https://github.com/GetStream/stream-chat-angular/blob/5bb4da8312ef2d12782545c10e977477120b6cf1/projects/stream-chat-angular/src/lib/voice-recorder/transcoder.service.ts#L68)

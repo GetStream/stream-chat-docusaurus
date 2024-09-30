@@ -1,0 +1,89 @@
+# AmplitudeRecorderService
+
+The `AmplitudeRecorderService` is a utility service used to create amplitude values for voice recordings, making it possible to display a wave bar
+
+## Accessors
+
+### amplitudes
+
+• `get` **amplitudes**(): `number`[]
+
+The recorded amplitudes
+
+#### Returns
+
+`number`[]
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts:76](https://github.com/GetStream/stream-chat-angular/blob/5bb4da8312ef2d12782545c10e977477120b6cf1/projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts#L76)
+
+## Methods
+
+### pause
+
+▸ **pause**(): `void`
+
+Temporarily pause amplitude recording, recording can be resumed with `resume`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts:96](https://github.com/GetStream/stream-chat-angular/blob/5bb4da8312ef2d12782545c10e977477120b6cf1/projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts#L96)
+
+___
+
+### resume
+
+▸ **resume**(): `void`
+
+Resume amplited recording after it was pasued
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts:104](https://github.com/GetStream/stream-chat-angular/blob/5bb4da8312ef2d12782545c10e977477120b6cf1/projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts#L104)
+
+___
+
+### start
+
+▸ **start**(`stream`): `void`
+
+Start amplitude recording for the given media stream
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `stream` | `MediaStream` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts:84](https://github.com/GetStream/stream-chat-angular/blob/5bb4da8312ef2d12782545c10e977477120b6cf1/projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts#L84)
+
+___
+
+### stop
+
+▸ **stop**(): `void`
+
+Stop the amplitude recording and frees up used resources
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts:129](https://github.com/GetStream/stream-chat-angular/blob/5bb4da8312ef2d12782545c10e977477120b6cf1/projects/stream-chat-angular/src/lib/voice-recorder/amplitude-recorder.service.ts#L129)
