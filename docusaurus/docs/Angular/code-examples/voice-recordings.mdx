@@ -15,12 +15,14 @@ The Stream API allows you to send voice recordings as attachments. This is an ex
   "type": "voiceRecording",
   "title": "audio_recording_2024-09-26T14:41:24.473Z.wav",
   "asset_url": "https://dublin.stream-io-cdn.com/...",
+  // This is used to display a visual representation of the voice recording
   "waveform_data": [
     0.03389095297537962,
     0.03389095297537962,
     0.19684165186582253 //...
   ],
-  "duration": 3.119,
+  // The duration of the recording in seconds
+  "duration": 31.19,
   "file_size": 97964,
   "mime_type": "audio/wav"
 }
@@ -36,11 +38,11 @@ If you'd like to use your own UI, you can provide your own template using the [c
 
 ## Creating voice recordings
 
-However, if you want to let users to create voice recordings, you have to configure the SDK with a few easy steps.
+If you want to let users to create voice recordings, you have to configure the SDK with a few easy steps.
 
 ### Start recording button
 
-The [message input](../../components/MessageInputComponent) component can optionally display the start recording button. This is how you can enable it:
+The [message input](../../components/MessageInputComponent) component can display the start recording button optionally. This is how you can enable it:
 
 ```html
 <stream-message-input
@@ -52,7 +54,7 @@ This is how the input looks with the button enabled:
 
 <img src={StartRecording} width="500" />
 
-You can also display your own start button, the easiest way is to use the `message-input-start` or `message-input-end` attributes which will instert the element before or after the textarea element:
+You can also display your own start button. The easiest way is to use the `message-input-start` or `message-input-end` attributes, which will insert the element before or after the textarea element:
 
 ```html
 <stream-message-input #input [displayVoiceRecordingButton]="false">
@@ -64,7 +66,7 @@ You can also display your own start button, the easiest way is to use the `messa
 
 ### Import the `VoiceRecorderModule`
 
-The `VoiceRecorderModule` contains the voice recorder component, and the services needed to make a recording. You have to import it like this:
+The `VoiceRecorderModule` contains the voice recorder component and the services needed to make a recording. You have to import it like this:
 
 ```typescript
 import { StreamChatModule, VoiceRecorderModule } from "stream-chat-angular";
@@ -96,9 +98,9 @@ You have to provide the voice recorder template to the message input component. 
 </stream-message-input>
 ```
 
-The message input provides a [`VoiceRecorderService`](../../services/VoiceRecorderService) instance which is used by the two components to communicate.
+The message input provides a [`VoiceRecorderService`](../../services/VoiceRecorderService) instance, which is used by the two components to communicate.
 
-If you want to use your own UI, just simply provide you own component here that uses `VoiceRecorderService` to communicate with the message input component.
+If you want to use your own UI, provide your own component here that uses `VoiceRecorderService` to communicate with the message input component.
 
 ### Voice recorder component
 
@@ -106,20 +108,20 @@ That's it. We can now start a voice recording:
 
 <img src={RecordingDemo} width="500" />
 
-The recording can be paused and resumed. Once a user is finished recording they can play it back:
+The recording can be paused and resumed. Once a user is finished recording, they can play it back:
 
 <img src={Playback} width="500" />
 
-If they are not happy with the recording, they can simply discard it. Once the reacording is finalized, they can hit the send button.
+If they are unhappy with the recording, they can discard it. Once the recording is finalized, they can hit the send button.
 
 ### Sending modes
 
 There are two ways to send voice recordings:
 
-1. Once a recording is finalized you can immediately send a message with the recording, this is the default mode.
-2. Once a recording is finalized you can return to the message composer to continue editing the message.
+1. Once a recording is finalized, you can immediately send a message with the recording; this is the default mode.
+2. Once a recording is finalized, you can return it to the message composer and continue editing the message.
 
-This how you can change between the modes:
+This is how you can change between the modes:
 
 ```typescript
 constructor(private messageInputService: MessageInputConfigService) {
@@ -131,11 +133,11 @@ constructor(private messageInputService: MessageInputConfigService) {
 
 ### Error states
 
-If any time during the recording an error occurs, the recording will be stopped, and an error message will be emitted via the [`NotificationService`](../../services/NotificationService). The built-in `stream-notification-list` component will display this error message.
+If an error occurs at any point during the recording, the recording will be stopped, and an error message will be emitted via the [`NotificationService`](../../services/NotificationService). The built-in `stream-notification-list` component will display this error message.
 
 ### Custom recording title
 
-You can use your own method the generate the title of the recording using the `customGenerateRecordingTitle` field of the `AudioRecorderService`.
+You can generate the recording title using your own logic using the `customGenerateRecordingTitle` field of the `AudioRecorderService`.
 
 ```typescript
 constructor(private audioRecorder: AudioRecorderService, private chatService: ChatClientService) {
@@ -146,6 +148,40 @@ constructor(private audioRecorder: AudioRecorderService, private chatService: Ch
     return `${
       this.chatService.chatClient.user?.name
     }-${new Date().toISOString()}.${extension}`;
+  };
+}
+```
+
+### Custom transcoding
+
+Due to browser restrictions, the SDK records with the following configuration:
+
+- In Safari: recordings are sent in `mp4` files
+- In all other browsers: recordings are created in `webm` and then transcoded into `wav` files
+
+The downside of the `wav` format is that it's uncompressed, which results in a larger file size.
+
+You can provide a custom transcoder to reduce the file size. The following example shows how to transcode to `mp3` using the [`@breezystack/lamejs`](https://www.npmjs.com/package/@breezystack/lamejs) library.
+
+First, install the library:
+
+```
+npm install @breezystack/lamejs
+```
+
+Then register the custom transcoder to the `TranscoderService`:
+
+```typescript
+import { encodeWebmToMp3, TranscoderService } from "stream-chat-angular";
+import * as lamejs from "@breezystack/lamejs";
+
+constructor(private transcoderService: TranscoderService) {
+  transcoderService.customTranscoder = (blob: Blob) => {
+    if (blob.type.includes('audio/mp4')) {
+      return blob;
+    } else {
+      return encodeWebmToMp3(blob, lamejs);
+    }
   };
 }
 ```
