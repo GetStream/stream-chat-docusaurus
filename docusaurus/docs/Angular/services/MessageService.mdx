@@ -2,6 +2,12 @@
 
 The message service contains configuration options related to displaying the message content
 
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `DefaultStreamChatGenerics` = `DefaultStreamChatGenerics` |
+
 ## Properties
 
 ### customLinkRenderer
@@ -26,13 +32,13 @@ You can provide a custom method to display links
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/message.service.ts:24](https://github.com/GetStream/stream-chat-angular/blob/33532cddd74d2aa9b3e1cc9ccb3ba1671e395339/projects/stream-chat-angular/src/lib/message.service.ts#L24)
+[projects/stream-chat-angular/src/lib/message.service.ts:28](https://github.com/GetStream/stream-chat-angular/blob/c34da62fd22ea13ab589f60f19ba67e9e01698ff/projects/stream-chat-angular/src/lib/message.service.ts#L28)
 
 ___
 
 ### displayAs
 
-• **displayAs**: ``"html"`` | ``"text"`` = `'text'`
+• **displayAs**: ``"html"`` \| ``"text"`` = `'text'`
 
 Decides if the message content should be formatted as text or HTML
 
@@ -42,4 +48,58 @@ If you display messages as text the following parts are still be displayed as HT
 
 #### Defined in
 
-[projects/stream-chat-angular/src/lib/message.service.ts:17](https://github.com/GetStream/stream-chat-angular/blob/33532cddd74d2aa9b3e1cc9ccb3ba1671e395339/projects/stream-chat-angular/src/lib/message.service.ts#L17)
+[projects/stream-chat-angular/src/lib/message.service.ts:21](https://github.com/GetStream/stream-chat-angular/blob/c34da62fd22ea13ab589f60f19ba67e9e01698ff/projects/stream-chat-angular/src/lib/message.service.ts#L21)
+
+___
+
+### filterCustomAttachment
+
+• `Optional` **filterCustomAttachment**: (`attachment`: `Attachment`\<`T`\>) => `boolean`
+
+The SDK supports the following attachment types: `image`, `file`, `giphy`, `video` and `voiceRecording` attachments.
+
+All other types are treated as custom attachments, however it's possible to override this logic, and provide a custom filtering method which can be used to treat some built-in attachments as custom.
+
+Provide a method which retruns `true` if an attachment should be considered as custom.
+
+#### Type declaration
+
+▸ (`attachment`): `boolean`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attachment` | `Attachment`\<`T`\> |
+
+##### Returns
+
+`boolean`
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/message.service.ts:36](https://github.com/GetStream/stream-chat-angular/blob/c34da62fd22ea13ab589f60f19ba67e9e01698ff/projects/stream-chat-angular/src/lib/message.service.ts#L36)
+
+## Methods
+
+### isCustomAttachment
+
+▸ **isCustomAttachment**(`attachment`): `boolean`
+
+Tells if an attachment is custom (you need to provide your own template to display them) or built-in (the SDK supports it out-of-the-box)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attachment` | `Attachment`\<`T`\> |
+
+#### Returns
+
+`boolean`
+
+`true` if the attachment is custom
+
+#### Defined in
+
+[projects/stream-chat-angular/src/lib/message.service.ts:45](https://github.com/GetStream/stream-chat-angular/blob/c34da62fd22ea13ab589f60f19ba67e9e01698ff/projects/stream-chat-angular/src/lib/message.service.ts#L45)
