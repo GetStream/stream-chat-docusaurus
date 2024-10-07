@@ -59,7 +59,34 @@ const CustomMessage = () => {
 `MessageSimple` and `FixedHeightMessage` are both designed to be guides to help build a custom Message UI component. At a high level,
 these pre-built, default components wrap a subset of composable components that each serve specific logic and design-based purposes.
 
-If we strip `MessageSimple` down to its core pieces, the component resembles the following snippet:
+There is a different order in which components are stacked inside the `MessageSimple` component depending on the [`themeVersion`](../contexts/chat-context.mdx/#themeversion).
+
+For example, if we strip `MessageSimple` down to its core pieces, the component resembles the following snippet with the `themeVersion` `'1'`:
+
+```jsx
+<div>
+  <MessageStatus />
+  <Avatar />
+  <div>
+    <MessageOptions />
+    <div>
+      <ReactionsList />
+      <ReactionSelector />
+    </div>
+    <div>
+      <Attachment />
+      <MessageText />
+      <MML />
+    </div>
+    <MessageRepliesCountButton />
+    <div>
+      <MessageTimestamp />
+    </div>
+  </div>
+</div>
+```
+
+The `themeVersion` `'2'` markup is a bit different:
 
 ```jsx
 <div>
@@ -281,9 +308,10 @@ Function that flags a message (overrides the function stored in `MessageContext`
 
 Function that marks the message and all the following messages as unread in a channel. (overrides the function stored in `MessageContext`).
 
-| Type                                                        | Default                                                                                     |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Type                                                        | Default                                                                         |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['handleMarkUnread']](../contexts/message-context.mdx#handleMarkUnread) |
+
 
 ### handleMute
 
@@ -397,6 +425,14 @@ Function that runs on hover of an @mention in a message (overrides the function 
 | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onMentionsHoverMessage']](../contexts/channel-action-context.mdx#onmentionshovermessage) |
 
+### onReactionListClick
+
+Function that runs on click of the reactions list component (overrides the function stored in `MessageContext`).
+
+| Type                                                        | Default                                                                                                  |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| (event: React.BaseSyntheticEvent) => Promise<void\> \| void | [MessageContextValue['onReactionListClick']](../contexts/channel-action-context.mdx#onreactionlistclick) |
+
 ### onUserClick
 
 Function that runs on click of a user avatar (overrides the function stored in `MessageContext`).
@@ -421,6 +457,14 @@ The user roles allowed to pin messages in various channel types (deprecated in f
 | ------ | -------------------------------------------------------------------------------------------------------------------- |
 | object | [defaultPinPermissions](https://github.com/GetStream/stream-chat-react/blob/master/src/components/Message/utils.tsx) |
 
+### reactionSelectorRef
+
+Ref to be placed on the reaction selector component (overrides the ref stored in `MessageContext`).
+
+| Type                                    |
+| --------------------------------------- |
+| React.MutableRefObject<HTMLDivElement\> |
+
 ### readBy
 
 An array of users that have read the current message (overrides the value stored in `MessageContext`).
@@ -444,6 +488,14 @@ Function to toggle the editing state on a message (overrides the function stored
 | Type                                                        |
 | ----------------------------------------------------------- |
 | (event: React.BaseSyntheticEvent) => Promise<void\> \| void |
+
+### showDetailedReactions
+
+When true, show the reactions list component (overrides the value stored in `MessageContext`).
+
+| Type    |
+| ------- |
+| boolean |
 
 ### threadList
 
