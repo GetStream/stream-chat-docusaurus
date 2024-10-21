@@ -9,8 +9,7 @@
             "theming/themingv2",
             "theming/palette-variables",
             "theming/component-variables",
-            "theming/global-variables",
-            "guides/theming/css_and_theming"
+            "theming/global-variables"
           ]
         },
         { "Chat": ["components/core-components/chat", "components/contexts/chat_context"] },
@@ -35,11 +34,18 @@
           ]
         },
         {
+          "Thread List": [
+            "components/core-components/thread-list",
+            "components/core-components/thread-list-item"
+          ]
+        },
+        {
           "Message List": [
             "components/core-components/message_list",
             "components/core-components/virtualized_list",
             "components/contexts/message_list_context",
-            "components/core-components/thread"
+            "components/core-components/thread",
+            "components/contexts/thread-context"
           ]
         },
         {
@@ -75,6 +81,7 @@
             "components/contexts/typing_context"
           ]
         },
+        "components/utility-components/chat-view",
         "components/utility-components/indicators",
         "components/utility-components/window",
         "components/contexts/translation_context"
@@ -141,10 +148,18 @@
         "guides/channel_read_state",
         "guides/video-integration/video-integration-stream",
         "guides/sdk-state-management",
-        "guides/date-time-formatting"
+        "guides/date-time-formatting",
+        "guides/custom-threads-view",
+        "guides/dialog-management"
       ]
     },
-    { "Release Guides": ["release-guides/upgrade-to-v10", "release-guides/upgrade-to-v11"] },
+    {
+      "Release Guides": [
+        "release-guides/upgrade-to-v12",
+        "release-guides/upgrade-to-v11",
+        "release-guides/upgrade-to-v10"
+      ]
+    },
     "troubleshooting/troubleshooting",
     "resources/resources"
   ]
